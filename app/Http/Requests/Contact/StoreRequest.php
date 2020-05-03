@@ -1,11 +1,12 @@
 <?php
 
-namespace App\Http\Requests\Contacts;
+namespace App\Http\Requests\Contact;
+
 
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Validation\Rule;
 
-class UpdateRequest extends FormRequest
+class StoreRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
