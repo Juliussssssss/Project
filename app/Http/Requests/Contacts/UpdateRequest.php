@@ -3,8 +3,9 @@
 namespace App\Http\Requests\Contacts;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Validation\Rule;
 
-class EditRequest extends FormRequest
+class UpdateRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -13,7 +14,7 @@ class EditRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -23,13 +24,11 @@ class EditRequest extends FormRequest
      */
     public function rules()
     {
-        $user_id = request()->route('user')->id;
-
         $rules = [
             'first_name' => 'required|alpha|max:255',
             'middle_name' => 'required|alpha|max:255',
             'last_name' => 'nullable|alpha|max:255',
-            'email' =>  ['required','email', 'max:255', 'unique:users,email,'.$user_id],
+            'email' => 'required|email|unique:contacts',
             'number' => 'max:255',
             'site' => 'max:255',
             'birthday' => 'nullable|date',
@@ -41,7 +40,10 @@ class EditRequest extends FormRequest
             'avatar' => 'max:255',
             'user_id' => 'integer',
             'group_id' => 'nullable|integer',
-            'favorites' => ['required', Rule::in(['0','1'])
+            'favorites' => [
+                'required', Rule::in([
+                    '0','1'
+                ])
             ]
         ];
 
