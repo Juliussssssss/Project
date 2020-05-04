@@ -40,13 +40,18 @@
             <label class="pl-1 pb-2 textActive" for="comment">Комментарий:</label>
             <input type="text" class="form-control" id="comment" placeholder="Добавить комментарий">
         </div>
+        <div class="form-group d-flex justify-content-end mr-4">
+            <a class="py-3 btn-primary btn text-uppercase font-12px btnText text-white mr-3">Сохранить</a>
+            <a class="py-3 btn-light btn text-uppercase font-12px btnText">Отмена</a>
+        </div>
+
     </div>
 </template>
 
 <script>
-  export default {
-    name: "Fields"
-  }
+    export default {
+        name: "Fields"
+    }
 </script>
 
 <style scoped>
