@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="ru">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport"
@@ -7,7 +7,6 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Contacts</title>
     <link rel="stylesheet" href="{{mix('css/app.css')}}">
-    <link rel="stylesheet" type="text/css" href="{{ asset('css/fonts.css') }}" />
 </head>
 <body>
 <div id="app">
@@ -16,5 +15,4 @@
 <script src="{{mix('js/app.js')}}"></script>
 </body>
 </html>
-
 
