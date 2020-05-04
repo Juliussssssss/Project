@@ -11,13 +11,13 @@ class ContactsTableSeeder extends Seeder
      */
     public function run()
     {
-        foreach(\App\Models\User::all() as $user) {
+
             foreach(\App\Models\Group::all() as $group){
                 factory(\App\Models\Contact::class, 150)->create([
-                    'user_id' => $user->id,
+                    'user_id' => $group->user_id,
                     'group_id' => $group->id
                 ]);
             }
-        }
+
     }
 }

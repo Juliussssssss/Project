@@ -3,62 +3,25 @@
         <div class="row textGrey">
             <div class="col-12 text-center">
                 <div class="customBorderBottom p-3">
-                    <a class="w-100 py-3 btn-primary btn text-uppercase font-12px btnText text-white addContact">Добавить контакт</a>
+                    <a class="w-100 py-3 btn-primary btn text-uppercase font-12px btnText text-white addContact">Добавить
+                                                                                                                 контакт</a>
                 </div>
             </div>
             <div class="col-12">
-                <div class="customBorderBottom"><div class="pl-5 py-3 activeBorder textActive">Контакты</div></div>
-            </div>
-            <div class="col-12">
-                <div class="customBorderBottom"><div class="pl-5 py-3">Частые контакты</div></div>
-            </div>
-            <div class="col-12">
-                <div class="customBorderBottom topmenu">
-                    <div class="pl-5 py-3">Групы
-                        <div class="submenu">
-                            <div class="customBorderBottom p-3 d-flex justify-content-between align-items-center">
-                                <div>
-                                    <a href="">
-                                        <svg class="margingY" width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                            <mask id="group" mask-type="alpha" maskUnits="userSpaceOnUse" x="4" y="8" width="22" height="14">
-                                                <path fill-rule="evenodd" clip-rule="evenodd" d="M19 14C20.66 14 21.99 12.66 21.99 11C21.99 9.34 20.66 8 19 8C17.34 8 16 9.34 16 11C16 12.66 17.34 14 19 14ZM11 14C12.66 14 13.99 12.66 13.99 11C13.99 9.34 12.66 8 11 8C9.34 8 8 9.34 8 11C8 12.66 9.34 14 11 14ZM11 16C8.67 16 4 17.17 4 19.5V22H18V19.5C18 17.17 13.33 16 11 16ZM19 16C18.71 16 18.38 16.02 18.03 16.05C19.19 16.89 20 18.02 20 19.5V22H26V19.5C26 17.17 21.33 16 19 16Z" fill="white"/>
-                                            </mask>
-                                            <g mask="url(#group)">
-                                                <rect class="actionButtons" x="2" y="2" width="26" height="26" fill="#D8D8D8"/>
-                                            </g>
-                                        </svg>
-                                    </a>
-                                </div>
-                                <div>Отдел дизайна</div>
-                                <div>
-                                    <a href="">
-                                        <svg class="margingY" width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                            <mask id="edit" mask-type="alpha" maskUnits="userSpaceOnUse" x="6" y="6" width="19" height="19">
-                                                <path fill-rule="evenodd" clip-rule="evenodd" d="M6 20.2525V24.0025H9.75L20.81 12.9425L17.06 9.1925L6 20.2525ZM23.71 10.0425C24.1 9.6525 24.1 9.0225 23.71 8.6325L21.37 6.2925C20.98 5.9025 20.35 5.9025 19.96 6.2925L18.13 8.1225L21.88 11.8725L23.71 10.0425Z" fill="white"/>
-                                            </mask>
-                                            <g mask="url(#edit)">
-                                                <rect class="actionButtons" x="2" y="2" width="26" height="26" fill="#D8D8D8"/>
-                                            </g>
-                                        </svg>
-                                    </a>
-                                    <a href="">
-                                        <svg class="margingY" width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                            <mask id="delete" mask-type="alpha" maskUnits="userSpaceOnUse" x="8" y="6" width="14" height="18">
-                                                <path fill-rule="evenodd" clip-rule="evenodd" d="M9 22C9 23.1 9.9 24 11 24H19C20.1 24 21 23.1 21 22V10H9V22ZM22 7H18.5L17.5 6H12.5L11.5 7H8V9H22V7Z" fill="white"/>
-                                            </mask>
-                                            <g mask="url(#delete)">
-                                                <rect  class="actionButtons" x="2" y="2" width="26" height="26" fill="#D8D8D8"/>
-                                            </g>
-                                        </svg>
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                <div class="customBorderBottom">
+                    <div class="pl-5 py-3 activeBorder textActive">Контакты</div>
                 </div>
             </div>
             <div class="col-12">
-                <div class="customBorderBottom"><div class="pl-5 py-3">Избранные</div></div>
+                <div class="customBorderBottom">
+                    <div class="pl-5 py-3">Частые контакты</div>
+                </div>
+            </div>
+            <groups></groups>
+            <div class="col-12">
+                <div class="customBorderBottom">
+                    <div class="pl-5 py-3">Избранные</div>
+                </div>
             </div>
             <div class="col-12">
                 <div class="customBorderBottom pl-5 py-3">Написать</div>
@@ -68,9 +31,14 @@
 </template>
 
 <script>
-  export default {
-    name: "LeftNav"
-  }
+    import groups from "./groups/Groups";
+
+    export default {
+        name: "LeftNav",
+        components: {
+            groups
+        }
+    }
 </script>
 
 <style scoped>
