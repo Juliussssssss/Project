@@ -1935,13 +1935,10 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "Home",
-  methods: {
-    check: function check() {
-      console.log('ok');
-    }
+  mounted: function mounted() {
+    console.log(sessionStorage);
   }
 });
 
@@ -37615,23 +37612,16 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", [
-    _c("h1", [_vm._v("Home ddd")]),
-    _vm._v(" "),
-    _c(
-      "button",
-      {
-        on: {
-          click: function($event) {
-            return _vm.check()
-          }
-        }
-      },
-      [_vm._v("click")]
-    )
-  ])
+  return _vm._m(0)
 }
-var staticRenderFns = []
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", [_c("h1", [_vm._v("Home ddd")])])
+  }
+]
 render._withStripped = true
 
 
