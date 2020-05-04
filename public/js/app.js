@@ -1934,89 +1934,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "App"
 });
@@ -2116,6 +2033,84 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -37942,319 +37937,52 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c(
-    "div",
-    [
-      _c("router-link", { attrs: { tag: "a", to: "/edit" } }, [
-        _vm._v("Click")
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "container mt-5" }, [
-        _c("div", { staticClass: "row" }, [
-          _c("div", { staticClass: "col-12 bg-white" }, [
-            _c("div", { staticClass: "row" }, [
-              _c(
-                "div",
-                {
-                  staticClass:
-                    "col-3 customBorderRight customBorderTop customBorderLeft p-0"
-                },
-                [_c("left-nav")],
-                1
-              ),
-              _vm._v(" "),
-              _c(
-                "div",
-                {
-                  staticClass:
-                    "col-9 customBorderBottom customBorderRight customBorderTop"
-                },
-                [
-                  _c(
-                    "div",
-                    { staticClass: "row" },
-                    [
-                      _c(
-                        "div",
-                        { staticClass: "col-12 p-0 customBorderBottom" },
-                        [_c("tools")],
-                        1
-                      ),
-                      _vm._v(" "),
-                      _c("router-view"),
-                      _vm._v(" "),
-                      _c("div", { staticClass: "col-12" }, [
-                        _c(
-                          "div",
-                          {
-                            staticClass: "customBorderBottom row py-3 textGrey"
-                          },
-                          [
-                            _c("div", { staticClass: "col-2 pr-0" }, [
-                              _c("div", { staticClass: "row" }, [
-                                _vm._m(0),
-                                _vm._v(" "),
-                                _c("div", { staticClass: "col-3 pr-0" }, [
-                                  _c("a", { attrs: { href: "" } }, [
-                                    _c(
-                                      "svg",
-                                      {
-                                        staticClass: "margingY",
-                                        attrs: {
-                                          width: "24",
-                                          height: "24",
-                                          viewBox: "0 0 24 24",
-                                          fill: "none",
-                                          xmlns: "http://www.w3.org/2000/svg"
-                                        }
-                                      },
-                                      [
-                                        _c(
-                                          "mask",
-                                          {
-                                            attrs: {
-                                              id: "favorites",
-                                              "mask-type": "alpha",
-                                              maskUnits: "userSpaceOnUse",
-                                              x: "5",
-                                              y: "5",
-                                              width: "20",
-                                              height: "19"
-                                            }
-                                          },
-                                          [
-                                            _c("path", {
-                                              attrs: {
-                                                "fill-rule": "evenodd",
-                                                "clip-rule": "evenodd",
-                                                d:
-                                                  "M15 20.27L21.18 24L19.54 16.97L25 12.24L17.81 11.63L15 5L12.19 11.63L5 12.24L10.46 16.97L8.82 24L15 20.27Z",
-                                                fill: "white"
-                                              }
-                                            })
-                                          ]
-                                        ),
-                                        _vm._v(" "),
-                                        _c(
-                                          "g",
-                                          {
-                                            attrs: { mask: "url(#favorites)" }
-                                          },
-                                          [
-                                            _c("rect", {
-                                              attrs: {
-                                                x: "2",
-                                                y: "2",
-                                                width: "26",
-                                                height: "26",
-                                                fill: "#FEF40A"
-                                              }
-                                            })
-                                          ]
-                                        )
-                                      ]
-                                    )
-                                  ])
-                                ]),
-                                _vm._v(" "),
-                                _c("div", { staticClass: "col-6 pr-0" })
-                              ])
-                            ]),
-                            _vm._v(" "),
-                            _vm._m(1)
-                          ]
-                        ),
-                        _vm._v(" "),
-                        _c(
-                          "div",
-                          {
-                            staticClass: "customBorderBottom row py-3 textGrey"
-                          },
-                          [
-                            _c("div", { staticClass: "col-2 pr-0" }, [
-                              _c("div", { staticClass: "row" }, [
-                                _vm._m(2),
-                                _vm._v(" "),
-                                _c("div", { staticClass: "col-3 pr-0" }, [
-                                  _c("a", { attrs: { href: "" } }, [
-                                    _c(
-                                      "svg",
-                                      {
-                                        staticClass: "margingY",
-                                        attrs: {
-                                          width: "30",
-                                          height: "30",
-                                          viewBox: "0 0 30 30",
-                                          fill: "none",
-                                          xmlns: "http://www.w3.org/2000/svg"
-                                        }
-                                      },
-                                      [
-                                        _c(
-                                          "mask",
-                                          {
-                                            attrs: {
-                                              id: "nonFavorites",
-                                              "mask-type": "alpha",
-                                              maskUnits: "userSpaceOnUse",
-                                              x: "5",
-                                              y: "5",
-                                              width: "20",
-                                              height: "19"
-                                            }
-                                          },
-                                          [
-                                            _c("path", {
-                                              attrs: {
-                                                "fill-rule": "evenodd",
-                                                "clip-rule": "evenodd",
-                                                d:
-                                                  "M25 12.24L17.81 11.62L15 5L12.19 11.63L5 12.24L10.46 16.97L8.82 24L15 20.27L21.18 24L19.55 16.97L25 12.24ZM15 18.4L11.24 20.67L12.24 16.39L8.92 13.51L13.3 13.13L15 9.1L16.71 13.14L21.09 13.52L17.77 16.4L18.77 20.68L15 18.4Z",
-                                                fill: "white"
-                                              }
-                                            })
-                                          ]
-                                        ),
-                                        _vm._v(" "),
-                                        _c(
-                                          "g",
-                                          {
-                                            attrs: {
-                                              mask: "url(#nonFavorites)"
-                                            }
-                                          },
-                                          [
-                                            _c("rect", {
-                                              attrs: {
-                                                x: "2",
-                                                y: "2",
-                                                width: "26",
-                                                height: "26",
-                                                fill: "#D8D8D8"
-                                              }
-                                            })
-                                          ]
-                                        )
-                                      ]
-                                    )
-                                  ])
-                                ]),
-                                _vm._v(" "),
-                                _vm._m(3)
-                              ])
-                            ]),
-                            _vm._v(" "),
-                            _vm._m(4)
-                          ]
-                        )
-                      ])
-                    ],
-                    1
-                  )
-                ]
-              )
-            ])
+  return _c("div", [
+    _c("div", { staticClass: "container mt-5" }, [
+      _c("div", { staticClass: "row" }, [
+        _c("div", { staticClass: "col-12 bg-white" }, [
+          _c("div", { staticClass: "row" }, [
+            _c(
+              "div",
+              {
+                staticClass:
+                  "col-3 customBorderRight customBorderTop customBorderLeft p-0"
+              },
+              [_c("left-nav")],
+              1
+            ),
+            _vm._v(" "),
+            _c(
+              "div",
+              {
+                staticClass:
+                  "col-9 customBorderBottom customBorderRight customBorderTop"
+              },
+              [
+                _c(
+                  "div",
+                  { staticClass: "row" },
+                  [
+                    _c(
+                      "div",
+                      { staticClass: "col-12 p-0 customBorderBottom" },
+                      [_c("tools")],
+                      1
+                    ),
+                    _vm._v(" "),
+                    _c("router-view")
+                  ],
+                  1
+                )
+              ]
+            )
           ])
         ])
       ])
-    ],
-    1
-  )
+    ])
+  ])
 }
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "col-3 pr-0" }, [
-      _c("input", { attrs: { id: "all", type: "checkbox" } }),
-      _vm._v(" "),
-      _c("label", {
-        staticClass: "pl-2 customLabel m-0",
-        attrs: { for: "all" }
-      })
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "col-10" }, [
-      _c("div", { staticClass: "row" }, [
-        _c("div", { staticClass: "col-3 pl-0" }, [
-          _c("span", { staticClass: "font-12px" }, [_vm._v("Имя")])
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "col-3 pl-0" }, [
-          _c("span", { staticClass: "font-12px" }, [_vm._v("Почта")])
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "col-3 pl-0" }, [
-          _c("span", { staticClass: "font-12px" }, [_vm._v("Телефон")])
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "col-3 pl-0" }, [
-          _c("span", { staticClass: "font-12px" }, [_vm._v("Группа")])
-        ])
-      ])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "col-3 pr-0" }, [
-      _c("input", { attrs: { id: "id", type: "checkbox" } }),
-      _vm._v(" "),
-      _c("label", { staticClass: "pl-2 customLabel m-0", attrs: { for: "id" } })
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "col-6 pr-0" }, [
-      _c("img", {
-        staticClass: "contactPhoto",
-        attrs: { src: "girl.jpg", alt: "" }
-      })
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "col-10" }, [
-      _c("div", { staticClass: "row" }, [
-        _c(
-          "div",
-          { staticClass: "col-3 pl-0 contactPhoto align-items-center d-flex" },
-          [
-            _c("span", { staticClass: "font-12px" }, [
-              _vm._v("Алешина Лилия Анатольевна")
-            ])
-          ]
-        ),
-        _vm._v(" "),
-        _c("div", { staticClass: "col-3 pl-0" }, [
-          _c("span", { staticClass: "font-12px" }, [
-            _vm._v("effie-guz@yahoo.com")
-          ])
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "col-3 pl-0" }, [
-          _c("span", { staticClass: "font-12px" }, [
-            _vm._v("8 (829) 779 45 44")
-          ])
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "col-3 pl-0" }, [
-          _c("span", { staticClass: "font-12px" })
-        ])
-      ])
-    ])
-  }
-]
+var staticRenderFns = []
 render._withStripped = true
 
 
@@ -38564,9 +38292,240 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", [_vm._v("\n    qwerdtfgyhjk\n")])
+  return _c("div", { staticClass: "col-12" }, [
+    _c("div", { staticClass: "customBorderBottom row py-3 textGrey" }, [
+      _c("div", { staticClass: "col-2 pr-0" }, [
+        _c("div", { staticClass: "row" }, [
+          _vm._m(0),
+          _vm._v(" "),
+          _c("div", { staticClass: "col-3 pr-0" }, [
+            _c("a", { attrs: { href: "" } }, [
+              _c(
+                "svg",
+                {
+                  staticClass: "margingY",
+                  attrs: {
+                    width: "24",
+                    height: "24",
+                    viewBox: "0 0 24 24",
+                    fill: "none",
+                    xmlns: "http://www.w3.org/2000/svg"
+                  }
+                },
+                [
+                  _c(
+                    "mask",
+                    {
+                      attrs: {
+                        id: "favorites",
+                        "mask-type": "alpha",
+                        maskUnits: "userSpaceOnUse",
+                        x: "5",
+                        y: "5",
+                        width: "20",
+                        height: "19"
+                      }
+                    },
+                    [
+                      _c("path", {
+                        attrs: {
+                          "fill-rule": "evenodd",
+                          "clip-rule": "evenodd",
+                          d:
+                            "M15 20.27L21.18 24L19.54 16.97L25 12.24L17.81 11.63L15 5L12.19 11.63L5 12.24L10.46 16.97L8.82 24L15 20.27Z",
+                          fill: "white"
+                        }
+                      })
+                    ]
+                  ),
+                  _vm._v(" "),
+                  _c("g", { attrs: { mask: "url(#favorites)" } }, [
+                    _c("rect", {
+                      attrs: {
+                        x: "2",
+                        y: "2",
+                        width: "26",
+                        height: "26",
+                        fill: "#FEF40A"
+                      }
+                    })
+                  ])
+                ]
+              )
+            ])
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "col-6 pr-0" })
+        ])
+      ]),
+      _vm._v(" "),
+      _vm._m(1)
+    ]),
+    _vm._v(" "),
+    _c("div", { staticClass: "customBorderBottom row py-3 textGrey" }, [
+      _c("div", { staticClass: "col-2 pr-0" }, [
+        _c("div", { staticClass: "row" }, [
+          _vm._m(2),
+          _vm._v(" "),
+          _c("div", { staticClass: "col-3 pr-0" }, [
+            _c("a", { attrs: { href: "" } }, [
+              _c(
+                "svg",
+                {
+                  staticClass: "margingY",
+                  attrs: {
+                    width: "24",
+                    height: "24",
+                    viewBox: "0 0 24 24",
+                    fill: "none",
+                    xmlns: "http://www.w3.org/2000/svg"
+                  }
+                },
+                [
+                  _c(
+                    "mask",
+                    {
+                      attrs: {
+                        id: "nonFavorites",
+                        "mask-type": "alpha",
+                        maskUnits: "userSpaceOnUse",
+                        x: "5",
+                        y: "5",
+                        width: "20",
+                        height: "19"
+                      }
+                    },
+                    [
+                      _c("path", {
+                        attrs: {
+                          "fill-rule": "evenodd",
+                          "clip-rule": "evenodd",
+                          d:
+                            "M25 12.24L17.81 11.62L15 5L12.19 11.63L5 12.24L10.46 16.97L8.82 24L15 20.27L21.18 24L19.55 16.97L25 12.24ZM15 18.4L11.24 20.67L12.24 16.39L8.92 13.51L13.3 13.13L15 9.1L16.71 13.14L21.09 13.52L17.77 16.4L18.77 20.68L15 18.4Z",
+                          fill: "white"
+                        }
+                      })
+                    ]
+                  ),
+                  _vm._v(" "),
+                  _c("g", { attrs: { mask: "url(#nonFavorites)" } }, [
+                    _c("rect", {
+                      attrs: {
+                        x: "2",
+                        y: "2",
+                        width: "26",
+                        height: "26",
+                        fill: "#D8D8D8"
+                      }
+                    })
+                  ])
+                ]
+              )
+            ])
+          ]),
+          _vm._v(" "),
+          _vm._m(3)
+        ])
+      ]),
+      _vm._v(" "),
+      _vm._m(4)
+    ])
+  ])
 }
-var staticRenderFns = []
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "col-3 pr-0" }, [
+      _c("input", { attrs: { id: "all", type: "checkbox" } }),
+      _vm._v(" "),
+      _c("label", {
+        staticClass: "pl-2 customLabel m-0",
+        attrs: { for: "all" }
+      })
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "col-10" }, [
+      _c("div", { staticClass: "row" }, [
+        _c("div", { staticClass: "col-3 pl-0" }, [
+          _c("span", { staticClass: "font-12px" }, [_vm._v("Имя")])
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "col-3 pl-0" }, [
+          _c("span", { staticClass: "font-12px" }, [_vm._v("Почта")])
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "col-3 pl-0" }, [
+          _c("span", { staticClass: "font-12px" }, [_vm._v("Телефон")])
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "col-3 pl-0" }, [
+          _c("span", { staticClass: "font-12px" }, [_vm._v("Группа")])
+        ])
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "col-3 pr-0" }, [
+      _c("input", { attrs: { id: "id", type: "checkbox" } }),
+      _vm._v(" "),
+      _c("label", { staticClass: "pl-2 customLabel m-0", attrs: { for: "id" } })
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "col-6 pr-0" }, [
+      _c("img", {
+        staticClass: "contactPhoto",
+        attrs: { src: "girl.jpg", alt: "" }
+      })
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "col-10" }, [
+      _c("div", { staticClass: "row" }, [
+        _c(
+          "div",
+          { staticClass: "col-3 pl-0 contactPhoto align-items-center d-flex" },
+          [
+            _c("span", { staticClass: "font-12px" }, [
+              _vm._v("Алешина Лилия Анатольевна")
+            ])
+          ]
+        ),
+        _vm._v(" "),
+        _c("div", { staticClass: "col-3 pl-0" }, [
+          _c("span", { staticClass: "font-12px" }, [
+            _vm._v("effie-guz@yahoo.com")
+          ])
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "col-3 pl-0" }, [
+          _c("span", { staticClass: "font-12px" }, [
+            _vm._v("8 (829) 779 45 44")
+          ])
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "col-3 pl-0" }, [
+          _c("span", { staticClass: "font-12px" })
+        ])
+      ])
+    ])
+  }
+]
 render._withStripped = true
 
 
