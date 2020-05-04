@@ -18,7 +18,7 @@ class ContactsController extends Controller
             ->where('user_id', auth()->user()->id)
             ->get();
 
-        return $contacts;
+        return response()->json($contacts);
     }
 
     public function store(StoreRequest $request)
