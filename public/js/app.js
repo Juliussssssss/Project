@@ -2016,157 +2016,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "App"
 });
@@ -2253,6 +2102,27 @@ __webpack_require__.r(__webpack_exports__);
 //
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "LeftNav"
+});
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/pages/edit/Edit.vue?vue&type=script&lang=js&":
+/*!**************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/pages/edit/Edit.vue?vue&type=script&lang=js& ***!
+  \**************************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+//
+//
+//
+//
+//
+//
+/* harmony default export */ __webpack_exports__["default"] = ({
+  name: "Edit"
 });
 
 /***/ }),
@@ -37925,1088 +37795,232 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", [
-    _c("div", { staticClass: "container mt-5" }, [
-      _c("div", { staticClass: "row" }, [
-        _c("div", { staticClass: "col-12 bg-white" }, [
-          _c("div", { staticClass: "row" }, [
-            _c(
-              "div",
-              {
-                staticClass:
-                  "col-3 customBorderRight customBorderTop customBorderLeft p-0"
-              },
-              [
-                _c("div", { staticClass: "row textGrey" }, [
-                  _vm._m(0),
-                  _vm._v(" "),
-                  _vm._m(1),
-                  _vm._v(" "),
-                  _vm._m(2),
-                  _vm._v(" "),
-                  _c("div", { staticClass: "col-12" }, [
-                    _c("div", { staticClass: "customBorderBottom topmenu" }, [
-                      _c("div", { staticClass: "pl-5 py-3" }, [
-                        _vm._v(
-                          "Групы\n                                            "
+  return _c(
+    "div",
+    [
+      _c("router-link", { attrs: { tag: "a", to: "/edit" } }, [
+        _vm._v("Click")
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "container mt-5" }, [
+        _c("div", { staticClass: "row" }, [
+          _c("div", { staticClass: "col-12 bg-white" }, [
+            _c("div", { staticClass: "row" }, [
+              _vm._m(0),
+              _vm._v(" "),
+              _c(
+                "div",
+                {
+                  staticClass:
+                    "col-9 customBorderBottom customBorderRight customBorderTop"
+                },
+                [
+                  _c(
+                    "div",
+                    { staticClass: "row" },
+                    [
+                      _vm._m(1),
+                      _vm._v(" "),
+                      _c("router-view"),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "col-12" }, [
+                        _c(
+                          "div",
+                          {
+                            staticClass: "customBorderBottom row py-3 textGrey"
+                          },
+                          [
+                            _c("div", { staticClass: "col-2 pr-0" }, [
+                              _c("div", { staticClass: "row" }, [
+                                _vm._m(2),
+                                _vm._v(" "),
+                                _c("div", { staticClass: "col-3 pr-0" }, [
+                                  _c("a", { attrs: { href: "" } }, [
+                                    _c(
+                                      "svg",
+                                      {
+                                        staticClass: "margingY",
+                                        attrs: {
+                                          width: "24",
+                                          height: "24",
+                                          viewBox: "0 0 24 24",
+                                          fill: "none",
+                                          xmlns: "http://www.w3.org/2000/svg"
+                                        }
+                                      },
+                                      [
+                                        _c(
+                                          "mask",
+                                          {
+                                            attrs: {
+                                              id: "favorites",
+                                              "mask-type": "alpha",
+                                              maskUnits: "userSpaceOnUse",
+                                              x: "5",
+                                              y: "5",
+                                              width: "20",
+                                              height: "19"
+                                            }
+                                          },
+                                          [
+                                            _c("path", {
+                                              attrs: {
+                                                "fill-rule": "evenodd",
+                                                "clip-rule": "evenodd",
+                                                d:
+                                                  "M15 20.27L21.18 24L19.54 16.97L25 12.24L17.81 11.63L15 5L12.19 11.63L5 12.24L10.46 16.97L8.82 24L15 20.27Z",
+                                                fill: "white"
+                                              }
+                                            })
+                                          ]
+                                        ),
+                                        _vm._v(" "),
+                                        _c(
+                                          "g",
+                                          {
+                                            attrs: { mask: "url(#favorites)" }
+                                          },
+                                          [
+                                            _c("rect", {
+                                              attrs: {
+                                                x: "2",
+                                                y: "2",
+                                                width: "26",
+                                                height: "26",
+                                                fill: "#FEF40A"
+                                              }
+                                            })
+                                          ]
+                                        )
+                                      ]
+                                    )
+                                  ])
+                                ]),
+                                _vm._v(" "),
+                                _c("div", { staticClass: "col-6 pr-0" })
+                              ])
+                            ]),
+                            _vm._v(" "),
+                            _vm._m(3)
+                          ]
                         ),
-                        _c("div", { staticClass: "submenu" }, [
-                          _c(
-                            "div",
-                            {
-                              staticClass:
-                                "customBorderBottom p-3 d-flex justify-content-between align-items-center"
-                            },
-                            [
-                              _c("div", [
-                                _c("a", { attrs: { href: "" } }, [
-                                  _c(
-                                    "svg",
-                                    {
-                                      staticClass: "margingY",
-                                      attrs: {
-                                        width: "30",
-                                        height: "30",
-                                        viewBox: "0 0 30 30",
-                                        fill: "none",
-                                        xmlns: "http://www.w3.org/2000/svg"
-                                      }
-                                    },
-                                    [
-                                      _c(
-                                        "mask",
-                                        {
-                                          attrs: {
-                                            id: "group",
-                                            "mask-type": "alpha",
-                                            maskUnits: "userSpaceOnUse",
-                                            x: "4",
-                                            y: "8",
-                                            width: "22",
-                                            height: "14"
-                                          }
-                                        },
-                                        [
-                                          _c("path", {
+                        _vm._v(" "),
+                        _c(
+                          "div",
+                          {
+                            staticClass: "customBorderBottom row py-3 textGrey"
+                          },
+                          [
+                            _c("div", { staticClass: "col-2 pr-0" }, [
+                              _c("div", { staticClass: "row" }, [
+                                _vm._m(4),
+                                _vm._v(" "),
+                                _c("div", { staticClass: "col-3 pr-0" }, [
+                                  _c("a", { attrs: { href: "" } }, [
+                                    _c(
+                                      "svg",
+                                      {
+                                        staticClass: "margingY",
+                                        attrs: {
+                                          width: "30",
+                                          height: "30",
+                                          viewBox: "0 0 30 30",
+                                          fill: "none",
+                                          xmlns: "http://www.w3.org/2000/svg"
+                                        }
+                                      },
+                                      [
+                                        _c(
+                                          "mask",
+                                          {
                                             attrs: {
-                                              "fill-rule": "evenodd",
-                                              "clip-rule": "evenodd",
-                                              d:
-                                                "M19 14C20.66 14 21.99 12.66 21.99 11C21.99 9.34 20.66 8 19 8C17.34 8 16 9.34 16 11C16 12.66 17.34 14 19 14ZM11 14C12.66 14 13.99 12.66 13.99 11C13.99 9.34 12.66 8 11 8C9.34 8 8 9.34 8 11C8 12.66 9.34 14 11 14ZM11 16C8.67 16 4 17.17 4 19.5V22H18V19.5C18 17.17 13.33 16 11 16ZM19 16C18.71 16 18.38 16.02 18.03 16.05C19.19 16.89 20 18.02 20 19.5V22H26V19.5C26 17.17 21.33 16 19 16Z",
-                                              fill: "white"
+                                              id: "nonFavorites",
+                                              "mask-type": "alpha",
+                                              maskUnits: "userSpaceOnUse",
+                                              x: "5",
+                                              y: "5",
+                                              width: "20",
+                                              height: "19"
                                             }
-                                          })
-                                        ]
-                                      ),
-                                      _vm._v(" "),
-                                      _c(
-                                        "g",
-                                        { attrs: { mask: "url(#group)" } },
-                                        [
-                                          _c("rect", {
-                                            staticClass: "actionButtons",
+                                          },
+                                          [
+                                            _c("path", {
+                                              attrs: {
+                                                "fill-rule": "evenodd",
+                                                "clip-rule": "evenodd",
+                                                d:
+                                                  "M25 12.24L17.81 11.62L15 5L12.19 11.63L5 12.24L10.46 16.97L8.82 24L15 20.27L21.18 24L19.55 16.97L25 12.24ZM15 18.4L11.24 20.67L12.24 16.39L8.92 13.51L13.3 13.13L15 9.1L16.71 13.14L21.09 13.52L17.77 16.4L18.77 20.68L15 18.4Z",
+                                                fill: "white"
+                                              }
+                                            })
+                                          ]
+                                        ),
+                                        _vm._v(" "),
+                                        _c(
+                                          "g",
+                                          {
                                             attrs: {
-                                              x: "2",
-                                              y: "2",
-                                              width: "26",
-                                              height: "26",
-                                              fill: "#D8D8D8"
+                                              mask: "url(#nonFavorites)"
                                             }
-                                          })
-                                        ]
-                                      )
-                                    ]
-                                  )
-                                ])
-                              ]),
-                              _vm._v(" "),
-                              _c("div", [_vm._v("Отдел дизайна")]),
-                              _vm._v(" "),
-                              _c("div", [
-                                _c("a", { attrs: { href: "" } }, [
-                                  _c(
-                                    "svg",
-                                    {
-                                      staticClass: "margingY",
-                                      attrs: {
-                                        width: "30",
-                                        height: "30",
-                                        viewBox: "0 0 30 30",
-                                        fill: "none",
-                                        xmlns: "http://www.w3.org/2000/svg"
-                                      }
-                                    },
-                                    [
-                                      _c(
-                                        "mask",
-                                        {
-                                          attrs: {
-                                            id: "edit",
-                                            "mask-type": "alpha",
-                                            maskUnits: "userSpaceOnUse",
-                                            x: "6",
-                                            y: "6",
-                                            width: "19",
-                                            height: "19"
-                                          }
-                                        },
-                                        [
-                                          _c("path", {
-                                            attrs: {
-                                              "fill-rule": "evenodd",
-                                              "clip-rule": "evenodd",
-                                              d:
-                                                "M6 20.2525V24.0025H9.75L20.81 12.9425L17.06 9.1925L6 20.2525ZM23.71 10.0425C24.1 9.6525 24.1 9.0225 23.71 8.6325L21.37 6.2925C20.98 5.9025 20.35 5.9025 19.96 6.2925L18.13 8.1225L21.88 11.8725L23.71 10.0425Z",
-                                              fill: "white"
-                                            }
-                                          })
-                                        ]
-                                      ),
-                                      _vm._v(" "),
-                                      _c(
-                                        "g",
-                                        { attrs: { mask: "url(#edit)" } },
-                                        [
-                                          _c("rect", {
-                                            staticClass: "actionButtons",
-                                            attrs: {
-                                              x: "2",
-                                              y: "2",
-                                              width: "26",
-                                              height: "26",
-                                              fill: "#D8D8D8"
-                                            }
-                                          })
-                                        ]
-                                      )
-                                    ]
-                                  )
+                                          },
+                                          [
+                                            _c("rect", {
+                                              attrs: {
+                                                x: "2",
+                                                y: "2",
+                                                width: "26",
+                                                height: "26",
+                                                fill: "#D8D8D8"
+                                              }
+                                            })
+                                          ]
+                                        )
+                                      ]
+                                    )
+                                  ])
                                 ]),
                                 _vm._v(" "),
-                                _c("a", { attrs: { href: "" } }, [
-                                  _c(
-                                    "svg",
-                                    {
-                                      staticClass: "margingY",
-                                      attrs: {
-                                        width: "30",
-                                        height: "30",
-                                        viewBox: "0 0 30 30",
-                                        fill: "none",
-                                        xmlns: "http://www.w3.org/2000/svg"
-                                      }
-                                    },
-                                    [
-                                      _c(
-                                        "mask",
-                                        {
-                                          attrs: {
-                                            id: "delete",
-                                            "mask-type": "alpha",
-                                            maskUnits: "userSpaceOnUse",
-                                            x: "8",
-                                            y: "6",
-                                            width: "14",
-                                            height: "18"
-                                          }
-                                        },
-                                        [
-                                          _c("path", {
-                                            attrs: {
-                                              "fill-rule": "evenodd",
-                                              "clip-rule": "evenodd",
-                                              d:
-                                                "M9 22C9 23.1 9.9 24 11 24H19C20.1 24 21 23.1 21 22V10H9V22ZM22 7H18.5L17.5 6H12.5L11.5 7H8V9H22V7Z",
-                                              fill: "white"
-                                            }
-                                          })
-                                        ]
-                                      ),
-                                      _vm._v(" "),
-                                      _c(
-                                        "g",
-                                        { attrs: { mask: "url(#delete)" } },
-                                        [
-                                          _c("rect", {
-                                            staticClass: "actionButtons",
-                                            attrs: {
-                                              x: "2",
-                                              y: "2",
-                                              width: "26",
-                                              height: "26",
-                                              fill: "#D8D8D8"
-                                            }
-                                          })
-                                        ]
-                                      )
-                                    ]
-                                  )
-                                ])
+                                _vm._m(5)
                               ])
-                            ]
-                          )
-                        ])
+                            ]),
+                            _vm._v(" "),
+                            _vm._m(6)
+                          ]
+                        )
                       ])
-                    ])
-                  ]),
-                  _vm._v(" "),
-                  _vm._m(3),
-                  _vm._v(" "),
-                  _vm._m(4)
-                ])
-              ]
-            ),
-            _vm._v(" "),
-            _c(
-              "div",
-              {
-                staticClass:
-                  "col-9 customBorderBottom customBorderRight customBorderTop"
-              },
-              [
-                _c("div", { staticClass: "row" }, [
-                  _c("div", { staticClass: "col-12 p-0 customBorderBottom" }, [
-                    _c("div", { staticClass: "row fixPanel" }, [
-                      _c(
-                        "div",
-                        {
-                          staticClass:
-                            "col-4 py-4 align-items-center d-flex customBorderRight pl-4"
-                        },
-                        [
-                          _c(
-                            "div",
-                            {
-                              staticClass:
-                                "w-100 d-flex justify-content-between"
-                            },
-                            [
-                              _c(
-                                "svg",
-                                {
-                                  attrs: {
-                                    id: "edit",
-                                    width: "30",
-                                    height: "30",
-                                    viewBox: "0 0 30 30",
-                                    fill: "none",
-                                    xmlns: "http://www.w3.org/2000/svg"
-                                  }
-                                },
-                                [
-                                  _c(
-                                    "mask",
-                                    {
-                                      attrs: {
-                                        id: "mask0",
-                                        "mask-type": "alpha",
-                                        maskUnits: "userSpaceOnUse",
-                                        x: "6",
-                                        y: "6",
-                                        width: "19",
-                                        height: "19"
-                                      }
-                                    },
-                                    [
-                                      _c("path", {
-                                        attrs: {
-                                          "fill-rule": "evenodd",
-                                          "clip-rule": "evenodd",
-                                          d:
-                                            "M6 20.2525V24.0025H9.75L20.81 12.9425L17.06 9.1925L6 20.2525ZM23.71 10.0425C24.1 9.6525 24.1 9.0225 23.71 8.6325L21.37 6.2925C20.98 5.9025 20.35 5.9025 19.96 6.2925L18.13 8.1225L21.88 11.8725L23.71 10.0425Z",
-                                          fill: "white"
-                                        }
-                                      })
-                                    ]
-                                  ),
-                                  _vm._v(" "),
-                                  _c("g", { attrs: { mask: "url(#mask0)" } }, [
-                                    _c("rect", {
-                                      staticClass: "actionButtons",
-                                      attrs: {
-                                        x: "2",
-                                        y: "2",
-                                        width: "26",
-                                        height: "26",
-                                        fill: "#D8D8D8"
-                                      }
-                                    })
-                                  ])
-                                ]
-                              ),
-                              _vm._v(" "),
-                              _c(
-                                "svg",
-                                {
-                                  attrs: {
-                                    id: "groups",
-                                    width: "30",
-                                    height: "30",
-                                    viewBox: "0 0 30 30",
-                                    fill: "none",
-                                    xmlns: "http://www.w3.org/2000/svg"
-                                  }
-                                },
-                                [
-                                  _c(
-                                    "mask",
-                                    {
-                                      attrs: {
-                                        id: "mask1",
-                                        "mask-type": "alpha",
-                                        maskUnits: "userSpaceOnUse",
-                                        x: "4",
-                                        y: "8",
-                                        width: "22",
-                                        height: "14"
-                                      }
-                                    },
-                                    [
-                                      _c("path", {
-                                        attrs: {
-                                          "fill-rule": "evenodd",
-                                          "clip-rule": "evenodd",
-                                          d:
-                                            "M19 14C20.66 14 21.99 12.66 21.99 11C21.99 9.34 20.66 8 19 8C17.34 8 16 9.34 16 11C16 12.66 17.34 14 19 14ZM11 14C12.66 14 13.99 12.66 13.99 11C13.99 9.34 12.66 8 11 8C9.34 8 8 9.34 8 11C8 12.66 9.34 14 11 14ZM11 16C8.67 16 4 17.17 4 19.5V22H18V19.5C18 17.17 13.33 16 11 16ZM19 16C18.71 16 18.38 16.02 18.03 16.05C19.19 16.89 20 18.02 20 19.5V22H26V19.5C26 17.17 21.33 16 19 16Z",
-                                          fill: "white"
-                                        }
-                                      })
-                                    ]
-                                  ),
-                                  _vm._v(" "),
-                                  _c("g", { attrs: { mask: "url(#mask1)" } }, [
-                                    _c("rect", {
-                                      staticClass: "actionButtons",
-                                      attrs: {
-                                        x: "2",
-                                        y: "2",
-                                        width: "26",
-                                        height: "26",
-                                        fill: "#D8D8D8"
-                                      }
-                                    })
-                                  ])
-                                ]
-                              ),
-                              _vm._v(" "),
-                              _c(
-                                "svg",
-                                {
-                                  attrs: {
-                                    id: "import",
-                                    width: "30",
-                                    height: "30",
-                                    viewBox: "0 0 30 30",
-                                    fill: "none",
-                                    xmlns: "http://www.w3.org/2000/svg"
-                                  }
-                                },
-                                [
-                                  _c(
-                                    "mask",
-                                    {
-                                      attrs: {
-                                        id: "mask3",
-                                        "mask-type": "alpha",
-                                        maskUnits: "userSpaceOnUse",
-                                        x: "3",
-                                        y: "7",
-                                        width: "24",
-                                        height: "16"
-                                      }
-                                    },
-                                    [
-                                      _c("path", {
-                                        attrs: {
-                                          "fill-rule": "evenodd",
-                                          "clip-rule": "evenodd",
-                                          d:
-                                            "M22.35 13.04C21.67 9.59 18.64 7 15 7C12.11 7 9.6 8.64 8.35 11.04C5.34 11.36 3 13.91 3 17C3 20.31 5.69 23 9 23H22C24.76 23 27 20.76 27 18C27 15.36 24.95 13.22 22.35 13.04ZM17 16V20H13V16H10L15 11L20 16H17Z",
-                                          fill: "white"
-                                        }
-                                      })
-                                    ]
-                                  ),
-                                  _vm._v(" "),
-                                  _c("g", { attrs: { mask: "url(#mask3)" } }, [
-                                    _c("rect", {
-                                      staticClass: "actionButtons",
-                                      attrs: {
-                                        x: "2",
-                                        y: "2",
-                                        width: "26",
-                                        height: "26",
-                                        fill: "#D8D8D8"
-                                      }
-                                    })
-                                  ])
-                                ]
-                              ),
-                              _vm._v(" "),
-                              _c(
-                                "svg",
-                                {
-                                  attrs: {
-                                    id: "export",
-                                    width: "30",
-                                    height: "30",
-                                    viewBox: "0 0 30 30",
-                                    fill: "none",
-                                    xmlns: "http://www.w3.org/2000/svg"
-                                  }
-                                },
-                                [
-                                  _c(
-                                    "mask",
-                                    {
-                                      attrs: {
-                                        id: "mask4",
-                                        "mask-type": "alpha",
-                                        maskUnits: "userSpaceOnUse",
-                                        x: "3",
-                                        y: "7",
-                                        width: "24",
-                                        height: "16"
-                                      }
-                                    },
-                                    [
-                                      _c("path", {
-                                        attrs: {
-                                          "fill-rule": "evenodd",
-                                          "clip-rule": "evenodd",
-                                          d:
-                                            "M22.35 13.04C21.67 9.59 18.64 7 15 7C12.11 7 9.6 8.64 8.35 11.04C5.34 11.36 3 13.91 3 17C3 20.31 5.69 23 9 23H22C24.76 23 27 20.76 27 18C27 15.36 24.95 13.22 22.35 13.04ZM20 16L15 21L10 16H13V12H17V16H20Z",
-                                          fill: "white"
-                                        }
-                                      })
-                                    ]
-                                  ),
-                                  _vm._v(" "),
-                                  _c("g", { attrs: { mask: "url(#mask4)" } }, [
-                                    _c("rect", {
-                                      staticClass: "actionButtons",
-                                      attrs: {
-                                        x: "2",
-                                        y: "2",
-                                        width: "26",
-                                        height: "26",
-                                        fill: "#D8D8D8"
-                                      }
-                                    })
-                                  ])
-                                ]
-                              ),
-                              _vm._v(" "),
-                              _c(
-                                "svg",
-                                {
-                                  attrs: {
-                                    id: "print",
-                                    width: "30",
-                                    height: "30",
-                                    viewBox: "0 0 30 30",
-                                    fill: "none",
-                                    xmlns: "http://www.w3.org/2000/svg"
-                                  }
-                                },
-                                [
-                                  _c(
-                                    "mask",
-                                    {
-                                      attrs: {
-                                        id: "mask5",
-                                        "mask-type": "alpha",
-                                        maskUnits: "userSpaceOnUse",
-                                        x: "5",
-                                        y: "6",
-                                        width: "20",
-                                        height: "18"
-                                      }
-                                    },
-                                    [
-                                      _c("path", {
-                                        attrs: {
-                                          "fill-rule": "evenodd",
-                                          "clip-rule": "evenodd",
-                                          d:
-                                            "M22 11H8C6.34 11 5 12.34 5 14V20H9V24H21V20H25V14C25 12.34 23.66 11 22 11ZM19 22H11V17H19V22ZM22 15C21.45 15 21 14.55 21 14C21 13.45 21.45 13 22 13C22.55 13 23 13.45 23 14C23 14.55 22.55 15 22 15ZM21 6H9V10H21V6Z",
-                                          fill: "white"
-                                        }
-                                      })
-                                    ]
-                                  ),
-                                  _vm._v(" "),
-                                  _c("g", { attrs: { mask: "url(#mask5)" } }, [
-                                    _c("rect", {
-                                      staticClass: "actionButtons",
-                                      attrs: {
-                                        x: "2",
-                                        y: "2",
-                                        width: "26",
-                                        height: "26",
-                                        fill: "#D8D8D8"
-                                      }
-                                    })
-                                  ])
-                                ]
-                              ),
-                              _vm._v(" "),
-                              _c(
-                                "svg",
-                                {
-                                  attrs: {
-                                    id: "delete",
-                                    width: "30",
-                                    height: "30",
-                                    viewBox: "0 0 30 30",
-                                    fill: "none",
-                                    xmlns: "http://www.w3.org/2000/svg"
-                                  }
-                                },
-                                [
-                                  _c(
-                                    "mask",
-                                    {
-                                      attrs: {
-                                        id: "mask6",
-                                        "mask-type": "alpha",
-                                        maskUnits: "userSpaceOnUse",
-                                        x: "8",
-                                        y: "6",
-                                        width: "14",
-                                        height: "18"
-                                      }
-                                    },
-                                    [
-                                      _c("path", {
-                                        attrs: {
-                                          "fill-rule": "evenodd",
-                                          "clip-rule": "evenodd",
-                                          d:
-                                            "M9 22C9 23.1 9.9 24 11 24H19C20.1 24 21 23.1 21 22V10H9V22ZM22 7H18.5L17.5 6H12.5L11.5 7H8V9H22V7Z",
-                                          fill: "white"
-                                        }
-                                      })
-                                    ]
-                                  ),
-                                  _vm._v(" "),
-                                  _c("g", { attrs: { mask: "url(#mask6)" } }, [
-                                    _c("rect", {
-                                      staticClass: "actionButtons",
-                                      attrs: {
-                                        x: "2",
-                                        y: "2",
-                                        width: "26",
-                                        height: "26",
-                                        fill: "#D8D8D8"
-                                      }
-                                    })
-                                  ])
-                                ]
-                              )
-                            ]
-                          )
-                        ]
-                      ),
-                      _vm._v(" "),
-                      _c(
-                        "div",
-                        {
-                          staticClass:
-                            "col-4 py-4 align-items-center d-flex customBorderRight justify-content-center"
-                        },
-                        [
-                          _c("div", [
-                            _c("input", {
-                              staticClass: "search",
-                              attrs: { type: "text", placeholder: "Поиск" }
-                            }),
-                            _vm._v(" "),
-                            _c("span", [
-                              _c(
-                                "svg",
-                                {
-                                  attrs: {
-                                    width: "30",
-                                    height: "30",
-                                    viewBox: "0 0 30 30",
-                                    fill: "none",
-                                    xmlns: "http://www.w3.org/2000/svg"
-                                  }
-                                },
-                                [
-                                  _c(
-                                    "mask",
-                                    {
-                                      attrs: {
-                                        id: "mask9",
-                                        "mask-type": "alpha",
-                                        maskUnits: "userSpaceOnUse",
-                                        x: "6",
-                                        y: "6",
-                                        width: "18",
-                                        height: "18"
-                                      }
-                                    },
-                                    [
-                                      _c("path", {
-                                        attrs: {
-                                          "fill-rule": "evenodd",
-                                          "clip-rule": "evenodd",
-                                          d:
-                                            "M18.5 17H17.71L17.43 16.73C18.41 15.59 19 14.11 19 12.5C19 8.91 16.09 6 12.5 6C8.91 6 6 8.91 6 12.5C6 16.09 8.91 19 12.5 19C14.11 19 15.59 18.41 16.73 17.43L17 17.71V18.5L22 23.49L23.49 22L18.5 17ZM12.5 17C10.01 17 8 14.99 8 12.5C8 10.01 10.01 8 12.5 8C14.99 8 17 10.01 17 12.5C17 14.99 14.99 17 12.5 17Z",
-                                          fill: "white"
-                                        }
-                                      })
-                                    ]
-                                  ),
-                                  _vm._v(" "),
-                                  _c("g", { attrs: { mask: "url(#mask9)" } }, [
-                                    _c("rect", {
-                                      attrs: {
-                                        x: "2",
-                                        y: "2",
-                                        width: "26",
-                                        height: "26",
-                                        fill: "#D8D8D8"
-                                      }
-                                    })
-                                  ])
-                                ]
-                              )
-                            ])
-                          ])
-                        ]
-                      ),
-                      _vm._v(" "),
-                      _c(
-                        "div",
-                        {
-                          staticClass:
-                            "col-4 py-4 align-items-center d-flex justify-content-center"
-                        },
-                        [
-                          _c(
-                            "div",
-                            {
-                              staticClass:
-                                "d-flex w-100 justify-content-between"
-                            },
-                            [
-                              _vm._m(5),
-                              _vm._v(" "),
-                              _c("div", { staticClass: "px-3" }, [
-                                _c("span", { attrs: { id: "before" } }, [
-                                  _c(
-                                    "svg",
-                                    {
-                                      attrs: {
-                                        width: "30",
-                                        height: "30",
-                                        viewBox: "0 0 30 30",
-                                        fill: "none",
-                                        xmlns: "http://www.w3.org/2000/svg"
-                                      }
-                                    },
-                                    [
-                                      _c(
-                                        "mask",
-                                        {
-                                          attrs: {
-                                            id: "beforeIcon",
-                                            "mask-type": "alpha",
-                                            maskUnits: "userSpaceOnUse",
-                                            x: "7",
-                                            y: "7",
-                                            width: "16",
-                                            height: "16"
-                                          }
-                                        },
-                                        [
-                                          _c("path", {
-                                            attrs: {
-                                              "fill-rule": "evenodd",
-                                              "clip-rule": "evenodd",
-                                              d:
-                                                "M23 14H10.83L16.42 8.41L15 7L7 15L15 23L16.41 21.59L10.83 16H23V14Z",
-                                              fill: "white"
-                                            }
-                                          })
-                                        ]
-                                      ),
-                                      _vm._v(" "),
-                                      _c(
-                                        "g",
-                                        { attrs: { mask: "url(#beforeIcon)" } },
-                                        [
-                                          _c("rect", {
-                                            attrs: {
-                                              x: "2",
-                                              y: "2",
-                                              width: "26",
-                                              height: "26",
-                                              fill: "#D8D8D8"
-                                            }
-                                          })
-                                        ]
-                                      )
-                                    ]
-                                  )
-                                ]),
-                                _vm._v(" "),
-                                _c("span", { attrs: { id: "next" } }, [
-                                  _c(
-                                    "svg",
-                                    {
-                                      attrs: {
-                                        width: "30",
-                                        height: "30",
-                                        viewBox: "0 0 30 30",
-                                        fill: "none",
-                                        xmlns: "http://www.w3.org/2000/svg"
-                                      }
-                                    },
-                                    [
-                                      _c(
-                                        "mask",
-                                        {
-                                          attrs: {
-                                            id: "nextIcon",
-                                            "mask-type": "alpha",
-                                            maskUnits: "userSpaceOnUse",
-                                            x: "7",
-                                            y: "7",
-                                            width: "16",
-                                            height: "16"
-                                          }
-                                        },
-                                        [
-                                          _c("path", {
-                                            attrs: {
-                                              "fill-rule": "evenodd",
-                                              "clip-rule": "evenodd",
-                                              d:
-                                                "M15 7L13.59 8.41L19.17 14H7V16H19.17L13.59 21.59L15 23L23 15L15 7Z",
-                                              fill: "white"
-                                            }
-                                          })
-                                        ]
-                                      ),
-                                      _vm._v(" "),
-                                      _c(
-                                        "g",
-                                        { attrs: { mask: "url(#nextIcon)" } },
-                                        [
-                                          _c("rect", {
-                                            attrs: {
-                                              x: "2",
-                                              y: "2",
-                                              width: "26",
-                                              height: "26",
-                                              fill: "#D8D8D8"
-                                            }
-                                          })
-                                        ]
-                                      )
-                                    ]
-                                  )
-                                ])
-                              ]),
-                              _vm._v(" "),
-                              _c("div", [
-                                _c(
-                                  "svg",
-                                  {
-                                    attrs: {
-                                      width: "30",
-                                      height: "30",
-                                      viewBox: "0 0 30 30",
-                                      fill: "none",
-                                      xmlns: "http://www.w3.org/2000/svg"
-                                    }
-                                  },
-                                  [
-                                    _c(
-                                      "mask",
-                                      {
-                                        attrs: {
-                                          id: "settings",
-                                          "mask-type": "alpha",
-                                          maskUnits: "userSpaceOnUse",
-                                          x: "5",
-                                          y: "5",
-                                          width: "20",
-                                          height: "20"
-                                        }
-                                      },
-                                      [
-                                        _c("path", {
-                                          attrs: {
-                                            "fill-rule": "evenodd",
-                                            "clip-rule": "evenodd",
-                                            d:
-                                              "M22.1593 15.98C22.1993 15.66 22.2293 15.34 22.2293 15C22.2293 14.66 22.1993 14.34 22.1593 14.02L24.2693 12.37C24.4593 12.22 24.5093 11.95 24.3893 11.73L22.3893 8.27C22.2693 8.05 21.9993 7.97 21.7793 8.05L19.2893 9.05C18.7693 8.65 18.2093 8.32 17.5993 8.07L17.2193 5.42C17.1893 5.18 16.9793 5 16.7293 5H12.7293C12.4793 5 12.2693 5.18 12.2393 5.42L11.8593 8.07C11.2493 8.32 10.6893 8.66 10.1693 9.05L7.67933 8.05C7.44933 7.96 7.18933 8.05 7.06933 8.27L5.06933 11.73C4.93933 11.95 4.99933 12.22 5.18933 12.37L7.29933 14.02C7.25933 14.34 7.22933 14.67 7.22933 15C7.22933 15.33 7.25933 15.66 7.29933 15.98L5.18933 17.63C4.99933 17.78 4.94933 18.05 5.06933 18.27L7.06933 21.73C7.18933 21.95 7.45933 22.03 7.67933 21.95L10.1693 20.95C10.6893 21.35 11.2493 21.68 11.8593 21.93L12.2393 24.58C12.2693 24.82 12.4793 25 12.7293 25H16.7293C16.9793 25 17.1893 24.82 17.2193 24.58L17.5993 21.93C18.2093 21.68 18.7693 21.34 19.2893 20.95L21.7793 21.95C22.0093 22.04 22.2693 21.95 22.3893 21.73L24.3893 18.27C24.5093 18.05 24.4593 17.78 24.2693 17.63L22.1593 15.98ZM14.7293 18.5C12.7993 18.5 11.2293 16.93 11.2293 15C11.2293 13.07 12.7993 11.5 14.7293 11.5C16.6593 11.5 18.2293 13.07 18.2293 15C18.2293 16.93 16.6593 18.5 14.7293 18.5Z",
-                                            fill: "white"
-                                          }
-                                        })
-                                      ]
-                                    ),
-                                    _vm._v(" "),
-                                    _c(
-                                      "g",
-                                      { attrs: { mask: "url(#settings)" } },
-                                      [
-                                        _c("rect", {
-                                          attrs: {
-                                            x: "2",
-                                            y: "2",
-                                            width: "26",
-                                            height: "26",
-                                            fill: "#D8D8D8"
-                                          }
-                                        })
-                                      ]
-                                    )
-                                  ]
-                                )
-                              ])
-                            ]
-                          )
-                        ]
-                      )
-                    ])
-                  ]),
-                  _vm._v(" "),
-                  _c("div", { staticClass: "col-12" }, [
-                    _c(
-                      "div",
-                      { staticClass: "customBorderBottom row py-3 textGrey" },
-                      [
-                        _c("div", { staticClass: "col-2 pr-0" }, [
-                          _c("div", { staticClass: "row" }, [
-                            _vm._m(6),
-                            _vm._v(" "),
-                            _c("div", { staticClass: "col-3 pr-0" }, [
-                              _c("a", { attrs: { href: "" } }, [
-                                _c(
-                                  "svg",
-                                  {
-                                    staticClass: "margingY",
-                                    attrs: {
-                                      width: "24",
-                                      height: "24",
-                                      viewBox: "0 0 24 24",
-                                      fill: "none",
-                                      xmlns: "http://www.w3.org/2000/svg"
-                                    }
-                                  },
-                                  [
-                                    _c(
-                                      "mask",
-                                      {
-                                        attrs: {
-                                          id: "favorites",
-                                          "mask-type": "alpha",
-                                          maskUnits: "userSpaceOnUse",
-                                          x: "5",
-                                          y: "5",
-                                          width: "20",
-                                          height: "19"
-                                        }
-                                      },
-                                      [
-                                        _c("path", {
-                                          attrs: {
-                                            "fill-rule": "evenodd",
-                                            "clip-rule": "evenodd",
-                                            d:
-                                              "M15 20.27L21.18 24L19.54 16.97L25 12.24L17.81 11.63L15 5L12.19 11.63L5 12.24L10.46 16.97L8.82 24L15 20.27Z",
-                                            fill: "white"
-                                          }
-                                        })
-                                      ]
-                                    ),
-                                    _vm._v(" "),
-                                    _c(
-                                      "g",
-                                      { attrs: { mask: "url(#favorites)" } },
-                                      [
-                                        _c("rect", {
-                                          attrs: {
-                                            x: "2",
-                                            y: "2",
-                                            width: "26",
-                                            height: "26",
-                                            fill: "#FEF40A"
-                                          }
-                                        })
-                                      ]
-                                    )
-                                  ]
-                                )
-                              ])
-                            ]),
-                            _vm._v(" "),
-                            _c("div", { staticClass: "col-6 pr-0" })
-                          ])
-                        ]),
-                        _vm._v(" "),
-                        _vm._m(7)
-                      ]
-                    ),
-                    _vm._v(" "),
-                    _c(
-                      "div",
-                      { staticClass: "customBorderBottom row py-3 textGrey" },
-                      [
-                        _c("div", { staticClass: "col-2 pr-0" }, [
-                          _c("div", { staticClass: "row" }, [
-                            _vm._m(8),
-                            _vm._v(" "),
-                            _c("div", { staticClass: "col-3 pr-0" }, [
-                              _c("a", { attrs: { href: "" } }, [
-                                _c(
-                                  "svg",
-                                  {
-                                    staticClass: "margingY",
-                                    attrs: {
-                                      width: "30",
-                                      height: "30",
-                                      viewBox: "0 0 30 30",
-                                      fill: "none",
-                                      xmlns: "http://www.w3.org/2000/svg"
-                                    }
-                                  },
-                                  [
-                                    _c(
-                                      "mask",
-                                      {
-                                        attrs: {
-                                          id: "nonFavorites",
-                                          "mask-type": "alpha",
-                                          maskUnits: "userSpaceOnUse",
-                                          x: "5",
-                                          y: "5",
-                                          width: "20",
-                                          height: "19"
-                                        }
-                                      },
-                                      [
-                                        _c("path", {
-                                          attrs: {
-                                            "fill-rule": "evenodd",
-                                            "clip-rule": "evenodd",
-                                            d:
-                                              "M25 12.24L17.81 11.62L15 5L12.19 11.63L5 12.24L10.46 16.97L8.82 24L15 20.27L21.18 24L19.55 16.97L25 12.24ZM15 18.4L11.24 20.67L12.24 16.39L8.92 13.51L13.3 13.13L15 9.1L16.71 13.14L21.09 13.52L17.77 16.4L18.77 20.68L15 18.4Z",
-                                            fill: "white"
-                                          }
-                                        })
-                                      ]
-                                    ),
-                                    _vm._v(" "),
-                                    _c(
-                                      "g",
-                                      { attrs: { mask: "url(#nonFavorites)" } },
-                                      [
-                                        _c("rect", {
-                                          attrs: {
-                                            x: "2",
-                                            y: "2",
-                                            width: "26",
-                                            height: "26",
-                                            fill: "#D8D8D8"
-                                          }
-                                        })
-                                      ]
-                                    )
-                                  ]
-                                )
-                              ])
-                            ]),
-                            _vm._v(" "),
-                            _vm._m(9)
-                          ])
-                        ]),
-                        _vm._v(" "),
-                        _vm._m(10)
-                      ]
-                    )
-                  ])
-                ])
-              ]
-            )
+                    ],
+                    1
+                  )
+                ]
+              )
+            ])
           ])
         ])
       ])
-    ])
-  ])
+    ],
+    1
+  )
 }
 var staticRenderFns = [
   function() {
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "col-12 text-center" }, [
-      _c("div", { staticClass: "customBorderBottom p-3" }, [
-        _c(
-          "a",
-          {
-            staticClass:
-              "w-100 py-3 btn-primary btn text-uppercase font-12px btnText text-white addContact"
-          },
-          [_vm._v("Добавить контакт")]
-        )
-      ])
-    ])
+    return _c(
+      "div",
+      {
+        staticClass:
+          "col-3 customBorderRight customBorderTop customBorderLeft p-0"
+      },
+      [_c("p", [_vm._v("left nav")])]
+    )
   },
   function() {
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "col-12" }, [
-      _c("div", { staticClass: "customBorderBottom" }, [
-        _c("div", { staticClass: "pl-5 py-3 activeBorder textActive" }, [
-          _vm._v("Контакты")
-        ])
-      ])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "col-12" }, [
-      _c("div", { staticClass: "customBorderBottom" }, [
-        _c("div", { staticClass: "pl-5 py-3" }, [_vm._v("Частые контакты")])
-      ])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "col-12" }, [
-      _c("div", { staticClass: "customBorderBottom" }, [
-        _c("div", { staticClass: "pl-5 py-3" }, [_vm._v("Избранные")])
-      ])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "col-12" }, [
-      _c("div", { staticClass: "customBorderBottom pl-5 py-3" }, [
-        _vm._v("Написать")
-      ])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "textGrey" }, [
-      _c("span", { staticClass: "font-13px " }, [_vm._v("1-100 из 348")])
+    return _c("div", { staticClass: "col-12 p-0 customBorderBottom" }, [
+      _c("p", [_vm._v("tools")])
     ])
   },
   function() {
@@ -39388,6 +38402,37 @@ var staticRenderFns = [
         _vm._v("Написать")
       ])
     ])
+  }
+]
+render._withStripped = true
+
+
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/pages/edit/Edit.vue?vue&type=template&id=c65ba5ee&scoped=true&":
+/*!******************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/pages/edit/Edit.vue?vue&type=template&id=c65ba5ee&scoped=true& ***!
+  \******************************************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _vm._m(0)
+}
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", [_c("h1", [_vm._v("Edit 123")])])
   }
 ]
 render._withStripped = true
@@ -55832,6 +54877,75 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./resources/js/components/pages/edit/Edit.vue":
+/*!*****************************************************!*\
+  !*** ./resources/js/components/pages/edit/Edit.vue ***!
+  \*****************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _Edit_vue_vue_type_template_id_c65ba5ee_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Edit.vue?vue&type=template&id=c65ba5ee&scoped=true& */ "./resources/js/components/pages/edit/Edit.vue?vue&type=template&id=c65ba5ee&scoped=true&");
+/* harmony import */ var _Edit_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Edit.vue?vue&type=script&lang=js& */ "./resources/js/components/pages/edit/Edit.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _Edit_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _Edit_vue_vue_type_template_id_c65ba5ee_scoped_true___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _Edit_vue_vue_type_template_id_c65ba5ee_scoped_true___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  false,
+  null,
+  "c65ba5ee",
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/components/pages/edit/Edit.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/components/pages/edit/Edit.vue?vue&type=script&lang=js&":
+/*!******************************************************************************!*\
+  !*** ./resources/js/components/pages/edit/Edit.vue?vue&type=script&lang=js& ***!
+  \******************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Edit_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/babel-loader/lib??ref--4-0!../../../../../node_modules/vue-loader/lib??vue-loader-options!./Edit.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/pages/edit/Edit.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Edit_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/js/components/pages/edit/Edit.vue?vue&type=template&id=c65ba5ee&scoped=true&":
+/*!************************************************************************************************!*\
+  !*** ./resources/js/components/pages/edit/Edit.vue?vue&type=template&id=c65ba5ee&scoped=true& ***!
+  \************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Edit_vue_vue_type_template_id_c65ba5ee_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../../node_modules/vue-loader/lib??vue-loader-options!./Edit.vue?vue&type=template&id=c65ba5ee&scoped=true& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/pages/edit/Edit.vue?vue&type=template&id=c65ba5ee&scoped=true&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Edit_vue_vue_type_template_id_c65ba5ee_scoped_true___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Edit_vue_vue_type_template_id_c65ba5ee_scoped_true___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+
+
+
+/***/ }),
+
 /***/ "./resources/js/components/pages/home/Home.vue":
 /*!*****************************************************!*\
   !*** ./resources/js/components/pages/home/Home.vue ***!
@@ -55936,12 +55050,18 @@ var router = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "routes", function() { return routes; });
+/* harmony import */ var _components_pages_edit_Edit__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../components/pages/edit/Edit */ "./resources/js/components/pages/edit/Edit.vue");
+
 window.Vue = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.common.js");
 var Home = Vue.component('main-page-moder', __webpack_require__(/*! ../components/pages/home/Home.vue */ "./resources/js/components/pages/home/Home.vue")["default"]);
 var routes = [{
   path: '/',
   component: Home,
   name: 'Home'
+}, {
+  path: '/edit',
+  component: _components_pages_edit_Edit__WEBPACK_IMPORTED_MODULE_0__["default"],
+  name: "Edit"
 }];
 
 /***/ }),

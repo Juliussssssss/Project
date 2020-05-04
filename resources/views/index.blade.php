@@ -9,6 +9,7 @@
     {{--    <link rel="stylesheet" type="text/css" href="{{ asset('css/all.css') }}" />--}}
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="{{asset('css/app.css')}}">
+    <link rel="stylesheet" href="{{asset('css/all.css')}}">
     {{--    <link rel="stylesheet" type="text/css" href="{{ asset('css/fonts.css') }}" />--}}
 </head>
 
@@ -20,4 +21,3 @@
 </body>
 </html>
 
-</html>
