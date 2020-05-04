@@ -12,10 +12,6 @@
                         </div>
                         <div class="col-9 customBorderBottom customBorderRight customBorderTop">
                             <div class="row">
-                                <div class="col-12 p-0 customBorderBottom">
-                                    <!-- tools here -->
-                                    <tools></tools>
-                                </div>
                                 <router-view></router-view>
                             </div>
                         </div>

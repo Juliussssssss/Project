@@ -1,9 +1,9 @@
 <template>
-    <div>
-        <div class="col-9">
+
+        <div class="col-12 pl-5">
             <div class="row">
                 <div class="col-12 customBorderBottom py-4 d-flex align-items-center">
-                    <div class="imageUpload mx-4">
+                    <div class="imageUpload">
                         <img src="/girl.jpg" width="60" height="60" alt="">
                     </div>
                     <div class="d-flex font-12px text-center font-16px pl-4 align-items-center">
@@ -64,7 +64,7 @@
                 <fields></fields>
             </div>
         </div>
-    </div>
+
 </template>
 
 <script>
@@ -79,5 +79,7 @@
 </script>
 
 <style>
-
+    .imageUpload > img {
+        border-radius: 50%;
+    }
 </style>
