@@ -68,8 +68,12 @@
 </template>
 
 <script>
+    import fields from "./fields/Fields";
     export default {
-        name: "Edit"
+        name: "Edit",
+        components: {
+            fields
+        }
     }
 </script>
 
