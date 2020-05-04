@@ -37,13 +37,13 @@ class StoreRequest extends FormRequest
             'work' => 'max:255',
             'position' => 'max:255',
             'work_email' => 'max:255',
-            'comment' => 'max:255',
-            'avatar' => 'max:255',
+            'comment' => 'max:2000',
+            'avatar' => 'nullable|image|max:2056',
             'user_id' => 'integer',
             'group_id' => 'nullable|integer',
             'favorites' => [
                 'required', Rule::in([
-                    '0','1'
+                    true,false
                 ])
             ]
         ];

@@ -25,9 +25,9 @@ class CreateContactsTable extends Migration
             $table->string('city')->nullable();
             $table->string('work')->nullable();
             $table->string('position')->nullable();
-            $table->string('favorites',1);
+            $table->boolean('favorites',1);
             $table->string('work_email')->nullable();
-            $table->string('comment')->nullable();
+            $table->text('comment')->nullable();
             $table->string('avatar')->nullable();
             $table->unsignedBigInteger('user_id');
             $table->unsignedBigInteger('group_id')->nullable();

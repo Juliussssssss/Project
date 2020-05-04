@@ -5,8 +5,21 @@
 use App\Model;
 use Faker\Generator as Faker;
 
-$factory->define(Model::class, function (Faker $faker) {
+$factory->define(\App\Models\Contact::class, function (Faker $faker) {
     return [
-        //
+        'first_name' => $faker->firstName,
+        'middle_name' => $faker->name,
+        'last_name' => $faker->lastName,
+        'email' => $faker->unique()->safeEmail,
+        'number' => $faker->phoneNumber,
+        'site' => $faker->url,
+        'birthday' => $faker->dateTime,
+        'city' => $faker->city,
+        'work' => $faker->company,
+        'position' => $faker->word,
+        'favorites' => $faker->boolean,
+        'work_email' => $faker->companyEmail,
+        'comment' => $faker->text,
+        'avatar' => $faker->imageUrl(),
     ];
 });
