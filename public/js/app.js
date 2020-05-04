@@ -2118,7 +2118,14 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 /* harmony default export */ __webpack_exports__["default"] = ({
-  name: "Contacts"
+  name: "Contacts",
+  mounted: function mounted() {
+    axios.post('/contacts/getContacts').then(function (response) {
+      console.log(response);
+    })["catch"](function (error) {
+      console.log('not ok');
+    });
+  }
 });
 
 /***/ }),

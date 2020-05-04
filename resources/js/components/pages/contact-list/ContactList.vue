@@ -84,7 +84,16 @@
 
 <script>
     export default {
-        name: "Contacts"
+        name: "Contacts",
+        mounted() {
+            axios.post('/contacts/getContacts')
+                .then(function (response) {
+                    console.log(response)
+                })
+                .catch(function (error) {
+                    console.log('not ok')
+                });
+        }
     }
 </script>
 

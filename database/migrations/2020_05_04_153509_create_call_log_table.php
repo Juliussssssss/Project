@@ -13,7 +13,7 @@ class CreateCallLogTable extends Migration
      */
     public function up()
     {
-        Schema::table('call_log', function (Blueprint $table) {
+        Schema::create('call_log', function (Blueprint $table) {
             $table->id();
             $table->timestamp('created_at');
             $table->unsignedBigInteger('contact_id');
@@ -35,8 +35,6 @@ class CreateCallLogTable extends Migration
      */
     public function down()
     {
-        Schema::table('call_log', function (Blueprint $table) {
-            //
-        });
+        Schema::dropIfExists('call_log');
     }
 }

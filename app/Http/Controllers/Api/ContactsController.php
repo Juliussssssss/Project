@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\Contact\StoreRequest;
 use App\Http\Requests\Contact\UpdateRequest;
 use App\Models\Contact;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 
 class ContactsController extends Controller
@@ -13,9 +14,11 @@ class ContactsController extends Controller
 
     public function index()
     {
-        $posts = DB::table('posts')->get();
-        dd(__METHOD__);
-        return json_encode($posts);
+        $contacts = DB::table('contacts')
+            ->where('user_id', auth()->user()->id)
+            ->get();
+
+        return $contacts;
     }
 
     public function store(StoreRequest $request)
