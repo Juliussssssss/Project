@@ -1,6 +1,5 @@
 <!doctype html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport"
@@ -19,5 +18,6 @@
 </div>
 <script src="{{asset('js/app.js')}}"></script>
 </body>
+</html>
 
 </html>

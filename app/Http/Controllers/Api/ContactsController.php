@@ -15,7 +15,7 @@ class ContactsController extends Controller
     {
         $posts = DB::table('posts')->get();
         dd(__METHOD__);
-        return json_encode();
+        return json_encode($posts);
     }
 
     public function store(StoreRequest $request)
