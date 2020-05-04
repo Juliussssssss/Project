@@ -1,7 +1,5 @@
 <template>
     <div>
-        <!--        <router-view></router-view>-->
-        <router-link tag="a" to="/edit">Click</router-link>
         <div class="container mt-5">
             <div class="row">
                 <div class="col-12 bg-white">
