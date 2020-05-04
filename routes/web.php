@@ -7,5 +7,7 @@ Route::get('/', function () {
 })->middleware('auth');
 
 Route::get('/auth/redirect', ('Auth\AuthController@authorization'))->name('login');
-Route::get('/auth/callback',('Auth\AuthController@authorizationCallback'));
+Route::get('/auth/callback', ('Auth\AuthController@authorizationCallback'));
 Route::post('/logout', 'Auth\AuthController@logout')->middleware('auth');
+
+Route::get('/contacts/{any}', ('Api\ContactsController@index'))->middleware('auth');

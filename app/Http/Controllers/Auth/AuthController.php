@@ -66,7 +66,6 @@ class AuthController extends Controller
             );
 
             $Rres = Auth::login($user);
-
             return response()->redirectTo(RouteServiceProvider::HOME);
         }
     }

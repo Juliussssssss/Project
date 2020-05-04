@@ -13,7 +13,9 @@ class ContactsController extends Controller
 
     public function index()
     {
-        //
+        $posts = DB::table('posts')->get();
+        dd(__METHOD__);
+        return json_encode();
     }
 
     public function store(StoreRequest $request)
