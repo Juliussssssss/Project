@@ -16,8 +16,7 @@ class AuthController extends Controller
         $query = http_build_query([
             'client_id' =>  env('CLIENT_ID'),
             'redirect_uri' => env('REDIRECT_URI'),
-            'response_type' => 'code',
-            'scope' => '',
+            'response_type' => 'code'
         ]);
 
         return redirect(env('AUTHORIZATION_URL').$query);
