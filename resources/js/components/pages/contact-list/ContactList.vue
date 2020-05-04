@@ -1,10 +1,12 @@
 <template>
-
+    <div>
+        qwerdtfgyhjk
+    </div>
 </template>
 
 <script>
     export default {
-        name: "ContactList"
+        name: "Contacts"
     }
 </script>
 
