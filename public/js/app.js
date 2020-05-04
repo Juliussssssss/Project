@@ -2167,17 +2167,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "App"
 });
@@ -6819,140 +6808,6 @@ __webpack_require__.r(__webpack_exports__);
 
 })));
 //# sourceMappingURL=bootstrap.js.map
-
-
-/***/ }),
-
-/***/ "./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/App.vue?vue&type=style&index=0&lang=css&":
-/*!*********************************************************************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/css-loader??ref--6-1!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src??ref--6-2!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/App.vue?vue&type=style&index=0&lang=css& ***!
-  \*********************************************************************************************************************************************************************************************************************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-var escape = __webpack_require__(/*! ../../../node_modules/css-loader/lib/url/escape.js */ "./node_modules/css-loader/lib/url/escape.js");
-exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loader/lib/css-base.js */ "./node_modules/css-loader/lib/css-base.js")(false);
-// imports
-
-
-// module
-exports.push([module.i, "\n<style scoped>\r\n    .body {\r\n        font-family: 'Roboto';\r\n        font-style: normal;\n}\n.font-12px {\r\n        font-size: 12px;\n}\n.font-13px {\r\n        font-size: 13px;\n}\n.addContact {\r\n        font-weight: bold;\n}\n.pageBackground {\r\n        background: #FAFAFA;\n}\n.actionButtons:hover {\r\n        fill: #666666;\n}\n.search {\r\n        border: 0px;\n}\n.textGrey {\r\n        color: #999999;\n}\n::-webkit-input-placeholder {\r\n        color: #cccccc;\r\n        font-weight: normal;\n}\n::-moz-placeholder {\r\n        color: #cccccc;\r\n        font-weight: normal;\n}\n:-ms-input-placeholder {\r\n        color: #cccccc;\r\n        font-weight: normal;\n}\n::-ms-input-placeholder {\r\n        color: #cccccc;\r\n        font-weight: normal;\n}\n::placeholder {\r\n        color: #cccccc;\r\n        font-weight: normal;\n}\n.textActive {\r\n        color: #666666;\n}\n.customBorderRight {\r\n        border-right: solid 2px;\r\n        border-color: #F5F5F5;\n}\n.fixPanel {\r\n        margin: 2.8px 0px 2.8px 0px;\n}\n.activeBorder {\r\n        border-left: solid 2px;\r\n        border-color: #1875F0;\n}\n.customBorderTop {\r\n        border-top: solid 2px;\r\n        border-color: #F5F5F5;\n}\n.customBorderBottom {\r\n        border-bottom: solid 2px;\r\n        border-color: #F5F5F5;\n}\n.customBorderLeft {\r\n        border-left: solid 2px;\r\n        border-color: #F5F5F5;\n}\n.margingY {\r\n        margin-top: -4px;\r\n        margin-bottom: -4px;\r\n        top: 3px\n}\n.contactPhoto {\r\n        height: 40px;\r\n        width: 40px;\r\n        border-radius: 100px;\r\n        margin-top: -10px;\r\n        margin-bottom: -10px;\r\n        -o-object-fit: cover;\r\n           object-fit: cover;\n}\r\n    /*custom checkbox*/\ninput[type=\"checkbox\"] {\r\n        display: none;\n}\n.customLabel::before {\r\n        content: '';\r\n        display: inline-block;\r\n        width: 20px;\r\n        height: 20px;\r\n        cursor: pointer;\r\n        background-color: #FFFFFF;\r\n        border: 2px solid #E6E6E6;\r\n        box-sizing: border-box;\r\n        border-radius: 4px;\r\n        vertical-align: middle;\n}\n@font-face {\r\n        font-family: \"Roboto\";\r\n        src: url(" + escape(__webpack_require__(!(function webpackMissingModule() { var e = new Error("Cannot find module './fonts/Roboto-Medium.ttf'"); e.code = 'MODULE_NOT_FOUND'; throw e; }()))) + ") format(\"truetype\");\r\n        font-style: normal;\r\n        font-weight: normal;\n}\n@font-face {\r\n        font-family: \"Roboto\";\r\n        src: url(" + escape(__webpack_require__(!(function webpackMissingModule() { var e = new Error("Cannot find module './fonts/Roboto-bold.ttf'"); e.code = 'MODULE_NOT_FOUND'; throw e; }()))) + ") format(\"truetype\");\r\n        font-style: normal;\r\n        font-weight: bold;\n}\n.topmenu > div:after {\r\n        content: \"\";\r\n        position: absolute;\n}\n.submenu {\r\n        position: absolute;\r\n        left: 300px;\r\n        top: 0px;\r\n        width: 300px;\r\n        box-shadow: 0 0 10px rgba(0,0,0,0.1);\r\n        background: #fff;\r\n        border-radius: 6px;\r\n        z-index: 5;\r\n        visibility: hidden;\r\n        opacity: 0;\r\n        transform: scale(.8);\r\n        transition: .4s ease-in-out;\n}\n.submenu div {\r\n        border-radius: 6px;\n}\n.topmenu > div:hover .submenu {\r\n        visibility: visible;\r\n        opacity: 1;\r\n        transform: scale(1);\n}\r\n", ""]);
-
-// exports
-
-
-/***/ }),
-
-/***/ "./node_modules/css-loader/lib/css-base.js":
-/*!*************************************************!*\
-  !*** ./node_modules/css-loader/lib/css-base.js ***!
-  \*************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-/*
-	MIT License http://www.opensource.org/licenses/mit-license.php
-	Author Tobias Koppers @sokra
-*/
-// css base code, injected by the css-loader
-module.exports = function(useSourceMap) {
-	var list = [];
-
-	// return the list of modules as css string
-	list.toString = function toString() {
-		return this.map(function (item) {
-			var content = cssWithMappingToString(item, useSourceMap);
-			if(item[2]) {
-				return "@media " + item[2] + "{" + content + "}";
-			} else {
-				return content;
-			}
-		}).join("");
-	};
-
-	// import a list of modules into the list
-	list.i = function(modules, mediaQuery) {
-		if(typeof modules === "string")
-			modules = [[null, modules, ""]];
-		var alreadyImportedModules = {};
-		for(var i = 0; i < this.length; i++) {
-			var id = this[i][0];
-			if(typeof id === "number")
-				alreadyImportedModules[id] = true;
-		}
-		for(i = 0; i < modules.length; i++) {
-			var item = modules[i];
-			// skip already imported module
-			// this implementation is not 100% perfect for weird media query combinations
-			//  when a module is imported multiple times with different media queries.
-			//  I hope this will never occur (Hey this way we have smaller bundles)
-			if(typeof item[0] !== "number" || !alreadyImportedModules[item[0]]) {
-				if(mediaQuery && !item[2]) {
-					item[2] = mediaQuery;
-				} else if(mediaQuery) {
-					item[2] = "(" + item[2] + ") and (" + mediaQuery + ")";
-				}
-				list.push(item);
-			}
-		}
-	};
-	return list;
-};
-
-function cssWithMappingToString(item, useSourceMap) {
-	var content = item[1] || '';
-	var cssMapping = item[3];
-	if (!cssMapping) {
-		return content;
-	}
-
-	if (useSourceMap && typeof btoa === 'function') {
-		var sourceMapping = toComment(cssMapping);
-		var sourceURLs = cssMapping.sources.map(function (source) {
-			return '/*# sourceURL=' + cssMapping.sourceRoot + source + ' */'
-		});
-
-		return [content].concat(sourceURLs).concat([sourceMapping]).join('\n');
-	}
-
-	return [content].join('\n');
-}
-
-// Adapted from convert-source-map (MIT)
-function toComment(sourceMap) {
-	// eslint-disable-next-line no-undef
-	var base64 = btoa(unescape(encodeURIComponent(JSON.stringify(sourceMap))));
-	var data = 'sourceMappingURL=data:application/json;charset=utf-8;base64,' + base64;
-
-	return '/*# ' + data + ' */';
-}
-
-
-/***/ }),
-
-/***/ "./node_modules/css-loader/lib/url/escape.js":
-/*!***************************************************!*\
-  !*** ./node_modules/css-loader/lib/url/escape.js ***!
-  \***************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-module.exports = function escape(url) {
-    if (typeof url !== 'string') {
-        return url
-    }
-    // If url is already wrapped in quotes, remove them
-    if (/^['"].*['"]$/.test(url)) {
-        url = url.slice(1, -1);
-    }
-    // Should url be wrapped?
-    // See https://drafts.csswg.org/css-values-3/#urls
-    if (/["'() \t\n]/.test(url)) {
-        return '"' + url.replace(/"/g, '\\"').replace(/\n/g, '\\n') + '"'
-    }
-
-    return url
-}
 
 
 /***/ }),
@@ -37980,545 +37835,6 @@ process.umask = function() { return 0; };
 
 /***/ }),
 
-/***/ "./node_modules/style-loader/index.js!./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/App.vue?vue&type=style&index=0&lang=css&":
-/*!*************************************************************************************************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/style-loader!./node_modules/css-loader??ref--6-1!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src??ref--6-2!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/App.vue?vue&type=style&index=0&lang=css& ***!
-  \*************************************************************************************************************************************************************************************************************************************************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-
-var content = __webpack_require__(/*! !../../../node_modules/css-loader??ref--6-1!../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../node_modules/postcss-loader/src??ref--6-2!../../../node_modules/vue-loader/lib??vue-loader-options!./App.vue?vue&type=style&index=0&lang=css& */ "./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/App.vue?vue&type=style&index=0&lang=css&");
-
-if(typeof content === 'string') content = [[module.i, content, '']];
-
-var transform;
-var insertInto;
-
-
-
-var options = {"hmr":true}
-
-options.transform = transform
-options.insertInto = undefined;
-
-var update = __webpack_require__(/*! ../../../node_modules/style-loader/lib/addStyles.js */ "./node_modules/style-loader/lib/addStyles.js")(content, options);
-
-if(content.locals) module.exports = content.locals;
-
-if(false) {}
-
-/***/ }),
-
-/***/ "./node_modules/style-loader/lib/addStyles.js":
-/*!****************************************************!*\
-  !*** ./node_modules/style-loader/lib/addStyles.js ***!
-  \****************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-/*
-	MIT License http://www.opensource.org/licenses/mit-license.php
-	Author Tobias Koppers @sokra
-*/
-
-var stylesInDom = {};
-
-var	memoize = function (fn) {
-	var memo;
-
-	return function () {
-		if (typeof memo === "undefined") memo = fn.apply(this, arguments);
-		return memo;
-	};
-};
-
-var isOldIE = memoize(function () {
-	// Test for IE <= 9 as proposed by Browserhacks
-	// @see http://browserhacks.com/#hack-e71d8692f65334173fee715c222cb805
-	// Tests for existence of standard globals is to allow style-loader
-	// to operate correctly into non-standard environments
-	// @see https://github.com/webpack-contrib/style-loader/issues/177
-	return window && document && document.all && !window.atob;
-});
-
-var getTarget = function (target, parent) {
-  if (parent){
-    return parent.querySelector(target);
-  }
-  return document.querySelector(target);
-};
-
-var getElement = (function (fn) {
-	var memo = {};
-
-	return function(target, parent) {
-                // If passing function in options, then use it for resolve "head" element.
-                // Useful for Shadow Root style i.e
-                // {
-                //   insertInto: function () { return document.querySelector("#foo").shadowRoot }
-                // }
-                if (typeof target === 'function') {
-                        return target();
-                }
-                if (typeof memo[target] === "undefined") {
-			var styleTarget = getTarget.call(this, target, parent);
-			// Special case to return head of iframe instead of iframe itself
-			if (window.HTMLIFrameElement && styleTarget instanceof window.HTMLIFrameElement) {
-				try {
-					// This will throw an exception if access to iframe is blocked
-					// due to cross-origin restrictions
-					styleTarget = styleTarget.contentDocument.head;
-				} catch(e) {
-					styleTarget = null;
-				}
-			}
-			memo[target] = styleTarget;
-		}
-		return memo[target]
-	};
-})();
-
-var singleton = null;
-var	singletonCounter = 0;
-var	stylesInsertedAtTop = [];
-
-var	fixUrls = __webpack_require__(/*! ./urls */ "./node_modules/style-loader/lib/urls.js");
-
-module.exports = function(list, options) {
-	if (typeof DEBUG !== "undefined" && DEBUG) {
-		if (typeof document !== "object") throw new Error("The style-loader cannot be used in a non-browser environment");
-	}
-
-	options = options || {};
-
-	options.attrs = typeof options.attrs === "object" ? options.attrs : {};
-
-	// Force single-tag solution on IE6-9, which has a hard limit on the # of <style>
-	// tags it will allow on a page
-	if (!options.singleton && typeof options.singleton !== "boolean") options.singleton = isOldIE();
-
-	// By default, add <style> tags to the <head> element
-        if (!options.insertInto) options.insertInto = "head";
-
-	// By default, add <style> tags to the bottom of the target
-	if (!options.insertAt) options.insertAt = "bottom";
-
-	var styles = listToStyles(list, options);
-
-	addStylesToDom(styles, options);
-
-	return function update (newList) {
-		var mayRemove = [];
-
-		for (var i = 0; i < styles.length; i++) {
-			var item = styles[i];
-			var domStyle = stylesInDom[item.id];
-
-			domStyle.refs--;
-			mayRemove.push(domStyle);
-		}
-
-		if(newList) {
-			var newStyles = listToStyles(newList, options);
-			addStylesToDom(newStyles, options);
-		}
-
-		for (var i = 0; i < mayRemove.length; i++) {
-			var domStyle = mayRemove[i];
-
-			if(domStyle.refs === 0) {
-				for (var j = 0; j < domStyle.parts.length; j++) domStyle.parts[j]();
-
-				delete stylesInDom[domStyle.id];
-			}
-		}
-	};
-};
-
-function addStylesToDom (styles, options) {
-	for (var i = 0; i < styles.length; i++) {
-		var item = styles[i];
-		var domStyle = stylesInDom[item.id];
-
-		if(domStyle) {
-			domStyle.refs++;
-
-			for(var j = 0; j < domStyle.parts.length; j++) {
-				domStyle.parts[j](item.parts[j]);
-			}
-
-			for(; j < item.parts.length; j++) {
-				domStyle.parts.push(addStyle(item.parts[j], options));
-			}
-		} else {
-			var parts = [];
-
-			for(var j = 0; j < item.parts.length; j++) {
-				parts.push(addStyle(item.parts[j], options));
-			}
-
-			stylesInDom[item.id] = {id: item.id, refs: 1, parts: parts};
-		}
-	}
-}
-
-function listToStyles (list, options) {
-	var styles = [];
-	var newStyles = {};
-
-	for (var i = 0; i < list.length; i++) {
-		var item = list[i];
-		var id = options.base ? item[0] + options.base : item[0];
-		var css = item[1];
-		var media = item[2];
-		var sourceMap = item[3];
-		var part = {css: css, media: media, sourceMap: sourceMap};
-
-		if(!newStyles[id]) styles.push(newStyles[id] = {id: id, parts: [part]});
-		else newStyles[id].parts.push(part);
-	}
-
-	return styles;
-}
-
-function insertStyleElement (options, style) {
-	var target = getElement(options.insertInto)
-
-	if (!target) {
-		throw new Error("Couldn't find a style target. This probably means that the value for the 'insertInto' parameter is invalid.");
-	}
-
-	var lastStyleElementInsertedAtTop = stylesInsertedAtTop[stylesInsertedAtTop.length - 1];
-
-	if (options.insertAt === "top") {
-		if (!lastStyleElementInsertedAtTop) {
-			target.insertBefore(style, target.firstChild);
-		} else if (lastStyleElementInsertedAtTop.nextSibling) {
-			target.insertBefore(style, lastStyleElementInsertedAtTop.nextSibling);
-		} else {
-			target.appendChild(style);
-		}
-		stylesInsertedAtTop.push(style);
-	} else if (options.insertAt === "bottom") {
-		target.appendChild(style);
-	} else if (typeof options.insertAt === "object" && options.insertAt.before) {
-		var nextSibling = getElement(options.insertAt.before, target);
-		target.insertBefore(style, nextSibling);
-	} else {
-		throw new Error("[Style Loader]\n\n Invalid value for parameter 'insertAt' ('options.insertAt') found.\n Must be 'top', 'bottom', or Object.\n (https://github.com/webpack-contrib/style-loader#insertat)\n");
-	}
-}
-
-function removeStyleElement (style) {
-	if (style.parentNode === null) return false;
-	style.parentNode.removeChild(style);
-
-	var idx = stylesInsertedAtTop.indexOf(style);
-	if(idx >= 0) {
-		stylesInsertedAtTop.splice(idx, 1);
-	}
-}
-
-function createStyleElement (options) {
-	var style = document.createElement("style");
-
-	if(options.attrs.type === undefined) {
-		options.attrs.type = "text/css";
-	}
-
-	if(options.attrs.nonce === undefined) {
-		var nonce = getNonce();
-		if (nonce) {
-			options.attrs.nonce = nonce;
-		}
-	}
-
-	addAttrs(style, options.attrs);
-	insertStyleElement(options, style);
-
-	return style;
-}
-
-function createLinkElement (options) {
-	var link = document.createElement("link");
-
-	if(options.attrs.type === undefined) {
-		options.attrs.type = "text/css";
-	}
-	options.attrs.rel = "stylesheet";
-
-	addAttrs(link, options.attrs);
-	insertStyleElement(options, link);
-
-	return link;
-}
-
-function addAttrs (el, attrs) {
-	Object.keys(attrs).forEach(function (key) {
-		el.setAttribute(key, attrs[key]);
-	});
-}
-
-function getNonce() {
-	if (false) {}
-
-	return __webpack_require__.nc;
-}
-
-function addStyle (obj, options) {
-	var style, update, remove, result;
-
-	// If a transform function was defined, run it on the css
-	if (options.transform && obj.css) {
-	    result = typeof options.transform === 'function'
-		 ? options.transform(obj.css) 
-		 : options.transform.default(obj.css);
-
-	    if (result) {
-	    	// If transform returns a value, use that instead of the original css.
-	    	// This allows running runtime transformations on the css.
-	    	obj.css = result;
-	    } else {
-	    	// If the transform function returns a falsy value, don't add this css.
-	    	// This allows conditional loading of css
-	    	return function() {
-	    		// noop
-	    	};
-	    }
-	}
-
-	if (options.singleton) {
-		var styleIndex = singletonCounter++;
-
-		style = singleton || (singleton = createStyleElement(options));
-
-		update = applyToSingletonTag.bind(null, style, styleIndex, false);
-		remove = applyToSingletonTag.bind(null, style, styleIndex, true);
-
-	} else if (
-		obj.sourceMap &&
-		typeof URL === "function" &&
-		typeof URL.createObjectURL === "function" &&
-		typeof URL.revokeObjectURL === "function" &&
-		typeof Blob === "function" &&
-		typeof btoa === "function"
-	) {
-		style = createLinkElement(options);
-		update = updateLink.bind(null, style, options);
-		remove = function () {
-			removeStyleElement(style);
-
-			if(style.href) URL.revokeObjectURL(style.href);
-		};
-	} else {
-		style = createStyleElement(options);
-		update = applyToTag.bind(null, style);
-		remove = function () {
-			removeStyleElement(style);
-		};
-	}
-
-	update(obj);
-
-	return function updateStyle (newObj) {
-		if (newObj) {
-			if (
-				newObj.css === obj.css &&
-				newObj.media === obj.media &&
-				newObj.sourceMap === obj.sourceMap
-			) {
-				return;
-			}
-
-			update(obj = newObj);
-		} else {
-			remove();
-		}
-	};
-}
-
-var replaceText = (function () {
-	var textStore = [];
-
-	return function (index, replacement) {
-		textStore[index] = replacement;
-
-		return textStore.filter(Boolean).join('\n');
-	};
-})();
-
-function applyToSingletonTag (style, index, remove, obj) {
-	var css = remove ? "" : obj.css;
-
-	if (style.styleSheet) {
-		style.styleSheet.cssText = replaceText(index, css);
-	} else {
-		var cssNode = document.createTextNode(css);
-		var childNodes = style.childNodes;
-
-		if (childNodes[index]) style.removeChild(childNodes[index]);
-
-		if (childNodes.length) {
-			style.insertBefore(cssNode, childNodes[index]);
-		} else {
-			style.appendChild(cssNode);
-		}
-	}
-}
-
-function applyToTag (style, obj) {
-	var css = obj.css;
-	var media = obj.media;
-
-	if(media) {
-		style.setAttribute("media", media)
-	}
-
-	if(style.styleSheet) {
-		style.styleSheet.cssText = css;
-	} else {
-		while(style.firstChild) {
-			style.removeChild(style.firstChild);
-		}
-
-		style.appendChild(document.createTextNode(css));
-	}
-}
-
-function updateLink (link, options, obj) {
-	var css = obj.css;
-	var sourceMap = obj.sourceMap;
-
-	/*
-		If convertToAbsoluteUrls isn't defined, but sourcemaps are enabled
-		and there is no publicPath defined then lets turn convertToAbsoluteUrls
-		on by default.  Otherwise default to the convertToAbsoluteUrls option
-		directly
-	*/
-	var autoFixUrls = options.convertToAbsoluteUrls === undefined && sourceMap;
-
-	if (options.convertToAbsoluteUrls || autoFixUrls) {
-		css = fixUrls(css);
-	}
-
-	if (sourceMap) {
-		// http://stackoverflow.com/a/26603875
-		css += "\n/*# sourceMappingURL=data:application/json;base64," + btoa(unescape(encodeURIComponent(JSON.stringify(sourceMap)))) + " */";
-	}
-
-	var blob = new Blob([css], { type: "text/css" });
-
-	var oldSrc = link.href;
-
-	link.href = URL.createObjectURL(blob);
-
-	if(oldSrc) URL.revokeObjectURL(oldSrc);
-}
-
-
-/***/ }),
-
-/***/ "./node_modules/style-loader/lib/urls.js":
-/*!***********************************************!*\
-  !*** ./node_modules/style-loader/lib/urls.js ***!
-  \***********************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-
-/**
- * When source maps are enabled, `style-loader` uses a link element with a data-uri to
- * embed the css on the page. This breaks all relative urls because now they are relative to a
- * bundle instead of the current page.
- *
- * One solution is to only use full urls, but that may be impossible.
- *
- * Instead, this function "fixes" the relative urls to be absolute according to the current page location.
- *
- * A rudimentary test suite is located at `test/fixUrls.js` and can be run via the `npm test` command.
- *
- */
-
-module.exports = function (css) {
-  // get current location
-  var location = typeof window !== "undefined" && window.location;
-
-  if (!location) {
-    throw new Error("fixUrls requires window.location");
-  }
-
-	// blank or null?
-	if (!css || typeof css !== "string") {
-	  return css;
-  }
-
-  var baseUrl = location.protocol + "//" + location.host;
-  var currentDir = baseUrl + location.pathname.replace(/\/[^\/]*$/, "/");
-
-	// convert each url(...)
-	/*
-	This regular expression is just a way to recursively match brackets within
-	a string.
-
-	 /url\s*\(  = Match on the word "url" with any whitespace after it and then a parens
-	   (  = Start a capturing group
-	     (?:  = Start a non-capturing group
-	         [^)(]  = Match anything that isn't a parentheses
-	         |  = OR
-	         \(  = Match a start parentheses
-	             (?:  = Start another non-capturing groups
-	                 [^)(]+  = Match anything that isn't a parentheses
-	                 |  = OR
-	                 \(  = Match a start parentheses
-	                     [^)(]*  = Match anything that isn't a parentheses
-	                 \)  = Match a end parentheses
-	             )  = End Group
-              *\) = Match anything and then a close parens
-          )  = Close non-capturing group
-          *  = Match anything
-       )  = Close capturing group
-	 \)  = Match a close parens
-
-	 /gi  = Get all matches, not the first.  Be case insensitive.
-	 */
-	var fixedCss = css.replace(/url\s*\(((?:[^)(]|\((?:[^)(]+|\([^)(]*\))*\))*)\)/gi, function(fullMatch, origUrl) {
-		// strip quotes (if they exist)
-		var unquotedOrigUrl = origUrl
-			.trim()
-			.replace(/^"(.*)"$/, function(o, $1){ return $1; })
-			.replace(/^'(.*)'$/, function(o, $1){ return $1; });
-
-		// already a full url? no change
-		if (/^(#|data:|http:\/\/|https:\/\/|file:\/\/\/|\s*$)/i.test(unquotedOrigUrl)) {
-		  return fullMatch;
-		}
-
-		// convert the url to a full url
-		var newUrl;
-
-		if (unquotedOrigUrl.indexOf("//") === 0) {
-		  	//TODO: should we add protocol?
-			newUrl = unquotedOrigUrl;
-		} else if (unquotedOrigUrl.indexOf("/") === 0) {
-			// path should be relative to the base url
-			newUrl = baseUrl + unquotedOrigUrl; // already starts with '/'
-		} else {
-			// path should be relative to current directory
-			newUrl = currentDir + unquotedOrigUrl.replace(/^\.\//, ""); // Strip leading './'
-		}
-
-		// send back the fixed url(...)
-		return "url(" + JSON.stringify(newUrl) + ")";
-	});
-
-	// send back the fixed css
-	return fixedCss;
-};
-
-
-/***/ }),
-
 /***/ "./node_modules/timers-browserify/main.js":
 /*!************************************************!*\
   !*** ./node_modules/timers-browserify/main.js ***!
@@ -38605,8 +37921,1188 @@ exports.clearImmediate = (typeof self !== "undefined" && self.clearImmediate) ||
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
-var render = function () {}
-var staticRenderFns = []
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", [
+    _c("div", { staticClass: "container mt-5" }, [
+      _c("div", { staticClass: "row" }, [
+        _c("div", { staticClass: "col-12 bg-white" }, [
+          _c("div", { staticClass: "row" }, [
+            _c(
+              "div",
+              {
+                staticClass:
+                  "col-3 customBorderRight customBorderTop customBorderLeft p-0"
+              },
+              [
+                _c("div", { staticClass: "row textGrey" }, [
+                  _vm._m(0),
+                  _vm._v(" "),
+                  _vm._m(1),
+                  _vm._v(" "),
+                  _vm._m(2),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "col-12" }, [
+                    _c("div", { staticClass: "customBorderBottom topmenu" }, [
+                      _c("div", { staticClass: "pl-5 py-3" }, [
+                        _vm._v(
+                          "Групы\n                                            "
+                        ),
+                        _c("div", { staticClass: "submenu" }, [
+                          _c(
+                            "div",
+                            {
+                              staticClass:
+                                "customBorderBottom p-3 d-flex justify-content-between align-items-center"
+                            },
+                            [
+                              _c("div", [
+                                _c("a", { attrs: { href: "" } }, [
+                                  _c(
+                                    "svg",
+                                    {
+                                      staticClass: "margingY",
+                                      attrs: {
+                                        width: "30",
+                                        height: "30",
+                                        viewBox: "0 0 30 30",
+                                        fill: "none",
+                                        xmlns: "http://www.w3.org/2000/svg"
+                                      }
+                                    },
+                                    [
+                                      _c(
+                                        "mask",
+                                        {
+                                          attrs: {
+                                            id: "group",
+                                            "mask-type": "alpha",
+                                            maskUnits: "userSpaceOnUse",
+                                            x: "4",
+                                            y: "8",
+                                            width: "22",
+                                            height: "14"
+                                          }
+                                        },
+                                        [
+                                          _c("path", {
+                                            attrs: {
+                                              "fill-rule": "evenodd",
+                                              "clip-rule": "evenodd",
+                                              d:
+                                                "M19 14C20.66 14 21.99 12.66 21.99 11C21.99 9.34 20.66 8 19 8C17.34 8 16 9.34 16 11C16 12.66 17.34 14 19 14ZM11 14C12.66 14 13.99 12.66 13.99 11C13.99 9.34 12.66 8 11 8C9.34 8 8 9.34 8 11C8 12.66 9.34 14 11 14ZM11 16C8.67 16 4 17.17 4 19.5V22H18V19.5C18 17.17 13.33 16 11 16ZM19 16C18.71 16 18.38 16.02 18.03 16.05C19.19 16.89 20 18.02 20 19.5V22H26V19.5C26 17.17 21.33 16 19 16Z",
+                                              fill: "white"
+                                            }
+                                          })
+                                        ]
+                                      ),
+                                      _vm._v(" "),
+                                      _c(
+                                        "g",
+                                        { attrs: { mask: "url(#group)" } },
+                                        [
+                                          _c("rect", {
+                                            staticClass: "actionButtons",
+                                            attrs: {
+                                              x: "2",
+                                              y: "2",
+                                              width: "26",
+                                              height: "26",
+                                              fill: "#D8D8D8"
+                                            }
+                                          })
+                                        ]
+                                      )
+                                    ]
+                                  )
+                                ])
+                              ]),
+                              _vm._v(" "),
+                              _c("div", [_vm._v("Отдел дизайна")]),
+                              _vm._v(" "),
+                              _c("div", [
+                                _c("a", { attrs: { href: "" } }, [
+                                  _c(
+                                    "svg",
+                                    {
+                                      staticClass: "margingY",
+                                      attrs: {
+                                        width: "30",
+                                        height: "30",
+                                        viewBox: "0 0 30 30",
+                                        fill: "none",
+                                        xmlns: "http://www.w3.org/2000/svg"
+                                      }
+                                    },
+                                    [
+                                      _c(
+                                        "mask",
+                                        {
+                                          attrs: {
+                                            id: "edit",
+                                            "mask-type": "alpha",
+                                            maskUnits: "userSpaceOnUse",
+                                            x: "6",
+                                            y: "6",
+                                            width: "19",
+                                            height: "19"
+                                          }
+                                        },
+                                        [
+                                          _c("path", {
+                                            attrs: {
+                                              "fill-rule": "evenodd",
+                                              "clip-rule": "evenodd",
+                                              d:
+                                                "M6 20.2525V24.0025H9.75L20.81 12.9425L17.06 9.1925L6 20.2525ZM23.71 10.0425C24.1 9.6525 24.1 9.0225 23.71 8.6325L21.37 6.2925C20.98 5.9025 20.35 5.9025 19.96 6.2925L18.13 8.1225L21.88 11.8725L23.71 10.0425Z",
+                                              fill: "white"
+                                            }
+                                          })
+                                        ]
+                                      ),
+                                      _vm._v(" "),
+                                      _c(
+                                        "g",
+                                        { attrs: { mask: "url(#edit)" } },
+                                        [
+                                          _c("rect", {
+                                            staticClass: "actionButtons",
+                                            attrs: {
+                                              x: "2",
+                                              y: "2",
+                                              width: "26",
+                                              height: "26",
+                                              fill: "#D8D8D8"
+                                            }
+                                          })
+                                        ]
+                                      )
+                                    ]
+                                  )
+                                ]),
+                                _vm._v(" "),
+                                _c("a", { attrs: { href: "" } }, [
+                                  _c(
+                                    "svg",
+                                    {
+                                      staticClass: "margingY",
+                                      attrs: {
+                                        width: "30",
+                                        height: "30",
+                                        viewBox: "0 0 30 30",
+                                        fill: "none",
+                                        xmlns: "http://www.w3.org/2000/svg"
+                                      }
+                                    },
+                                    [
+                                      _c(
+                                        "mask",
+                                        {
+                                          attrs: {
+                                            id: "delete",
+                                            "mask-type": "alpha",
+                                            maskUnits: "userSpaceOnUse",
+                                            x: "8",
+                                            y: "6",
+                                            width: "14",
+                                            height: "18"
+                                          }
+                                        },
+                                        [
+                                          _c("path", {
+                                            attrs: {
+                                              "fill-rule": "evenodd",
+                                              "clip-rule": "evenodd",
+                                              d:
+                                                "M9 22C9 23.1 9.9 24 11 24H19C20.1 24 21 23.1 21 22V10H9V22ZM22 7H18.5L17.5 6H12.5L11.5 7H8V9H22V7Z",
+                                              fill: "white"
+                                            }
+                                          })
+                                        ]
+                                      ),
+                                      _vm._v(" "),
+                                      _c(
+                                        "g",
+                                        { attrs: { mask: "url(#delete)" } },
+                                        [
+                                          _c("rect", {
+                                            staticClass: "actionButtons",
+                                            attrs: {
+                                              x: "2",
+                                              y: "2",
+                                              width: "26",
+                                              height: "26",
+                                              fill: "#D8D8D8"
+                                            }
+                                          })
+                                        ]
+                                      )
+                                    ]
+                                  )
+                                ])
+                              ])
+                            ]
+                          )
+                        ])
+                      ])
+                    ])
+                  ]),
+                  _vm._v(" "),
+                  _vm._m(3),
+                  _vm._v(" "),
+                  _vm._m(4)
+                ])
+              ]
+            ),
+            _vm._v(" "),
+            _c(
+              "div",
+              {
+                staticClass:
+                  "col-9 customBorderBottom customBorderRight customBorderTop"
+              },
+              [
+                _c("div", { staticClass: "row" }, [
+                  _c("div", { staticClass: "col-12 p-0 customBorderBottom" }, [
+                    _c("div", { staticClass: "row fixPanel" }, [
+                      _c(
+                        "div",
+                        {
+                          staticClass:
+                            "col-4 py-4 align-items-center d-flex customBorderRight pl-4"
+                        },
+                        [
+                          _c(
+                            "div",
+                            {
+                              staticClass:
+                                "w-100 d-flex justify-content-between"
+                            },
+                            [
+                              _c(
+                                "svg",
+                                {
+                                  attrs: {
+                                    id: "edit",
+                                    width: "30",
+                                    height: "30",
+                                    viewBox: "0 0 30 30",
+                                    fill: "none",
+                                    xmlns: "http://www.w3.org/2000/svg"
+                                  }
+                                },
+                                [
+                                  _c(
+                                    "mask",
+                                    {
+                                      attrs: {
+                                        id: "mask0",
+                                        "mask-type": "alpha",
+                                        maskUnits: "userSpaceOnUse",
+                                        x: "6",
+                                        y: "6",
+                                        width: "19",
+                                        height: "19"
+                                      }
+                                    },
+                                    [
+                                      _c("path", {
+                                        attrs: {
+                                          "fill-rule": "evenodd",
+                                          "clip-rule": "evenodd",
+                                          d:
+                                            "M6 20.2525V24.0025H9.75L20.81 12.9425L17.06 9.1925L6 20.2525ZM23.71 10.0425C24.1 9.6525 24.1 9.0225 23.71 8.6325L21.37 6.2925C20.98 5.9025 20.35 5.9025 19.96 6.2925L18.13 8.1225L21.88 11.8725L23.71 10.0425Z",
+                                          fill: "white"
+                                        }
+                                      })
+                                    ]
+                                  ),
+                                  _vm._v(" "),
+                                  _c("g", { attrs: { mask: "url(#mask0)" } }, [
+                                    _c("rect", {
+                                      staticClass: "actionButtons",
+                                      attrs: {
+                                        x: "2",
+                                        y: "2",
+                                        width: "26",
+                                        height: "26",
+                                        fill: "#D8D8D8"
+                                      }
+                                    })
+                                  ])
+                                ]
+                              ),
+                              _vm._v(" "),
+                              _c(
+                                "svg",
+                                {
+                                  attrs: {
+                                    id: "groups",
+                                    width: "30",
+                                    height: "30",
+                                    viewBox: "0 0 30 30",
+                                    fill: "none",
+                                    xmlns: "http://www.w3.org/2000/svg"
+                                  }
+                                },
+                                [
+                                  _c(
+                                    "mask",
+                                    {
+                                      attrs: {
+                                        id: "mask1",
+                                        "mask-type": "alpha",
+                                        maskUnits: "userSpaceOnUse",
+                                        x: "4",
+                                        y: "8",
+                                        width: "22",
+                                        height: "14"
+                                      }
+                                    },
+                                    [
+                                      _c("path", {
+                                        attrs: {
+                                          "fill-rule": "evenodd",
+                                          "clip-rule": "evenodd",
+                                          d:
+                                            "M19 14C20.66 14 21.99 12.66 21.99 11C21.99 9.34 20.66 8 19 8C17.34 8 16 9.34 16 11C16 12.66 17.34 14 19 14ZM11 14C12.66 14 13.99 12.66 13.99 11C13.99 9.34 12.66 8 11 8C9.34 8 8 9.34 8 11C8 12.66 9.34 14 11 14ZM11 16C8.67 16 4 17.17 4 19.5V22H18V19.5C18 17.17 13.33 16 11 16ZM19 16C18.71 16 18.38 16.02 18.03 16.05C19.19 16.89 20 18.02 20 19.5V22H26V19.5C26 17.17 21.33 16 19 16Z",
+                                          fill: "white"
+                                        }
+                                      })
+                                    ]
+                                  ),
+                                  _vm._v(" "),
+                                  _c("g", { attrs: { mask: "url(#mask1)" } }, [
+                                    _c("rect", {
+                                      staticClass: "actionButtons",
+                                      attrs: {
+                                        x: "2",
+                                        y: "2",
+                                        width: "26",
+                                        height: "26",
+                                        fill: "#D8D8D8"
+                                      }
+                                    })
+                                  ])
+                                ]
+                              ),
+                              _vm._v(" "),
+                              _c(
+                                "svg",
+                                {
+                                  attrs: {
+                                    id: "import",
+                                    width: "30",
+                                    height: "30",
+                                    viewBox: "0 0 30 30",
+                                    fill: "none",
+                                    xmlns: "http://www.w3.org/2000/svg"
+                                  }
+                                },
+                                [
+                                  _c(
+                                    "mask",
+                                    {
+                                      attrs: {
+                                        id: "mask3",
+                                        "mask-type": "alpha",
+                                        maskUnits: "userSpaceOnUse",
+                                        x: "3",
+                                        y: "7",
+                                        width: "24",
+                                        height: "16"
+                                      }
+                                    },
+                                    [
+                                      _c("path", {
+                                        attrs: {
+                                          "fill-rule": "evenodd",
+                                          "clip-rule": "evenodd",
+                                          d:
+                                            "M22.35 13.04C21.67 9.59 18.64 7 15 7C12.11 7 9.6 8.64 8.35 11.04C5.34 11.36 3 13.91 3 17C3 20.31 5.69 23 9 23H22C24.76 23 27 20.76 27 18C27 15.36 24.95 13.22 22.35 13.04ZM17 16V20H13V16H10L15 11L20 16H17Z",
+                                          fill: "white"
+                                        }
+                                      })
+                                    ]
+                                  ),
+                                  _vm._v(" "),
+                                  _c("g", { attrs: { mask: "url(#mask3)" } }, [
+                                    _c("rect", {
+                                      staticClass: "actionButtons",
+                                      attrs: {
+                                        x: "2",
+                                        y: "2",
+                                        width: "26",
+                                        height: "26",
+                                        fill: "#D8D8D8"
+                                      }
+                                    })
+                                  ])
+                                ]
+                              ),
+                              _vm._v(" "),
+                              _c(
+                                "svg",
+                                {
+                                  attrs: {
+                                    id: "export",
+                                    width: "30",
+                                    height: "30",
+                                    viewBox: "0 0 30 30",
+                                    fill: "none",
+                                    xmlns: "http://www.w3.org/2000/svg"
+                                  }
+                                },
+                                [
+                                  _c(
+                                    "mask",
+                                    {
+                                      attrs: {
+                                        id: "mask4",
+                                        "mask-type": "alpha",
+                                        maskUnits: "userSpaceOnUse",
+                                        x: "3",
+                                        y: "7",
+                                        width: "24",
+                                        height: "16"
+                                      }
+                                    },
+                                    [
+                                      _c("path", {
+                                        attrs: {
+                                          "fill-rule": "evenodd",
+                                          "clip-rule": "evenodd",
+                                          d:
+                                            "M22.35 13.04C21.67 9.59 18.64 7 15 7C12.11 7 9.6 8.64 8.35 11.04C5.34 11.36 3 13.91 3 17C3 20.31 5.69 23 9 23H22C24.76 23 27 20.76 27 18C27 15.36 24.95 13.22 22.35 13.04ZM20 16L15 21L10 16H13V12H17V16H20Z",
+                                          fill: "white"
+                                        }
+                                      })
+                                    ]
+                                  ),
+                                  _vm._v(" "),
+                                  _c("g", { attrs: { mask: "url(#mask4)" } }, [
+                                    _c("rect", {
+                                      staticClass: "actionButtons",
+                                      attrs: {
+                                        x: "2",
+                                        y: "2",
+                                        width: "26",
+                                        height: "26",
+                                        fill: "#D8D8D8"
+                                      }
+                                    })
+                                  ])
+                                ]
+                              ),
+                              _vm._v(" "),
+                              _c(
+                                "svg",
+                                {
+                                  attrs: {
+                                    id: "print",
+                                    width: "30",
+                                    height: "30",
+                                    viewBox: "0 0 30 30",
+                                    fill: "none",
+                                    xmlns: "http://www.w3.org/2000/svg"
+                                  }
+                                },
+                                [
+                                  _c(
+                                    "mask",
+                                    {
+                                      attrs: {
+                                        id: "mask5",
+                                        "mask-type": "alpha",
+                                        maskUnits: "userSpaceOnUse",
+                                        x: "5",
+                                        y: "6",
+                                        width: "20",
+                                        height: "18"
+                                      }
+                                    },
+                                    [
+                                      _c("path", {
+                                        attrs: {
+                                          "fill-rule": "evenodd",
+                                          "clip-rule": "evenodd",
+                                          d:
+                                            "M22 11H8C6.34 11 5 12.34 5 14V20H9V24H21V20H25V14C25 12.34 23.66 11 22 11ZM19 22H11V17H19V22ZM22 15C21.45 15 21 14.55 21 14C21 13.45 21.45 13 22 13C22.55 13 23 13.45 23 14C23 14.55 22.55 15 22 15ZM21 6H9V10H21V6Z",
+                                          fill: "white"
+                                        }
+                                      })
+                                    ]
+                                  ),
+                                  _vm._v(" "),
+                                  _c("g", { attrs: { mask: "url(#mask5)" } }, [
+                                    _c("rect", {
+                                      staticClass: "actionButtons",
+                                      attrs: {
+                                        x: "2",
+                                        y: "2",
+                                        width: "26",
+                                        height: "26",
+                                        fill: "#D8D8D8"
+                                      }
+                                    })
+                                  ])
+                                ]
+                              ),
+                              _vm._v(" "),
+                              _c(
+                                "svg",
+                                {
+                                  attrs: {
+                                    id: "delete",
+                                    width: "30",
+                                    height: "30",
+                                    viewBox: "0 0 30 30",
+                                    fill: "none",
+                                    xmlns: "http://www.w3.org/2000/svg"
+                                  }
+                                },
+                                [
+                                  _c(
+                                    "mask",
+                                    {
+                                      attrs: {
+                                        id: "mask6",
+                                        "mask-type": "alpha",
+                                        maskUnits: "userSpaceOnUse",
+                                        x: "8",
+                                        y: "6",
+                                        width: "14",
+                                        height: "18"
+                                      }
+                                    },
+                                    [
+                                      _c("path", {
+                                        attrs: {
+                                          "fill-rule": "evenodd",
+                                          "clip-rule": "evenodd",
+                                          d:
+                                            "M9 22C9 23.1 9.9 24 11 24H19C20.1 24 21 23.1 21 22V10H9V22ZM22 7H18.5L17.5 6H12.5L11.5 7H8V9H22V7Z",
+                                          fill: "white"
+                                        }
+                                      })
+                                    ]
+                                  ),
+                                  _vm._v(" "),
+                                  _c("g", { attrs: { mask: "url(#mask6)" } }, [
+                                    _c("rect", {
+                                      staticClass: "actionButtons",
+                                      attrs: {
+                                        x: "2",
+                                        y: "2",
+                                        width: "26",
+                                        height: "26",
+                                        fill: "#D8D8D8"
+                                      }
+                                    })
+                                  ])
+                                ]
+                              )
+                            ]
+                          )
+                        ]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "div",
+                        {
+                          staticClass:
+                            "col-4 py-4 align-items-center d-flex customBorderRight justify-content-center"
+                        },
+                        [
+                          _c("div", [
+                            _c("input", {
+                              staticClass: "search",
+                              attrs: { type: "text", placeholder: "Поиск" }
+                            }),
+                            _vm._v(" "),
+                            _c("span", [
+                              _c(
+                                "svg",
+                                {
+                                  attrs: {
+                                    width: "30",
+                                    height: "30",
+                                    viewBox: "0 0 30 30",
+                                    fill: "none",
+                                    xmlns: "http://www.w3.org/2000/svg"
+                                  }
+                                },
+                                [
+                                  _c(
+                                    "mask",
+                                    {
+                                      attrs: {
+                                        id: "mask9",
+                                        "mask-type": "alpha",
+                                        maskUnits: "userSpaceOnUse",
+                                        x: "6",
+                                        y: "6",
+                                        width: "18",
+                                        height: "18"
+                                      }
+                                    },
+                                    [
+                                      _c("path", {
+                                        attrs: {
+                                          "fill-rule": "evenodd",
+                                          "clip-rule": "evenodd",
+                                          d:
+                                            "M18.5 17H17.71L17.43 16.73C18.41 15.59 19 14.11 19 12.5C19 8.91 16.09 6 12.5 6C8.91 6 6 8.91 6 12.5C6 16.09 8.91 19 12.5 19C14.11 19 15.59 18.41 16.73 17.43L17 17.71V18.5L22 23.49L23.49 22L18.5 17ZM12.5 17C10.01 17 8 14.99 8 12.5C8 10.01 10.01 8 12.5 8C14.99 8 17 10.01 17 12.5C17 14.99 14.99 17 12.5 17Z",
+                                          fill: "white"
+                                        }
+                                      })
+                                    ]
+                                  ),
+                                  _vm._v(" "),
+                                  _c("g", { attrs: { mask: "url(#mask9)" } }, [
+                                    _c("rect", {
+                                      attrs: {
+                                        x: "2",
+                                        y: "2",
+                                        width: "26",
+                                        height: "26",
+                                        fill: "#D8D8D8"
+                                      }
+                                    })
+                                  ])
+                                ]
+                              )
+                            ])
+                          ])
+                        ]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "div",
+                        {
+                          staticClass:
+                            "col-4 py-4 align-items-center d-flex justify-content-center"
+                        },
+                        [
+                          _c(
+                            "div",
+                            {
+                              staticClass:
+                                "d-flex w-100 justify-content-between"
+                            },
+                            [
+                              _vm._m(5),
+                              _vm._v(" "),
+                              _c("div", { staticClass: "px-3" }, [
+                                _c("span", { attrs: { id: "before" } }, [
+                                  _c(
+                                    "svg",
+                                    {
+                                      attrs: {
+                                        width: "30",
+                                        height: "30",
+                                        viewBox: "0 0 30 30",
+                                        fill: "none",
+                                        xmlns: "http://www.w3.org/2000/svg"
+                                      }
+                                    },
+                                    [
+                                      _c(
+                                        "mask",
+                                        {
+                                          attrs: {
+                                            id: "beforeIcon",
+                                            "mask-type": "alpha",
+                                            maskUnits: "userSpaceOnUse",
+                                            x: "7",
+                                            y: "7",
+                                            width: "16",
+                                            height: "16"
+                                          }
+                                        },
+                                        [
+                                          _c("path", {
+                                            attrs: {
+                                              "fill-rule": "evenodd",
+                                              "clip-rule": "evenodd",
+                                              d:
+                                                "M23 14H10.83L16.42 8.41L15 7L7 15L15 23L16.41 21.59L10.83 16H23V14Z",
+                                              fill: "white"
+                                            }
+                                          })
+                                        ]
+                                      ),
+                                      _vm._v(" "),
+                                      _c(
+                                        "g",
+                                        { attrs: { mask: "url(#beforeIcon)" } },
+                                        [
+                                          _c("rect", {
+                                            attrs: {
+                                              x: "2",
+                                              y: "2",
+                                              width: "26",
+                                              height: "26",
+                                              fill: "#D8D8D8"
+                                            }
+                                          })
+                                        ]
+                                      )
+                                    ]
+                                  )
+                                ]),
+                                _vm._v(" "),
+                                _c("span", { attrs: { id: "next" } }, [
+                                  _c(
+                                    "svg",
+                                    {
+                                      attrs: {
+                                        width: "30",
+                                        height: "30",
+                                        viewBox: "0 0 30 30",
+                                        fill: "none",
+                                        xmlns: "http://www.w3.org/2000/svg"
+                                      }
+                                    },
+                                    [
+                                      _c(
+                                        "mask",
+                                        {
+                                          attrs: {
+                                            id: "nextIcon",
+                                            "mask-type": "alpha",
+                                            maskUnits: "userSpaceOnUse",
+                                            x: "7",
+                                            y: "7",
+                                            width: "16",
+                                            height: "16"
+                                          }
+                                        },
+                                        [
+                                          _c("path", {
+                                            attrs: {
+                                              "fill-rule": "evenodd",
+                                              "clip-rule": "evenodd",
+                                              d:
+                                                "M15 7L13.59 8.41L19.17 14H7V16H19.17L13.59 21.59L15 23L23 15L15 7Z",
+                                              fill: "white"
+                                            }
+                                          })
+                                        ]
+                                      ),
+                                      _vm._v(" "),
+                                      _c(
+                                        "g",
+                                        { attrs: { mask: "url(#nextIcon)" } },
+                                        [
+                                          _c("rect", {
+                                            attrs: {
+                                              x: "2",
+                                              y: "2",
+                                              width: "26",
+                                              height: "26",
+                                              fill: "#D8D8D8"
+                                            }
+                                          })
+                                        ]
+                                      )
+                                    ]
+                                  )
+                                ])
+                              ]),
+                              _vm._v(" "),
+                              _c("div", [
+                                _c(
+                                  "svg",
+                                  {
+                                    attrs: {
+                                      width: "30",
+                                      height: "30",
+                                      viewBox: "0 0 30 30",
+                                      fill: "none",
+                                      xmlns: "http://www.w3.org/2000/svg"
+                                    }
+                                  },
+                                  [
+                                    _c(
+                                      "mask",
+                                      {
+                                        attrs: {
+                                          id: "settings",
+                                          "mask-type": "alpha",
+                                          maskUnits: "userSpaceOnUse",
+                                          x: "5",
+                                          y: "5",
+                                          width: "20",
+                                          height: "20"
+                                        }
+                                      },
+                                      [
+                                        _c("path", {
+                                          attrs: {
+                                            "fill-rule": "evenodd",
+                                            "clip-rule": "evenodd",
+                                            d:
+                                              "M22.1593 15.98C22.1993 15.66 22.2293 15.34 22.2293 15C22.2293 14.66 22.1993 14.34 22.1593 14.02L24.2693 12.37C24.4593 12.22 24.5093 11.95 24.3893 11.73L22.3893 8.27C22.2693 8.05 21.9993 7.97 21.7793 8.05L19.2893 9.05C18.7693 8.65 18.2093 8.32 17.5993 8.07L17.2193 5.42C17.1893 5.18 16.9793 5 16.7293 5H12.7293C12.4793 5 12.2693 5.18 12.2393 5.42L11.8593 8.07C11.2493 8.32 10.6893 8.66 10.1693 9.05L7.67933 8.05C7.44933 7.96 7.18933 8.05 7.06933 8.27L5.06933 11.73C4.93933 11.95 4.99933 12.22 5.18933 12.37L7.29933 14.02C7.25933 14.34 7.22933 14.67 7.22933 15C7.22933 15.33 7.25933 15.66 7.29933 15.98L5.18933 17.63C4.99933 17.78 4.94933 18.05 5.06933 18.27L7.06933 21.73C7.18933 21.95 7.45933 22.03 7.67933 21.95L10.1693 20.95C10.6893 21.35 11.2493 21.68 11.8593 21.93L12.2393 24.58C12.2693 24.82 12.4793 25 12.7293 25H16.7293C16.9793 25 17.1893 24.82 17.2193 24.58L17.5993 21.93C18.2093 21.68 18.7693 21.34 19.2893 20.95L21.7793 21.95C22.0093 22.04 22.2693 21.95 22.3893 21.73L24.3893 18.27C24.5093 18.05 24.4593 17.78 24.2693 17.63L22.1593 15.98ZM14.7293 18.5C12.7993 18.5 11.2293 16.93 11.2293 15C11.2293 13.07 12.7993 11.5 14.7293 11.5C16.6593 11.5 18.2293 13.07 18.2293 15C18.2293 16.93 16.6593 18.5 14.7293 18.5Z",
+                                            fill: "white"
+                                          }
+                                        })
+                                      ]
+                                    ),
+                                    _vm._v(" "),
+                                    _c(
+                                      "g",
+                                      { attrs: { mask: "url(#settings)" } },
+                                      [
+                                        _c("rect", {
+                                          attrs: {
+                                            x: "2",
+                                            y: "2",
+                                            width: "26",
+                                            height: "26",
+                                            fill: "#D8D8D8"
+                                          }
+                                        })
+                                      ]
+                                    )
+                                  ]
+                                )
+                              ])
+                            ]
+                          )
+                        ]
+                      )
+                    ])
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "col-12" }, [
+                    _c(
+                      "div",
+                      { staticClass: "customBorderBottom row py-3 textGrey" },
+                      [
+                        _c("div", { staticClass: "col-2 pr-0" }, [
+                          _c("div", { staticClass: "row" }, [
+                            _vm._m(6),
+                            _vm._v(" "),
+                            _c("div", { staticClass: "col-3 pr-0" }, [
+                              _c("a", { attrs: { href: "" } }, [
+                                _c(
+                                  "svg",
+                                  {
+                                    staticClass: "margingY",
+                                    attrs: {
+                                      width: "24",
+                                      height: "24",
+                                      viewBox: "0 0 24 24",
+                                      fill: "none",
+                                      xmlns: "http://www.w3.org/2000/svg"
+                                    }
+                                  },
+                                  [
+                                    _c(
+                                      "mask",
+                                      {
+                                        attrs: {
+                                          id: "favorites",
+                                          "mask-type": "alpha",
+                                          maskUnits: "userSpaceOnUse",
+                                          x: "5",
+                                          y: "5",
+                                          width: "20",
+                                          height: "19"
+                                        }
+                                      },
+                                      [
+                                        _c("path", {
+                                          attrs: {
+                                            "fill-rule": "evenodd",
+                                            "clip-rule": "evenodd",
+                                            d:
+                                              "M15 20.27L21.18 24L19.54 16.97L25 12.24L17.81 11.63L15 5L12.19 11.63L5 12.24L10.46 16.97L8.82 24L15 20.27Z",
+                                            fill: "white"
+                                          }
+                                        })
+                                      ]
+                                    ),
+                                    _vm._v(" "),
+                                    _c(
+                                      "g",
+                                      { attrs: { mask: "url(#favorites)" } },
+                                      [
+                                        _c("rect", {
+                                          attrs: {
+                                            x: "2",
+                                            y: "2",
+                                            width: "26",
+                                            height: "26",
+                                            fill: "#FEF40A"
+                                          }
+                                        })
+                                      ]
+                                    )
+                                  ]
+                                )
+                              ])
+                            ]),
+                            _vm._v(" "),
+                            _c("div", { staticClass: "col-6 pr-0" })
+                          ])
+                        ]),
+                        _vm._v(" "),
+                        _vm._m(7)
+                      ]
+                    ),
+                    _vm._v(" "),
+                    _c(
+                      "div",
+                      { staticClass: "customBorderBottom row py-3 textGrey" },
+                      [
+                        _c("div", { staticClass: "col-2 pr-0" }, [
+                          _c("div", { staticClass: "row" }, [
+                            _vm._m(8),
+                            _vm._v(" "),
+                            _c("div", { staticClass: "col-3 pr-0" }, [
+                              _c("a", { attrs: { href: "" } }, [
+                                _c(
+                                  "svg",
+                                  {
+                                    staticClass: "margingY",
+                                    attrs: {
+                                      width: "30",
+                                      height: "30",
+                                      viewBox: "0 0 30 30",
+                                      fill: "none",
+                                      xmlns: "http://www.w3.org/2000/svg"
+                                    }
+                                  },
+                                  [
+                                    _c(
+                                      "mask",
+                                      {
+                                        attrs: {
+                                          id: "nonFavorites",
+                                          "mask-type": "alpha",
+                                          maskUnits: "userSpaceOnUse",
+                                          x: "5",
+                                          y: "5",
+                                          width: "20",
+                                          height: "19"
+                                        }
+                                      },
+                                      [
+                                        _c("path", {
+                                          attrs: {
+                                            "fill-rule": "evenodd",
+                                            "clip-rule": "evenodd",
+                                            d:
+                                              "M25 12.24L17.81 11.62L15 5L12.19 11.63L5 12.24L10.46 16.97L8.82 24L15 20.27L21.18 24L19.55 16.97L25 12.24ZM15 18.4L11.24 20.67L12.24 16.39L8.92 13.51L13.3 13.13L15 9.1L16.71 13.14L21.09 13.52L17.77 16.4L18.77 20.68L15 18.4Z",
+                                            fill: "white"
+                                          }
+                                        })
+                                      ]
+                                    ),
+                                    _vm._v(" "),
+                                    _c(
+                                      "g",
+                                      { attrs: { mask: "url(#nonFavorites)" } },
+                                      [
+                                        _c("rect", {
+                                          attrs: {
+                                            x: "2",
+                                            y: "2",
+                                            width: "26",
+                                            height: "26",
+                                            fill: "#D8D8D8"
+                                          }
+                                        })
+                                      ]
+                                    )
+                                  ]
+                                )
+                              ])
+                            ]),
+                            _vm._v(" "),
+                            _vm._m(9)
+                          ])
+                        ]),
+                        _vm._v(" "),
+                        _vm._m(10)
+                      ]
+                    )
+                  ])
+                ])
+              ]
+            )
+          ])
+        ])
+      ])
+    ])
+  ])
+}
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "col-12 text-center" }, [
+      _c("div", { staticClass: "customBorderBottom p-3" }, [
+        _c(
+          "a",
+          {
+            staticClass:
+              "w-100 py-3 btn-primary btn text-uppercase font-12px btnText text-white addContact"
+          },
+          [_vm._v("Добавить контакт")]
+        )
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "col-12" }, [
+      _c("div", { staticClass: "customBorderBottom" }, [
+        _c("div", { staticClass: "pl-5 py-3 activeBorder textActive" }, [
+          _vm._v("Контакты")
+        ])
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "col-12" }, [
+      _c("div", { staticClass: "customBorderBottom" }, [
+        _c("div", { staticClass: "pl-5 py-3" }, [_vm._v("Частые контакты")])
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "col-12" }, [
+      _c("div", { staticClass: "customBorderBottom" }, [
+        _c("div", { staticClass: "pl-5 py-3" }, [_vm._v("Избранные")])
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "col-12" }, [
+      _c("div", { staticClass: "customBorderBottom pl-5 py-3" }, [
+        _vm._v("Написать")
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "textGrey" }, [
+      _c("span", { staticClass: "font-13px " }, [_vm._v("1-100 из 348")])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "col-3 pr-0" }, [
+      _c("input", { attrs: { id: "all", type: "checkbox" } }),
+      _vm._v(" "),
+      _c("label", {
+        staticClass: "pl-2 customLabel m-0",
+        attrs: { for: "all" }
+      })
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "col-10" }, [
+      _c("div", { staticClass: "row" }, [
+        _c("div", { staticClass: "col-3 pl-0" }, [
+          _c("span", { staticClass: "font-12px" }, [_vm._v("Имя")])
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "col-3 pl-0" }, [
+          _c("span", { staticClass: "font-12px" }, [_vm._v("Почта")])
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "col-3 pl-0" }, [
+          _c("span", { staticClass: "font-12px" }, [_vm._v("Телефон")])
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "col-3 pl-0" }, [
+          _c("span", { staticClass: "font-12px" }, [_vm._v("Группа")])
+        ])
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "col-3 pr-0" }, [
+      _c("input", { attrs: { id: "id", type: "checkbox" } }),
+      _vm._v(" "),
+      _c("label", { staticClass: "pl-2 customLabel m-0", attrs: { for: "id" } })
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "col-6 pr-0" }, [
+      _c("img", {
+        staticClass: "contactPhoto",
+        attrs: { src: "girl.jpg", alt: "" }
+      })
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "col-10" }, [
+      _c("div", { staticClass: "row" }, [
+        _c(
+          "div",
+          { staticClass: "col-3 pl-0 contactPhoto align-items-center d-flex" },
+          [
+            _c("span", { staticClass: "font-12px" }, [
+              _vm._v("Алешина Лилия Анатольевна")
+            ])
+          ]
+        ),
+        _vm._v(" "),
+        _c("div", { staticClass: "col-3 pl-0" }, [
+          _c("span", { staticClass: "font-12px" }, [
+            _vm._v("effie-guz@yahoo.com")
+          ])
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "col-3 pl-0" }, [
+          _c("span", { staticClass: "font-12px" }, [
+            _vm._v("8 (829) 779 45 44")
+          ])
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "col-3 pl-0" }, [
+          _c("span", { staticClass: "font-12px" })
+        ])
+      ])
+    ])
+  }
+]
+render._withStripped = true
 
 
 
@@ -55209,9 +55705,7 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _App_vue_vue_type_template_id_332fccf4___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./App.vue?vue&type=template&id=332fccf4& */ "./resources/js/components/App.vue?vue&type=template&id=332fccf4&");
 /* harmony import */ var _App_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./App.vue?vue&type=script&lang=js& */ "./resources/js/components/App.vue?vue&type=script&lang=js&");
-/* empty/unused harmony star reexport *//* harmony import */ var _App_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./App.vue?vue&type=style&index=0&lang=css& */ "./resources/js/components/App.vue?vue&type=style&index=0&lang=css&");
-/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
-
+/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
 
 
 
@@ -55219,7 +55713,7 @@ __webpack_require__.r(__webpack_exports__);
 
 /* normalize component */
 
-var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__["default"])(
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
   _App_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
   _App_vue_vue_type_template_id_332fccf4___WEBPACK_IMPORTED_MODULE_0__["render"],
   _App_vue_vue_type_template_id_332fccf4___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
@@ -55248,22 +55742,6 @@ component.options.__file = "resources/js/components/App.vue"
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_App_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib??ref--4-0!../../../node_modules/vue-loader/lib??vue-loader-options!./App.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/App.vue?vue&type=script&lang=js&");
 /* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_App_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
-
-/***/ }),
-
-/***/ "./resources/js/components/App.vue?vue&type=style&index=0&lang=css&":
-/*!**************************************************************************!*\
-  !*** ./resources/js/components/App.vue?vue&type=style&index=0&lang=css& ***!
-  \**************************************************************************/
-/*! no static exports found */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_App_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/style-loader!../../../node_modules/css-loader??ref--6-1!../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../node_modules/postcss-loader/src??ref--6-2!../../../node_modules/vue-loader/lib??vue-loader-options!./App.vue?vue&type=style&index=0&lang=css& */ "./node_modules/style-loader/index.js!./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/App.vue?vue&type=style&index=0&lang=css&");
-/* harmony import */ var _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_App_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_App_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_0__);
-/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_App_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_0__) if(__WEBPACK_IMPORT_KEY__ !== 'default') (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_App_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_0__[key]; }) }(__WEBPACK_IMPORT_KEY__));
- /* harmony default export */ __webpack_exports__["default"] = (_node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_App_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_0___default.a); 
 
 /***/ }),
 
