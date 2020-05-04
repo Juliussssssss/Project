@@ -44,7 +44,7 @@ class CreateContactsTable extends Migration
                 ->references('id')
                 ->on('groups')
                 ->onUpdate('cascade')
-                ->onDelete('cascade');
+                ->onDelete('set null');
         });
     }
 

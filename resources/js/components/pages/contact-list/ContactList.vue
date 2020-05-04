@@ -37,7 +37,9 @@
                 </div>
             </div>
         </div>
-        <div class="customBorderBottom row py-3 textGrey">
+        <div class="customBorderBottom row py-3 textGrey"
+             v-for="(contact) in contacts"
+             v-bind:key="contact.id">
             <div class="col-2 pr-0">
                 <div class="row">
                     <div class="col-3 pr-0">
@@ -55,25 +57,25 @@
                                           d="M25 12.24L17.81 11.62L15 5L12.19 11.63L5 12.24L10.46 16.97L8.82 24L15 20.27L21.18 24L19.55 16.97L25 12.24ZM15 18.4L11.24 20.67L12.24 16.39L8.92 13.51L13.3 13.13L15 9.1L16.71 13.14L21.09 13.52L17.77 16.4L18.77 20.68L15 18.4Z"
                                           fill="white"/>
                                 </mask>
-                                <g mask="url(#nonFavorites)">
+                                <g :mask="contact.favorites==0 ? 'url(#nonFavorites)' : 'url(#favorites)'">
                                     <rect x="2" y="2" width="26" height="26"
-                                          fill="#D8D8D8"/>
+                                          :fill="contact.favorites==0 ? '#D8D8D8' : '#FEF40A'"/>
                                 </g>
                             </svg>
                         </a>
                     </div>
                     <div class="col-6 pr-0">
-                        <img class="contactPhoto" src="girl.jpg" alt="">
+                        <img class="contactPhoto" :src="contact.avatar" alt="фото">
                     </div>
                 </div>
             </div>
             <div class="col-10">
                 <div class="row">
                     <div class="col-3 pl-0 contactPhoto align-items-center d-flex"><span
-                        class="font-12px">Алешина Лилия Анатольевна</span></div>
-                    <div class="col-3 pl-0"><span
-                        class="font-12px">effie-guz@yahoo.com</span></div>
-                    <div class="col-3 pl-0"><span class="font-12px">8 (829) 779 45 44</span>
+                        class="font-12px">{{ contact.first_name }} {{contact.middle_name}} {{ contact.last_name }}</span></div>
+                    <div class="col-3 pl-0 d-flex"><span
+                        class="font-12px text-truncate">{{ contact.email }}</span></div>
+                    <div class="col-3 pl-0"><span class="font-12px">{{ contact.number }}</span>
                     </div>
                     <div class="col-3 pl-0"><span class="font-12px"></span></div>
                 </div>
@@ -85,15 +87,20 @@
 <script>
     export default {
         name: "Contacts",
-        mounted() {
-            axios.post('/contacts/getContacts')
-                .then(function (response) {
-                    console.log(response)
+        data() {
+            return {
+                contacts: []
+            }
+        },
+        created() {
+            axios.get('/contacts/get-all')
+                .then(response => {
+                    this.contacts = response.data;
                 })
                 .catch(function (error) {
-                    console.log('not ok')
+                    console.log(error)
                 });
-        }
+        },
     }
 </script>
 
