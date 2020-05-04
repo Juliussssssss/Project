@@ -9,9 +9,9 @@
                             <left-nav></left-nav>
                         </div>
                         <div class="col-9 customBorderBottom customBorderRight customBorderTop">
-                            <div class="row">
+
                                 <router-view></router-view>
-                            </div>
+
                         </div>
                     </div>
                 </div>

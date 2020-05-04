@@ -1,0 +1,88 @@
+<template>
+    <div class="col-4 py-4 align-items-center d-flex customBorderRight pl-4">
+        <div class="w-100 d-flex justify-content-between">
+            <svg id="edit" width="30" height="30" viewBox="0 0 30 30" fill="none"
+                 xmlns="http://www.w3.org/2000/svg">
+                <mask id="mask0" mask-type="alpha" maskUnits="userSpaceOnUse" x="6" y="6" width="19"
+                      height="19">
+                    <path fill-rule="evenodd" clip-rule="evenodd"
+                          d="M6 20.2525V24.0025H9.75L20.81 12.9425L17.06 9.1925L6 20.2525ZM23.71 10.0425C24.1 9.6525 24.1 9.0225 23.71 8.6325L21.37 6.2925C20.98 5.9025 20.35 5.9025 19.96 6.2925L18.13 8.1225L21.88 11.8725L23.71 10.0425Z"
+                          fill="white"/>
+                </mask>
+                <g mask="url(#mask0)">
+                    <rect class="actionButtons" x="2" y="2" width="26" height="26" fill="#D8D8D8"/>
+                </g>
+            </svg>
+            <svg id="groups" width="30" height="30" viewBox="0 0 30 30" fill="none"
+                 xmlns="http://www.w3.org/2000/svg">
+                <mask id="mask1" mask-type="alpha" maskUnits="userSpaceOnUse" x="4" y="8" width="22"
+                      height="14">
+                    <path fill-rule="evenodd" clip-rule="evenodd"
+                          d="M19 14C20.66 14 21.99 12.66 21.99 11C21.99 9.34 20.66 8 19 8C17.34 8 16 9.34 16 11C16 12.66 17.34 14 19 14ZM11 14C12.66 14 13.99 12.66 13.99 11C13.99 9.34 12.66 8 11 8C9.34 8 8 9.34 8 11C8 12.66 9.34 14 11 14ZM11 16C8.67 16 4 17.17 4 19.5V22H18V19.5C18 17.17 13.33 16 11 16ZM19 16C18.71 16 18.38 16.02 18.03 16.05C19.19 16.89 20 18.02 20 19.5V22H26V19.5C26 17.17 21.33 16 19 16Z"
+                          fill="white"/>
+                </mask>
+                <g mask="url(#mask1)">
+                    <rect class="actionButtons" x="2" y="2" width="26" height="26" fill="#D8D8D8"/>
+                </g>
+            </svg>
+            <svg id="import" width="30" height="30" viewBox="0 0 30 30" fill="none"
+                 xmlns="http://www.w3.org/2000/svg">
+                <mask id="mask3" mask-type="alpha" maskUnits="userSpaceOnUse" x="3" y="7" width="24"
+                      height="16">
+                    <path fill-rule="evenodd" clip-rule="evenodd"
+                          d="M22.35 13.04C21.67 9.59 18.64 7 15 7C12.11 7 9.6 8.64 8.35 11.04C5.34 11.36 3 13.91 3 17C3 20.31 5.69 23 9 23H22C24.76 23 27 20.76 27 18C27 15.36 24.95 13.22 22.35 13.04ZM17 16V20H13V16H10L15 11L20 16H17Z"
+                          fill="white"/>
+                </mask>
+                <g mask="url(#mask3)">
+                    <rect class="actionButtons" x="2" y="2" width="26" height="26" fill="#D8D8D8"/>
+                </g>
+            </svg>
+            <svg id="export" width="30" height="30" viewBox="0 0 30 30" fill="none"
+                 xmlns="http://www.w3.org/2000/svg">
+                <mask id="mask4" mask-type="alpha" maskUnits="userSpaceOnUse" x="3" y="7" width="24"
+                      height="16">
+                    <path fill-rule="evenodd" clip-rule="evenodd"
+                          d="M22.35 13.04C21.67 9.59 18.64 7 15 7C12.11 7 9.6 8.64 8.35 11.04C5.34 11.36 3 13.91 3 17C3 20.31 5.69 23 9 23H22C24.76 23 27 20.76 27 18C27 15.36 24.95 13.22 22.35 13.04ZM20 16L15 21L10 16H13V12H17V16H20Z"
+                          fill="white"/>
+                </mask>
+                <g mask="url(#mask4)">
+                    <rect class="actionButtons" x="2" y="2" width="26" height="26" fill="#D8D8D8"/>
+                </g>
+            </svg>
+            <svg id="print" width="30" height="30" viewBox="0 0 30 30" fill="none"
+                 xmlns="http://www.w3.org/2000/svg">
+                <mask id="mask5" mask-type="alpha" maskUnits="userSpaceOnUse" x="5" y="6" width="20"
+                      height="18">
+                    <path fill-rule="evenodd" clip-rule="evenodd"
+                          d="M22 11H8C6.34 11 5 12.34 5 14V20H9V24H21V20H25V14C25 12.34 23.66 11 22 11ZM19 22H11V17H19V22ZM22 15C21.45 15 21 14.55 21 14C21 13.45 21.45 13 22 13C22.55 13 23 13.45 23 14C23 14.55 22.55 15 22 15ZM21 6H9V10H21V6Z"
+                          fill="white"/>
+                </mask>
+                <g mask="url(#mask5)">
+                    <rect class="actionButtons" x="2" y="2" width="26" height="26" fill="#D8D8D8"/>
+                </g>
+            </svg>
+            <svg id="delete" width="30" height="30" viewBox="0 0 30 30" fill="none"
+                 xmlns="http://www.w3.org/2000/svg">
+                <mask id="mask6" mask-type="alpha" maskUnits="userSpaceOnUse" x="8" y="6" width="14"
+                      height="18">
+                    <path fill-rule="evenodd" clip-rule="evenodd"
+                          d="M9 22C9 23.1 9.9 24 11 24H19C20.1 24 21 23.1 21 22V10H9V22ZM22 7H18.5L17.5 6H12.5L11.5 7H8V9H22V7Z"
+                          fill="white"/>
+                </mask>
+                <g mask="url(#mask6)">
+                    <rect class="actionButtons" x="2" y="2" width="26" height="26" fill="#D8D8D8"/>
+                </g>
+            </svg>
+        </div>
+    </div>
+</template>
+
+<script>
+  export default {
+    name: "Actions"
+  }
+</script>
+
+<style>
+
+</style>
