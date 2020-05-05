@@ -5,16 +5,22 @@
                 <submenu></submenu>
             </div>
         </div>
+        <edit-modal></edit-modal>
+        <delete-modal></delete-modal>
     </div>
 </template>
 
 <script>
     import submenu from "./submenu/Submenu";
+    import editModal from "./modals/EditModal";
+    import deleteModal from "./modals/DeleteModal";
 
     export default {
         name: "Groups",
         components: {
-            submenu
+            submenu,
+            editModal,
+            deleteModal
         }
     }
 </script>

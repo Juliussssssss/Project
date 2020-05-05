@@ -12,5 +12,8 @@ Route::post('/logout', 'Auth\AuthController@logout')->middleware('auth');
 
 Route::get('/contacts/get-all', ('Api\ContactsController@index'))->middleware('auth');
 Route::get('/get-groups', ('Api\GroupsController@index'))->middleware('auth');
+Route::get('/api/groups', ('Api\GroupsController@index'))->middleware('auth');
+
 
 Route::view('/{any}', 'index')->where('any', '.*')->middleware('auth');
+
