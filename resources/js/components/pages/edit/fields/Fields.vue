@@ -1,5 +1,5 @@
 <template>
-    <div class="col-12 textGrey font-12px">
+    <div class="col-12 textGrey font-12px pl-4">
         <div class="form-group pt-3">
             <label class="pl-1 pb-2 textActive" for="Email">Email:</label>
             <input type="text" class="form-control" id="Email" placeholder="Добавить Email">
@@ -54,6 +54,6 @@
     }
 </script>
 
-<style scoped>
+<style>
 
 </style>

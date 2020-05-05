@@ -2023,6 +2023,41 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _submenu_Submenu__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./submenu/Submenu */ "./resources/js/components/left-nav/groups/submenu/Submenu.vue");
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+  name: "Groups",
+  components: {
+    submenu: _submenu_Submenu__WEBPACK_IMPORTED_MODULE_0__["default"]
+  }
+});
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/left-nav/groups/submenu/Submenu.vue?vue&type=script&lang=js&":
+/*!******************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/left-nav/groups/submenu/Submenu.vue?vue&type=script&lang=js& ***!
+  \******************************************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+//
+//
+//
+//
+//
 //
 //
 //
@@ -2072,7 +2107,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 /* harmony default export */ __webpack_exports__["default"] = ({
-  name: "Groups"
+  name: "Submenu"
 });
 
 /***/ }),
@@ -2276,68 +2311,7 @@ __webpack_require__.r(__webpack_exports__);
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _fields_Fields__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./fields/Fields */ "./resources/js/components/pages/edit/fields/Fields.vue");
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
+/* harmony import */ var _contact_header_ContactHeader__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./contact-header/ContactHeader */ "./resources/js/components/pages/edit/contact-header/ContactHeader.vue");
 //
 //
 //
@@ -2346,11 +2320,90 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 
+
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "Edit",
   components: {
-    fields: _fields_Fields__WEBPACK_IMPORTED_MODULE_0__["default"]
+    fields: _fields_Fields__WEBPACK_IMPORTED_MODULE_0__["default"],
+    contactHeader: _contact_header_ContactHeader__WEBPACK_IMPORTED_MODULE_1__["default"]
   }
+});
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/pages/edit/contact-header/ContactHeader.vue?vue&type=script&lang=js&":
+/*!**************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/pages/edit/contact-header/ContactHeader.vue?vue&type=script&lang=js& ***!
+  \**************************************************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+/* harmony default export */ __webpack_exports__["default"] = ({
+  name: "ContactHeader"
 });
 
 /***/ }),
@@ -50355,10 +50408,10 @@ render._withStripped = true
 
 /***/ }),
 
-/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/left-nav/groups/Groups.vue?vue&type=template&id=20cc6be8&scoped=true&":
-/*!*************************************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/left-nav/groups/Groups.vue?vue&type=template&id=20cc6be8&scoped=true& ***!
-  \*************************************************************************************************************************************************************************************************************************************/
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/left-nav/groups/Groups.vue?vue&type=template&id=20cc6be8&":
+/*!*************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/left-nav/groups/Groups.vue?vue&type=template&id=20cc6be8& ***!
+  \*************************************************************************************************************************************************************************************************************************/
 /*! exports provided: render, staticRenderFns */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -50372,194 +50425,220 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c("div", { staticClass: "col-12" }, [
     _c("div", { staticClass: "customBorderBottom topmenu textGrey" }, [
-      _c("div", { staticClass: "pl-5 py-3" }, [
-        _vm._v("Групы\n            "),
-        _c("div", { staticClass: "submenu" }, [
-          _c(
-            "div",
-            {
-              staticClass:
-                "customBorderBottom p-3 d-flex justify-content-between align-items-center"
-            },
-            [
-              _c("div", [
-                _c("a", { attrs: { href: "" } }, [
-                  _c(
-                    "svg",
-                    {
-                      staticClass: "margingY",
-                      attrs: {
-                        width: "30",
-                        height: "30",
-                        viewBox: "0 0 30 30",
-                        fill: "none",
-                        xmlns: "http://www.w3.org/2000/svg"
-                      }
-                    },
-                    [
-                      _c(
-                        "mask",
-                        {
-                          attrs: {
-                            id: "group",
-                            "mask-type": "alpha",
-                            maskUnits: "userSpaceOnUse",
-                            x: "4",
-                            y: "8",
-                            width: "22",
-                            height: "14"
-                          }
-                        },
-                        [
-                          _c("path", {
-                            attrs: {
-                              "fill-rule": "evenodd",
-                              "clip-rule": "evenodd",
-                              d:
-                                "M19 14C20.66 14 21.99 12.66 21.99 11C21.99 9.34 20.66 8 19 8C17.34 8 16 9.34 16 11C16 12.66 17.34 14 19 14ZM11 14C12.66 14 13.99 12.66 13.99 11C13.99 9.34 12.66 8 11 8C9.34 8 8 9.34 8 11C8 12.66 9.34 14 11 14ZM11 16C8.67 16 4 17.17 4 19.5V22H18V19.5C18 17.17 13.33 16 11 16ZM19 16C18.71 16 18.38 16.02 18.03 16.05C19.19 16.89 20 18.02 20 19.5V22H26V19.5C26 17.17 21.33 16 19 16Z",
-                              fill: "white"
-                            }
-                          })
-                        ]
-                      ),
-                      _vm._v(" "),
-                      _c("g", { attrs: { mask: "url(#group)" } }, [
-                        _c("rect", {
-                          staticClass: "actionButtons",
-                          attrs: {
-                            x: "2",
-                            y: "2",
-                            width: "26",
-                            height: "26",
-                            fill: "#D8D8D8"
-                          }
-                        })
-                      ])
-                    ]
-                  )
-                ])
-              ]),
-              _vm._v(" "),
-              _c("div", [_vm._v("Отдел дизайна")]),
-              _vm._v(" "),
-              _c("div", [
-                _c("a", { attrs: { href: "" } }, [
-                  _c(
-                    "svg",
-                    {
-                      staticClass: "margingY",
-                      attrs: {
-                        width: "30",
-                        height: "30",
-                        viewBox: "0 0 30 30",
-                        fill: "none",
-                        xmlns: "http://www.w3.org/2000/svg"
-                      }
-                    },
-                    [
-                      _c(
-                        "mask",
-                        {
-                          attrs: {
-                            id: "edit",
-                            "mask-type": "alpha",
-                            maskUnits: "userSpaceOnUse",
-                            x: "6",
-                            y: "6",
-                            width: "19",
-                            height: "19"
-                          }
-                        },
-                        [
-                          _c("path", {
-                            attrs: {
-                              "fill-rule": "evenodd",
-                              "clip-rule": "evenodd",
-                              d:
-                                "M6 20.2525V24.0025H9.75L20.81 12.9425L17.06 9.1925L6 20.2525ZM23.71 10.0425C24.1 9.6525 24.1 9.0225 23.71 8.6325L21.37 6.2925C20.98 5.9025 20.35 5.9025 19.96 6.2925L18.13 8.1225L21.88 11.8725L23.71 10.0425Z",
-                              fill: "white"
-                            }
-                          })
-                        ]
-                      ),
-                      _vm._v(" "),
-                      _c("g", { attrs: { mask: "url(#edit)" } }, [
-                        _c("rect", {
-                          staticClass: "actionButtons",
-                          attrs: {
-                            x: "2",
-                            y: "2",
-                            width: "26",
-                            height: "26",
-                            fill: "#D8D8D8"
-                          }
-                        })
-                      ])
-                    ]
-                  )
-                ]),
-                _vm._v(" "),
-                _c("a", { attrs: { href: "" } }, [
-                  _c(
-                    "svg",
-                    {
-                      staticClass: "margingY",
-                      attrs: {
-                        width: "30",
-                        height: "30",
-                        viewBox: "0 0 30 30",
-                        fill: "none",
-                        xmlns: "http://www.w3.org/2000/svg"
-                      }
-                    },
-                    [
-                      _c(
-                        "mask",
-                        {
-                          attrs: {
-                            id: "delete",
-                            "mask-type": "alpha",
-                            maskUnits: "userSpaceOnUse",
-                            x: "8",
-                            y: "6",
-                            width: "14",
-                            height: "18"
-                          }
-                        },
-                        [
-                          _c("path", {
-                            attrs: {
-                              "fill-rule": "evenodd",
-                              "clip-rule": "evenodd",
-                              d:
-                                "M9 22C9 23.1 9.9 24 11 24H19C20.1 24 21 23.1 21 22V10H9V22ZM22 7H18.5L17.5 6H12.5L11.5 7H8V9H22V7Z",
-                              fill: "white"
-                            }
-                          })
-                        ]
-                      ),
-                      _vm._v(" "),
-                      _c("g", { attrs: { mask: "url(#delete)" } }, [
-                        _c("rect", {
-                          staticClass: "actionButtons",
-                          attrs: {
-                            x: "2",
-                            y: "2",
-                            width: "26",
-                            height: "26",
-                            fill: "#D8D8D8"
-                          }
-                        })
-                      ])
-                    ]
-                  )
-                ])
-              ])
-            ]
-          )
-        ])
-      ])
+      _c(
+        "div",
+        { staticClass: "pl-5 py-3" },
+        [_vm._v("Групы\n            "), _c("submenu")],
+        1
+      )
     ])
+  ])
+}
+var staticRenderFns = []
+render._withStripped = true
+
+
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/left-nav/groups/submenu/Submenu.vue?vue&type=template&id=7604fa4b&":
+/*!**********************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/left-nav/groups/submenu/Submenu.vue?vue&type=template&id=7604fa4b& ***!
+  \**********************************************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", { staticClass: "submenu" }, [
+    _c(
+      "div",
+      {
+        staticClass:
+          "customBorderBottom p-3 d-flex justify-content-between align-items-center"
+      },
+      [
+        _c("div", [
+          _c("a", { attrs: { href: "" } }, [
+            _c(
+              "svg",
+              {
+                staticClass: "margingY",
+                attrs: {
+                  width: "30",
+                  height: "30",
+                  viewBox: "0 0 30 30",
+                  fill: "none",
+                  xmlns: "http://www.w3.org/2000/svg"
+                }
+              },
+              [
+                _c(
+                  "mask",
+                  {
+                    attrs: {
+                      id: "group",
+                      "mask-type": "alpha",
+                      maskUnits: "userSpaceOnUse",
+                      x: "4",
+                      y: "8",
+                      width: "22",
+                      height: "14"
+                    }
+                  },
+                  [
+                    _c("path", {
+                      attrs: {
+                        "fill-rule": "evenodd",
+                        "clip-rule": "evenodd",
+                        d:
+                          "M19 14C20.66 14 21.99 12.66 21.99 11C21.99 9.34 20.66 8 19 8C17.34 8 16 9.34 16 11C16 12.66 17.34 14 19 14ZM11 14C12.66 14 13.99 12.66 13.99 11C13.99 9.34 12.66 8 11 8C9.34 8 8 9.34 8 11C8 12.66 9.34 14 11 14ZM11 16C8.67 16 4 17.17 4 19.5V22H18V19.5C18 17.17 13.33 16 11 16ZM19 16C18.71 16 18.38 16.02 18.03 16.05C19.19 16.89 20 18.02 20 19.5V22H26V19.5C26 17.17 21.33 16 19 16Z",
+                        fill: "white"
+                      }
+                    })
+                  ]
+                ),
+                _vm._v(" "),
+                _c("g", { attrs: { mask: "url(#group)" } }, [
+                  _c("rect", {
+                    staticClass: "actionButtons",
+                    attrs: {
+                      x: "2",
+                      y: "2",
+                      width: "26",
+                      height: "26",
+                      fill: "#D8D8D8"
+                    }
+                  })
+                ])
+              ]
+            )
+          ])
+        ]),
+        _vm._v(" "),
+        _c("div", [_vm._v("Отдел дизайна")]),
+        _vm._v(" "),
+        _c("div", [
+          _c("a", { attrs: { href: "" } }, [
+            _c(
+              "svg",
+              {
+                staticClass: "margingY",
+                attrs: {
+                  width: "30",
+                  height: "30",
+                  viewBox: "0 0 30 30",
+                  fill: "none",
+                  xmlns: "http://www.w3.org/2000/svg"
+                }
+              },
+              [
+                _c(
+                  "mask",
+                  {
+                    attrs: {
+                      id: "edit",
+                      "mask-type": "alpha",
+                      maskUnits: "userSpaceOnUse",
+                      x: "6",
+                      y: "6",
+                      width: "19",
+                      height: "19"
+                    }
+                  },
+                  [
+                    _c("path", {
+                      attrs: {
+                        "fill-rule": "evenodd",
+                        "clip-rule": "evenodd",
+                        d:
+                          "M6 20.2525V24.0025H9.75L20.81 12.9425L17.06 9.1925L6 20.2525ZM23.71 10.0425C24.1 9.6525 24.1 9.0225 23.71 8.6325L21.37 6.2925C20.98 5.9025 20.35 5.9025 19.96 6.2925L18.13 8.1225L21.88 11.8725L23.71 10.0425Z",
+                        fill: "white"
+                      }
+                    })
+                  ]
+                ),
+                _vm._v(" "),
+                _c("g", { attrs: { mask: "url(#edit)" } }, [
+                  _c("rect", {
+                    staticClass: "actionButtons",
+                    attrs: {
+                      x: "2",
+                      y: "2",
+                      width: "26",
+                      height: "26",
+                      fill: "#D8D8D8"
+                    }
+                  })
+                ])
+              ]
+            )
+          ]),
+          _vm._v(" "),
+          _c("a", { attrs: { href: "" } }, [
+            _c(
+              "svg",
+              {
+                staticClass: "margingY",
+                attrs: {
+                  width: "30",
+                  height: "30",
+                  viewBox: "0 0 30 30",
+                  fill: "none",
+                  xmlns: "http://www.w3.org/2000/svg"
+                }
+              },
+              [
+                _c(
+                  "mask",
+                  {
+                    attrs: {
+                      id: "delete",
+                      "mask-type": "alpha",
+                      maskUnits: "userSpaceOnUse",
+                      x: "8",
+                      y: "6",
+                      width: "14",
+                      height: "18"
+                    }
+                  },
+                  [
+                    _c("path", {
+                      attrs: {
+                        "fill-rule": "evenodd",
+                        "clip-rule": "evenodd",
+                        d:
+                          "M9 22C9 23.1 9.9 24 11 24H19C20.1 24 21 23.1 21 22V10H9V22ZM22 7H18.5L17.5 6H12.5L11.5 7H8V9H22V7Z",
+                        fill: "white"
+                      }
+                    })
+                  ]
+                ),
+                _vm._v(" "),
+                _c("g", { attrs: { mask: "url(#delete)" } }, [
+                  _c("rect", {
+                    staticClass: "actionButtons",
+                    attrs: {
+                      x: "2",
+                      y: "2",
+                      width: "26",
+                      height: "26",
+                      fill: "#D8D8D8"
+                    }
+                  })
+                ])
+              ]
+            )
+          ])
+        ])
+      ]
+    )
   ])
 }
 var staticRenderFns = []
@@ -51032,230 +51111,248 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "col-12 pl-5" }, [
-    _c(
-      "div",
-      { staticClass: "row" },
-      [
-        _c(
-          "div",
-          {
-            staticClass:
-              "col-12 customBorderBottom py-4 d-flex align-items-center"
-          },
-          [
-            _vm._m(0),
-            _vm._v(" "),
+  return _c(
+    "div",
+    { staticClass: "row" },
+    [_c("contactHeader"), _vm._v(" "), _c("fields")],
+    1
+  )
+}
+var staticRenderFns = []
+render._withStripped = true
+
+
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/pages/edit/contact-header/ContactHeader.vue?vue&type=template&id=66ff85d2&":
+/*!******************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/pages/edit/contact-header/ContactHeader.vue?vue&type=template&id=66ff85d2& ***!
+  \******************************************************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c(
+    "div",
+    {
+      staticClass:
+        "col-12 customBorderBottom py-4 d-flex align-items-center pl-4"
+    },
+    [
+      _vm._m(0),
+      _vm._v(" "),
+      _c(
+        "div",
+        {
+          staticClass:
+            "d-flex font-12px text-center font-16px pl-4 align-items-center"
+        },
+        [
+          _c("span", [_vm._v("Куличенко Юлия")]),
+          _vm._v(" "),
+          _c("span", { staticClass: "mr-2 ml-5" }, [
             _c(
-              "div",
+              "svg",
               {
-                staticClass:
-                  "d-flex font-12px text-center font-16px pl-4 align-items-center"
+                attrs: {
+                  width: "60",
+                  height: "60",
+                  viewBox: "0 0 60 60",
+                  fill: "none",
+                  xmlns: "http://www.w3.org/2000/svg"
+                }
               },
               [
-                _c("span", [_vm._v("Куличенко Юлия")]),
+                _c("path", {
+                  attrs: {
+                    d:
+                      "M1 30C1 13.9837 13.9837 1 30 1C46.0163 1 59 13.9837 59 30C59 46.0163 46.0163 59 30 59C13.9837 59 1 46.0163 1 30Z",
+                    fill: "white",
+                    stroke: "#F5F5F5",
+                    "stroke-width": "2"
+                  }
+                }),
                 _vm._v(" "),
-                _c("span", { staticClass: "mr-2 ml-5" }, [
-                  _c(
-                    "svg",
-                    {
+                _c(
+                  "mask",
+                  {
+                    attrs: {
+                      id: "nonFavorite",
+                      "mask-type": "alpha",
+                      maskUnits: "userSpaceOnUse",
+                      x: "20",
+                      y: "20",
+                      width: "20",
+                      height: "19"
+                    }
+                  },
+                  [
+                    _c("path", {
                       attrs: {
-                        width: "60",
-                        height: "60",
-                        viewBox: "0 0 60 60",
-                        fill: "none",
-                        xmlns: "http://www.w3.org/2000/svg"
+                        "fill-rule": "evenodd",
+                        "clip-rule": "evenodd",
+                        d:
+                          "M40 27.24L32.81 26.62L30 20L27.19 26.63L20 27.24L25.46 31.97L23.82 39L30 35.27L36.18 39L34.55 31.97L40 27.24ZM30 33.4L26.24 35.67L27.24 31.39L23.92 28.51L28.3 28.13L30 24.1L31.71 28.14L36.09 28.52L32.77 31.4L33.77 35.68L30 33.4Z",
+                        fill: "white"
                       }
-                    },
-                    [
-                      _c("path", {
-                        attrs: {
-                          d:
-                            "M1 30C1 13.9837 13.9837 1 30 1C46.0163 1 59 13.9837 59 30C59 46.0163 46.0163 59 30 59C13.9837 59 1 46.0163 1 30Z",
-                          fill: "white",
-                          stroke: "#F5F5F5",
-                          "stroke-width": "2"
-                        }
-                      }),
-                      _vm._v(" "),
-                      _c(
-                        "mask",
-                        {
-                          attrs: {
-                            id: "nonFavorite",
-                            "mask-type": "alpha",
-                            maskUnits: "userSpaceOnUse",
-                            x: "20",
-                            y: "20",
-                            width: "20",
-                            height: "19"
-                          }
-                        },
-                        [
-                          _c("path", {
-                            attrs: {
-                              "fill-rule": "evenodd",
-                              "clip-rule": "evenodd",
-                              d:
-                                "M40 27.24L32.81 26.62L30 20L27.19 26.63L20 27.24L25.46 31.97L23.82 39L30 35.27L36.18 39L34.55 31.97L40 27.24ZM30 33.4L26.24 35.67L27.24 31.39L23.92 28.51L28.3 28.13L30 24.1L31.71 28.14L36.09 28.52L32.77 31.4L33.77 35.68L30 33.4Z",
-                              fill: "white"
-                            }
-                          })
-                        ]
-                      ),
-                      _vm._v(" "),
-                      _c("g", { attrs: { mask: "url(#nonFavorite)" } }, [
-                        _c("rect", {
-                          attrs: {
-                            x: "17",
-                            y: "17",
-                            width: "26",
-                            height: "26",
-                            fill: "#D8D8D8"
-                          }
-                        })
-                      ])
-                    ]
-                  )
-                ]),
+                    })
+                  ]
+                ),
                 _vm._v(" "),
-                _c("span", { staticClass: "mx-2" }, [
-                  _c(
-                    "svg",
-                    {
-                      attrs: {
-                        width: "60",
-                        height: "60",
-                        viewBox: "0 0 60 60",
-                        fill: "none",
-                        xmlns: "http://www.w3.org/2000/svg"
-                      }
-                    },
-                    [
-                      _c("path", {
-                        attrs: {
-                          d:
-                            "M1 30C1 13.9837 13.9837 1 30 1C46.0163 1 59 13.9837 59 30C59 46.0163 46.0163 59 30 59C13.9837 59 1 46.0163 1 30Z",
-                          fill: "white",
-                          stroke: "#F5F5F5",
-                          "stroke-width": "2"
-                        }
-                      }),
-                      _vm._v(" "),
-                      _c(
-                        "mask",
-                        {
-                          attrs: {
-                            id: "edit",
-                            "mask-type": "alpha",
-                            maskUnits: "userSpaceOnUse",
-                            x: "21",
-                            y: "21",
-                            width: "19",
-                            height: "19"
-                          }
-                        },
-                        [
-                          _c("path", {
-                            attrs: {
-                              "fill-rule": "evenodd",
-                              "clip-rule": "evenodd",
-                              d:
-                                "M21 35.2525V39.0025H24.75L35.81 27.9425L32.06 24.1925L21 35.2525ZM38.71 25.0425C39.1 24.6525 39.1 24.0225 38.71 23.6325L36.37 21.2925C35.98 20.9025 35.35 20.9025 34.96 21.2925L33.13 23.1225L36.88 26.8725L38.71 25.0425Z",
-                              fill: "white"
-                            }
-                          })
-                        ]
-                      ),
-                      _vm._v(" "),
-                      _c("g", { attrs: { mask: "url(#edit)" } }, [
-                        _c("rect", {
-                          attrs: {
-                            x: "17",
-                            y: "17",
-                            width: "26",
-                            height: "26",
-                            fill: "#D8D8D8"
-                          }
-                        })
-                      ])
-                    ]
-                  )
-                ]),
-                _vm._v(" "),
-                _c("span", { staticClass: "mx-2" }, [
-                  _c(
-                    "svg",
-                    {
-                      attrs: {
-                        width: "60",
-                        height: "60",
-                        viewBox: "0 0 60 60",
-                        fill: "none",
-                        xmlns: "http://www.w3.org/2000/svg"
-                      }
-                    },
-                    [
-                      _c("path", {
-                        attrs: {
-                          d:
-                            "M1 30C1 13.9837 13.9837 1 30 1C46.0163 1 59 13.9837 59 30C59 46.0163 46.0163 59 30 59C13.9837 59 1 46.0163 1 30Z",
-                          fill: "white",
-                          stroke: "#F5F5F5",
-                          "stroke-width": "2"
-                        }
-                      }),
-                      _vm._v(" "),
-                      _c(
-                        "mask",
-                        {
-                          attrs: {
-                            id: "delete",
-                            "mask-type": "alpha",
-                            maskUnits: "userSpaceOnUse",
-                            x: "23",
-                            y: "21",
-                            width: "14",
-                            height: "18"
-                          }
-                        },
-                        [
-                          _c("path", {
-                            attrs: {
-                              "fill-rule": "evenodd",
-                              "clip-rule": "evenodd",
-                              d:
-                                "M24 37C24 38.1 24.9 39 26 39H34C35.1 39 36 38.1 36 37V25H24V37ZM37 22H33.5L32.5 21H27.5L26.5 22H23V24H37V22Z",
-                              fill: "white"
-                            }
-                          })
-                        ]
-                      ),
-                      _vm._v(" "),
-                      _c("g", { attrs: { mask: "url(#delete)" } }, [
-                        _c("rect", {
-                          attrs: {
-                            x: "17",
-                            y: "17",
-                            width: "26",
-                            height: "26",
-                            fill: "#D8D8D8"
-                          }
-                        })
-                      ])
-                    ]
-                  )
+                _c("g", { attrs: { mask: "url(#nonFavorite)" } }, [
+                  _c("rect", {
+                    attrs: {
+                      x: "17",
+                      y: "17",
+                      width: "26",
+                      height: "26",
+                      fill: "#D8D8D8"
+                    }
+                  })
                 ])
               ]
             )
-          ]
-        ),
-        _vm._v(" "),
-        _c("fields")
-      ],
-      1
-    )
-  ])
+          ]),
+          _vm._v(" "),
+          _c("span", { staticClass: "mx-2" }, [
+            _c(
+              "svg",
+              {
+                attrs: {
+                  width: "60",
+                  height: "60",
+                  viewBox: "0 0 60 60",
+                  fill: "none",
+                  xmlns: "http://www.w3.org/2000/svg"
+                }
+              },
+              [
+                _c("path", {
+                  attrs: {
+                    d:
+                      "M1 30C1 13.9837 13.9837 1 30 1C46.0163 1 59 13.9837 59 30C59 46.0163 46.0163 59 30 59C13.9837 59 1 46.0163 1 30Z",
+                    fill: "white",
+                    stroke: "#F5F5F5",
+                    "stroke-width": "2"
+                  }
+                }),
+                _vm._v(" "),
+                _c(
+                  "mask",
+                  {
+                    attrs: {
+                      id: "edit",
+                      "mask-type": "alpha",
+                      maskUnits: "userSpaceOnUse",
+                      x: "21",
+                      y: "21",
+                      width: "19",
+                      height: "19"
+                    }
+                  },
+                  [
+                    _c("path", {
+                      attrs: {
+                        "fill-rule": "evenodd",
+                        "clip-rule": "evenodd",
+                        d:
+                          "M21 35.2525V39.0025H24.75L35.81 27.9425L32.06 24.1925L21 35.2525ZM38.71 25.0425C39.1 24.6525 39.1 24.0225 38.71 23.6325L36.37 21.2925C35.98 20.9025 35.35 20.9025 34.96 21.2925L33.13 23.1225L36.88 26.8725L38.71 25.0425Z",
+                        fill: "white"
+                      }
+                    })
+                  ]
+                ),
+                _vm._v(" "),
+                _c("g", { attrs: { mask: "url(#edit)" } }, [
+                  _c("rect", {
+                    attrs: {
+                      x: "17",
+                      y: "17",
+                      width: "26",
+                      height: "26",
+                      fill: "#D8D8D8"
+                    }
+                  })
+                ])
+              ]
+            )
+          ]),
+          _vm._v(" "),
+          _c("span", { staticClass: "mx-2" }, [
+            _c(
+              "svg",
+              {
+                attrs: {
+                  width: "60",
+                  height: "60",
+                  viewBox: "0 0 60 60",
+                  fill: "none",
+                  xmlns: "http://www.w3.org/2000/svg"
+                }
+              },
+              [
+                _c("path", {
+                  attrs: {
+                    d:
+                      "M1 30C1 13.9837 13.9837 1 30 1C46.0163 1 59 13.9837 59 30C59 46.0163 46.0163 59 30 59C13.9837 59 1 46.0163 1 30Z",
+                    fill: "white",
+                    stroke: "#F5F5F5",
+                    "stroke-width": "2"
+                  }
+                }),
+                _vm._v(" "),
+                _c(
+                  "mask",
+                  {
+                    attrs: {
+                      id: "delete",
+                      "mask-type": "alpha",
+                      maskUnits: "userSpaceOnUse",
+                      x: "23",
+                      y: "21",
+                      width: "14",
+                      height: "18"
+                    }
+                  },
+                  [
+                    _c("path", {
+                      attrs: {
+                        "fill-rule": "evenodd",
+                        "clip-rule": "evenodd",
+                        d:
+                          "M24 37C24 38.1 24.9 39 26 39H34C35.1 39 36 38.1 36 37V25H24V37ZM37 22H33.5L32.5 21H27.5L26.5 22H23V24H37V22Z",
+                        fill: "white"
+                      }
+                    })
+                  ]
+                ),
+                _vm._v(" "),
+                _c("g", { attrs: { mask: "url(#delete)" } }, [
+                  _c("rect", {
+                    attrs: {
+                      x: "17",
+                      y: "17",
+                      width: "26",
+                      height: "26",
+                      fill: "#D8D8D8"
+                    }
+                  })
+                ])
+              ]
+            )
+          ])
+        ]
+      )
+    ]
+  )
 }
 var staticRenderFns = [
   function() {
@@ -51275,10 +51372,10 @@ render._withStripped = true
 
 /***/ }),
 
-/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/pages/edit/fields/Fields.vue?vue&type=template&id=418260a0&scoped=true&":
-/*!***************************************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/pages/edit/fields/Fields.vue?vue&type=template&id=418260a0&scoped=true& ***!
-  \***************************************************************************************************************************************************************************************************************************************/
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/pages/edit/fields/Fields.vue?vue&type=template&id=418260a0&":
+/*!***************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/pages/edit/fields/Fields.vue?vue&type=template&id=418260a0& ***!
+  \***************************************************************************************************************************************************************************************************************************/
 /*! exports provided: render, staticRenderFns */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -51297,7 +51394,7 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "col-12 textGrey font-12px" }, [
+    return _c("div", { staticClass: "col-12 textGrey font-12px pl-4" }, [
       _c("div", { staticClass: "form-group pt-3" }, [
         _c(
           "label",
@@ -68638,7 +68735,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _Groups_vue_vue_type_template_id_20cc6be8_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Groups.vue?vue&type=template&id=20cc6be8&scoped=true& */ "./resources/js/components/left-nav/groups/Groups.vue?vue&type=template&id=20cc6be8&scoped=true&");
+/* harmony import */ var _Groups_vue_vue_type_template_id_20cc6be8___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Groups.vue?vue&type=template&id=20cc6be8& */ "./resources/js/components/left-nav/groups/Groups.vue?vue&type=template&id=20cc6be8&");
 /* harmony import */ var _Groups_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Groups.vue?vue&type=script&lang=js& */ "./resources/js/components/left-nav/groups/Groups.vue?vue&type=script&lang=js&");
 /* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
 
@@ -68650,11 +68747,11 @@ __webpack_require__.r(__webpack_exports__);
 
 var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
   _Groups_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
-  _Groups_vue_vue_type_template_id_20cc6be8_scoped_true___WEBPACK_IMPORTED_MODULE_0__["render"],
-  _Groups_vue_vue_type_template_id_20cc6be8_scoped_true___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  _Groups_vue_vue_type_template_id_20cc6be8___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _Groups_vue_vue_type_template_id_20cc6be8___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
   false,
   null,
-  "20cc6be8",
+  null,
   null
   
 )
@@ -68680,19 +68777,88 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./resources/js/components/left-nav/groups/Groups.vue?vue&type=template&id=20cc6be8&scoped=true&":
-/*!*******************************************************************************************************!*\
-  !*** ./resources/js/components/left-nav/groups/Groups.vue?vue&type=template&id=20cc6be8&scoped=true& ***!
-  \*******************************************************************************************************/
+/***/ "./resources/js/components/left-nav/groups/Groups.vue?vue&type=template&id=20cc6be8&":
+/*!*******************************************************************************************!*\
+  !*** ./resources/js/components/left-nav/groups/Groups.vue?vue&type=template&id=20cc6be8& ***!
+  \*******************************************************************************************/
 /*! exports provided: render, staticRenderFns */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Groups_vue_vue_type_template_id_20cc6be8_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../../node_modules/vue-loader/lib??vue-loader-options!./Groups.vue?vue&type=template&id=20cc6be8&scoped=true& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/left-nav/groups/Groups.vue?vue&type=template&id=20cc6be8&scoped=true&");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Groups_vue_vue_type_template_id_20cc6be8_scoped_true___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Groups_vue_vue_type_template_id_20cc6be8___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../../node_modules/vue-loader/lib??vue-loader-options!./Groups.vue?vue&type=template&id=20cc6be8& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/left-nav/groups/Groups.vue?vue&type=template&id=20cc6be8&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Groups_vue_vue_type_template_id_20cc6be8___WEBPACK_IMPORTED_MODULE_0__["render"]; });
 
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Groups_vue_vue_type_template_id_20cc6be8_scoped_true___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Groups_vue_vue_type_template_id_20cc6be8___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+
+
+
+/***/ }),
+
+/***/ "./resources/js/components/left-nav/groups/submenu/Submenu.vue":
+/*!*********************************************************************!*\
+  !*** ./resources/js/components/left-nav/groups/submenu/Submenu.vue ***!
+  \*********************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _Submenu_vue_vue_type_template_id_7604fa4b___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Submenu.vue?vue&type=template&id=7604fa4b& */ "./resources/js/components/left-nav/groups/submenu/Submenu.vue?vue&type=template&id=7604fa4b&");
+/* harmony import */ var _Submenu_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Submenu.vue?vue&type=script&lang=js& */ "./resources/js/components/left-nav/groups/submenu/Submenu.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _Submenu_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _Submenu_vue_vue_type_template_id_7604fa4b___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _Submenu_vue_vue_type_template_id_7604fa4b___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/components/left-nav/groups/submenu/Submenu.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/components/left-nav/groups/submenu/Submenu.vue?vue&type=script&lang=js&":
+/*!**********************************************************************************************!*\
+  !*** ./resources/js/components/left-nav/groups/submenu/Submenu.vue?vue&type=script&lang=js& ***!
+  \**********************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Submenu_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../../node_modules/babel-loader/lib??ref--4-0!../../../../../../node_modules/vue-loader/lib??vue-loader-options!./Submenu.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/left-nav/groups/submenu/Submenu.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Submenu_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/js/components/left-nav/groups/submenu/Submenu.vue?vue&type=template&id=7604fa4b&":
+/*!****************************************************************************************************!*\
+  !*** ./resources/js/components/left-nav/groups/submenu/Submenu.vue?vue&type=template&id=7604fa4b& ***!
+  \****************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Submenu_vue_vue_type_template_id_7604fa4b___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../../../node_modules/vue-loader/lib??vue-loader-options!./Submenu.vue?vue&type=template&id=7604fa4b& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/left-nav/groups/submenu/Submenu.vue?vue&type=template&id=7604fa4b&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Submenu_vue_vue_type_template_id_7604fa4b___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Submenu_vue_vue_type_template_id_7604fa4b___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
 
 
 
@@ -68941,6 +69107,75 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./resources/js/components/pages/edit/contact-header/ContactHeader.vue":
+/*!*****************************************************************************!*\
+  !*** ./resources/js/components/pages/edit/contact-header/ContactHeader.vue ***!
+  \*****************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _ContactHeader_vue_vue_type_template_id_66ff85d2___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./ContactHeader.vue?vue&type=template&id=66ff85d2& */ "./resources/js/components/pages/edit/contact-header/ContactHeader.vue?vue&type=template&id=66ff85d2&");
+/* harmony import */ var _ContactHeader_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./ContactHeader.vue?vue&type=script&lang=js& */ "./resources/js/components/pages/edit/contact-header/ContactHeader.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _ContactHeader_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _ContactHeader_vue_vue_type_template_id_66ff85d2___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _ContactHeader_vue_vue_type_template_id_66ff85d2___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/components/pages/edit/contact-header/ContactHeader.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/components/pages/edit/contact-header/ContactHeader.vue?vue&type=script&lang=js&":
+/*!******************************************************************************************************!*\
+  !*** ./resources/js/components/pages/edit/contact-header/ContactHeader.vue?vue&type=script&lang=js& ***!
+  \******************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_ContactHeader_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../../node_modules/babel-loader/lib??ref--4-0!../../../../../../node_modules/vue-loader/lib??vue-loader-options!./ContactHeader.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/pages/edit/contact-header/ContactHeader.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_ContactHeader_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/js/components/pages/edit/contact-header/ContactHeader.vue?vue&type=template&id=66ff85d2&":
+/*!************************************************************************************************************!*\
+  !*** ./resources/js/components/pages/edit/contact-header/ContactHeader.vue?vue&type=template&id=66ff85d2& ***!
+  \************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_ContactHeader_vue_vue_type_template_id_66ff85d2___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../../../node_modules/vue-loader/lib??vue-loader-options!./ContactHeader.vue?vue&type=template&id=66ff85d2& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/pages/edit/contact-header/ContactHeader.vue?vue&type=template&id=66ff85d2&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_ContactHeader_vue_vue_type_template_id_66ff85d2___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_ContactHeader_vue_vue_type_template_id_66ff85d2___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+
+
+
+/***/ }),
+
 /***/ "./resources/js/components/pages/edit/fields/Fields.vue":
 /*!**************************************************************!*\
   !*** ./resources/js/components/pages/edit/fields/Fields.vue ***!
@@ -68950,7 +69185,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _Fields_vue_vue_type_template_id_418260a0_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Fields.vue?vue&type=template&id=418260a0&scoped=true& */ "./resources/js/components/pages/edit/fields/Fields.vue?vue&type=template&id=418260a0&scoped=true&");
+/* harmony import */ var _Fields_vue_vue_type_template_id_418260a0___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Fields.vue?vue&type=template&id=418260a0& */ "./resources/js/components/pages/edit/fields/Fields.vue?vue&type=template&id=418260a0&");
 /* harmony import */ var _Fields_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Fields.vue?vue&type=script&lang=js& */ "./resources/js/components/pages/edit/fields/Fields.vue?vue&type=script&lang=js&");
 /* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
 
@@ -68962,11 +69197,11 @@ __webpack_require__.r(__webpack_exports__);
 
 var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
   _Fields_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
-  _Fields_vue_vue_type_template_id_418260a0_scoped_true___WEBPACK_IMPORTED_MODULE_0__["render"],
-  _Fields_vue_vue_type_template_id_418260a0_scoped_true___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  _Fields_vue_vue_type_template_id_418260a0___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _Fields_vue_vue_type_template_id_418260a0___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
   false,
   null,
-  "418260a0",
+  null,
   null
   
 )
@@ -68992,19 +69227,19 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./resources/js/components/pages/edit/fields/Fields.vue?vue&type=template&id=418260a0&scoped=true&":
-/*!*********************************************************************************************************!*\
-  !*** ./resources/js/components/pages/edit/fields/Fields.vue?vue&type=template&id=418260a0&scoped=true& ***!
-  \*********************************************************************************************************/
+/***/ "./resources/js/components/pages/edit/fields/Fields.vue?vue&type=template&id=418260a0&":
+/*!*********************************************************************************************!*\
+  !*** ./resources/js/components/pages/edit/fields/Fields.vue?vue&type=template&id=418260a0& ***!
+  \*********************************************************************************************/
 /*! exports provided: render, staticRenderFns */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Fields_vue_vue_type_template_id_418260a0_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../../../node_modules/vue-loader/lib??vue-loader-options!./Fields.vue?vue&type=template&id=418260a0&scoped=true& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/pages/edit/fields/Fields.vue?vue&type=template&id=418260a0&scoped=true&");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Fields_vue_vue_type_template_id_418260a0_scoped_true___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Fields_vue_vue_type_template_id_418260a0___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../../../node_modules/vue-loader/lib??vue-loader-options!./Fields.vue?vue&type=template&id=418260a0& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/pages/edit/fields/Fields.vue?vue&type=template&id=418260a0&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Fields_vue_vue_type_template_id_418260a0___WEBPACK_IMPORTED_MODULE_0__["render"]; });
 
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Fields_vue_vue_type_template_id_418260a0_scoped_true___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Fields_vue_vue_type_template_id_418260a0___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
 
 
 
@@ -69410,8 +69645,8 @@ window.Vue.use(vee_validate__WEBPACK_IMPORTED_MODULE_0__["default"], {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! D:\programs\OSPanel\domains\Project\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! D:\programs\OSPanel\domains\Project\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! D:\downloads\openserver\OSPanel\domains\Project\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! D:\downloads\openserver\OSPanel\domains\Project\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ })
