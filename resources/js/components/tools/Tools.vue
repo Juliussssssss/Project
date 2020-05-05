@@ -4,7 +4,7 @@
             <div class="row fixPanel">
                 <actions></actions>
                 <search></search>
-                <pagination :pages="pages" :currentPage="currentPage" :length="length" :sortType="sortType" @atPage="atPage"></pagination>
+                <pagination :pages="pages" :currentPage="currentPage" :length="length" :sortType="sortType" @atPage="atPage" @selectedSortType="selectedSortType"></pagination>
             </div>
         </div>
         <!-- разделитель -->
@@ -27,6 +27,9 @@
         methods: {
             atPage(int) {
                 this.$emit("changePage", int);
+            },
+            selectedSortType(int) {
+                this.$emit("selectedSortType", int)
             }
         }
     }

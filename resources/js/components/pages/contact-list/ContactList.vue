@@ -1,6 +1,6 @@
 <template>
     <div>
-        <tools :pages="pages" :currentPage="currentPage" :length="length" :sortType="sortType" @changePage="changePage"></tools>
+        <tools :pages="pages" :currentPage="currentPage" :length="length" :sortType="sortType" @changePage="changePage" @selectedSortType="selectedSortType"></tools>
         <div class="col-12 p-0">
             <div class="customBorderBottom row py-3 textGrey">
                 <div class="col-2 pr-0">
@@ -105,6 +105,7 @@
                     this.contacts = response.data;
                     this.pages = (Math.ceil(this.contacts.length/100));
                     this.length = this.contacts.length;
+                    this.sortByName();
                 })
                 .catch(function (error) {
                     console.log(error)
@@ -113,6 +114,40 @@
         methods: {
             changePage(int) {
                 this.currentPage = int;
+            },
+            selectedSortType(int) {
+                if (int !== this.sortType) {
+                    this.sortType = int;
+                    switch (int) {
+                        case 1:
+                            this.sortByName();
+                            break;
+                        case 2:
+                            this.sortBySecondName();
+                            break;
+                        case 3:
+                            this.sortByFavorites();
+                            break;
+                    }
+                }
+            },
+            sortByName() {
+                this.contacts.sort((prev, next) => {
+                    if ( prev.first_name < next.first_name ) return -1;
+                    if ( prev.first_name < next.first_name ) return 1;
+                });
+            },
+            sortBySecondName() {
+                this.contacts.sort((prev, next) => {
+                    if ( prev.middle_name < next.middle_name ) return -1;
+                    if ( prev.middle_name < next.middle_name ) return 1;
+                });
+            },
+            sortByFavorites() {
+                this.contacts.sort((prev, next) => {
+                    if ( prev.favorites > next.favorites ) return -1;
+                    if ( prev.favorites > next.favorites ) return 1;
+                });
             }
         }
     }

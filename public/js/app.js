@@ -2162,10 +2162,11 @@ __webpack_require__.r(__webpack_exports__);
   confirmedSortType: 0,
   methods: {
     sortId: function sortId(_int) {
-      this.selected = _int;
+      this.selectedSortType = _int;
     },
-    confirm: function confirm() {
-      this.confirmedSortType = int;
+    confirmed: function confirmed() {
+      this.confirmedSortType = this.selectedSortType;
+      this.$emit("selectedSortType", this.confirmedSortType);
     }
   }
 });
@@ -2288,6 +2289,8 @@ __webpack_require__.r(__webpack_exports__);
       _this.contacts = response.data;
       _this.pages = Math.ceil(_this.contacts.length / 100);
       _this.length = _this.contacts.length;
+
+      _this.sortByName();
     })["catch"](function (error) {
       console.log(error);
     });
@@ -2295,6 +2298,43 @@ __webpack_require__.r(__webpack_exports__);
   methods: {
     changePage: function changePage(_int) {
       this.currentPage = _int;
+    },
+    selectedSortType: function selectedSortType(_int2) {
+      if (_int2 !== this.sortType) {
+        this.sortType = _int2;
+
+        switch (_int2) {
+          case 1:
+            this.sortByName();
+            break;
+
+          case 2:
+            this.sortBySecondName();
+            break;
+
+          case 3:
+            this.sortByFavorites();
+            break;
+        }
+      }
+    },
+    sortByName: function sortByName() {
+      this.contacts.sort(function (prev, next) {
+        if (prev.first_name < next.first_name) return -1;
+        if (prev.first_name < next.first_name) return 1;
+      });
+    },
+    sortBySecondName: function sortBySecondName() {
+      this.contacts.sort(function (prev, next) {
+        if (prev.middle_name < next.middle_name) return -1;
+        if (prev.middle_name < next.middle_name) return 1;
+      });
+    },
+    sortByFavorites: function sortByFavorites() {
+      this.contacts.sort(function (prev, next) {
+        if (prev.favorites > next.favorites) return -1;
+        if (prev.favorites > next.favorites) return 1;
+      });
     }
   }
 });
@@ -2512,6 +2552,9 @@ __webpack_require__.r(__webpack_exports__);
   methods: {
     atPage: function atPage(_int) {
       this.$emit("changePage", _int);
+    },
+    selectedSortType: function selectedSortType(_int2) {
+      this.$emit("selectedSortType", _int2);
     }
   }
 });
@@ -2692,6 +2735,9 @@ __webpack_require__.r(__webpack_exports__);
         this.currentPage--;
         this.$emit("atPage", this.currentPage);
       }
+    },
+    selectedSortType: function selectedSortType(_int) {
+      this.$emit("selectedSortType", _int);
     }
   }
 });
@@ -50667,7 +50713,7 @@ var render = function() {
     _c(
       "div",
       {
-        staticClass: "modal fade",
+        staticClass: "modal",
         attrs: {
           id: "exampleModal",
           tabindex: "-1",
@@ -50743,8 +50789,8 @@ var render = function() {
                   {
                     staticClass:
                       "btn btn-primary px-3 py-2 text-uppercase font-12px",
-                    attrs: { type: "button" },
-                    on: { click: _vm.confirm }
+                    attrs: { type: "button", "data-dismiss": "modal" },
+                    on: { click: _vm.confirmed }
                   },
                   [_vm._v("Сохранить")]
                 ),
@@ -50813,7 +50859,10 @@ var render = function() {
           length: _vm.length,
           sortType: _vm.sortType
         },
-        on: { changePage: _vm.changePage }
+        on: {
+          changePage: _vm.changePage,
+          selectedSortType: _vm.selectedSortType
+        }
       }),
       _vm._v(" "),
       _c(
@@ -51604,7 +51653,7 @@ var render = function() {
               length: _vm.length,
               sortType: _vm.sortType
             },
-            on: { atPage: _vm.atPage }
+            on: { atPage: _vm.atPage, selectedSortType: _vm.selectedSortType }
           })
         ],
         1
@@ -52193,7 +52242,7 @@ var render = function() {
             ]
           ),
           _vm._v(" "),
-          _c("setting")
+          _c("setting", { on: { selectedSortType: _vm.selectedSortType } })
         ],
         1
       )
@@ -69645,8 +69694,8 @@ window.Vue.use(vee_validate__WEBPACK_IMPORTED_MODULE_0__["default"], {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! D:\downloads\openserver\OSPanel\domains\Project\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! D:\downloads\openserver\OSPanel\domains\Project\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! D:\programs\OSPanel\domains\Project\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! D:\programs\OSPanel\domains\Project\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ })
