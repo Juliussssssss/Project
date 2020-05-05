@@ -1,5 +1,6 @@
 <template>
     <div class="col-12">
+        {{ contacts.length }}
         <div class="customBorderBottom row py-3 textGrey">
             <div class="col-2 pr-0">
                 <div class="row">
@@ -77,7 +78,7 @@
                         class="font-12px text-truncate">{{ contact.email }}</span></div>
                     <div class="col-3 pl-0"><span class="font-12px">{{ contact.number }}</span>
                     </div>
-                    <div class="col-3 pl-0"><span class="font-12px"></span></div>
+                    <div class="col-3 pl-0"><span class="font-12px">{{ contact.group['name'] }}</span></div>
                 </div>
             </div>
         </div>
@@ -101,6 +102,9 @@
                     console.log(error)
                 });
         },
+        methods: {
+
+        }
     }
 </script>
 
