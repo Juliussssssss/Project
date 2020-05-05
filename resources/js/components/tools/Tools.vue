@@ -1,7 +1,7 @@
 <template>
     <div class="row">
-        <div class="col-12 p-0 customBorderBottom">
-            <div class="row fixPanel">
+        <div class="col-12 customBorderBottom fixPanel">
+            <div class="row">
                 <actions></actions>
                 <search></search>
                 <pagination></pagination>

@@ -1,6 +1,5 @@
 <template>
     <div>
-        <tools></tools>
         <h1>Home ddd</h1>
     </div>
 </template>

@@ -1,6 +1,6 @@
 <template>
     <div class="col-12">
-        <div class="customBorderBottom topmenu">
+        <div class="customBorderBottom topmenu textGrey">
             <div class="pl-5 py-3">Групы
                 <div class="submenu">
                     <div class="customBorderBottom p-3 d-flex justify-content-between align-items-center">
