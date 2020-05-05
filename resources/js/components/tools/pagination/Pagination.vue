@@ -1,7 +1,7 @@
 <template>
     <div class="col-4 py-4 align-items-center d-flex justify-content-center">
         <div class="d-flex w-100 justify-content-between">
-            <div class="textGrey"><span class="font-13px">{{(currentPage-1)*100+1 }}-{{ currentPage*100>length ? length : currentPage*100}} из {{ length }}</span></div>
+            <div class="textGrey d-flex align-items-center "><span class="font-13px">{{(currentPage-1)*100+1 }}-{{ currentPage*100>length ? length : currentPage*100}} из {{ length }}</span></div>
             <div class="px-3">
                 <span id="before" @click="beforePage">
                     <svg width="30" height="30" viewBox="0 0 30 30" fill="none"
@@ -13,7 +13,7 @@
                                   fill="white"/>
                         </mask>
                         <g mask="url(#beforeIcon)">
-                           <rect x="2" y="2" width="26" height="26" fill="#D8D8D8"/>
+                           <rect class="actionButtons" x="2" y="2" width="26" height="26" fill="#D8D8D8"/>
                         </g>
                     </svg>
                 </span>
@@ -27,12 +27,12 @@
                                   fill="white"/>
                         </mask>
                         <g mask="url(#nextIcon)">
-                            <rect x="2" y="2" width="26" height="26" fill="#D8D8D8"/>
+                            <rect class="actionButtons" x="2" y="2" width="26" height="26" fill="#D8D8D8"/>
                         </g>
                     </svg>
                 </span>
             </div>
-            <div>
+            <div data-toggle="modal" data-target="#exampleModal">
                 <svg width="30" height="30" viewBox="0 0 30 30" fill="none"
                      xmlns="http://www.w3.org/2000/svg">
                     <mask id="settings" mask-type="alpha" maskUnits="userSpaceOnUse" x="5" y="5" width="20"
@@ -42,10 +42,11 @@
                               fill="white"/>
                     </mask>
                     <g mask="url(#settings)">
-                        <rect x="2" y="2" width="26" height="26" fill="#D8D8D8"/>
+                        <rect class="actionButtons" x="2" y="2" width="26" height="26" fill="#D8D8D8"/>
                     </g>
                 </svg>
             </div>
+            <setting></setting>
         </div>
     </div>
 </template>

@@ -1,14 +1,13 @@
 <template>
     <div class="row">
-        <div class="col-12 customBorderBottom fixPanel">
-            <div class="row">
+        <div class="col-12 customBorderBottom ">
+            <div class="row fixPanel">
                 <actions></actions>
                 <search></search>
                 <pagination :pages="pages" :currentPage="currentPage" :length="length" @atPage="atPage"></pagination>
             </div>
         </div>
         <!-- разделитель -->
-
     </div>
 </template>
 
