@@ -2,29 +2,53 @@
     <div>
         <div class="row textGrey">
             <div class="col-12 text-center">
-                <div class="customBorderBottom p-3">
-                    <a class="w-100 py-3 btn-primary btn text-uppercase font-12px btnText text-white addContact">Добавить
-                                                                                                                 контакт</a>
+                <div class="customBorderBottom add-contact p-3">
+                    <router-link
+                        class="w-100 py-3 btn-primary btn text-uppercase font-12px btnText text-white addContact"
+                        active-class="d-none"
+                        to="/contact-add">
+                        Добавить контакт
+                    </router-link>
                 </div>
             </div>
             <div class="col-12">
                 <div class="customBorderBottom">
-                    <div class="pl-5 py-3 activeBorder textActive">Контакты</div>
+                    <router-link
+                        class="d-block pl-5 py-3 textActive"
+                        active-class="activeBorder"
+                        to="/contacts">
+                        Контакты
+                    </router-link>
                 </div>
             </div>
             <div class="col-12">
                 <div class="customBorderBottom">
-                    <div class="pl-5 py-3">Частые контакты</div>
+                    <router-link
+                        class="d-block pl-5 py-3 textActive"
+                        active-class="activeBorder"
+                        to="#1">
+                        Частые контакты
+                    </router-link>
                 </div>
             </div>
             <groups></groups>
             <div class="col-12">
                 <div class="customBorderBottom">
-                    <div class="pl-5 py-3">Избранные</div>
+                    <router-link
+                        class="d-block pl-5 py-3 textActive"
+                        active-class="activeBorder"
+                        to="#2">
+                        Избранные
+                    </router-link>
                 </div>
             </div>
             <div class="col-12">
-                <div class="customBorderBottom pl-5 py-3">Написать</div>
+                <router-link
+                    class="d-block pl-5 py-3 textActive"
+                    active-class="activeBorder"
+                    to="#3">
+                    Написать
+                </router-link>
             </div>
         </div>
     </div>
@@ -42,4 +66,7 @@
 </script>
 
 <style scoped>
+    .add-contact {
+        min-height: 92px;
+    }
 </style>

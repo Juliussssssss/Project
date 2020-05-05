@@ -7,13 +7,18 @@ use App\Http\Requests\Group\StoreRequest;
 use App\Http\Requests\Group\UpdateRequest;
 use App\Models\Group;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class GroupsController extends Controller
 {
 
     public function index()
     {
-        //
+        $groups = DB::table('groups')
+            ->where('user_id', auth()->user()->id)
+            ->get(['id','name']);
+
+        return response()->json($groups);
     }
 
     public function store(StoreRequest $request)
