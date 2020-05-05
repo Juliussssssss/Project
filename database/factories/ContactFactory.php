@@ -11,7 +11,7 @@ $factory->define(\App\Models\Contact::class, function (Faker $faker) {
         'middle_name' => $faker->name,
         'last_name' => $faker->lastName,
         'email' => $faker->unique()->safeEmail,
-        'number' => rand(0,9)+,
+        'number' => $faker->phoneNumber,
         'site' => $faker->url,
         'birthday' => $faker->dateTime,
         'city' => $faker->city,

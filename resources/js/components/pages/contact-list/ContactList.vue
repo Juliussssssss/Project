@@ -1,6 +1,6 @@
 <template>
     <div>
-        <tools :pages="pages" :currentPage="currentPage" :length="length" @changePage="changePage"></tools>
+        <tools :pages="pages" :currentPage="currentPage" :length="length" :sortType="sortType" @changePage="changePage"></tools>
         <div class="col-12 p-0">
             <div class="customBorderBottom row py-3 textGrey">
                 <div class="col-2 pr-0">
@@ -79,7 +79,7 @@
                             class="font-12px text-truncate">{{ contact.email }}</span></div>
                         <div class="col-3 pl-0"><span class="font-12px">{{ contact.number }}</span>
                         </div>
-                        <div class="col-3 pl-0"><span class="font-12px">{{ contact.group['name'] }}</span></div>
+                        <div class="col-3 pl-0"><span class="font-12px">{{ contact.group['name'] ? contact.group['name'] : '' }}</span></div>
                     </div>
                 </div>
             </div>
@@ -96,6 +96,7 @@
                 pages: 0,
                 currentPage: 1,
                 length: 0,
+                sortType: 1,
             }
         },
         created() {

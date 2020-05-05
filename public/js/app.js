@@ -2120,10 +2120,19 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
-  name: "setting"
+  name: "setting",
+  props: ["sortType"],
+  selectedSortType: 0,
+  confirmedSortType: 0,
+  methods: {
+    sortId: function sortId(_int) {
+      this.selected = _int;
+    },
+    confirm: function confirm() {
+      this.confirmedSortType = int;
+    }
+  }
 });
 
 /***/ }),
@@ -2233,7 +2242,8 @@ __webpack_require__.r(__webpack_exports__);
       contacts: [],
       pages: 0,
       currentPage: 1,
-      length: 0
+      length: 0,
+      sortType: 1
     };
   },
   created: function created() {
@@ -2445,7 +2455,7 @@ __webpack_require__.r(__webpack_exports__);
     search: _search_Search__WEBPACK_IMPORTED_MODULE_1__["default"],
     pagination: _pagination_Pagination__WEBPACK_IMPORTED_MODULE_2__["default"]
   },
-  props: ["pages", "currentPage", "length"],
+  props: ["pages", "currentPage", "length", "sortType"],
   methods: {
     atPage: function atPage(_int) {
       this.$emit("changePage", _int);
@@ -50574,129 +50584,122 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _vm._m(0)
+  return _c("div", [
+    _c(
+      "div",
+      {
+        staticClass: "modal fade",
+        attrs: {
+          id: "exampleModal",
+          tabindex: "-1",
+          role: "dialog",
+          "aria-labelledby": "exampleModalLabel",
+          "aria-hidden": "true"
+        }
+      },
+      [
+        _c(
+          "div",
+          { staticClass: "modal-dialog", attrs: { role: "document" } },
+          [
+            _c("div", { staticClass: "modal-content py-4 px-3" }, [
+              _vm._m(0),
+              _vm._v(" "),
+              _c("div", { staticClass: "modal-body d-block modalText pt-0" }, [
+                _c("div", [
+                  _c("input", {
+                    attrs: { type: "radio", id: "test1", name: "radio-group" },
+                    on: {
+                      click: function($event) {
+                        return _vm.sortId(1)
+                      }
+                    }
+                  }),
+                  _vm._v(" "),
+                  _c(
+                    "label",
+                    { staticClass: "font-14px", attrs: { for: "test1" } },
+                    [_vm._v("Имя")]
+                  )
+                ]),
+                _vm._v(" "),
+                _c("div", [
+                  _c("input", {
+                    attrs: { type: "radio", id: "test2", name: "radio-group" },
+                    on: {
+                      click: function($event) {
+                        return _vm.sortId(2)
+                      }
+                    }
+                  }),
+                  _vm._v(" "),
+                  _c(
+                    "label",
+                    { staticClass: "font-14px", attrs: { for: "test2" } },
+                    [_vm._v("Фамилия")]
+                  )
+                ]),
+                _vm._v(" "),
+                _c("div", [
+                  _c("input", {
+                    attrs: { type: "radio", id: "test3", name: "radio-group" },
+                    on: {
+                      click: function($event) {
+                        return _vm.sortId(3)
+                      }
+                    }
+                  }),
+                  _vm._v(" "),
+                  _c(
+                    "label",
+                    { staticClass: "font-14px", attrs: { for: "test3" } },
+                    [_vm._v("Сначала избрнные")]
+                  )
+                ])
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "modal-footer" }, [
+                _c(
+                  "button",
+                  {
+                    staticClass:
+                      "btn btn-primary px-3 py-2 text-uppercase font-12px",
+                    attrs: { type: "button" },
+                    on: { click: _vm.confirm }
+                  },
+                  [_vm._v("Сохранить")]
+                ),
+                _vm._v(" "),
+                _c(
+                  "button",
+                  {
+                    staticClass:
+                      "btn px-3 py-2 ml-4 modalText bthCancel font-12px",
+                    attrs: { type: "button", "data-dismiss": "modal" }
+                  },
+                  [_vm._v("Отмена")]
+                )
+              ])
+            ])
+          ]
+        )
+      ]
+    )
+  ])
 }
 var staticRenderFns = [
   function() {
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", [
-      _c(
-        "div",
-        {
-          staticClass: "modal fade",
-          attrs: {
-            id: "exampleModal",
-            tabindex: "-1",
-            role: "dialog",
-            "aria-labelledby": "exampleModalLabel",
-            "aria-hidden": "true"
-          }
-        },
-        [
-          _c(
-            "div",
-            { staticClass: "modal-dialog", attrs: { role: "document" } },
-            [
-              _c("div", { staticClass: "modal-content py-4 px-3" }, [
-                _c("div", { staticClass: "modal-header pb-0 d-block" }, [
-                  _c(
-                    "div",
-                    { staticClass: "modal-title font-18px textActive" },
-                    [_vm._v("Настройки")]
-                  ),
-                  _vm._v(" "),
-                  _c(
-                    "div",
-                    { staticClass: "modal-title py-2 font-14px modalText" },
-                    [_vm._v("Сортировать")]
-                  )
-                ]),
-                _vm._v(" "),
-                _c(
-                  "div",
-                  { staticClass: "modal-body d-block modalText pt-0" },
-                  [
-                    _c("form", { attrs: { action: "#" } }, [
-                      _c("div", [
-                        _c("input", {
-                          attrs: {
-                            type: "radio",
-                            id: "test1",
-                            name: "radio-group",
-                            checked: ""
-                          }
-                        }),
-                        _vm._v(" "),
-                        _c(
-                          "label",
-                          { staticClass: "font-14px", attrs: { for: "test1" } },
-                          [_vm._v("Имя")]
-                        )
-                      ]),
-                      _vm._v(" "),
-                      _c("div", [
-                        _c("input", {
-                          attrs: {
-                            type: "radio",
-                            id: "test2",
-                            name: "radio-group"
-                          }
-                        }),
-                        _vm._v(" "),
-                        _c(
-                          "label",
-                          { staticClass: "font-14px", attrs: { for: "test2" } },
-                          [_vm._v("Фамилия")]
-                        )
-                      ]),
-                      _vm._v(" "),
-                      _c("div", [
-                        _c("input", {
-                          attrs: {
-                            type: "radio",
-                            id: "test3",
-                            name: "radio-group"
-                          }
-                        }),
-                        _vm._v(" "),
-                        _c(
-                          "label",
-                          { staticClass: "font-14px", attrs: { for: "test3" } },
-                          [_vm._v("Сначала избрнные")]
-                        )
-                      ])
-                    ])
-                  ]
-                ),
-                _vm._v(" "),
-                _c("div", { staticClass: "modal-footer" }, [
-                  _c(
-                    "button",
-                    {
-                      staticClass:
-                        "btn btn-primary px-3 py-2 text-uppercase font-12px",
-                      attrs: { type: "button" }
-                    },
-                    [_vm._v("Сохранить")]
-                  ),
-                  _vm._v(" "),
-                  _c(
-                    "button",
-                    {
-                      staticClass:
-                        "btn px-3 py-2 ml-4 modalText bthCancel font-12px",
-                      attrs: { type: "button", "data-dismiss": "modal" }
-                    },
-                    [_vm._v("Отмена")]
-                  )
-                ])
-              ])
-            ]
-          )
-        ]
-      )
+    return _c("div", { staticClass: "modal-header pb-0 d-block" }, [
+      _c("div", { staticClass: "modal-title font-18px textActive" }, [
+        _vm._v("Настройки")
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "modal-title py-2 font-14px modalText" }, [
+        _vm._v("Сортировать")
+      ])
     ])
   }
 ]
@@ -50728,7 +50731,8 @@ var render = function() {
         attrs: {
           pages: _vm.pages,
           currentPage: _vm.currentPage,
-          length: _vm.length
+          length: _vm.length,
+          sortType: _vm.sortType
         },
         on: { changePage: _vm.changePage }
       }),
@@ -50938,7 +50942,11 @@ var render = function() {
                       _vm._v(" "),
                       _c("div", { staticClass: "col-3 pl-0" }, [
                         _c("span", { staticClass: "font-12px" }, [
-                          _vm._v(_vm._s(contact.group["name"]))
+                          _vm._v(
+                            _vm._s(
+                              contact.group["name"] ? contact.group["name"] : ""
+                            )
+                          )
                         ])
                       ])
                     ])
@@ -51496,7 +51504,8 @@ var render = function() {
             attrs: {
               pages: _vm.pages,
               currentPage: _vm.currentPage,
-              length: _vm.length
+              length: _vm.length,
+              sortType: _vm.sortType
             },
             on: { atPage: _vm.atPage }
           })

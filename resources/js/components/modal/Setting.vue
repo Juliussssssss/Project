@@ -9,23 +9,21 @@
                     <div class="modal-title py-2 font-14px modalText">Сортировать</div>
                 </div>
                 <div class="modal-body d-block modalText pt-0">
-                    <form action="#">
-                        <div>
-                            <input type="radio" id="test1" name="radio-group" checked>
-                            <label class="font-14px" for="test1">Имя</label>
-                        </div>
-                        <div>
-                            <input type="radio" id="test2" name="radio-group">
-                            <label class="font-14px" for="test2">Фамилия</label>
-                        </div>
-                        <div>
-                            <input type="radio" id="test3" name="radio-group">
-                            <label class="font-14px" for="test3">Сначала избрнные</label>
-                        </div>
-                    </form>
+                    <div>
+                        <input @click="sortId(1)" type="radio" id="test1" name="radio-group">
+                        <label class="font-14px" for="test1">Имя</label>
+                    </div>
+                    <div>
+                        <input @click="sortId(2)" type="radio" id="test2" name="radio-group">
+                        <label class="font-14px" for="test2">Фамилия</label>
+                    </div>
+                    <div>
+                        <input @click="sortId(3)" type="radio" id="test3" name="radio-group">
+                        <label class="font-14px" for="test3">Сначала избрнные</label>
+                    </div>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-primary px-3 py-2 text-uppercase font-12px">Сохранить</button>
+                    <button @click="confirm" type="button" class="btn btn-primary px-3 py-2 text-uppercase font-12px">Сохранить</button>
                     <button type="button" class="btn px-3 py-2 ml-4 modalText bthCancel font-12px" data-dismiss="modal">Отмена</button>
                 </div>
             </div>
@@ -36,7 +34,19 @@
 
 <script>
     export default {
-        name: "setting"
+        name: "setting",
+        props: ["sortType"],
+        selectedSortType: 0,
+        confirmedSortType: 0,
+
+        methods: {
+            sortId(int) {
+                this.selected = int;
+            },
+            confirm() {
+                this.confirmedSortType = int;
+            }
+        }
     }
 </script>
 
