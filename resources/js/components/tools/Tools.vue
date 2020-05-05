@@ -4,7 +4,7 @@
             <div class="row">
                 <actions></actions>
                 <search></search>
-                <pagination></pagination>
+                <pagination :pages="pages" :currentPage="currentPage" :length="length" @atPage="atPage"></pagination>
             </div>
         </div>
         <!-- разделитель -->
@@ -23,6 +23,12 @@
             actions,
             search,
             pagination
+        },
+        props: ["pages", "currentPage", "length"],
+        methods: {
+            atPage(int) {
+                this.$emit("changePage", int);
+            }
         }
     }
 </script>

@@ -2179,7 +2179,10 @@ __webpack_require__.r(__webpack_exports__);
   name: "Contacts",
   data: function data() {
     return {
-      contacts: []
+      contacts: [],
+      pages: 0,
+      currentPage: 1,
+      length: 0
     };
   },
   created: function created() {
@@ -2187,11 +2190,17 @@ __webpack_require__.r(__webpack_exports__);
 
     axios.get('/contacts/get-all').then(function (response) {
       _this.contacts = response.data;
+      _this.pages = Math.ceil(_this.contacts.length / 100);
+      _this.length = _this.contacts.length;
     })["catch"](function (error) {
       console.log(error);
     });
   },
-  methods: {}
+  methods: {
+    changePage: function changePage(_int) {
+      this.currentPage = _int;
+    }
+  }
 });
 
 /***/ }),
@@ -2385,6 +2394,12 @@ __webpack_require__.r(__webpack_exports__);
     actions: _actions_Actions__WEBPACK_IMPORTED_MODULE_0__["default"],
     search: _search_Search__WEBPACK_IMPORTED_MODULE_1__["default"],
     pagination: _pagination_Pagination__WEBPACK_IMPORTED_MODULE_2__["default"]
+  },
+  props: ["pages", "currentPage", "length"],
+  methods: {
+    atPage: function atPage(_int) {
+      this.$emit("changePage", _int);
+    }
   }
 });
 
@@ -2546,7 +2561,25 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 /* harmony default export */ __webpack_exports__["default"] = ({
-  name: "Pagination"
+  name: "Pagination",
+  props: ["pages", "currentPage", "length"],
+  data: function data() {
+    return {};
+  },
+  methods: {
+    nextPage: function nextPage() {
+      if (this.currentPage < this.pages) {
+        this.currentPage++;
+        this.$emit("atPage", this.currentPage);
+      }
+    },
+    beforePage: function beforePage() {
+      if (this.currentPage > 1) {
+        this.currentPage--;
+        this.$emit("atPage", this.currentPage);
+      }
+    }
+  }
 });
 
 /***/ }),
@@ -50444,7 +50477,14 @@ var render = function() {
   return _c(
     "div",
     [
-      _c("tools"),
+      _c("tools", {
+        attrs: {
+          pages: _vm.pages,
+          currentPage: _vm.currentPage,
+          length: _vm.length
+        },
+        on: { changePage: _vm.changePage }
+      }),
       _vm._v(" "),
       _c(
         "div",
@@ -50519,141 +50559,147 @@ var render = function() {
             _vm._m(1)
           ]),
           _vm._v(" "),
-          _vm._l(_vm.contacts, function(contact) {
-            return _c(
-              "div",
-              {
-                key: contact.id,
-                staticClass: "customBorderBottom row py-3 textGrey"
-              },
-              [
-                _c("div", { staticClass: "col-2 pr-0" }, [
-                  _c("div", { staticClass: "row" }, [
-                    _vm._m(2, true),
-                    _vm._v(" "),
-                    _c("div", { staticClass: "col-3 pr-0" }, [
-                      _c("a", { attrs: { href: "" } }, [
-                        _c(
-                          "svg",
-                          {
-                            staticClass: "margingY",
-                            attrs: {
-                              width: "24",
-                              height: "24",
-                              viewBox: "0 0 24 24",
-                              fill: "none",
-                              xmlns: "http://www.w3.org/2000/svg"
-                            }
-                          },
-                          [
-                            _c(
-                              "mask",
-                              {
-                                attrs: {
-                                  id: "nonFavorites",
-                                  "mask-type": "alpha",
-                                  maskUnits: "userSpaceOnUse",
-                                  x: "5",
-                                  y: "5",
-                                  width: "20",
-                                  height: "19"
-                                }
-                              },
-                              [
-                                _c("path", {
+          _vm._l(
+            _vm.contacts.slice(
+              (_vm.currentPage - 1) * 100,
+              _vm.currentPage * 100
+            ),
+            function(contact) {
+              return _c(
+                "div",
+                {
+                  key: contact.id,
+                  staticClass: "customBorderBottom row py-3 textGrey"
+                },
+                [
+                  _c("div", { staticClass: "col-2 pr-0" }, [
+                    _c("div", { staticClass: "row" }, [
+                      _vm._m(2, true),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "col-3 pr-0" }, [
+                        _c("a", { attrs: { href: "" } }, [
+                          _c(
+                            "svg",
+                            {
+                              staticClass: "margingY",
+                              attrs: {
+                                width: "24",
+                                height: "24",
+                                viewBox: "0 0 24 24",
+                                fill: "none",
+                                xmlns: "http://www.w3.org/2000/svg"
+                              }
+                            },
+                            [
+                              _c(
+                                "mask",
+                                {
                                   attrs: {
-                                    "fill-rule": "evenodd",
-                                    "clip-rule": "evenodd",
-                                    d:
-                                      "M25 12.24L17.81 11.62L15 5L12.19 11.63L5 12.24L10.46 16.97L8.82 24L15 20.27L21.18 24L19.55 16.97L25 12.24ZM15 18.4L11.24 20.67L12.24 16.39L8.92 13.51L13.3 13.13L15 9.1L16.71 13.14L21.09 13.52L17.77 16.4L18.77 20.68L15 18.4Z",
-                                    fill: "white"
+                                    id: "nonFavorites",
+                                    "mask-type": "alpha",
+                                    maskUnits: "userSpaceOnUse",
+                                    x: "5",
+                                    y: "5",
+                                    width: "20",
+                                    height: "19"
                                   }
-                                })
-                              ]
-                            ),
-                            _vm._v(" "),
-                            _c(
-                              "g",
-                              {
-                                attrs: {
-                                  mask:
-                                    contact.favorites == 0
-                                      ? "url(#nonFavorites)"
-                                      : "url(#favorites)"
-                                }
-                              },
-                              [
-                                _c("rect", {
+                                },
+                                [
+                                  _c("path", {
+                                    attrs: {
+                                      "fill-rule": "evenodd",
+                                      "clip-rule": "evenodd",
+                                      d:
+                                        "M25 12.24L17.81 11.62L15 5L12.19 11.63L5 12.24L10.46 16.97L8.82 24L15 20.27L21.18 24L19.55 16.97L25 12.24ZM15 18.4L11.24 20.67L12.24 16.39L8.92 13.51L13.3 13.13L15 9.1L16.71 13.14L21.09 13.52L17.77 16.4L18.77 20.68L15 18.4Z",
+                                      fill: "white"
+                                    }
+                                  })
+                                ]
+                              ),
+                              _vm._v(" "),
+                              _c(
+                                "g",
+                                {
                                   attrs: {
-                                    x: "2",
-                                    y: "2",
-                                    width: "26",
-                                    height: "26",
-                                    fill:
+                                    mask:
                                       contact.favorites == 0
-                                        ? "#D8D8D8"
-                                        : "#FEF40A"
+                                        ? "url(#nonFavorites)"
+                                        : "url(#favorites)"
                                   }
-                                })
-                              ]
-                            )
-                          ]
-                        )
-                      ])
-                    ]),
-                    _vm._v(" "),
-                    _c("div", { staticClass: "col-6 pr-0" }, [
-                      _c("img", {
-                        staticClass: "contactPhoto",
-                        attrs: { src: contact.avatar, alt: "фото" }
-                      })
-                    ])
-                  ])
-                ]),
-                _vm._v(" "),
-                _c("div", { staticClass: "col-10" }, [
-                  _c("div", { staticClass: "row" }, [
-                    _c(
-                      "div",
-                      {
-                        staticClass:
-                          "col-3 pl-0 contactPhoto align-items-center d-flex"
-                      },
-                      [
-                        _c("span", { staticClass: "font-12px" }, [
-                          _vm._v(
-                            _vm._s(contact.first_name) +
-                              " " +
-                              _vm._s(contact.middle_name) +
-                              " " +
-                              _vm._s(contact.last_name)
+                                },
+                                [
+                                  _c("rect", {
+                                    attrs: {
+                                      x: "2",
+                                      y: "2",
+                                      width: "26",
+                                      height: "26",
+                                      fill:
+                                        contact.favorites == 0
+                                          ? "#D8D8D8"
+                                          : "#FEF40A"
+                                    }
+                                  })
+                                ]
+                              )
+                            ]
                           )
                         ])
-                      ]
-                    ),
-                    _vm._v(" "),
-                    _c("div", { staticClass: "col-3 pl-0 d-flex" }, [
-                      _c("span", { staticClass: "font-12px text-truncate" }, [
-                        _vm._v(_vm._s(contact.email))
+                      ]),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "col-6 pr-0" }, [
+                        _c("img", {
+                          staticClass: "contactPhoto",
+                          attrs: { src: contact.avatar, alt: "фото" }
+                        })
                       ])
-                    ]),
-                    _vm._v(" "),
-                    _c("div", { staticClass: "col-3 pl-0" }, [
-                      _c("span", { staticClass: "font-12px" }, [
-                        _vm._v(_vm._s(contact.number))
-                      ])
-                    ]),
-                    _vm._v(" "),
-                    _c("div", { staticClass: "col-3 pl-0" }, [
-                      _c("span", { staticClass: "font-12px" }, [
-                        _vm._v(_vm._s(contact.group["name"]))
+                    ])
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "col-10" }, [
+                    _c("div", { staticClass: "row" }, [
+                      _c(
+                        "div",
+                        {
+                          staticClass:
+                            "col-3 pl-0 contactPhoto align-items-center d-flex"
+                        },
+                        [
+                          _c("span", { staticClass: "font-12px" }, [
+                            _vm._v(
+                              _vm._s(contact.first_name) +
+                                " " +
+                                _vm._s(contact.middle_name) +
+                                " " +
+                                _vm._s(contact.last_name)
+                            )
+                          ])
+                        ]
+                      ),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "col-3 pl-0 d-flex" }, [
+                        _c("span", { staticClass: "font-12px text-truncate" }, [
+                          _vm._v(_vm._s(contact.email))
+                        ])
+                      ]),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "col-3 pl-0" }, [
+                        _c("span", { staticClass: "font-12px" }, [
+                          _vm._v(_vm._s(contact.number))
+                        ])
+                      ]),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "col-3 pl-0" }, [
+                        _c("span", { staticClass: "font-12px" }, [
+                          _vm._v(_vm._s(contact.group["name"]))
+                        ])
                       ])
                     ])
                   ])
-                ])
-              ]
-            )
-          })
+                ]
+              )
+            }
+          )
         ],
         2
       )
@@ -51199,7 +51245,14 @@ var render = function() {
           _vm._v(" "),
           _c("search"),
           _vm._v(" "),
-          _c("pagination")
+          _c("pagination", {
+            attrs: {
+              pages: _vm.pages,
+              currentPage: _vm.currentPage,
+              length: _vm.length
+            },
+            on: { atPage: _vm.atPage }
+          })
         ],
         1
       )
@@ -51591,64 +51644,82 @@ var render = function() {
     },
     [
       _c("div", { staticClass: "d-flex w-100 justify-content-between" }, [
-        _vm._m(0),
+        _c("div", { staticClass: "textGrey" }, [
+          _c("span", { staticClass: "font-13px" }, [
+            _vm._v(
+              _vm._s((_vm.currentPage - 1) * 100 + 1) +
+                "-" +
+                _vm._s(
+                  _vm.currentPage * 100 > _vm.length
+                    ? _vm.length
+                    : _vm.currentPage * 100
+                ) +
+                " из " +
+                _vm._s(_vm.length)
+            )
+          ])
+        ]),
         _vm._v(" "),
         _c("div", { staticClass: "px-3" }, [
-          _c("span", { attrs: { id: "before" } }, [
-            _c(
-              "svg",
-              {
-                attrs: {
-                  width: "30",
-                  height: "30",
-                  viewBox: "0 0 30 30",
-                  fill: "none",
-                  xmlns: "http://www.w3.org/2000/svg"
-                }
-              },
-              [
-                _c(
-                  "mask",
-                  {
-                    attrs: {
-                      id: "beforeIcon",
-                      "mask-type": "alpha",
-                      maskUnits: "userSpaceOnUse",
-                      x: "7",
-                      y: "7",
-                      width: "16",
-                      height: "16"
-                    }
-                  },
-                  [
-                    _c("path", {
+          _c(
+            "span",
+            { attrs: { id: "before" }, on: { click: _vm.beforePage } },
+            [
+              _c(
+                "svg",
+                {
+                  attrs: {
+                    width: "30",
+                    height: "30",
+                    viewBox: "0 0 30 30",
+                    fill: "none",
+                    xmlns: "http://www.w3.org/2000/svg"
+                  }
+                },
+                [
+                  _c(
+                    "mask",
+                    {
                       attrs: {
-                        "fill-rule": "evenodd",
-                        "clip-rule": "evenodd",
-                        d:
-                          "M23 14H10.83L16.42 8.41L15 7L7 15L15 23L16.41 21.59L10.83 16H23V14Z",
-                        fill: "white"
+                        id: "beforeIcon",
+                        "mask-type": "alpha",
+                        maskUnits: "userSpaceOnUse",
+                        x: "7",
+                        y: "7",
+                        width: "16",
+                        height: "16"
+                      }
+                    },
+                    [
+                      _c("path", {
+                        attrs: {
+                          "fill-rule": "evenodd",
+                          "clip-rule": "evenodd",
+                          d:
+                            "M23 14H10.83L16.42 8.41L15 7L7 15L15 23L16.41 21.59L10.83 16H23V14Z",
+                          fill: "white"
+                        }
+                      })
+                    ]
+                  ),
+                  _vm._v(" "),
+                  _c("g", { attrs: { mask: "url(#beforeIcon)" } }, [
+                    _c("rect", {
+                      attrs: {
+                        x: "2",
+                        y: "2",
+                        width: "26",
+                        height: "26",
+                        fill: "#D8D8D8"
                       }
                     })
-                  ]
-                ),
-                _vm._v(" "),
-                _c("g", { attrs: { mask: "url(#beforeIcon)" } }, [
-                  _c("rect", {
-                    attrs: {
-                      x: "2",
-                      y: "2",
-                      width: "26",
-                      height: "26",
-                      fill: "#D8D8D8"
-                    }
-                  })
-                ])
-              ]
-            )
-          ]),
+                  ])
+                ]
+              )
+            ]
+          ),
           _vm._v(" "),
-          _c("span", { attrs: { id: "next" } }, [
+          _c("span", { attrs: { id: "next" }, on: { click: _vm.nextPage } }, [
             _c(
               "svg",
               {
@@ -51760,16 +51831,7 @@ var render = function() {
     ]
   )
 }
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "textGrey" }, [
-      _c("span", { staticClass: "font-13px " }, [_vm._v("1-100 из 348")])
-    ])
-  }
-]
+var staticRenderFns = []
 render._withStripped = true
 
 

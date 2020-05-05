@@ -1,6 +1,6 @@
 <template>
     <div>
-        <tools></tools>
+        <tools :pages="pages" :currentPage="currentPage" :length="length" @changePage="changePage"></tools>
         <div class="col-12 p-0">
             <div class="customBorderBottom row py-3 textGrey">
                 <div class="col-2 pr-0">
@@ -40,7 +40,7 @@
                 </div>
             </div>
             <div class="customBorderBottom row py-3 textGrey"
-                 v-for="(contact) in contacts"
+                 v-for="(contact) in contacts.slice((currentPage-1)*100,currentPage*100)"
                  v-bind:key="contact.id">
                 <div class="col-2 pr-0">
                     <div class="row">
@@ -92,20 +92,27 @@
         name: "Contacts",
         data() {
             return {
-                contacts: []
+                contacts: [],
+                pages: 0,
+                currentPage: 1,
+                length: 0,
             }
         },
         created() {
             axios.get('/contacts/get-all')
                 .then(response => {
                     this.contacts = response.data;
+                    this.pages = (Math.ceil(this.contacts.length/100));
+                    this.length = this.contacts.length;
                 })
                 .catch(function (error) {
                     console.log(error)
                 });
         },
         methods: {
-
+            changePage(int) {
+                this.currentPage = int;
+            }
         }
     }
 </script>

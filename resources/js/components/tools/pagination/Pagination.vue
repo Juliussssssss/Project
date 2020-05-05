@@ -1,36 +1,36 @@
 <template>
     <div class="col-4 py-4 align-items-center d-flex justify-content-center">
         <div class="d-flex w-100 justify-content-between">
-            <div class="textGrey"><span class="font-13px ">1-100 из 348</span></div>
+            <div class="textGrey"><span class="font-13px">{{(currentPage-1)*100+1 }}-{{ currentPage*100>length ? length : currentPage*100}} из {{ length }}</span></div>
             <div class="px-3">
-                                        <span id="before">
-                                            <svg width="30" height="30" viewBox="0 0 30 30" fill="none"
-                                                 xmlns="http://www.w3.org/2000/svg">
-                                                <mask id="beforeIcon" mask-type="alpha" maskUnits="userSpaceOnUse" x="7"
-                                                      y="7" width="16" height="16">
-                                                    <path fill-rule="evenodd" clip-rule="evenodd"
-                                                          d="M23 14H10.83L16.42 8.41L15 7L7 15L15 23L16.41 21.59L10.83 16H23V14Z"
-                                                          fill="white"/>
-                                                </mask>
-                                                <g mask="url(#beforeIcon)">
-                                                   <rect x="2" y="2" width="26" height="26" fill="#D8D8D8"/>
-                                                </g>
-                                            </svg>
-                                        </span>
-                <span id="next">
-                                            <svg width="30" height="30" viewBox="0 0 30 30" fill="none"
-                                                 xmlns="http://www.w3.org/2000/svg">
-                                                <mask id="nextIcon" mask-type="alpha" maskUnits="userSpaceOnUse" x="7"
-                                                      y="7" width="16" height="16">
-                                                    <path fill-rule="evenodd" clip-rule="evenodd"
-                                                          d="M15 7L13.59 8.41L19.17 14H7V16H19.17L13.59 21.59L15 23L23 15L15 7Z"
-                                                          fill="white"/>
-                                                </mask>
-                                                <g mask="url(#nextIcon)">
-                                                    <rect x="2" y="2" width="26" height="26" fill="#D8D8D8"/>
-                                                </g>
-                                            </svg>
-                                        </span>
+                <span id="before" @click="beforePage">
+                    <svg width="30" height="30" viewBox="0 0 30 30" fill="none"
+                         xmlns="http://www.w3.org/2000/svg">
+                        <mask id="beforeIcon" mask-type="alpha" maskUnits="userSpaceOnUse" x="7"
+                              y="7" width="16" height="16">
+                            <path fill-rule="evenodd" clip-rule="evenodd"
+                                  d="M23 14H10.83L16.42 8.41L15 7L7 15L15 23L16.41 21.59L10.83 16H23V14Z"
+                                  fill="white"/>
+                        </mask>
+                        <g mask="url(#beforeIcon)">
+                           <rect x="2" y="2" width="26" height="26" fill="#D8D8D8"/>
+                        </g>
+                    </svg>
+                </span>
+                <span id="next" @click="nextPage">
+                    <svg width="30" height="30" viewBox="0 0 30 30" fill="none"
+                         xmlns="http://www.w3.org/2000/svg">
+                        <mask id="nextIcon" mask-type="alpha" maskUnits="userSpaceOnUse" x="7"
+                              y="7" width="16" height="16">
+                            <path fill-rule="evenodd" clip-rule="evenodd"
+                                  d="M15 7L13.59 8.41L19.17 14H7V16H19.17L13.59 21.59L15 23L23 15L15 7Z"
+                                  fill="white"/>
+                        </mask>
+                        <g mask="url(#nextIcon)">
+                            <rect x="2" y="2" width="26" height="26" fill="#D8D8D8"/>
+                        </g>
+                    </svg>
+                </span>
             </div>
             <div>
                 <svg width="30" height="30" viewBox="0 0 30 30" fill="none"
@@ -52,7 +52,27 @@
 
 <script>
   export default {
-    name: "Pagination"
+      name: "Pagination",
+      props: ["pages", "currentPage", "length"],
+      data() {
+          return {
+
+          }
+      },
+      methods: {
+          nextPage() {
+              if (this.currentPage < this.pages) {
+                  this.currentPage++;
+                  this.$emit("atPage", this.currentPage);
+              }
+          },
+          beforePage() {
+              if (this.currentPage > 1) {
+                  this.currentPage--;
+                  this.$emit("atPage", this.currentPage);
+              }
+          },
+      }
   }
 </script>
 
