@@ -11,6 +11,17 @@ body {
     font-size: 13px;
 }
 
+.font-14px {
+    font-size: 14px;
+}
+.font-18px {
+    font-size: 16px;
+}
+
+.modalText {
+    color: #888888;
+}
+
 .addContact {
     font-weight: bold;
 }
@@ -46,7 +57,12 @@ body {
 }
 
 .fixPanel {
-    margin: 2.8px 0px 2.8px 0px;
+    margin: 6px 0px 6px 0px;
+}
+
+.bthCancel {
+    color: #B3B3B3;
+    font-weight: bolder;
 }
 
 .activeBorder {
@@ -70,8 +86,7 @@ body {
 }
 
 .margingY {
-    margin-top: -4px;
-    margin-bottom: -4px;
+    margin-top: -5px;
     top: 3px
 }
 
@@ -82,6 +97,57 @@ body {
     margin-top: -10px;
     margin-bottom: -10px;
     object-fit: cover;
+}
+/*custom radio*/
+[type="radio"]:checked,
+[type="radio"]:not(:checked) {
+    position: absolute;
+    left: -9999px;
+}
+[type="radio"]:checked + label,
+[type="radio"]:not(:checked) + label
+{
+    position: relative;
+    padding-left: 28px;
+    cursor: pointer;
+    line-height: 20px;
+    display: inline-block;
+    color: #808080;
+}
+[type="radio"]:checked + label:before,
+[type="radio"]:not(:checked) + label:before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 20px;
+    height: 20px;
+    border: 2px solid #D8D8D8;
+    border-radius: 100%;
+    background: #fff;
+}
+[type="radio"]:checked + label:after,
+[type="radio"]:not(:checked) + label:after {
+    content: '';
+    width: 20px;
+    height: 20px;
+    background: #D8D8D8;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    border-radius: 100%;
+    -webkit-transition: all 0.2s ease;
+    transition: all 0.2s ease;
+}
+[type="radio"]:not(:checked) + label:after {
+    opacity: 0;
+    -webkit-transform: scale(0);
+    transform: scale(0);
+}
+[type="radio"]:checked + label:after {
+    opacity: 1;
+    -webkit-transform: scale(1);
+    transform: scale(1);
 }
 
 /*custom checkbox*/
