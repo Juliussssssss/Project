@@ -46,7 +46,7 @@
                     </g>
                 </svg>
             </div>
-            <setting></setting>
+            <setting @selectedSortType="selectedSortType"></setting>
         </div>
     </div>
 </template>
@@ -73,6 +73,9 @@
                   this.$emit("atPage", this.currentPage);
               }
           },
+          selectedSortType(int) {
+              this.$emit("selectedSortType", int)
+          }
       }
   }
 </script>
