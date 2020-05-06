@@ -4,7 +4,13 @@
             <div class="row fixPanel">
                 <actions></actions>
                 <search></search>
-                <pagination :pages="pages" :currentPage="currentPage" :length="length" :sortType="sortType" @atPage="atPage" @selectedSortType="selectedSortType"></pagination>
+                <pagination
+                    :pages="pages"
+                    :currentPage="currentPage"
+                    :length="length"
+                    @atPage="atPage"
+                    @selectedSortType="selectedSortType"
+                ></pagination>
             </div>
         </div>
         <!-- разделитель -->
@@ -23,7 +29,7 @@
             search,
             pagination
         },
-        props: ["pages", "currentPage", "length", "sortType"],
+        props: ["pages", "currentPage", "length"],
         methods: {
             atPage(int) {
                 this.$emit("changePage", int);
