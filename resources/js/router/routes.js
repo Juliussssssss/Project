@@ -2,7 +2,8 @@ import Edit from "../components/pages/edit/Edit";
 import Contacts from "../components/pages/contact-list/ContactList";
 
 window.Vue = require('vue');
-const Home = Vue.component('main-page-moder', require('../components/pages/home/Home.vue').default);
+const Home = Vue.component('home', require('../components/pages/home/Home.vue').default);
+const CreateContact = Vue.component('create-contact', require('../components/pages/contact-forms/CreateContact').default);
 export const routes = [
     {
         path: '/',
@@ -18,5 +19,10 @@ export const routes = [
         path: '/contacts',
         component: Contacts,
         name: "Contacts"
+    },
+    {
+        path: '/create-contact',
+        component: CreateContact,
+        name: "ContactAdd"
     },
 ];
