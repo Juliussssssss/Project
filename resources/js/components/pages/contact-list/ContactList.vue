@@ -1,12 +1,11 @@
 <template>
     <div>
-        <tools :pages="pages" :currentPage="currentPage" :length="length" :sortType="sortType" @changePage="changePage" @selectedSortType="selectedSortType"></tools>
         <div class="col-12 p-0">
             <div class="customBorderBottom row py-3 textGrey">
                 <div class="col-2 pr-0">
                     <div class="row">
                         <div class="col-3 pr-0">
-                            <input v-model="selectAllControl" @click="selectAll" id="all" type="checkbox"/>
+                            <input v-model="selectAllControlProp" @click="selectAll" id="all" type="checkbox"/>
                             <label class="pl-2 customLabel m-0" for="all"></label>
                         </div>
                         <div class="col-3 pr-0">
@@ -90,28 +89,14 @@
 <script>
     export default {
         name: "Contacts",
+        props: ["contacts", "currentPage", "selectAllControl"],
         data() {
             return {
-                contacts: [],
                 pages: 0,
-                currentPage: 1,
                 length: 0,
-                sortType: 1,
                 selected: [],
-                selectAllControl: false,
+                selectAllControlProp: false
             }
-        },
-        created() {
-            axios.get('/contacts/get-all')
-                .then(response => {
-                    this.contacts = response.data;
-                    this.pages = (Math.ceil(this.contacts.length/100));
-                    this.length = this.contacts.length;
-                    this.sortByName();
-                })
-                .catch(function (error) {
-                    console.log(error)
-                });
         },
         methods: {
             selectAll() {
@@ -121,7 +106,6 @@
                 } else {
                     this.selected = selectList.map(a => a.id);
                 }
-                console.log(this.selectAllControl);
             },
             checkSelectAll() {
                 setTimeout(this.checked,10);
@@ -129,48 +113,12 @@
             checked() {
                 let selectList = this.contacts.slice((this.currentPage-1)*100, this.currentPage*100);
                 if (this.selected.length != selectList.length) {
-                    this.selectAllControl = false;
+                    this.$emit("ChangeSelectAllControl", false);
+                    this.selectAllControlProp = false
                 } else {
-                    this.selectAllControl = true;
+                    this.$emit("ChangeSelectAllControl", true);
+                    this.selectAllControlProp = true;
                 }
-            },
-            changePage(int) {
-                this.currentPage = int;
-                this.selected = []
-            },
-            selectedSortType(int) {
-                if (int !== this.sortType) {
-                    this.sortType = int;
-                    switch (int) {
-                        case 1:
-                            this.sortByName();
-                            break;
-                        case 2:
-                            this.sortBySecondName();
-                            break;
-                        case 3:
-                            this.sortByFavorites();
-                            break;
-                    }
-                }
-            },
-            sortByName() {
-                this.contacts.sort((prev, next) => {
-                    if ( prev.first_name < next.first_name ) return -1;
-                    if ( prev.first_name < next.first_name ) return 1;
-                });
-            },
-            sortBySecondName() {
-                this.contacts.sort((prev, next) => {
-                    if ( prev.middle_name < next.middle_name ) return -1;
-                    if ( prev.middle_name < next.middle_name ) return 1;
-                });
-            },
-            sortByFavorites() {
-                this.contacts.sort((prev, next) => {
-                    if ( prev.favorites > next.favorites ) return -1;
-                    if ( prev.favorites > next.favorites ) return 1;
-                });
             },
             setFavorites(int, id) {
                 if (int == 1) {

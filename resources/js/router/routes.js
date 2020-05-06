@@ -24,6 +24,11 @@ export const routes = [
         name: "Contacts"
     },
     {
+        path: '/contacts2',
+        component: Contacts2,
+        name: "Contacts"
+    },
+    {
         path: '/create-contact',
         component: CreateContact,
         name: "ContactAdd"

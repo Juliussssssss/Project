@@ -57,20 +57,20 @@
       props: ["pages", "currentPage", "length"],
       data() {
           return {
-
+              currentPageProp: this.currentPage,
           }
       },
       methods: {
           nextPage() {
               if (this.currentPage < this.pages) {
-                  this.currentPage++;
-                  this.$emit("atPage", this.currentPage);
+                  this.currentPageProp++;
+                  this.$emit("atPage", this.currentPageProp );
               }
           },
           beforePage() {
               if (this.currentPage > 1) {
-                  this.currentPage--;
-                  this.$emit("atPage", this.currentPage);
+                  this.currentPageProp--;
+                  this.$emit("atPage", this.currentPageProp);
               }
           },
           selectedSortType(int) {
