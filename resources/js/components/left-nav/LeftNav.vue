@@ -6,7 +6,7 @@
                     <router-link
                         class="w-100 py-3 btn-primary btn text-uppercase font-12px btnText text-white addContact"
                         active-class="d-none"
-                        to="/contact-add">
+                        to="/create-contact">
                         Добавить контакт
                     </router-link>
                 </div>

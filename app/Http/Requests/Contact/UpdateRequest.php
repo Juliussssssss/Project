@@ -24,11 +24,12 @@ class UpdateRequest extends FormRequest
      */
     public function rules()
     {
+        $contact_id = $this['id'];
         $rules = [
             'first_name' => 'required|alpha|max:255',
             'middle_name' => 'required|alpha|max:255',
             'last_name' => 'nullable|alpha|max:255',
-            'email' => 'required|email|unique:contacts',
+            'email' => ['required','email', 'max:255', 'unique:contacts,email,'.$contact_id],
             'number' => 'max:255',
             'site' => 'max:255',
             'birthday' => 'nullable|date',
@@ -42,7 +43,7 @@ class UpdateRequest extends FormRequest
             'group_id' => 'nullable|integer',
             'favorites' => [
                 'required', Rule::in([
-                    true,false
+                    1,0
                 ])
             ]
         ];

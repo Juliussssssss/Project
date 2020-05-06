@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\Contact\StoreRequest;
 use App\Http\Requests\Contact\UpdateRequest;
 use App\Models\Contact;
+use App\Models\File;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 
@@ -23,7 +24,8 @@ class ContactsController extends Controller
 
     public function store(StoreRequest $request)
     {
-        //
+
+        return (new Contact())->prepareForCreate($request);
     }
 
     public function update(UpdateRequest $request, Contact $contact)

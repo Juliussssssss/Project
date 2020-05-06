@@ -43,7 +43,7 @@ class StoreRequest extends FormRequest
             'group_id' => 'nullable|integer',
             'favorites' => [
                 'required', Rule::in([
-                    true,false
+                    1,0
                 ])
             ]
         ];
