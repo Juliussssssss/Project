@@ -19,10 +19,10 @@
                     <span class="mx-2">
                         <svg width="60" height="60" viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path d="M1 30C1 13.9837 13.9837 1 30 1C46.0163 1 59 13.9837 59 30C59 46.0163 46.0163 59 30 59C13.9837 59 1 46.0163 1 30Z" fill="white" stroke="#F5F5F5" stroke-width="2"/>
-                            <mask id="delete" mask-type="alpha" maskUnits="userSpaceOnUse" x="23" y="21" width="14" height="18">
+                            <mask id="del" mask-type="alpha" maskUnits="userSpaceOnUse" x="23" y="21" width="14" height="18">
                                 <path fill-rule="evenodd" clip-rule="evenodd" d="M24 37C24 38.1 24.9 39 26 39H34C35.1 39 36 38.1 36 37V25H24V37ZM37 22H33.5L32.5 21H27.5L26.5 22H23V24H37V22Z" fill="white"/>
                             </mask>
-                            <g mask="url(#delete)">
+                            <g mask="url(#del)">
                                 <rect x="17" y="17" width="26" height="26" fill="#D8D8D8"/>
                             </g>
                         </svg>
