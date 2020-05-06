@@ -18,10 +18,14 @@
 </template>
 
 <script>
-    Vue.component('create-contact-header', require('../contact-forms/blocks/CreateContactHeader').default);
-    Vue.component('contact-form-fields', require('../contact-forms/blocks/СontactFormFields').default);
+    import CreateContactHeader from '../contact-forms/blocks/CreateContactHeader'
+    import ContactFormFields from '../contact-forms/blocks/СontactFormFields'
     export default {
         name: "CreateContact",
+        components:{
+            CreateContactHeader,
+            ContactFormFields
+        },
         methods: {
             addContact() {
                 const data = new FormData(this.$refs.contact);

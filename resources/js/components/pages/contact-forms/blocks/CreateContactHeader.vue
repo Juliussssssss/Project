@@ -28,15 +28,16 @@
                 >
             </div>
         </div>
-
-
     </div>
 </template>
 
 <script>
-    Vue.component('avatar-load', require('../blocks/AvatarLoad').default);
+    import AvatarLoad from '../blocks/AvatarLoad';
     export default {
-        name: "CreateContactHeader"
+        name: "CreateContactHeader",
+        components: {
+            AvatarLoad
+        }
     }
 </script>
 

@@ -4,7 +4,7 @@ import Contacts from "../components/pages/contact-list/ContactList";
 window.Vue = require('vue');
 
 const Home = Vue.component('home', require('../components/pages/home/Home.vue').default);
-const CreateContact = Vue.component('create-contact', require('../components/pages/contact-forms/CreateContact').default);
+import CreateContact from '../components/pages/contact-forms/CreateContact';
 
 export const routes = [
     {
