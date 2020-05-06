@@ -16,6 +16,7 @@ Route::get('/contacts/get-all', ('Api\ContactsController@getContacts'))->middlew
 Route::post('/contacts/set-favorites', ('Api\ContactsController@setFavorites'))->middleware('auth');
 
 Route::get('/groups', ('Api\GroupsController@index'))->middleware('auth');
+Route::delete('/api/groups', ('Api\GroupsController@destroy'))->middleware('auth');
 Route::get('/api/groups', ('Api\GroupsController@index'))->middleware('auth');
 
 

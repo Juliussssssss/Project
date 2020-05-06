@@ -1,7 +1,7 @@
 <template>
-    <div class="submenu" v-if="groupsList">
+    <div class="submenu" v-if="getGroups">
         <div class="customBorderBottom p-3 d-flex justify-content-between align-items-center"
-             v-for="group in groupsList">
+             v-for="group in getGroups">
             <div>
                 <svg class="margingY" width="30" height="30" viewBox="0 0 30 30" fill="none"
                      xmlns="http://www.w3.org/2000/svg">
@@ -20,7 +20,20 @@
             <div>
                 <edit-btn></edit-btn>
                 <!--                click -->
-                <delete-btn></delete-btn>
+                <a href="" data-toggle="modal" data-target="#deleteModal" @click="deleteClick(group.id)">
+                    <svg class="margingY" width="30" height="30" viewBox="0 0 30 30" fill="none"
+                         xmlns="http://www.w3.org/2000/svg">
+                        <mask id="delete" mask-type="alpha" maskUnits="userSpaceOnUse" x="8" y="6" width="14"
+                              height="18">
+                            <path fill-rule="evenodd" clip-rule="evenodd"
+                                  d="M9 22C9 23.1 9.9 24 11 24H19C20.1 24 21 23.1 21 22V10H9V22ZM22 7H18.5L17.5 6H12.5L11.5 7H8V9H22V7Z"
+                                  fill="white"/>
+                        </mask>
+                        <g mask="url(#delete)">
+                            <rect class="actionButtons" x="2" y="2" width="26" height="26" fill="#D8D8D8"/>
+                        </g>
+                    </svg>
+                </a>
             </div>
         </div>
     </div>
@@ -28,29 +41,32 @@
 
 <script>
     import editBtn from "./edit/Edit";
-    import deleteBtn from "./delete/Delete";
+    import {mapActions, mapGetters, mapMutations} from "vuex";
+    //
 
     export default {
         name: "Submenu",
         components: {
-            editBtn,
-            deleteBtn
+            editBtn
         },
         data() {
             return {
-                groupsList: {}
+
             }
         },
-        methods: {},
-        created() {
-            axios.get('/api/groups')
-            .then(response => {
-                console.log(response.data)
-                this.groupsList = response.data;
-            })
-            .catch(error => {
-                console.log(error);
-            });
+        methods: {
+            deleteClick(id) {
+                console.log('delete ' + id);
+                this.setCurrentGroup(id);
+            },
+            ...mapMutations(["setCurrentGroup"]),
+            ...mapActions(["getContactGroups"])
+        },
+        computed: {
+          ...mapGetters(["getGroups"])
+        },
+        mounted() {
+            this.getContactGroups()
         }
     }
 </script>

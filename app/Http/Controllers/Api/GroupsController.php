@@ -9,6 +9,7 @@ use App\Models\Group;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
+use Throwable;
 
 class GroupsController extends Controller
 {
@@ -16,10 +17,8 @@ class GroupsController extends Controller
     public function index()
     {
 
-        //        $groups = DB::table('groups')
-        //            ->where('user_id', auth()->user()->id)
-        //            ->get(['id','name']);
-        $groups = Group::select('id', 'name')->get();
+        $groups = DB::table('groups')->where('user_id', auth()->user()->id)->get(['id', 'name']);
+        //$groups = Group::select('id', 'name')->get();
 
         return response()->json($groups, 200);
     }
@@ -34,8 +33,14 @@ class GroupsController extends Controller
         //
     }
 
-    public function destroy(Group $group)
+    public function destroy(Request $request)
     {
-        //
+        try {
+            $group = Group::where('user_id', auth()->user()->id)->find($request->id);
+            $group->delete();
+            return response()->json($group, 200);
+        } catch (Throwable $e) {
+            return response()->json($e->getMessage(), 500);
+        }
     }
 }

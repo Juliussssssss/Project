@@ -4,22 +4,20 @@
         <div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="deleteModalLabel"
              aria-hidden="true">
             <div class="modal-dialog" role="document">
-                <div class="modal-content py-4 px-3">
-                    <div class="modal-header pb-0 d-block">
-                        <div class="modal-title font-18px textActive">Настройки</div>
-                        <div class="modal-title py-2 font-14px modalText">Сортировать</div>
-                    </div>
-                    <div class="modal-body d-block modalText pt-0">
-                        <h1>delete</h1>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button"
-                                class="btn btn-primary px-3 py-2 text-uppercase font-12px" data-dismiss="modal">
-                            Сохранить
-                        </button>
-                        <button type="button" class="btn px-3 py-2 ml-4 modalText bthCancel font-12px"
-                                data-dismiss="modal">Отмена
-                        </button>
+                <div class="modal-content py-2 px-3">
+                    <div class="modal-body">
+                        <div class="font-18px textActive">Вы действительно хотите удалить группу?</div>
+                        <br><br><br><br>
+                        <div class="row py-3 px-3">
+                            <button type="button"
+                                    class="btn btn-primary px-3 py-2 text-uppercase font-12px" data-dismiss="modal"
+                                    @click="deleteClick">
+                                Удалить
+                            </button>
+                            <button type="button" class="btn px-3 py-2 ml-4 modalText bthCancel font-12px"
+                                    data-dismiss="modal">Отмена
+                            </button>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -28,8 +26,32 @@
 </template>
 
 <script>
+    import {mapActions, mapGetters} from 'vuex';
+
     export default {
-        name: "DeleteModal"
+        name: "DeleteModal",
+        methods: {
+            deleteClick() {
+                console.log('current group has been deleted ' + this.getCurrentGroup)
+
+                axios.delete('/api/groups', {
+                    params: {
+                        id: this.getCurrentGroup
+                    }
+                })
+                .then(response => {
+                    console.log(response)
+                    this.getContactGroups()
+                })
+                .catch(error => {
+                    console.log(error)
+                })
+            },
+            ...mapActions(["getContactGroups"])
+        },
+        computed: {
+            ...mapGetters(["getCurrentGroup"])
+        }
     }
 </script>
 
