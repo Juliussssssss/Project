@@ -15,6 +15,7 @@ Route::post('/contact/add', ('Api\ContactsController@store'));
 Route::get('/contacts/get-all', ('Api\ContactsController@index'))->middleware('auth');
 
 Route::get('/groups', ('Api\GroupsController@index'))->middleware('auth');
+Route::delete('/api/groups', ('Api\GroupsController@destroy'))->middleware('auth');
 Route::get('/api/groups', ('Api\GroupsController@index'))->middleware('auth');
 
 
