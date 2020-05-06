@@ -8,14 +8,13 @@ use App\Http\Requests\Contact\UpdateRequest;
 use App\Models\Contact;
 use App\Models\File;
 use Illuminate\Support\Facades\DB;
-use Illuminate\Http\Request;
 
 class ContactsController extends Controller
 {
 
     public function index()
     {
-        $contacts = DB::table('contacts')
+        $contacts = Contact::with('group')
             ->where('user_id', auth()->user()->id)
             ->get();
 

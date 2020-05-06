@@ -15,11 +15,13 @@ class GroupsController extends Controller
 
     public function index()
     {
-        $groups = DB::table('groups')
-            ->where('user_id', Auth::user()->id)
-            ->get(['id','name']);
 
-        return response()->json($groups);
+        //        $groups = DB::table('groups')
+        //            ->where('user_id', auth()->user()->id)
+        //            ->get(['id','name']);
+        $groups = Group::select('id', 'name')->get();
+
+        return response()->json($groups, 200);
     }
 
     public function store(StoreRequest $request)

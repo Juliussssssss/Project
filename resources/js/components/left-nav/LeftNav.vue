@@ -1,6 +1,6 @@
 <template>
     <div>
-        <div class="row textGrey">
+        <div class="row">
             <div class="col-12 text-center">
                 <div class="customBorderBottom add-contact p-3">
                     <router-link
@@ -14,8 +14,8 @@
             <div class="col-12">
                 <div class="customBorderBottom">
                     <router-link
-                        class="d-block pl-5 py-3 textActive"
-                        active-class="activeBorder"
+                        class="d-block pl-5 py-3"
+                        active-class="activeBorder textActive"
                         to="/contacts">
                         Контакты
                     </router-link>
@@ -24,7 +24,7 @@
             <div class="col-12">
                 <div class="customBorderBottom">
                     <router-link
-                        class="d-block pl-5 py-3 textActive"
+                        class="d-block pl-5 py-3 textGrey"
                         active-class="activeBorder"
                         to="#1">
                         Частые контакты
@@ -35,7 +35,7 @@
             <div class="col-12">
                 <div class="customBorderBottom">
                     <router-link
-                        class="d-block pl-5 py-3 textActive"
+                        class="d-block pl-5 py-3 textGrey"
                         active-class="activeBorder"
                         to="#2">
                         Избранные
@@ -43,12 +43,14 @@
                 </div>
             </div>
             <div class="col-12">
-                <router-link
-                    class="d-block pl-5 py-3 textActive"
-                    active-class="activeBorder"
-                    to="#3">
-                    Написать
-                </router-link>
+                <div class="customBorderBottom">
+                    <router-link
+                        class="d-block pl-5 py-3 textGrey"
+                        active-class="activeBorder"
+                        to="#3">
+                        Написать
+                    </router-link>
+                </div>
             </div>
         </div>
     </div>
