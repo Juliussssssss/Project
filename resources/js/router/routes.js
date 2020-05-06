@@ -5,7 +5,7 @@ window.Vue = require('vue');
 
 const Home = Vue.component('home', require('../components/pages/home/Home.vue').default);
 import CreateContact from '../components/pages/contact-forms/CreateContact';
-
+import EditContact from '../components/pages/contact-forms/EditContact';
 export const routes = [
     {
         path: '/',
@@ -26,5 +26,10 @@ export const routes = [
         path: '/create-contact',
         component: CreateContact,
         name: "ContactAdd"
+    },
+    {
+        path: '/edit-contact',
+        component: EditContact,
+        name: "ContactEdit"
     },
 ];

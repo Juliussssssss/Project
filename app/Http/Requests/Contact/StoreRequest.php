@@ -30,7 +30,7 @@ class StoreRequest extends FormRequest
             'middle_name' => 'required|alpha|max:255',
             'last_name' => 'nullable|alpha|max:255',
             'email' => 'required|email|unique:contacts',
-            'number' => 'max:255',
+            'number' => 'max:10',
             'site' => 'max:255',
             'birthday' => 'nullable|date',
             'city' => 'max:255',
