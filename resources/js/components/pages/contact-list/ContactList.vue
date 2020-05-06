@@ -89,23 +89,28 @@
 <script>
     export default {
         name: "Contacts",
-        props: ["contacts", "currentPage", "selectAllControl"],
+        props: ["contacts", "currentPage", "NewSortType"],
         data() {
             return {
-                pages: 0,
-                length: 0,
                 selected: [],
+                sortType: 1,
                 selectAllControlProp: false
+            }
+        },
+        watch: {
+            NewSortType: function (id) {
+                this.selectedSortType(id);
             }
         },
         methods: {
             selectAll() {
                 let selectList = this.contacts.slice((this.currentPage-1)*100, this.currentPage*100);
-                if (this.selected.length == selectList.length && this.selectAllControl == true) {
+                if (this.selected.length == selectList.length && this.selectAllControlProp == true) {
                     this.selected = [];
                 } else {
-                    this.selected = selectList.map(a => a.id);
+                    this.selected = selectList.map(a => a.id);;
                 }
+                this.$emit("selectedContact", this.selected)
             },
             checkSelectAll() {
                 setTimeout(this.checked,10);
@@ -113,12 +118,45 @@
             checked() {
                 let selectList = this.contacts.slice((this.currentPage-1)*100, this.currentPage*100);
                 if (this.selected.length != selectList.length) {
-                    this.$emit("ChangeSelectAllControl", false);
                     this.selectAllControlProp = false
                 } else {
-                    this.$emit("ChangeSelectAllControl", true);
                     this.selectAllControlProp = true;
                 }
+                this.$emit("selectedContact", this.selected)
+            },
+            selectedSortType(int) {
+                if (int !== this.sortType) {
+                    this.sortType = int;
+                    switch (int) {
+                        case 1:
+                            this.sortByName();
+                            break;
+                        case 2:
+                            this.sortBySecondName();
+                            break;
+                        case 3:
+                            this.sortByFavorites();
+                            break;
+                    }
+                }
+            },
+            sortByName() {
+                this.contacts.sort((prev, next) => {
+                    if ( prev.first_name < next.first_name ) return -1;
+                    if ( prev.first_name < next.first_name ) return 1;
+                });
+            },
+            sortBySecondName() {
+                this.contacts.sort((prev, next) => {
+                    if ( prev.middle_name < next.middle_name ) return -1;
+                    if ( prev.middle_name < next.middle_name ) return 1;
+                });
+            },
+            sortByFavorites() {
+                this.contacts.sort((prev, next) => {
+                    if ( prev.favorites > next.favorites ) return -1;
+                    if ( prev.favorites > next.favorites ) return 1;
+                });
             },
             setFavorites(int, id) {
                 if (int == 1) {
