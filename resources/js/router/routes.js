@@ -1,5 +1,6 @@
 import Edit from "../components/pages/edit/Edit";
 import Contacts from "../components/pages/contact-list/ContactList";
+import Contacts2 from "../components/pages/contact-list/ContactRender";
 
 window.Vue = require('vue');
 

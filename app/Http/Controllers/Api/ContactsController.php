@@ -7,18 +7,26 @@ use App\Http\Requests\Contact\StoreRequest;
 use App\Http\Requests\Contact\UpdateRequest;
 use App\Models\Contact;
 use App\Models\File;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
 class ContactsController extends Controller
 {
 
-    public function index()
+    public function getContacts()
     {
         $contacts = Contact::with('group')
             ->where('user_id', auth()->user()->id)
             ->get();
 
         return response()->json($contacts);
+    }
+
+    public function setFavorites(Request $request)
+    {
+        $contact = Contact::find($request->id)->update(['favorites' => $request->value]);
+
+        return response()->json("ok");
     }
 
     public function store(StoreRequest $request)

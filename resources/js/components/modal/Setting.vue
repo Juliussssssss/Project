@@ -10,7 +10,7 @@
                 </div>
                 <div class="modal-body d-block modalText pt-0">
                     <div>
-                        <input @click="sortId(1)" type="radio" id="test1" name="radio-group">
+                        <input @click="sortId(1)" type="radio" id="test1" name="radio-group" checked>
                         <label class="font-14px" for="test1">Имя</label>
                     </div>
                     <div>
@@ -36,7 +36,7 @@
     export default {
         name: "setting",
         props: ["sortType"],
-        selectedSortType: 0,
+        selectedSortType: 1,
         confirmedSortType: 0,
 
         methods: {
