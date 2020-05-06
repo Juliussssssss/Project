@@ -1,10 +1,11 @@
 <template>
-    
+
 </template>
 
 <script>
+    import ContactList from "./ContactList";
     export default {
-        name: "EditContactHeader"
+        name: "AllContacts",
     }
 </script>
 
