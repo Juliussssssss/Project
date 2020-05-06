@@ -6,7 +6,7 @@
                 <div class="col-2 pr-0">
                     <div class="row">
                         <div class="col-3 pr-0">
-                            <input id="all" type="checkbox"/>
+                            <input v-model="selectAllControl" @click="selectAll" id="all" type="checkbox"/>
                             <label class="pl-2 customLabel m-0" for="all"></label>
                         </div>
                         <div class="col-3 pr-0">
@@ -45,11 +45,11 @@
                 <div class="col-2 pr-0">
                     <div class="row">
                         <div class="col-3 pr-0">
-                            <input id="id" type="checkbox"/>
-                            <label class="pl-2 customLabel m-0" for="id"></label>
+                            <input @click="checkSelectAll" v-model="selected" :id="contact.id" :value="contact.id" type="checkbox"/>
+                            <label class="pl-2 customLabel m-0" :for="contact.id"></label>
                         </div>
                         <div class="col-3 pr-0">
-                            <a href="">
+                            <a @click="setFavorites(contact.favorites, contact.id)">
                                 <svg class="margingY" width="24" height="24" viewBox="0 0 24 24"
                                      fill="none" xmlns="http://www.w3.org/2000/svg">
                                     <mask id="nonFavorites" mask-type="alpha"
@@ -97,6 +97,8 @@
                 currentPage: 1,
                 length: 0,
                 sortType: 1,
+                selected: [],
+                selectAllControl: false,
             }
         },
         created() {
@@ -112,8 +114,29 @@
                 });
         },
         methods: {
+            selectAll() {
+                let selectList = this.contacts.slice((this.currentPage-1)*100, this.currentPage*100);
+                if (this.selected.length == selectList.length && this.selectAllControl == true) {
+                    this.selected = [];
+                } else {
+                    this.selected = selectList.map(a => a.id);
+                }
+                console.log(this.selectAllControl);
+            },
+            checkSelectAll() {
+                setTimeout(this.checked,10);
+            },
+            checked() {
+                let selectList = this.contacts.slice((this.currentPage-1)*100, this.currentPage*100);
+                if (this.selected.length != selectList.length) {
+                    this.selectAllControl = false;
+                } else {
+                    this.selectAllControl = true;
+                }
+            },
             changePage(int) {
                 this.currentPage = int;
+                this.selected = []
             },
             selectedSortType(int) {
                 if (int !== this.sortType) {
@@ -148,6 +171,20 @@
                     if ( prev.favorites > next.favorites ) return -1;
                     if ( prev.favorites > next.favorites ) return 1;
                 });
+            },
+            setFavorites(int, id) {
+                if (int == 1) {
+                    int = 0;
+                } else {
+                    int = 1;
+                }
+                axios.post('/contacts/set-favorites', {id: id, value: int})
+                    .then(response => {
+                        this.contacts[this.contacts.findIndex(x => x.id == id)].favorites = int;
+                    })
+                    .catch(function (error) {
+                        console.log(error)
+                    });
             }
         }
     }

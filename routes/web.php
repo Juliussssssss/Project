@@ -12,7 +12,8 @@ Route::post('/logout', 'Auth\AuthController@logout')->middleware('auth');
 
 Route::post('/contact/add', ('Api\ContactsController@store'));
 
-Route::get('/contacts/get-all', ('Api\ContactsController@index'))->middleware('auth');
+Route::get('/contacts/get-all', ('Api\ContactsController@getContacts'))->middleware('auth');
+Route::post('/contacts/set-favorites', ('Api\ContactsController@setFavorites'))->middleware('auth');
 
 Route::get('/groups', ('Api\GroupsController@index'))->middleware('auth');
 Route::get('/api/groups', ('Api\GroupsController@index'))->middleware('auth');
