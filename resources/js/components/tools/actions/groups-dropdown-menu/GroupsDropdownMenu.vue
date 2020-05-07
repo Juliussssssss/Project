@@ -14,39 +14,48 @@
         </svg>
         <!-- dropdown menu        -->
         <div class="dropdown-menu mt-4 textGrey" role="menu" aria-labelledby="dropdownMenu">
-            <div class="customBorderBottom p-3 d-flex justify-content-start align-items-center"
+            <div class="customBorderBottom p-3 "
                  v-for="group in getGroups">
-
-                <svg id="groups" width="30" height="30" viewBox="0 0 30 30" fill="none"
-                     xmlns="http://www.w3.org/2000/svg" class="dropdown-toggle" data-toggle="dropdown">
-                    <mask id="mask1" mask-type="alpha" maskUnits="userSpaceOnUse" x="4" y="8" width="22"
-                          height="14">
-                        <path fill-rule="evenodd" clip-rule="evenodd"
-                              d="M19 14C20.66 14 21.99 12.66 21.99 11C21.99 9.34 20.66 8 19 8C17.34 8 16 9.34 16 11C16 12.66 17.34 14 19 14ZM11 14C12.66 14 13.99 12.66 13.99 11C13.99 9.34 12.66 8 11 8C9.34 8 8 9.34 8 11C8 12.66 9.34 14 11 14ZM11 16C8.67 16 4 17.17 4 19.5V22H18V19.5C18 17.17 13.33 16 11 16ZM19 16C18.71 16 18.38 16.02 18.03 16.05C19.19 16.89 20 18.02 20 19.5V22H26V19.5C26 17.17 21.33 16 19 16Z"
-                              fill="white"/>
-                    </mask>
-                    <g mask="url(#mask1)">
-                        <rect class="itemActionButtons" x="2" y="2" width="26" height="26" fill="#D8D8D8"/>
-                    </g>
-                </svg>
-
-                <div class="ml-4">{{ group.name }}</div>
+                <div class="row d-flex justify-content-start align-items-center">
+                    <div class="col-lg-2">
+                        <svg id="groups" width="30" height="30" viewBox="0 0 30 30" fill="none"
+                             xmlns="http://www.w3.org/2000/svg" class="dropdown-toggle" data-toggle="dropdown">
+                            <mask id="mask1" mask-type="alpha" maskUnits="userSpaceOnUse" x="4" y="8" width="22"
+                                  height="14">
+                                <path fill-rule="evenodd" clip-rule="evenodd"
+                                      d="M19 14C20.66 14 21.99 12.66 21.99 11C21.99 9.34 20.66 8 19 8C17.34 8 16 9.34 16 11C16 12.66 17.34 14 19 14ZM11 14C12.66 14 13.99 12.66 13.99 11C13.99 9.34 12.66 8 11 8C9.34 8 8 9.34 8 11C8 12.66 9.34 14 11 14ZM11 16C8.67 16 4 17.17 4 19.5V22H18V19.5C18 17.17 13.33 16 11 16ZM19 16C18.71 16 18.38 16.02 18.03 16.05C19.19 16.89 20 18.02 20 19.5V22H26V19.5C26 17.17 21.33 16 19 16Z"
+                                      fill="white"/>
+                            </mask>
+                            <g mask="url(#mask1)">
+                                <rect class="itemActionButtons" x="2" y="2" width="26" height="26" fill="#D8D8D8"/>
+                            </g>
+                        </svg>
+                    </div>
+                    <div class="col-lg-10">{{ group.name }}</div>
+                </div>
             </div>
             <!-- groupAddBtn -->
-            <div class="customBorderBottom p-3 d-flex justify-content-start align-items-center addGroup" data-toggle="modal"
-                 data-target="#createGroupModal">
-                <svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <mask id="groupAddBtn" mask-type="alpha" maskUnits="userSpaceOnUse" x="8" y="8" width="14"
-                          height="14">
-                        <path fill-rule="evenodd" clip-rule="evenodd" d="M22 16H16V22H14V16H8V14H14V8H16V14H22V16Z"
-                              fill="white"/>
-                    </mask>
-                    <g mask="url(#groupAddBtn)">
-                        <rect x="2" y="2" width="26" height="26" fill="#999999"/>
-                    </g>
-                </svg>
-                <!-- выпрыгивает модалка -->
-                <div class="ml-4">Создать группу</div>
+            <div class="customBorderBottom p-3 addGroup"
+                 data-toggle="modal"
+                 data-target="#createGroupModal"
+                 @click="setFocus()">
+                <div class="row d-flex justify-content-start align-items-center">
+                    <div class="col-lg-2">
+                        <svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <mask id="groupAddBtn" mask-type="alpha" maskUnits="userSpaceOnUse" x="8" y="8" width="14"
+                                  height="14">
+                                <path fill-rule="evenodd" clip-rule="evenodd"
+                                      d="M22 16H16V22H14V16H8V14H14V8H16V14H22V16Z"
+                                      fill="white"/>
+                            </mask>
+                            <g mask="url(#groupAddBtn)">
+                                <rect x="2" y="2" width="26" height="26" fill="#999999"/>
+                            </g>
+                        </svg>
+                    </div>
+                    <!-- выпрыгивает модалка -->
+                    <div class="col-lg-10">Создать группу</div>
+                </div>
             </div>
         </div>
         <add-group></add-group>
@@ -54,13 +63,19 @@
 </template>
 
 <script>
-    import {mapGetters} from "vuex";
+    import {mapGetters, mapMutations} from "vuex";
     import addGroup from "./modals/AddGroup";
 
     export default {
         name: "GroupsDropdownMenu",
         computed: {
             ...mapGetters(['getGroups'])
+        },
+        methods: {
+            setFocus() {
+                //this.setAddGroupInputFocus()
+            },
+            //...mapMutations(["setAddGroupInputFocus"])
         },
         components: {
             addGroup
@@ -69,8 +84,8 @@
 </script>
 
 <style>
-.addGroup {
-    cursor: pointer;
-}
+    .addGroup {
+        cursor: pointer;
+    }
 </style>
 

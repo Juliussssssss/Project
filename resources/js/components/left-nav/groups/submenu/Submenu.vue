@@ -1,8 +1,8 @@
 <template>
     <div class="submenu" v-if="getGroups">
-        <div class="customBorderBottom p-3 d-flex justify-content-between align-items-center"
+        <div class="customBorderBottom p-3 d-flex justify-content-between align-items-center row"
              v-for="group in getGroups">
-            <div>
+            <div class="col-2">
                 <svg class="margingY" width="30" height="30" viewBox="0 0 30 30" fill="none"
                      xmlns="http://www.w3.org/2000/svg">
                     <mask id="group" mask-type="alpha" maskUnits="userSpaceOnUse" x="4" y="8" width="22"
@@ -16,8 +16,8 @@
                     </g>
                 </svg>
             </div>
-            <div>{{ group.name }}</div>
-            <div>
+            <div class="col-6">{{ group.name }}</div>
+            <div class="col-4">
                 <edit-btn></edit-btn>
                 <!--                click -->
                 <a href="" data-toggle="modal" data-target="#deleteModal" @click="deleteClick(group.id)">

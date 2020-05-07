@@ -4,7 +4,8 @@ import axios from 'axios';
 export default {
     state: {
         currentGroup: 0,
-        groups: {}
+        groups: {},
+        //addGroupInputFocus: false
     },
     getters: {
         getCurrentGroup(state) {
@@ -12,7 +13,10 @@ export default {
         },
         getGroups(state) {
             return state.groups;
-        }
+        },
+        // getAddGroupInputFocus(state) {
+        //     return state.addGroupInputFocus
+        // }
     },
     mutations: {
         setCurrentGroup(state, payload) {
@@ -20,7 +24,11 @@ export default {
         },
         fillGroups(state, groups) {
             state.groups = groups
-        }
+        },
+        // setAddGroupInputFocus(state) {
+        //     state.addGroupInputFocus = !state.addGroupInputFocus
+        //     console.log('setAddGroupInputFocus')
+        // }
     },
     actions: {
         getContactGroups(context) {
