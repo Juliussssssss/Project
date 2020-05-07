@@ -189,10 +189,6 @@
             {
                 this.duplicatedEmail=this.email;
             }
-        },
-        created()
-        {
-            this.$store.dispatch('getContactGroups');
         }
     }
 </script>

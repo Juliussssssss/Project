@@ -30,8 +30,9 @@ export const routes = [
         name: "ContactAdd"
     },
     {
-        path: '/edit-contact',
+        path: '/edit-contact/:id',
         component: EditContact,
-        name: "ContactEdit"
+        name: "ContactEdit",
+        props: true,
     },
 ];
