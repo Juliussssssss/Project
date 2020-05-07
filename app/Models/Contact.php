@@ -16,8 +16,10 @@ class Contact extends Model
     {
         $user_id = auth()->user()->id;
         $contact = $request->all();
-        $path = (new File())->saveAvatar($request);
-        $contact['avatar'] = $path;
+        if ($request->hasFile('avatar')) {
+            $file = $request->file('avatar');
+            $contact['avatar'] = $file->store('avatars','public');
+        }
         $contact['user_id'] = $user_id;
         Contact::create($contact);
 

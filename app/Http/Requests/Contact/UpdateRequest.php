@@ -40,12 +40,7 @@ class UpdateRequest extends FormRequest
             'comment' => 'max:255',
             'avatar' => 'nullable|image|max:2056',
             'user_id' => 'integer',
-            'group_id' => 'nullable|integer',
-            'favorites' => [
-                'required', Rule::in([
-                    1,0
-                ])
-            ]
+            'group_id' => 'nullable|integer'
         ];
 
         return $rules;

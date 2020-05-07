@@ -5,16 +5,15 @@
                 <label class="pl-1 pb-2 textActive" for="Email">Email:</label>
                 <input
                     v-validate="'required|email|max:255'"
-                    :class="{'error':errors.has('email')||((duplicatedEmail==email)&&duplicatedEmail!='')}"
+                    :class="{'error':errors.has('email')||((duplicatedEmail==contact.email)&&duplicatedEmail!='')}"
                     type="text"
                     name = 'email'
                     class="form-control"
                     id="Email" placeholder="Добавить Email"
-                    v-model="email"
-                    :disabled = "blocked"
+                    v-model="contact.email"
                 >
-                <div v-if="((errors.has('email'))||((duplicatedEmail==email)&&duplicatedEmail!=''))" class="err-message position-absolute">
-                    {{(duplicatedEmail==email)&&duplicatedEmail!=''?'Контакт с данным email уже существует':errors.first('email')}}
+                <div v-if="((errors.has('email'))||((duplicatedEmail==contact.email)&&duplicatedEmail!=''))" class="err-message position-absolute">
+                    {{(duplicatedEmail==contact.email)&&duplicatedEmail!=''?'Контакт с данным email уже существует':errors.first('email')}}
                 </div>
             </div>
             <div class="form-group position-relative">
@@ -28,7 +27,7 @@
                     class="form-control"
                     id="Phone"
                     placeholder="123 (456) 789 12 34"
-                    :disabled = "blocked"
+                    v-model="contact.number"
                 >
                 <div v-if="errors.has('number')" class="err-message position-absolute">
                     {{errors.first('number')}}
@@ -44,7 +43,7 @@
                     class="form-control"
                     id="website"
                     placeholder="Добавить сайт"
-                    :disabled = "blocked"
+                    v-model="contact.site"
                 >
                 <div v-if="errors.has('site')" class="err-message position-absolute">
                     {{errors.first('site')}}
@@ -58,7 +57,8 @@
                     class="form-control birthday"
                     id="hbDate"
                     placeholder="Добавить дату"
-                    :disabled = "blocked"
+                    value="2020-05-03"
+                    v-model="contact.birthday?contact.birthday.split(' ')[0]:contact.birthday"
                 >
                 <!--<div v-if="errors.has('birthday')" class="err-message position-absolute">-->
                 <!--{{errors.first('birthday')}}-->
@@ -74,7 +74,7 @@
                     class="form-control"
                     id="city"
                     placeholder="Добавить город"
-                    :disabled = "blocked"
+                    v-model="contact.city"
                 >
                 <div v-if="errors.has('city')" class="err-message position-absolute">
                     {{errors.first('city')}}
@@ -90,7 +90,7 @@
                     class="form-control"
                     id="job"
                     placeholder="Добавить место работы"
-                    :disabled = "blocked"
+                    v-model="contact.work"
                 >
                 <div v-if="errors.has('work')" class="err-message position-absolute">
                     {{errors.first('work')}}
@@ -106,7 +106,7 @@
                     class="form-control"
                     id="position"
                     placeholder="Добавить должность"
-                    :disabled = "blocked"
+                    v-model="contact.position"
                 >
                 <div v-if="errors.has('position')" class="err-message position-absolute">
                     {{errors.first('position')}}
@@ -122,7 +122,7 @@
                     class="form-control"
                     id="workEmail"
                     placeholder="Добавить Email"
-                    :disabled = "blocked"
+                    v-model="contact.work_email"
                 >
                 <div v-if="errors.has('work_email')" class="err-message position-absolute">
                     {{errors.first('work_email')}}
@@ -134,9 +134,9 @@
                     id="group_id"
                     class="form-control groups"
                     name = "group_id"
-                    :disabled = "blocked"
+                    v-model="contact.group_id"
                 >
-                    <option value="" selected>Добавить группу</option>
+                    <option value="">Без группы</option>
                     <option :value="group.id" v-for="group in groups">{{group.name}}</option>
                 </select>
             </div>
@@ -145,12 +145,12 @@
                 <input
                     v-validate="'max:255'"
                     :class="{'error':errors.has('comment')}"
-                    name="comment position-relative"
+                    name="created_at"
                     type="text"
                     class="form-control"
                     id="comment"
                     placeholder="Добавить комментарий"
-                    :disabled = "blocked"
+                    v-model="contact.comment"
                 >
                 <div v-if="errors.has('comment')" class="err-message position-absolute">
                     {{errors.first('comment')}}
@@ -162,8 +162,8 @@
 
 <script>
     export default {
-        name: "FieldsContactForm",
-        props:['blocked'],
+        name: "EditFormFields",
+        props:['contact'],
         data(){
             return {
                 email:'',
@@ -171,23 +171,24 @@
             }
         },
         computed:{
-          groups()
-          {
+            groups()
+            {
 
-              return this.$store.getters.getGroups;
-          }
+                return this.$store.getters.getGroups;
+            }
         },
         methods: {
             validation()
             {
                 this.$validator.validateAll().then((result) => {
-                    result = result && (this.duplicatedEmail!==this.email);
+                    console.log(result && (this.duplicatedEmail!==this.contact.email));
+                    result = result && (this.duplicatedEmail!==this.contact.email);
                     this.$store.commit('setFieldsValidation',result);
                 })
             },
             duplicated()
             {
-                this.duplicatedEmail=this.email;
+                this.duplicatedEmail=this.contact.email;
             }
         }
     }

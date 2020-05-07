@@ -1,7 +1,11 @@
 <template>
     <div class="imageUpload p-relative mx-4">
         <label class="file mt-2 preview position-relative" for="file" id="preview">
-            <img :src="avatar" id="avatar" class = "avatar-d-none">
+            <img
+                :src="src?'/storage/'+src:''"
+                id="avatar"
+                :class = "!src?'avatar-d-none':'avatar'"
+            >
             <svg width="70" height="70" viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
                 <rect width="60" height="60" rx="30" fill="url(#pattern0)"/>
                 <path d="M1 30C1 13.9837 13.9837 1 30 1C46.0163 1 59 13.9837 59 30C59 46.0163 46.0163 59 30 59C13.9837 59 1 46.0163 1 30Z" fill="white" stroke="#F5F5F5" stroke-width="2"/>
@@ -34,7 +38,7 @@
 <script>
     export default {
         name: "AvatarLoad",
-        props:['avatar','blocked'],
+        props:['blocked','src'],
         data(){
             return {
                 supportFormat:[]

@@ -8,7 +8,7 @@
                 name="first_name"
                 type="text"
                 placeholder="Добавить Фамилию"
-                :disabled="blocked"
+                v-model="contact.first_name"
             >
             <div v-if="errors.has('first_name')" class="err-message-head position-absolute">{{errors.first('first_name')}}</div>
         </div>
@@ -20,7 +20,7 @@
                 name = "middle_name"
                 type="text"
                 placeholder="Добавить Имя"
-                :disabled="blocked"
+                v-model="contact.middle_name"
             >
             <div v-if="errors.has('middle_name')" class="err-message-head position-absolute">{{errors.first('middle_name')}}</div>
         </div>
@@ -32,7 +32,7 @@
                 name="last_name"
                 type="text"
                 placeholder="Добавить Отчество"
-                :disabled="blocked"
+                v-model="contact.last_name"
             >
             <div v-if="errors.has('last_name')" class="err-message-head position-absolute">{{errors.first('last_name')}}</div>
         </div>
@@ -41,8 +41,8 @@
 
 <script>
     export default {
-        name: "HeaderInput",
-        props: ['blocked'],
+        name: "HeaderEditInput",
+        props: ['contact'],
         methods:{
             validation(){
                 this.$validator.validateAll().then((result) => {

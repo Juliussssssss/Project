@@ -1,15 +1,15 @@
 <template>
     <div class="col-12 customBorderBottom py-3 d-flex align-items-center p-relative mb-3">
-        <avatar-load :blocked = "blocked"></avatar-load>
+        <avatar-load :src="src"></avatar-load>
         <slot></slot>
     </div>
 </template>
 
 <script>
-    import AvatarLoad from './AvatarLoad';
+    import AvatarLoad from '../../../../contact-forms/AvatarLoad';
     export default {
-        name: "HeaderCreateForm",
-        props:['blocked'],
+        name: "HeaderEditForm",
+        props:['src'],
         components: {
             AvatarLoad
         }

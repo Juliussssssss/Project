@@ -9,6 +9,7 @@ use App\Models\Contact;
 use App\Models\File;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Storage;
 
 class ContactsController extends Controller
 {
@@ -40,9 +41,49 @@ class ContactsController extends Controller
         return (new Contact())->prepareForCreate($request);
     }
 
-    public function update(UpdateRequest $request, Contact $contact)
+    public function show($id)
     {
-        //
+        $select = [
+            'id', 'avatar', 'favorites', 'first_name',
+            'middle_name', 'last_name', 'email', 'number',
+            'avatar', 'group_id','site','birthday','comment',
+            'work', 'work_email','city','position'
+        ];
+        $contact = Contact::where('id',$id)
+            ->where('user_id',auth()->user()->id)
+            ->first($select);
+
+        if(!$contact){
+
+            return response( 'error',403);
+        }
+
+        return response()->json($contact);
+    }
+
+    public function update(UpdateRequest $request)
+    {
+        $keys = ['avatar', 'favorites', 'first_name',
+            'middle_name', 'last_name', 'email', 'number',
+            'avatar', 'group_id','site','birthday','comment',
+            'work', 'work_email','city','position'];
+
+        $contact = $request->only($keys);
+        if ($request->hasFile('avatar')) {
+            $file = $request->file('avatar');
+            $contact['avatar'] = $file->store('avatars','public');
+
+            Storage::delete($request['path']);
+        }
+
+        $contact_id = $request['id'];
+        Contact::where('id',$contact_id)
+            ->where('user_id',auth()
+            ->user()->id)->update($contact);
+
+
+
+        return $request;
     }
 
     public function destroy(Contact $contact)

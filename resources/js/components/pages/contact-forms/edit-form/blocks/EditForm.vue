@@ -1,9 +1,15 @@
 <template>
     <div class = "w-100">
-        <header-form :blocked="false">
-            <header-input ref="header" :blocked="false"></header-input>
-        </header-form>
-        <fields-contact-form ref="fields" :blocked="false"></fields-contact-form>
+        <header-edit-form :src="contact?contact.avatar:''" :blocked="false">
+            <header-edit-input ref="header" :contact="contact" :blocked="false"></header-edit-input>
+        </header-edit-form>
+        <edit-form-fields
+            ref="fields"
+            :contact="contact"
+            :blocked="false"
+            :type="true"
+        >
+        </edit-form-fields>
         <div class="form-group d-flex justify-content-end mr-4 mt-4 mb-4">
             <button @click="checking()" class="py-3 btn text-uppercase font-12px btnText text-white save d-inline-block mr-3 w-100">
                 Сохранить
@@ -18,20 +24,19 @@
 </template>
 
 <script>
-    import HeaderForm from './blocks/header/HeaderForm'
-    import HeaderInput from './blocks/header/HeaderInput'
-    import FieldsContactForm from './blocks/FieldsContactForm'
+    import HeaderEditForm from './header/HeaderEditForm'
+    import HeaderEditInput from './header/HeaderEditInput'
+    import EditFormFields from './EditFormFields'
     export default {
-        name: "ContactForm",
-        props:['query'],
+        name: "EditForm",
+        props:['query','contact'],
         components:{
-            HeaderForm,
-            FieldsContactForm,
-            HeaderInput
+            HeaderEditForm,
+            EditFormFields,
+            HeaderEditInput
         },
         computed:{
             validation(){
-
                 return this.$store.getters.getContactFormValidation;
             }
         },

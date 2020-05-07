@@ -1,22 +1,21 @@
 <template>
-    <form onsubmit = "return false" id = "contact" ref='contact'>
-        <contact-form ref="form" :query="createContact"></contact-form>
+    <form onsubmit = "return false" id = "contact" ref='conta'>
+        <create-form ref="form" :query="createContact"></create-form>
     </form>
 </template>
 
 <script>
-    import ContactForm from './ContactForm'
+    import CreateForm from './blocks/CreateForm'
     export default {
         name: "CreateContact",
         components:{
-            ContactForm,
+            CreateForm,
 
         },
         methods: {
             createContact()
             {
-                let respons;
-                const data = new FormData(this.$refs.contact);
+                const data = new FormData(this.$refs.conta);
                 data.append('favorites', 0);
                 axios.post('/api/contact', data, {
                     headers: {
