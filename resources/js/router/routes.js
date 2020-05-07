@@ -20,7 +20,7 @@ export const routes = [
     {
         path: '/contacts',
         component: Contacts,
-        name: "Contacts"
+        name: "contacts"
     },
     {
         path: '/create-contact',
