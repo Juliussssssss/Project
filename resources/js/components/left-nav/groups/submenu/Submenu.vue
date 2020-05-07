@@ -63,7 +63,7 @@
             ...mapActions(["getContactGroups"])
         },
         computed: {
-          ...mapGetters(["getGroups"])
+            ...mapGetters(["getGroups"])
         },
         mounted() {
             this.getContactGroups()

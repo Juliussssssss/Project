@@ -15,8 +15,13 @@ class ContactsController extends Controller
 
     public function getContacts()
     {
-        $contacts = Contact::with('group')
+        $select = [
+            'id', 'avatar', 'favorites', 'first_name', 'middle_name', 'last_name', 'email', 'number', 'avatar', 'group_id'
+        ];
+        $contacts = Contact::select($select)
             ->where('user_id', auth()->user()->id)
+            ->orderBy('first_name')
+            ->with('group:id,name')
             ->get();
 
         return response()->json($contacts);
