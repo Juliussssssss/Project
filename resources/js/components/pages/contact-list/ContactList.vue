@@ -48,7 +48,7 @@
                             <label class="pl-2 customLabel m-0" :for="contact.id"></label>
                         </div>
                         <div class="col-3 pr-0">
-                            <a class="" @click="setFavorites(contact.favorites, contact.id)">
+                            <a class="favorites" @click="setFavorites(contact.favorites, contact.id)">
                                 <svg class="margingY" width="24" height="24" viewBox="0 0 24 24"
                                      fill="none" xmlns="http://www.w3.org/2000/svg">
                                     <mask id="nonFavorites" mask-type="alpha"
@@ -67,13 +67,13 @@
                         </div>
                         <div class="col-6 pr-0">
                             <router-link class="row pl-2" :to="{ name: 'Test', params: {user_id: contact.id } }">
-                                <img class="contactPhoto" :src="contact.avatar" alt="фото">
+                                <img class="contactPhoto ml-1" :src="contact.avatar" alt="фото">
                             </router-link>
                         </div>
                     </div>
                 </div>
                 <div class="col-10">
-                    <router-link class="row routerLink textGrey" :to="{ name: 'Test', params: {user_id: contact.id } }">
+                    <router-link class="row routerLink linkDisabled textGrey" :to="{ name: 'Test', params: {user_id: contact.id } }">
                         <div class="col-3 pl-0 contactPhoto align-items-center d-flex"><span
                             class="font-12px">{{ contact.first_name }} {{contact.middle_name}} {{ contact.last_name }}</span></div>
                         <div class="col-3 pl-0 d-flex"><span
@@ -179,4 +179,13 @@
 </script>
 
 <style scoped>
+    .favorites {
+        cursor: pointer;
+    }
+    .linkDisabled {
+        text-decoration: none;
+    }
+    .linkDisabled:hover {
+        color: inherit;
+    }
 </style>
