@@ -78,7 +78,7 @@
                             class="font-12px text-truncate">{{ contact.email }}</span></div>
                         <div class="col-3 pl-0"><span class="font-12px">{{ contact.number }}</span>
                         </div>
-                        <div class="col-3 pl-0"><span class="font-12px">{{ contact.group['name'] ? contact.group['name'] : '' }}</span></div>
+                        <div class="col-3 pl-0"><span class="font-12px">{{ contact.group ? contact.group['name'] : '' }}</span></div>
                     </div>
                 </div>
             </div>
