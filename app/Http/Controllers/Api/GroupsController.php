@@ -25,7 +25,16 @@ class GroupsController extends Controller
 
     public function store(StoreRequest $request)
     {
-        //
+        try {
+            $data['name'] = json_decode($request->name);
+            $data['user_id'] = auth()->user()->id;
+            Group::create($data);
+
+            return response()->json($data, 200);
+        } catch (Throwable $e) {
+            return response()->json($e->getMessage(), 417);
+        }
+        //        return response()->json('susses', 200);
     }
 
     public function update(UpdateRequest $request, Group $group)
@@ -40,7 +49,7 @@ class GroupsController extends Controller
             $group->delete();
             return response()->json($group, 200);
         } catch (Throwable $e) {
-            return response()->json($e->getMessage(), 500);
+            return response()->json($e->getMessage(), 417);
         }
     }
 }
