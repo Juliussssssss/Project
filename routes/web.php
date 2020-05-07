@@ -11,7 +11,7 @@ Route::get('/auth/callback', ('Auth\AuthController@authorizationCallback'));
 Route::post('/logout', 'Auth\AuthController@logout')->middleware('auth');
 
 Route::post('/api/contact', ('Api\ContactsController@store'))->middleware('auth');
-Route::put('/api/update.{contact}', ('Api\ContactsController@update'))->middleware('auth');
+Route::put('/api/contact/{contact}', ('Api\ContactsController@update'))->middleware('auth');
 
 Route::get('/contacts/get-all', ('Api\ContactsController@getContacts'))->middleware('auth');
 Route::post('/contacts/set-favorites', ('Api\ContactsController@setFavorites'))->middleware('auth');
