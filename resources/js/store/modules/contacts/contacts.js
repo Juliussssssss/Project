@@ -3,25 +3,25 @@ import axios from 'axios';
 
 export default {
     state: {
-        contactFormValidation:{
-            header:true,
-            fields:true
+        contactValid:{
+            header:false,
+            fields:false
         }
     },
     getters: {
         getContactFormValidation(state) {
 
-            return state.contactFormValidation
+            return state.contactValid.header&&state.contactValid.fields;
         }
     },
     mutations: {
         setHeaderValidation(state,validation) {
 
-            return state.contactFormValidation.header = validation;
+            return state.contactValid.header = validation;
         },
         setFieldsValidation(state,validation) {
 
-            return state.contactFormValidation.fields = validation;
+            return state.contactValid.fields = validation;
         }
     },
     actions: {

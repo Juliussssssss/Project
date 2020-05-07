@@ -54,7 +54,6 @@
             createImage: function(file) {
                 let reader = new FileReader();
                 reader.onload = function(e) {
-
                     let src = e.target.result;
                     let imgNew = document.getElementById('avatar');
                     imgNew.setAttribute('src', src);
