@@ -9,7 +9,7 @@ import CreateContact from '../components/pages/contact-forms/CreateContact';
 import EditContact from '../components/pages/contact-forms/EditContact';
 export const routes = [
     {
-        path: '/test/{?}',
+        path: '/test',
         component: Test,
         name: 'Test',
         props: true,

@@ -66,12 +66,14 @@
                             </a>
                         </div>
                         <div class="col-6 pr-0">
-                            <img class="contactPhoto" :src="contact.avatar" alt="фото">
+                            <router-link class="row" :to="{ name: 'Test', params: {user_id: contact.id } }">
+                                <img class="contactPhoto" :src="contact.avatar" alt="фото">
+                            </router-link>
                         </div>
                     </div>
                 </div>
                 <div class="col-10">
-                    <div class="row">
+                    <router-link class="row" :to="{ name: 'Test', params: {user_id: contact.id } }">
                         <div class="col-3 pl-0 contactPhoto align-items-center d-flex"><span
                             class="font-12px">{{ contact.first_name }} {{contact.middle_name}} {{ contact.last_name }}</span></div>
                         <div class="col-3 pl-0 d-flex"><span
@@ -79,7 +81,7 @@
                         <div class="col-3 pl-0"><span class="font-12px">{{ contact.number }}</span>
                         </div>
                         <div class="col-3 pl-0"><span class="font-12px">{{ contact.group ? contact.group['name'] : '' }}</span></div>
-                    </div>
+                    </router-link>
                 </div>
             </div>
         </div>
