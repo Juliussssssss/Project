@@ -171,23 +171,27 @@
             }
         },
         computed:{
-          groups() {
+          groups()
+          {
 
               return this.$store.getters.getGroups;
           }
         },
         methods: {
-            validation(){
+            validation()
+            {
                 this.$validator.validateAll().then((result) => {
                     result = result && (this.duplicatedEmail!==this.email);
                     this.$store.commit('setFieldsValidation',result);
                 })
             },
-            duplicated(){
+            duplicated()
+            {
                 this.duplicatedEmail=this.email;
             }
         },
-        created(){
+        created()
+        {
             this.$store.dispatch('getContactGroups');
         }
     }
