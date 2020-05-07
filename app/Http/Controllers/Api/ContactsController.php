@@ -17,6 +17,7 @@ class ContactsController extends Controller
     {
         $contacts = Contact::with('group')
             ->where('user_id', auth()->user()->id)
+            ->orderBy('first_name')
             ->get();
 
         return response()->json($contacts);

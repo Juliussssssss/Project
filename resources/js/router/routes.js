@@ -1,6 +1,5 @@
 import Edit from "../components/pages/edit/Edit";
-import Contacts from "../components/pages/contact-list/ContactList";
-import Contacts2 from "../components/pages/contact-list/ContactRender";
+import Contacts from "../components/pages/contact-list/ContactRender";
 
 window.Vue = require('vue');
 
@@ -21,11 +20,6 @@ export const routes = [
     {
         path: '/contacts',
         component: Contacts,
-        name: "Contacts"
-    },
-    {
-        path: '/contacts2',
-        component: Contacts2,
         name: "Contacts"
     },
     {
