@@ -52,9 +52,13 @@
 </template>
 
 <script>
+    import Settings from "../../modal/Setting";
   export default {
       name: "Pagination",
       props: ["pages", "currentPage", "length"],
+      components: {
+          'setting': Settings
+      },
       data() {
           return {
               currentPageProp: this.currentPage,

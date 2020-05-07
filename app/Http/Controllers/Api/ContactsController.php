@@ -16,7 +16,7 @@ class ContactsController extends Controller
     public function getContacts()
     {
         $select = [
-            'id', 'avatar', 'first_name', 'middle_name', 'last_name', 'email', 'number', 'avatar', 'group_id'
+            'id', 'avatar', 'favorites', 'first_name', 'middle_name', 'last_name', 'email', 'number', 'avatar', 'group_id'
         ];
         $contacts = Contact::select($select)
             ->where('user_id', auth()->user()->id)

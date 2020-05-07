@@ -1,5 +1,6 @@
 <template>
     <div>
+        <router-link :to="{ name: 'Test', params: {placeName: 1 } }">View more</router-link>
         <tools
             :pages="pages"
             :currentPage="currentPage"

@@ -1,5 +1,6 @@
 import Edit from "../components/pages/edit/Edit";
 import Contacts from "../components/pages/contact-list/ContactRender";
+import Test from "../components/pages/contact-list/test";
 
 window.Vue = require('vue');
 
@@ -8,9 +9,10 @@ import CreateContact from '../components/pages/contact-forms/CreateContact';
 import EditContact from '../components/pages/contact-forms/EditContact';
 export const routes = [
     {
-        path: '/',
-        component: Contacts,
-        name: 'contacts',
+        path: '/test/{?}',
+        component: Test,
+        name: 'Test',
+        props: true,
     },
     {
         path: '/edit',
