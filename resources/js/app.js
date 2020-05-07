@@ -13,8 +13,6 @@ import VeeValidate from './validation';
 
 Vue.component('left-nav', require('./components/left-nav/LeftNav.vue').default);
 Vue.component('tools', require('./components/tools/Tools.vue').default);
-Vue.component('contacts', require('./components/pages/contact-list/ContactList.vue').default);
-Vue.component('setting', require('./components/modal/Setting.vue').default);
 
 const app = new Vue({
     el: '#app',
