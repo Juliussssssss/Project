@@ -19,7 +19,14 @@
             </svg>
         </label>
         <div class="d-none">
-            <input class = "file" name="avatar"  id="file" type="file" @change="onFileChange">
+            <input
+                class = "file"
+                name="avatar"
+                id="file"
+                type="file"
+                @change="onFileChange"
+                :disabled="blocked"
+            >
         </div>
     </div>
 </template>
@@ -27,10 +34,16 @@
 <script>
     export default {
         name: "AvatarLoad",
-        props:['avatar'],
+        props:['avatar','blocked'],
+        data(){
+            return {
+                supportFormat:[]
+            }
+        },
         methods: {
             onFileChange: function(e) {
                 let files = e.target.files || e.dataTransfer.files;
+                console.log(files[0].type)
                 if (!files.length) {
 
                     return;
@@ -41,6 +54,7 @@
             createImage: function(file) {
                 let reader = new FileReader();
                 reader.onload = function(e) {
+
                     let src = e.target.result;
                     let imgNew = document.getElementById('avatar');
                     imgNew.setAttribute('src', src);
