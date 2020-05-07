@@ -14,6 +14,7 @@ body {
 .font-14px {
     font-size: 14px;
 }
+
 .font-18px {
     font-size: 16px;
 }
@@ -31,6 +32,11 @@ body {
 }
 
 .actionButtons:hover {
+    fill: #666666;
+    cursor: pointer;
+}
+
+.show > svg > g > .actionButtons {
     fill: #666666;
 }
 
@@ -98,15 +104,16 @@ body {
     margin-bottom: -10px;
     object-fit: cover;
 }
+
 /*custom radio*/
 [type="radio"]:checked,
 [type="radio"]:not(:checked) {
     position: absolute;
     left: -9999px;
 }
+
 [type="radio"]:checked + label,
-[type="radio"]:not(:checked) + label
-{
+[type="radio"]:not(:checked) + label {
     position: relative;
     padding-left: 28px;
     cursor: pointer;
@@ -114,6 +121,7 @@ body {
     display: inline-block;
     color: #808080;
 }
+
 [type="radio"]:checked + label:before,
 [type="radio"]:not(:checked) + label:before {
     content: '';
@@ -126,6 +134,7 @@ body {
     border-radius: 100%;
     background: #fff;
 }
+
 [type="radio"]:checked + label:after,
 [type="radio"]:not(:checked) + label:after {
     content: '';
@@ -139,11 +148,13 @@ body {
     -webkit-transition: all 0.2s ease;
     transition: all 0.2s ease;
 }
+
 [type="radio"]:not(:checked) + label:after {
     opacity: 0;
     -webkit-transform: scale(0);
     transform: scale(0);
 }
+
 [type="radio"]:checked + label:after {
     opacity: 1;
     -webkit-transform: scale(1);
