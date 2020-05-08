@@ -35,16 +35,16 @@
             search() {
                 let arrByID = this.contacts.filter(this.filterSearch);
                 this.$emit("searchResult", arrByID);
-                this.$emit("searchWord", searchWord);
-                console.log(arrByID, this.searchWord);
+                this.$emit("searchWord", this.searchWord.toLowerCase());
             },
             filterSearch(item) {
                 let searchInFirstName = item.first_name.toLowerCase().indexOf(this.searchWord.toLowerCase()) > -1;
                 let searchInMiddleName = item.middle_name.toLowerCase().indexOf(this.searchWord.toLowerCase()) > -1;
                 let searchInLastName = item.last_name.toLowerCase().indexOf(this.searchWord.toLowerCase()) > -1;
                 let searchInNumber =  item.number.toLowerCase().indexOf(this.searchWord.toLowerCase()) > -1;
+                let searchInEmail =  item.email.toLowerCase().indexOf(this.searchWord.toLowerCase()) > -1;
 
-                if (searchInFirstName || searchInMiddleName || searchInLastName || searchInNumber) {
+                if (searchInFirstName || searchInMiddleName || searchInLastName || searchInNumber || searchInEmail) {
 
                     return true;
                 }

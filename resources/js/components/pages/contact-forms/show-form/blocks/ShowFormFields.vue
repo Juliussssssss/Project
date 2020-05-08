@@ -7,7 +7,8 @@
                     type="text"
                     name = 'email'
                     class="form-control"
-                    id="Email" placeholder="Добавить Email"
+                    id="Email"
+                    placeholder="Добавить Email"
                     :value="contact.email"
                 >
             </div>
