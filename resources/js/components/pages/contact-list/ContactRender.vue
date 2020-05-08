@@ -63,7 +63,6 @@
                 this.sort = int
             },
             searchResult(array) {
-                // console.log(array);
                 this.contacts = array;
                 this.currentPage = 1;
                 this.length = array.length;

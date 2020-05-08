@@ -74,13 +74,22 @@
                 </div>
                 <div class="col-10">
                     <router-link class="row routerLink linkDisabled textGrey" :to="{ name: 'Test', params: {user_id: contact.id } }">
-                        <div class="col-3 pl-0 contactPhoto align-items-center d-flex"><span
-                            class="font-12px">{{ contact.first_name }} {{contact.middle_name}} {{ contact.last_name }}</span></div>
-                        <div class="col-3 pl-0 d-flex"><span
-                            class="font-12px text-truncate">{{ contact.email }}</span></div>
-                        <div class="col-3 pl-0"><span class="font-12px">{{ contact.number }}</span>
+                        <div class="col-3 pl-0 contactPhoto align-items-center d-flex">
+                            <span class="font-12px">
+                                <span v-html="highlight(contact.first_name)"/>
+                                <span v-html="highlight(contact.middle_name)"/>
+                                <span v-html="highlight(contact.last_name)"/>
+                            </span>
                         </div>
-                        <div class="col-3 pl-0"><span class="font-12px">{{ contact.group ? contact.group['name'] : '' }}</span></div>
+                        <div class="col-3 pl-0 d-flex">
+                            <span class="font-12px text-truncate" v-html="highlight(contact.email)"/>
+                        </div>
+                        <div class="col-3 pl-0">
+                            <span class="font-12px" v-html="highlight(contact.number)"/>
+                        </div>
+                        <div class="col-3 pl-0">
+                            <span class="font-12px">{{ contact.group ? contact.group['name'] : '' }}</span>
+                        </div>
                     </router-link>
                 </div>
             </div>
@@ -91,7 +100,7 @@
 <script>
     export default {
         name: "Contacts",
-        props: ["contacts", "currentPage", "newSortType", "highlightedWord"],
+        props: ["contacts", "currentPage", "newSortType", "highlightedWord", "highlightedWord"],
         data() {
             return {
                 selected: [],
@@ -105,6 +114,18 @@
             }
         },
         methods: {
+            highlight(value) {
+                if ((value.toLowerCase().indexOf(this.highlightedWord) > -1) && (this.highlightedWord.length > 1)) {
+                    let beforeWord = value.toLowerCase().indexOf(this.highlightedWord);
+                    let wordLength = this.highlightedWord.length;
+                    return(
+                        value.slice(0, beforeWord)
+                        + '<span class="bg-warning">' + value.slice(beforeWord, beforeWord+wordLength) + '</span>'
+                        + value.slice(beforeWord+wordLength)
+                    );
+                }
+                return (value);
+            },
             selectAll() {
                 let selectList = this.contacts.slice((this.currentPage-1)*100, this.currentPage*100);
                     if (this.selected.length == selectList.length && this.selectAllControlProp == true) {
