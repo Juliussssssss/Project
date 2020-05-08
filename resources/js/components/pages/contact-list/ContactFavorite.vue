@@ -3,15 +3,11 @@
         <tools
             :pages="pages"
             :currentPage="currentPage"
-            :contacts="contactsFromDb"
             :length="length"
             @changePage="changePage"
-            @searchResult="searchResult"
             @selectedSortType="selectedSortType"
-            @searchWord="searchWord"
         ></tools>
         <contact-list
-            :highlightedWord="highlightedWord"
             :newSortType="sort"
             :contacts="contacts"
             :currentPage="currentPage"
@@ -30,20 +26,17 @@
         data() {
             return {
                 contacts: [],
-                contactsFromDb: [],
                 pages: 0,
                 currentPage: 1,
                 length: 0,
                 selected: [],
                 sort: 1,
-                highlightedWord: "",
             }
         },
         created() {
             axios.get('/contacts/get-all')
                 .then(response => {
                     this.contacts = response.data;
-                    this.contactsFromDb = this.contacts;
                     this.pages = (Math.ceil(this.contacts.length/100));
                     this.length = this.contacts.length;
                 })
@@ -62,16 +55,6 @@
             selectedSortType(int) {
                 this.sort = int
             },
-            searchResult(array) {
-                // console.log(array);
-                this.contacts = array;
-                this.currentPage = 1;
-                this.length = array.length;
-                this.pages = (Math.ceil(array.length/100));
-            },
-            searchWord(string) {
-                this.highlightedWord = string;
-            }
         }
     }
 </script>

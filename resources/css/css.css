@@ -42,6 +42,7 @@ body {
 
 .search {
     border: 0px;
+    outline: 0 none;
 }
 
 .textGrey {
