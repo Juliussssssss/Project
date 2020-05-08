@@ -51,8 +51,8 @@
         },
         methods: {
             saveGroup() {
-                //let name = JSON.stringify(this.groupName);
-                axios.post('/api/groups', {name: this.groupName})
+                let name = JSON.stringify(this.groupName);
+                axios.post('/api/groups', {name})
                 .then(response => {
                     this.getContactGroups()
 

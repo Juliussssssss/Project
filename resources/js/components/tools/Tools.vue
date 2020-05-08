@@ -5,15 +5,15 @@
                 <actions></actions>
                 <search
                     :contacts="contacts"
-                    @searchResult="searchResultT"
-                    @searchWord="searchWordT"
+                    @searchResult="searchResult"
+                    @searchWord="searchWord"
                 ></search>
                 <pagination
-                    :pages="getPages"
-                    :currentPage="getCurrentPage"
-                    :length="getLength"
-                    @atPage="atPageT"
-                    @selectedSortType="selectedSortTypeT"
+                    :pages="pages"
+                    :currentPage="currentPage"
+                    :length="length"
+                    @atPage="atPage"
+                    @selectedSortType="selectedSortType"
                 ></pagination>
             </div>
         </div>
@@ -25,7 +25,6 @@
     import actions from "./actions/Actions";
     import search from "./search/Search";
     import pagination from "./pagination/Pagination";
-    import {mapActions, mapGetters} from "vuex";
 
     export default {
         name: "Tools",
@@ -34,33 +33,20 @@
             search,
             pagination
         },
-        props: ["contacts"],
+        props: ["pages", "currentPage", "length", "contacts"],
         methods: {
-            atPageT(int) {
-                this.changePage(int);
+            atPage(int) {
+                this.$emit("changePage", int);
             },
-            selectedSortTypeT(int) {
-                this.selectedSortType(int)
+            selectedSortType(int) {
+                this.$emit("selectedSortType", int)
             },
-            searchResultT(array) {
-                this.searchResult(array)
+            searchResult(array) {
+                this.$emit("searchResult", array)
             },
-            searchWordT(string) {
-                this.searchWord(string)
-            },
-            ...mapActions([
-                "changePage",
-                "searchResult",
-                "selectedSortType",
-                "searchWord"
-            ])
-        },
-        computed: {
-            ...mapGetters([
-                "getPages",
-                "getCurrentPage",
-                "getLength"
-            ])
+            searchWord(string) {
+                this.$emit("searchWord", string)
+            }
         },
     }
 </script>

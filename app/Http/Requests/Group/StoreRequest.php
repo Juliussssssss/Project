@@ -14,7 +14,7 @@ class StoreRequest extends FormRequest
     public function rules()
     {
         $rules = [
-            'name' => 'required|string|max:255',
+            'name' => 'required|max:255',
         ];
 
         return $rules;
