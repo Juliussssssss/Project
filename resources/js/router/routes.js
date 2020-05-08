@@ -33,13 +33,13 @@ export const routes = [
         name: "ContactAdd"
     },
     {
-        path: '/edit-contact',
+        path: '/edit-contact/:id',
         component: EditContact,
         name: "ContactEdit",
         props: true,
     },
     {
-        path: '/show-contact',
+        path: '/show-contact/:id',
         component: ShowContact,
         name: "ContactShow",
         props: true,
