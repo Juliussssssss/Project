@@ -13,6 +13,10 @@ use Throwable;
 
 class GroupsController extends Controller
 {
+    public function cleaning_str(string $data): string
+    {
+        return strip_tags(trim(preg_replace("/\s{2,}/"," ",$data)));
+    }
 
     public function index()
     {
@@ -26,7 +30,7 @@ class GroupsController extends Controller
     public function store(StoreRequest $request)
     {
         try {
-            $data['name'] = json_decode($request->name);
+            $data['name'] = $this->cleaning_str(($request->name));
             $data['user_id'] = auth()->user()->id;
             Group::create($data);
 

@@ -53,6 +53,7 @@
 
 <script>
     import Settings from "../../modal/Setting";
+    import {mapGetters, mapMutations} from "vuex";
   export default {
       name: "Pagination",
       props: ["pages", "currentPage", "length"],
@@ -61,26 +62,37 @@
       },
       data() {
           return {
-              currentPageProp: this.currentPage,
+              currentPageProp: this.getCurrentPage,
           }
       },
       methods: {
           nextPage() {
-              if (this.currentPage < this.pages) {
-                  this.currentPageProp++;
-                  this.$emit("atPage", this.currentPageProp );
+              if (this.getCurrentPage < this.getPages) {
+                  let currentPage = this.getCurrentPage + 1
+                  //++ не катит
+                  this.setCurrentPage(currentPage);
+                  //this.$emit("atPage", this.currentPageProp );
               }
           },
           beforePage() {
-              if (this.currentPage > 1) {
-                  this.currentPageProp--;
-                  this.$emit("atPage", this.currentPageProp);
+              if (this.getCurrentPage > 1) {
+                  let currentPage = this.getCurrentPage - 1
+                  //-- не катит
+                  this.setCurrentPage(currentPage);
+                  //this.$emit("atPage", this.currentPageProp);
               }
           },
           selectedSortType(int) {
               this.$emit("selectedSortType", int)
-          }
-      }
+          },
+          ...mapMutations(["setCurrentPage"])
+      },
+      computed: {
+          ...mapGetters([
+              "getPages",
+              "getCurrentPage"
+          ])
+      },
   }
 </script>
 
