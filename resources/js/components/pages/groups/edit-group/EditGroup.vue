@@ -49,8 +49,8 @@
             ])
         },
         mounted() {
-            this.getAllContacts()
-            //this.getContactsWithGroup(this.getCurrentGroup)
+            //this.getAllContacts()
+            this.getContactsWithGroup(9)
         }
     }
 </script>

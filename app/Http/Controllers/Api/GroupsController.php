@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Api;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Group\StoreRequest;
 use App\Http\Requests\Group\UpdateRequest;
+use App\Models\Contact;
 use App\Models\Group;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -13,6 +14,11 @@ use Throwable;
 
 class GroupsController extends Controller
 {
+    public function cleaning_str(string $data): string
+    {
+        return strip_tags(trim(preg_replace("/\s{2,}/"," ",$data)));
+    }
+
 
     public function index()
     {
@@ -23,10 +29,23 @@ class GroupsController extends Controller
         return response()->json($groups, 200);
     }
 
+    public function show(int $id)
+    {
+        try {
+            $contacts = Contact::where('user_id', auth()->user()->id)
+                ->where('group_id', $id)
+                ->get();
+
+            return response()->json($contacts, 200);
+        } catch (Throwable $e) {
+            return response()->json($e->getMessage(), 417);
+        }
+    }
+
     public function store(StoreRequest $request)
     {
         try {
-            $data['name'] = json_decode($request->name);
+            $data['name'] = $this->cleaning_str(($request->name));
             $data['user_id'] = auth()->user()->id;
             Group::create($data);
 

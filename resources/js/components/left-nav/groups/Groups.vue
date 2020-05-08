@@ -5,7 +5,6 @@
                 <submenu></submenu>
             </div>
         </div>
-
         <delete-modal></delete-modal>
     </div>
 </template>
@@ -19,7 +18,6 @@
         name: "Groups",
         components: {
             submenu,
-
             deleteModal
         }
     }

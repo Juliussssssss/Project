@@ -51,8 +51,7 @@
         },
         methods: {
             saveGroup() {
-                let name = JSON.stringify(this.groupName);
-                axios.post('/api/groups', {name})
+                axios.post('/api/groups', {name: this.groupName})
                 .then(response => {
                     this.getContactGroups()
 
@@ -73,7 +72,7 @@
         //     ...mapGetters(["getAddGroupInputFocus"])
         // },
         mounted() {
-            console.log(this.$refs)
+            //console.log(this.$refs)
         },
         // watch: {
         //     getAddGroupInputFocus() {

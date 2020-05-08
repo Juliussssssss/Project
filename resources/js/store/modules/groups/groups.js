@@ -40,6 +40,19 @@ export default {
             .catch(error => {
                 console.log(error);
             });
+        },
+        getContactsWithGroup(context, payload) {
+            axios.get('/api/groups/' + payload)
+            .then(response => {
+                console.log(response.data)
+                context.commit("fillContacts", response.data)
+                context.commit("fillContactsFromDb", response.data)
+                context.commit("setLength", response.data.length)
+                context.commit("setPages", (Math.ceil(response.data.length/100)))
+            })
+            .catch(error => {
+                console.log(error);
+            });
         }
     }
 }

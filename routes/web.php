@@ -20,6 +20,19 @@ Route::post('/contacts/set-favorites', ('Api\ContactsController@setFavorites'))-
 Route::delete('/api/groups', ('Api\GroupsController@destroy'))->middleware('auth');
 Route::get('/api/groups', ('Api\GroupsController@index'))->middleware('auth');
 Route::post('/api/groups', ('Api\GroupsController@store'))->middleware('auth');
+Route::get('/api/groups/{id}', ('Api\GroupsController@show'))->middleware('auth');
+
+Route::middleware('auth')
+    ->namespace('Api')
+    ->prefix('/api')
+    ->group(function () {
+        Route::get('groups', ('GroupsController@index'))->middleware('auth');
+        Route::get('groups/{id}', ('GroupsController@show'))->middleware('auth');
+        Route::post('groups', ('GroupsController@store'))->middleware('auth');
+
+
+        Route::delete('groups', ('GroupsController@destroy'))->middleware('auth');
+    });
 
 
 Route::view('/{any}', 'index')->where('any', '.*')->middleware('auth');
