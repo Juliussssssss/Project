@@ -63,27 +63,8 @@ class ContactsController extends Controller
 
     public function update(UpdateRequest $request)
     {
-        $keys = ['avatar', 'favorites', 'first_name',
-            'middle_name', 'last_name', 'email', 'number',
-            'avatar', 'group_id','site','birthday','comment',
-            'work', 'work_email','city','position'];
 
-        $contact = $request->only($keys);
-        if ($request->hasFile('avatar')) {
-            $file = $request->file('avatar');
-            $contact['avatar'] = $file->store('avatars','public');
-
-            Storage::delete($request['path']);
-        }
-
-        $contact_id = $request['id'];
-        Contact::where('id',$contact_id)
-            ->where('user_id',auth()
-            ->user()->id)->update($contact);
-
-
-
-        return $request;
+        return (new Contact())->prepareForUpdate($request);
     }
 
     public function destroy(Contact $contact)

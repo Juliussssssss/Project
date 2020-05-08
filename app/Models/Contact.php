@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\Storage;
 
 class Contact extends Model
 {
@@ -11,6 +12,10 @@ class Contact extends Model
         'site', 'birthday', 'city', 'work', 'position', 'favorites',
         'work_email', 'comment', 'avatar', 'user_id', 'group_id'
         ];
+    protected  $keys = ['avatar', 'favorites', 'first_name',
+        'middle_name', 'last_name', 'email', 'number',
+        'avatar', 'group_id','site','birthday','comment',
+        'work', 'work_email','city','position'];
 
     public function prepareForCreate($request)
     {
@@ -24,6 +29,24 @@ class Contact extends Model
         Contact::create($contact);
 
         return response('created', 200);
+    }
+
+    public function prepareForUpdate($request)
+    {
+        $contact = $request->only($this->keys);
+        if ($request->hasFile('avatar')) {
+            $file = $request->file('avatar');
+            $contact['avatar'] = $file->store('avatars','public');
+
+            Storage::delete('/app/public/'.$request['path']);
+        }
+
+        $contact_id = $request['id'];
+        Contact::where('id',$contact_id)
+            ->where('user_id',auth()
+                ->user()->id)->update($contact);
+
+        return response('updated', 200);
     }
 
     public function user()

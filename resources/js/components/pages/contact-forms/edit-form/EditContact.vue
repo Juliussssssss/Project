@@ -1,11 +1,6 @@
 <template>
     <form onsubmit = "return false" id = "currentContact" ref='contact'>
-        <edit-form
-            ref="form"
-            :contact="currentContact"
-            :query="updateContact"
-        >
-        </edit-form>
+        <edit-form ref="form" :contact="currentContact" :query="updateContact"></edit-form>
     </form>
 </template>
 
@@ -36,7 +31,7 @@
                     }
                 })
                     .then(response => {
-                        if (response.data === 'created') {
+                        if (response.data === 'updated') {
 
                         }
                     })
