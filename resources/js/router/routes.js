@@ -32,13 +32,13 @@ export const routes = [
         name: "ContactAdd"
     },
     {
-        path: '/edit-contact/:id',
+        path: '/edit-contact',
         component: EditContact,
         name: "ContactEdit",
         props: true,
     },
     {
-        path: '/show-contact/:id',
+        path: '/show-contact',
         component: ShowContact,
         name: "ContactShow",
         props: true,

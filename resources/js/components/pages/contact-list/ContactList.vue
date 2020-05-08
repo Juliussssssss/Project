@@ -66,14 +66,14 @@
                             </a>
                         </div>
                         <div class="col-6 pr-0">
-                            <router-link class="row pl-2" :to="{ name: 'Test', params: {user_id: contact.id } }">
+                            <router-link class="row pl-2" :to="{ name: 'ContactShow', params: {user_id: contact.id } }">
                                 <img class="contactPhoto ml-1" :src="contact.avatar" alt="фото">
                             </router-link>
                         </div>
                     </div>
                 </div>
                 <div class="col-10">
-                    <router-link class="row routerLink linkDisabled textGrey" :to="{ name: 'Test', params: {user_id: contact.id } }">
+                    <router-link class="row routerLink linkDisabled textGrey" :to="{ name: 'ContactShow', params: {user_id: contact.id } }">
                         <div class="col-3 pl-0 contactPhoto align-items-center d-flex">
                             <span class="font-12px">
                                 <span v-html="highlight(contact.first_name)"/>
