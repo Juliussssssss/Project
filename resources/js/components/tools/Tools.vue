@@ -3,7 +3,11 @@
         <div class="col-12 customBorderBottom ">
             <div class="row fixPanel">
                 <actions></actions>
-                <search></search>
+                <search
+                    :contacts="contacts"
+                    @searchResult="searchResult"
+                    @searchWord="searchWord"
+                ></search>
                 <pagination
                     :pages="pages"
                     :currentPage="currentPage"
@@ -29,15 +33,21 @@
             search,
             pagination
         },
-        props: ["pages", "currentPage", "length"],
+        props: ["pages", "currentPage", "length", "contacts"],
         methods: {
             atPage(int) {
                 this.$emit("changePage", int);
             },
             selectedSortType(int) {
                 this.$emit("selectedSortType", int)
+            },
+            searchResult(array) {
+                this.$emit("searchResult", array)
+            },
+            searchWord(string) {
+                this.$emit("searchWord", string)
             }
-        }
+        },
     }
 </script>
 

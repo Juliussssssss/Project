@@ -91,7 +91,7 @@
 <script>
     export default {
         name: "Contacts",
-        props: ["contacts", "currentPage", "newSortType"],
+        props: ["contacts", "currentPage", "newSortType", "highlightedWord"],
         data() {
             return {
                 selected: [],
