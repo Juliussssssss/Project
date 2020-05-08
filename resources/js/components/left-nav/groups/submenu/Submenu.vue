@@ -74,9 +74,10 @@
             editClick (id) {
                 console.log('edit ' + id);
                 //this.setCurrentGroup(id);
+                this.getContactsWithGroup(id)
             },
             ...mapMutations(["setCurrentGroup"]),
-            ...mapActions(["getContactGroups"])
+            ...mapActions(["getContactGroups", "getContactsWithGroup"])
         },
         computed: {
             ...mapGetters(["getGroups"])
