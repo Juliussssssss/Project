@@ -92,6 +92,7 @@ export default {
         getAllContacts(context) {
             axios.get('/contacts/get-all')
             .then(response => {
+                console.log('all')
                 context.commit("fillContacts", response.data)
                 context.commit("fillContactsFromDb", response.data)
                 context.commit("setLength", response.data.length)
