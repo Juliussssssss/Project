@@ -115,7 +115,7 @@
         },
         methods: {
             highlight(value) {
-                if (!value.isEmpty) {
+                if (value != null) {
                     if ((value.toLowerCase().indexOf(this.highlightedWord) > -1) && (this.highlightedWord.length > 0)) {
                         let beforeWord = value.toLowerCase().indexOf(this.highlightedWord);
                         let wordLength = this.highlightedWord.length;
