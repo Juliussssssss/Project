@@ -12,6 +12,9 @@ export default {
         highlightedWord: "",
     },
     getters: {
+        getSelectedContacts(state){
+            return state.selected;
+        },
         getPages(state) {
             return state.pages;
         },
@@ -33,8 +36,6 @@ export default {
         getContacts(state) {
             return state.contacts
         },
-        // get(state) {return state.},
-        // get(state) {return state.},
 
     },
     mutations: {
@@ -70,6 +71,9 @@ export default {
         }
     },
     actions: {
+        clearSelectedFromGroups(context) {
+            context.commit("clearSelected");
+        },
         changePage(context, payload) {
             context.commit("setCurrentPage", payload);
             context.commit("clearSelected");
@@ -81,23 +85,21 @@ export default {
             context.commit("setPages", (Math.ceil(payload.length / 100)));
         },
         selectedSortType(context, payload) {
-            context.commit("setSort", payload)
+            context.commit("setSort", payload);
         },
         searchWord(context, payload) {
-            context.commit("setHighlightedWord", payload)
+            context.commit("setHighlightedWord", payload);
         },
         selectedContact(context, payload) {
-            context.commit("setSelected", payload)
+            context.commit("setSelected", payload);
         },
         getAllContacts(context) {
             axios.get('/contacts/get-all')
             .then(response => {
-                console.log('all')
                 context.commit("fillContacts", response.data)
                 context.commit("fillContactsFromDb", response.data)
                 context.commit("setLength", response.data.length)
                 context.commit("setPages", (Math.ceil(response.data.length/100)))
-                console.log('seil' + (Math.ceil(response.data/100)))
             })
             .catch(function (error) {
                 console.log(error)

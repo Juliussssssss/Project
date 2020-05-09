@@ -1,7 +1,9 @@
 <template>
     <div class="col-4 py-4 align-items-center d-flex justify-content-center">
         <div class="d-flex w-100 justify-content-between">
-            <div class="textGrey d-flex align-items-center "><span class="font-13px">{{(currentPage-1)*100+1 }}-{{ currentPage*100>length ? length : currentPage*100}} из {{ length }}</span></div>
+            <div class="textGrey d-flex align-items-center ">
+                <span class="font-13px">{{length>0 ? (currentPage-1)*100+1+"-" : ""}}{{ currentPage*100>length ? length : currentPage*100}} из {{ length }}</span>
+            </div>
             <div class="px-3">
                 <span id="before" @click="beforePage">
                     <svg width="30" height="30" viewBox="0 0 30 30" fill="none"
@@ -68,13 +70,13 @@
           nextPage() {
               if (this.currentPage < this.pages) {
                   this.currentPageProp++;
-                  this.$emit("atPage", this.currentPageProp );
+                  this.$emit("changePage", this.currentPageProp );
               }
           },
           beforePage() {
               if (this.currentPage > 1) {
                   this.currentPageProp--;
-                  this.$emit("atPage", this.currentPageProp);
+                  this.$emit("changePage", this.currentPageProp);
               }
           },
           selectedSortType(int) {

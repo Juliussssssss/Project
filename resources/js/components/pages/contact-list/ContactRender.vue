@@ -1,15 +1,6 @@
 <template>
     <div>
-        <tools
-            :pages="getPages"
-            :currentPage="getCurrentPage"
-            :contacts="getContactsFromDb"
-            :length="getLength"
-            @changePage="changePage"
-            @searchResult="searchResult"
-            @selectedSortType="selectedSortType"
-            @searchWord="searchWord"
-        ></tools>
+        <tools></tools>
         <contact-list
             :highlightedWord="getHighlightedWord"
             :newSortType="getSort"
@@ -35,10 +26,7 @@
         },
         computed: {
             ...mapGetters([
-                "getPages",
                 "getCurrentPage",
-                "getContactsFromDb",
-                "getLength",
                 "getHighlightedWord",
                 "getSort",
                 "getContacts"
@@ -46,10 +34,7 @@
         },
         methods: {
             ...mapActions([
-                "changePage",
-                "searchResult",
-                "selectedSortType",
-                "searchWord",
+                "clearSelectedFromGroups",
                 "selectedContact",
                 "getAllContacts"
             ])

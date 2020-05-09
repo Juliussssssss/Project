@@ -10,21 +10,21 @@
                 </div>
                 <div class="modal-body d-block modalText pt-0">
                     <div>
-                        <input @click="sortId(1)" type="radio" id="test1" name="radio-group" checked>
+                        <input type="radio" id="test1" name="radio-group" value="1" v-model="selectedSortType">
                         <label class="font-14px" for="test1">Имя</label>
                     </div>
                     <div>
-                        <input @click="sortId(2)" type="radio" id="test2" name="radio-group">
+                        <input type="radio" id="test2" name="radio-group" value="2" v-model="selectedSortType">
                         <label class="font-14px" for="test2">Фамилия</label>
                     </div>
                     <div>
-                        <input @click="sortId(3)" type="radio" id="test3" name="radio-group">
+                        <input type="radio" id="test3" name="radio-group" value="3" v-model="selectedSortType">
                         <label class="font-14px" for="test3">Сначала избрнные</label>
                     </div>
                 </div>
                 <div class="modal-footer">
                     <button @click="confirmed" type="button" class="btn btn-primary px-3 py-2 text-uppercase font-12px" data-dismiss="modal">Сохранить</button>
-                    <button type="button" class="btn px-3 py-2 ml-4 modalText bthCancel font-12px" data-dismiss="modal">Отмена</button>
+                    <button @click="cancel" type="button" class="btn px-3 py-2 ml-4 modalText bthCancel font-12px" data-dismiss="modal">Отмена</button>
                 </div>
             </div>
         </div>
@@ -36,16 +36,19 @@
     export default {
         name: "setting",
         props: ["sortType"],
-        selectedSortType: 1,
-        confirmedSortType: 0,
-
+        data() {
+            return {
+                selectedSortType: 1,
+                confirmedSortType: 1,
+            }
+        },
         methods: {
-            sortId(int) {
-                this.selectedSortType = int;
-            },
             confirmed() {
                 this.confirmedSortType = this.selectedSortType;
-                this.$emit("selectedSortType", this.confirmedSortType);
+                this.$emit("selectedSortType", +this.confirmedSortType);
+            },
+            cancel() {
+               this.selectedSortType = this.confirmedSortType;
             }
         }
     }

@@ -1,7 +1,7 @@
 <template>
     <div class="col-4 py-4 align-items-center d-flex customBorderRight pl-4">
         <div class="w-100 d-flex justify-content-between">
-            <svg id="edit" width="30" height="30" viewBox="0 0 30 30" fill="none"
+            <svg @click="editContact" id="edit" width="30" height="30" viewBox="0 0 30 30" fill="none"
                  xmlns="http://www.w3.org/2000/svg">
                 <mask id="mask0" mask-type="alpha" maskUnits="userSpaceOnUse" x="6" y="6" width="19"
                       height="19">
@@ -10,7 +10,7 @@
                           fill="white"/>
                 </mask>
                 <g mask="url(#mask0)">
-                    <rect class="actionButtons" x="2" y="2" width="26" height="26" fill="#D8D8D8"/>
+                    <rect :class="selectedContacts.length == 1 ? 'actionButtons' : ''" x="2" y="2" width="26" height="26" fill="#D8D8D8"/>
                 </g>
             </svg>
             <!-- меню -->
@@ -73,8 +73,18 @@
 
     export default {
         name: "Actions",
+        props: [
+            "selectedContacts"
+        ],
         components: {
             GroupsDropdownMenu
+        },
+        methods: {
+            editContact() {
+                if (this.selectedContacts.length == 1) {
+                    this.$router.push({ name: 'ContactEdit', params: this.selectedContacts[0]});
+                }
+            },
         }
     }
 </script>

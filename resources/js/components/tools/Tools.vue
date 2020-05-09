@@ -2,17 +2,19 @@
     <div class="row">
         <div class="col-12 customBorderBottom ">
             <div class="row fixPanel">
-                <actions></actions>
+                <actions
+                    :selectedContacts="getSelectedContacts">
+                </actions>
                 <search
-                    :contacts="contacts"
+                    :contacts="getContactsFromDb"
                     @searchResult="searchResult"
                     @searchWord="searchWord"
                 ></search>
                 <pagination
-                    :pages="pages"
-                    :currentPage="currentPage"
-                    :length="length"
-                    @atPage="atPage"
+                    :pages="getPages"
+                    :currentPage="getCurrentPage"
+                    :length="getLength"
+                    @changePage="changePage"
                     @selectedSortType="selectedSortType"
                 ></pagination>
             </div>
@@ -25,7 +27,7 @@
     import actions from "./actions/Actions";
     import search from "./search/Search";
     import pagination from "./pagination/Pagination";
-
+    import {mapActions, mapGetters} from "vuex";
     export default {
         name: "Tools",
         components: {
@@ -33,20 +35,23 @@
             search,
             pagination
         },
-        props: ["pages", "currentPage", "length", "contacts"],
+        computed: {
+            ...mapGetters([
+                "getPages",
+                "getCurrentPage",
+                "getLength",
+                "getContacts",
+                "getContactsFromDb",
+                "getSelectedContacts",
+            ])
+        },
         methods: {
-            atPage(int) {
-                this.$emit("changePage", int);
-            },
-            selectedSortType(int) {
-                this.$emit("selectedSortType", int)
-            },
-            searchResult(array) {
-                this.$emit("searchResult", array)
-            },
-            searchWord(string) {
-                this.$emit("searchWord", string)
-            }
+            ...mapActions([
+                "searchWord",
+                "searchResult",
+                "changePage",
+                "selectedSortType",
+            ])
         },
     }
 </script>
