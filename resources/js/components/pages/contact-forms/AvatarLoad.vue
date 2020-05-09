@@ -1,6 +1,6 @@
 <template>
-    <div class="imageUpload p-relative mx-4">
-        <label class="file mt-2 preview position-relative" for="file" id="preview">
+    <div class="imageUpload position-relative px-4">
+        <label class="mt-2 preview position-relative" for="file" id="preview" :class="!show?'file':''">
             <img
                 :src="src?'/storage/'+src:''"
                 id="avatar"
@@ -22,15 +22,16 @@
                 </defs>
             </svg>
         </label>
+        <span class="delete" v-if="!show" @click="deleteFile()"></span>
         <div class="d-none">
             <input
-                class = "file"
                 name="avatar"
                 id="file"
                 type="file"
                 @change="onFileChange"
                 :disabled="blocked"
             >
+            <input type="hidden" name="resetImage" value="0" ref="resetImage">
         </div>
     </div>
 </template>
@@ -38,16 +39,28 @@
 <script>
     export default {
         name: "AvatarLoad",
-        props:['blocked','src'],
+        props:['blocked','src','update','show'],
         data(){
             return {
-                supportFormat:[]
+                supportFormat:[],
+                onDelete:this.update
             }
         },
         methods: {
+            deleteFile() {
+                let file = document.getElementById("file");
+                let imgNew = document.getElementById('avatar');
+                imgNew.setAttribute('class', 'avatar-d-none');
+                if(this.update&&!file.value){
+                    this.$refs.resetImage.value = '1';
+                }
+                else if(this.update&&file.value){
+                    imgNew.setAttribute('src', this.src);
+                }
+                file.value = file.defaultValue;
+            },
             onFileChange: function(e) {
                 let files = e.target.files || e.dataTransfer.files;
-                console.log(files[0].type)
                 if (!files.length) {
 
                     return;
@@ -62,9 +75,14 @@
                     let imgNew = document.getElementById('avatar');
                     imgNew.setAttribute('src', src);
                     imgNew.setAttribute('class', 'avatar');
+                    console.log( this.onDelete)
                 };
                 reader.readAsDataURL(file);
+                this.onDelete=true;
             },
+        },
+        mounted() {
+            console.log(this.src);
         }
     }
 </script>
@@ -83,10 +101,42 @@
         object-fit: cover;
         display: block;
         margin: 0 auto 15px;
-        display:block;
+    }
+    .file {
+        cursor:pointer;
     }
     .file:hover {
-        cursor:pointer;
         opacity: 0.9;
+    }
+    .delete {
+        padding:10px;
+        position: absolute;
+        top: 5px;
+        right: 6px;
+        opacity: 0.5;
+        cursor:pointer;
+        display: none;
+    }
+
+    .delete:hover {
+        opacity: 1;
+    }
+    .delete:before, .delete:after {
+        position: absolute;
+        top:0;
+        left: 9px;
+        content: ' ';
+        height: 22px;
+        width: 1px;
+        background-color: #333;
+    }
+    .delete:before {
+        transform: rotate(45deg);
+    }
+    .delete:after {
+        transform: rotate(-45deg);
+    }
+    .imageUpload:hover  .delete{
+        display:block;
     }
 </style>

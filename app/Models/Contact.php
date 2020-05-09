@@ -14,7 +14,7 @@ class Contact extends Model
         ];
     protected  $keys = ['avatar', 'favorites', 'first_name',
         'middle_name', 'last_name', 'email', 'number',
-        'avatar', 'group_id','site','birthday','comment',
+        'group_id','site','birthday','comment',
         'work', 'work_email','city','position'];
 
     public function prepareForCreate($request)
@@ -36,15 +36,20 @@ class Contact extends Model
         $contact = $request->only($this->keys);
         if ($request->hasFile('avatar')) {
             $file = $request->file('avatar');
-            $contact['avatar'] = $file->store('avatars','public');
+            $contact['avatar'] = $file->store('avatars', 'public');
 
-            Storage::delete('/app/public/'.$request['path']);
+            Storage::delete('/app/public/' . $request['path']);
+        }
+        else if($request['resetImage']){
+            $contact['avatar'] = "";
+
+            Storage::delete('/app/public/' . $request['path']);
         }
 
         $contact_id = $request['id'];
         Contact::where('id',$contact_id)
-            ->where('user_id',auth()
-                ->user()->id)->update($contact);
+            ->where('user_id',auth()->user()->id)
+            ->update($contact);
 
         return response('updated', 200);
     }

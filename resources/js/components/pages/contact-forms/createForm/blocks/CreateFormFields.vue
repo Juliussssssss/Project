@@ -1,24 +1,23 @@
 <template>
-    <div class="pl-4">
+    <div class="pl-4 pt-2">
         <div class="col-12 textGrey font-12px">
-            <div class="form-group position-relative">
-                <label class="pl-1 pb-2 textActive" for="Email">Email:</label>
+            <div class="form-group position-relative pt-3 pb-1">
                 <input
                     v-validate="'required|email|max:255'"
                     :class="{'error':errors.has('email')||((duplicatedEmail==email)&&duplicatedEmail!='')}"
                     type="text"
                     name = 'email'
                     class="form-control"
-                    id="Email" placeholder="Добавить Email"
+                    id="Email"
                     v-model="email"
                 >
+                <span class="bar"></span>
+                <label class="textActive" :class="{'label-top':email}" for="Email">Email</label>
                 <div v-if="((errors.has('email'))||((duplicatedEmail==email)&&duplicatedEmail!=''))" class="err-message position-absolute">
                     {{(duplicatedEmail==email)&&duplicatedEmail!=''?'Контакт с данным email уже существует':errors.first('email')}}
                 </div>
             </div>
-            <div class="form-group position-relative">
-                <label
-                    class="pl-1 pb-2 textActive" for="Phone">Телефон:</label>
+            <div class="form-group position-relative pt-3 pb-1">
                 <input
                     v-validate="'digits:10'"
                     :class="{'error':errors.has('number')}"
@@ -26,14 +25,14 @@
                     name = 'number'
                     class="form-control"
                     id="Phone"
-                    placeholder="123 (456) 789 12 34"
+                    v-model="number"
                 >
+                <label class="textActive" :class="{'label-top':number}" for="Phone">Телефон</label>
                 <div v-if="errors.has('number')" class="err-message position-absolute">
                     {{errors.first('number')}}
                 </div>
             </div>
-            <div class="form-group position-relative">
-                <label class="pl-1 pb-2 textActive" for="website">Сайт:</label>
+            <div class="form-group position-relative pt-3 pb-1">
                 <input
                     v-validate="'max:255'"
                     :class="{'error':errors.has('site')}"
@@ -41,27 +40,27 @@
                     name="site"
                     class="form-control"
                     id="website"
-                    placeholder="Добавить сайт"
+                    v-model="site"
                 >
+                <label class="textActive" :class="{'label-top':site}" for="website">Сайт</label>
                 <div v-if="errors.has('site')" class="err-message position-absolute">
                     {{errors.first('site')}}
                 </div>
             </div>
-            <div class="form-group position-relative">
-                <label class="pl-1 pb-2 textActive" for="hbDate">Дата рождения:</label>
+            <div class="form-group position-relative pt-3 pb-1">
                 <input
                     type="date"
                     name="birthday"
                     class="form-control birthday"
                     id="hbDate"
-                    placeholder="Добавить дату"
+                    v-model="birthday"
                 >
+                <label class="textActive" :class="{'label-top':birthday}" for="hbDate">Дата рождения</label>
                 <!--<div v-if="errors.has('birthday')" class="err-message position-absolute">-->
                 <!--{{errors.first('birthday')}}-->
                 <!--</div>-->
             </div>
-            <div class="form-group position-relative">
-                <label class="pl-1 pb-2 textActive" for="city">Город:</label>
+            <div class="form-group position-relative pt-3 pb-1">
                 <input
                     v-validate="'alpha|max:255'"
                     :class="{'error':errors.has('city')}"
@@ -69,14 +68,14 @@
                     name="city"
                     class="form-control"
                     id="city"
-                    placeholder="Добавить город"
+                    v-model="city"
                 >
+                <label class="textActive" :class="{'label-top':city}" for="city">Город</label>
                 <div v-if="errors.has('city')" class="err-message position-absolute">
                     {{errors.first('city')}}
                 </div>
             </div>
-            <div class="form-group position-relative">
-                <label class="pl-1 pb-2 textActive" for="job">Место работы:</label>
+            <div class="form-group position-relative pt-3 pb-1">
                 <input
                     v-validate="'alpha|max:255'"
                     :class="{'error':errors.has('work')}"
@@ -84,14 +83,14 @@
                     type="text"
                     class="form-control"
                     id="job"
-                    placeholder="Добавить место работы"
+                    v-model="work"
                 >
+                <label class="textActive" :class="{'label-top':work}" for="job">Место работы</label>
                 <div v-if="errors.has('work')" class="err-message position-absolute">
                     {{errors.first('work')}}
                 </div>
             </div>
-            <div class="form-group position-relative">
-                <label class="pl-1 pb-2 textActive" for="position">Должность:</label>
+            <div class="form-group position-relative pt-3 pb-1">
                 <input
                     v-validate="'max:255'"
                     :class="{'error':errors.has('position')}"
@@ -99,49 +98,51 @@
                     type="text"
                     class="form-control"
                     id="position"
-                    placeholder="Добавить должность"
+                    v-model="position"
                 >
+                <label class="textActive" :class="{'label-top':position}" for="position">Должность</label>
                 <div v-if="errors.has('position')" class="err-message position-absolute">
                     {{errors.first('position')}}
                 </div>
             </div>
-            <div class="form-group position-relative">
-                <label class="pl-1 pb-2 textActive" for="workEmail">Email рабочий:</label>
+            <div class="form-group position-relative pt-3 pb-1">
                 <input
                     v-validate="'email|max:255'"
                     :class="{'error':errors.has('work_email')}"
                     name="work_email"
-                    type="text"
+                    type="email"
                     class="form-control"
                     id="workEmail"
-                    placeholder="Добавить Email"
+                    v-model="work_email"
                 >
+                <label class="textActive" :class="{'label-top':work_email}" for="workEmail">Email рабочий</label>
                 <div v-if="errors.has('work_email')" class="err-message position-absolute">
                     {{errors.first('work_email')}}
                 </div>
             </div>
-            <div class="form-group position-relative">
-                <label class="pl-1 pb-2 textActive" for="group_id">Группа:</label>
+            <div class="form-group position-relative pt-3 pb-1">
                 <select
                     id="group_id"
                     class="form-control groups"
                     name = "group_id"
+                    v-model="group_id"
                 >
-                    <option value="" selected>Добавить группу</option>
+                    <option value="" selected>Без группы</option>
                     <option :value="group.id" v-for="group in groups">{{group.name}}</option>
                 </select>
+                <label class="textActive" :class="{'label-top':group_id}" for="group_id">Группа</label>
             </div>
-            <div class="form-group position-relative">
-                <label class="pl-1 pb-2 textActive" for="comment">Комментарий:</label>
+            <div class="form-group position-relative pt-3 pb-1">
                 <input
                     v-validate="'max:255'"
                     :class="{'error':errors.has('comment')}"
-                    name="comment position-relative"
+                    name="comment"
                     type="text"
                     class="form-control"
                     id="comment"
-                    placeholder="Добавить комментарий"
+                    v-model="comment"
                 >
+                <label class="textActive" :class="{'label-top':comment}" for="comment">Комментарий</label>
                 <div v-if="errors.has('comment')" class="err-message position-absolute">
                     {{errors.first('comment')}}
                 </div>
@@ -156,6 +157,15 @@
         data(){
             return {
                 email:'',
+                number:'',
+                site:'',
+                birthday:'',
+                city:'',
+                work:'',
+                work_email:'',
+                position:'',
+                group_id:'',
+                comment:'',
                 duplicatedEmail:''
             }
         },
@@ -192,8 +202,38 @@
     .err-message {
         color:#ff4418;
         background: #fff;
-        top: 26px;
+        top: 7px;
         right: 11px;
         padding: 0 2px;
+    }
+    label {
+        font-family: Roboto;
+        width: 100%;
+        max-width: 300px;
+        background-color: #fff;
+        font-style: normal;
+        font-weight: 500;
+        font-size: 14px;
+        line-height: 30px;
+        color: #666666;
+        position: absolute;
+        pointer-events: none;
+        left: 10px;
+        top: 20px;
+        transition: 0.2s ease all;
+        -moz-transition: 0.2s ease all;
+        -webkit-transition: 0.2s ease all;
+    }
+    .label-top {
+        top: -15px;
+        background: none;
+    }
+    input:focus ~ label{
+        top: -15px;
+        background: none;
+    }
+    select:focus ~ label{
+        top: -15px;
+        background: none;
     }
 </style>

@@ -40,9 +40,10 @@ class UpdateRequest extends FormRequest
             'comment' => 'max:255',
             'avatar' => 'nullable|image|max:2056',
             'user_id' => 'integer',
-            'group_id' => 'nullable|integer'
-        ];
-
+            'group_id' => 'nullable|integer',
+            'path' => 'nullable|string|max:255',
+            'resetImage' => ['required', Rule::in([1,0])]
+    ];
         return $rules;
     }
 }
