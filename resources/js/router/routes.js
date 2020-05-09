@@ -47,9 +47,5 @@ export const routes = [
         component: ShowContact,
         name: "ContactShow",
         props: true,
-    },
-    {
-        path: '/group-edit',
-        component: EditGroup,
-    },
+    }
 ];
