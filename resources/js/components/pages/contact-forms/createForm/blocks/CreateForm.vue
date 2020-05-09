@@ -10,10 +10,12 @@
             </button>
             <router-link
                 class="py-3 btn-light btn text-uppercase font-12px btnText cancel"
+                data-dismiss="modal"
                 to="/contacts">
                 Отмена
             </router-link>
         </div>
+        <exit-confirmation ref="modal" @checking="checking()"></exit-confirmation>
     </div>
 </template>
 
@@ -21,13 +23,16 @@
     import HeaderCreateForm from './header/HeaderCreateForm'
     import HeaderCreateInput from './header/HeaderCreateInput'
     import CreateFormFields from './CreateFormFields'
+    import ExitConfirmation from '../../../../modal/contact-form/ExitConfirmation'
+
     export default {
         name: "ContactForm",
         props:['query','contact','type'],
         components:{
             HeaderCreateForm,
             CreateFormFields,
-            HeaderCreateInput
+            HeaderCreateInput,
+            ExitConfirmation
         },
         computed:{
             validation(){
@@ -52,10 +57,16 @@
                 else {
                     window.scrollTo(0, 0);
                 }
+
             },
-            duplicated(){
+            duplicated()
+            {
                 this.$refs.fields.duplicated();
                 window.scrollTo(0, 0);
+            },
+            openModal()
+            {
+                 this.$refs.modal.open();
             }
         }
     }

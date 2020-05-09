@@ -1,7 +1,7 @@
 <template>
     <div class = "w-100">
-        <header-edit-form :src="contact?contact.avatar:''" :blocked="false">
-            <header-edit-input ref="header" :contact="contact" :blocked="false"></header-edit-input>
+        <header-edit-form :src="contact?contact.avatar:''">
+            <header-edit-input ref="header" :contact="contact"></header-edit-input>
         </header-edit-form>
         <edit-form-fields
             ref="fields"
@@ -20,6 +20,7 @@
                 Отмена
             </router-link>
         </div>
+        <exit-confirmation ref="modal" @checking="checking()"></exit-confirmation>
     </div>
 </template>
 
@@ -27,13 +28,15 @@
     import HeaderEditForm from './header/HeaderEditForm'
     import HeaderEditInput from './header/HeaderEditInput'
     import EditFormFields from './EditFormFields'
+    import ExitConfirmation from '../../../../modal/contact-form/ExitConfirmation'
     export default {
         name: "EditForm",
         props:['query','contact'],
         components:{
             HeaderEditForm,
             EditFormFields,
-            HeaderEditInput
+            HeaderEditInput,
+            ExitConfirmation
         },
         computed:{
             validation(){
@@ -61,6 +64,10 @@
             duplicated(){
                 this.$refs.fields.duplicated();
                 window.scrollTo(0, 0);
+            },
+            openModal()
+            {
+                this.$refs.modal.open();
             }
         }
     }

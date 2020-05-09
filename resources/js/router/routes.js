@@ -34,7 +34,7 @@ export const routes = [
     {
         path: '/create-contact',
         component: CreateContact,
-        name: "ContactAdd"
+        name: "ContactAdd",
     },
     {
         path: '/edit-contact',

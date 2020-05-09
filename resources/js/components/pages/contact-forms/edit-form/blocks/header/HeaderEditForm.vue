@@ -1,6 +1,6 @@
 <template>
     <div class="col-12 customBorderBottom py-3 d-flex align-items-center p-relative mb-3">
-        <avatar-load :src="src"></avatar-load>
+        <avatar-load :src="src" :update="true"></avatar-load>
         <slot></slot>
     </div>
 </template>
