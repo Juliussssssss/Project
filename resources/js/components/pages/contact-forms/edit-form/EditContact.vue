@@ -9,7 +9,7 @@
     import EditForm from './blocks/EditForm'
     export default {
         name: "CreateContact",
-        props: ['id'],
+        props: ['user_id'],
         components:{
             EditForm,
         },
@@ -27,7 +27,7 @@
             updateContact()
             {
                 const data = new FormData(this.$refs.contact);
-                data.append('id',461);
+                data.append('id',this.user_id);
                 data.append('path',this.currentContact.avatar);
                 axios.post('/api/contact/update', data, {
                     headers: {
@@ -47,7 +47,7 @@
             }
         },
         created() {
-            this.$store.dispatch('getContact',461 )
+            this.$store.dispatch('getContact',this.user_id )
             this.$store.commit('setBreakRoute',false);
             this.$store.commit('setLastRoute','');
         },

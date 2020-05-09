@@ -8,7 +8,7 @@
     import ShowForm from './blocks/ShowForm'
     export default {
         name: "ShowContact",
-        props: ['id'],
+        props: ['user_id'],
         components:{
             ShowForm,
         },
@@ -19,7 +19,7 @@
             }
         },
         created() {
-            this.$store.dispatch('getContact',451)
+            this.$store.dispatch('getContact',this.user_id)
         }
     }
 </script>
