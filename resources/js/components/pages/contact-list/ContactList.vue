@@ -115,14 +115,16 @@
         },
         methods: {
             highlight(value) {
-                if ((value.toLowerCase().indexOf(this.highlightedWord) > -1) && (this.highlightedWord.length > 0)) {
-                    let beforeWord = value.toLowerCase().indexOf(this.highlightedWord);
-                    let wordLength = this.highlightedWord.length;
-                    return(
-                        value.slice(0, beforeWord)
-                        + '<span class="bg-warning">' + value.slice(beforeWord, beforeWord+wordLength) + '</span>'
-                        + value.slice(beforeWord+wordLength)
-                    );
+                if (!value.isEmpty) {
+                    if ((value.toLowerCase().indexOf(this.highlightedWord) > -1) && (this.highlightedWord.length > 0)) {
+                        let beforeWord = value.toLowerCase().indexOf(this.highlightedWord);
+                        let wordLength = this.highlightedWord.length;
+                        return (
+                            value.slice(0, beforeWord)
+                            + '<span class="bg-warning">' + value.slice(beforeWord, beforeWord + wordLength) + '</span>'
+                            + value.slice(beforeWord + wordLength)
+                        );
+                    }
                 }
                 return (value);
             },
