@@ -73,7 +73,7 @@
                     </div>
                 </div>
                 <div class="col-10">
-                    <router-link class="row routerLink linkDisabled textGrey" :to="{ name: 'Test', params: {user_id: contact.id } }">
+                    <router-link class="row routerLink linkDisabled textGrey" :to="{ name: 'Test', params: {user_id: contact.id} }">
                         <div class="col-3 pl-0 contactPhoto align-items-center d-flex">
                             <span class="font-12px">
                                 <span v-html="highlight(contact.first_name)"/>

@@ -82,7 +82,7 @@
         methods: {
             editContact() {
                 if (this.selectedContacts.length == 1) {
-                    this.$router.push({ name: 'ContactEdit', params: this.selectedContacts[0]});
+                    this.$router.push({ name: 'ContactEdit', params: {user_id: this.selectedContacts[0]}});
                 }
             },
         }
