@@ -19,7 +19,7 @@
             }
         },
         created() {
-            this.$store.dispatch('getContact',2361)
+            this.$store.dispatch('getContact',451)
         }
     }
 </script>
