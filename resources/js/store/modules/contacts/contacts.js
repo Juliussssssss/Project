@@ -3,7 +3,7 @@ import axios from 'axios';
 
 export default {
     state: {
-        contact:[]
+        contact:'',
     },
     getters: {
         getContact(state){

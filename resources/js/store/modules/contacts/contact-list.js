@@ -35,8 +35,7 @@ export default {
         },
         getContacts(state) {
             return state.contacts
-        },
-
+        }
     },
     mutations: {
         setCurrentPage(state, payload) {
