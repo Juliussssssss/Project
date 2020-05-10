@@ -67,8 +67,16 @@ class ContactsController extends Controller
         return (new Contact())->prepareForUpdate($request);
     }
 
-    public function destroy(Contact $contact)
+    public function destroy(Request $request)
     {
-        //
+        $user_id = auth()->user()->id;
+
+        foreach ($request['contacts'] as $contact_id) {
+            Contact::where('user_id', $user_id)
+                ->where('id', $contact_id)
+                ->delete();
+        }
+
+        return response('ok', 200);
     }
 }

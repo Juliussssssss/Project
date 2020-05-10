@@ -1,6 +1,6 @@
 <template>
     <form onsubmit = "return false" id = "currentContact" ref='contact'>
-        <show-form :contact="currentContact"></show-form>
+        <show-form v-if="currentContact" :contact="currentContact"></show-form>
     </form>
 </template>
 
@@ -19,7 +19,7 @@
             }
         },
         created() {
-             this.$store.dispatch('getContact',461);
+             this.$store.dispatch('getContact',this.user_id);
         }
     }
 </script>

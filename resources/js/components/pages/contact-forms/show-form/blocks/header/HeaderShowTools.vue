@@ -30,7 +30,7 @@
                                 </g>
                             </svg>
                         </span>
-                        <span @click="deleteContact()" class="mx-2 tools">
+                        <span data-toggle="modal" data-target="#confirmDeleteContact" class="mx-2 tools">
                             <svg class="delete" width="60" height="60" viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <path d="M1 30C1 13.9837 13.9837 1 30 1C46.0163 1 59 13.9837 59 30C59 46.0163 46.0163 59 30 59C13.9837 59 1 46.0163 1 30Z" fill="white" stroke="#F5F5F5" stroke-width="2"/>
                                 <mask id="del" mask-type="alpha" maskUnits="userSpaceOnUse" x="23" y="21" width="14" height="18">
@@ -45,24 +45,31 @@
                 </div>
             </div>
         </div>
+        <confirm-delete-contact @deleteContact="deleteContact"></confirm-delete-contact>
     </div>
 </template>
 
 <script>
+    import ConfirmDeleteContact from '../../../../../modal/confirm-delete/ConfirmDeleteContact'
 export default {
     name: "HeaderShowTools",
     props: ['id','contact'],
+    components:{
+        ConfirmDeleteContact
+    },
     methods:{
         setFavorites() {
 
             this.$store.dispatch('updateFavorites',{id:this.contact.id,int:this.contact.favorites})
-            this.$store.dispatch('getContact',461);
+            this.$store.dispatch('getContact',this.contact.id);
         },
-        editContact() {
+        editContact()
+        {
             this.$router.push({ name: 'ContactEdit', params: {user_id: this.contact.id}});
         },
-        deleteContact() {
-
+        deleteContact()
+        {
+            this.$store.dispatch('deleteContacts',[this.contact.id]);
         }
     }
 }
@@ -87,16 +94,4 @@ export default {
 .favorites,.edit,.delete {
     fill: #D8D8D8;
 }
-
-/*.favorites:hover {*/
-    /*stroke-width: 10px; */
-    /*stroke-opacity: .8; */
-    /*fill: #fffc20;*/
-/*}*/
-/*.edit:hover {*/
-    /*fill: #3eced8;*/
-/*}*/
-/*.delete:hover {*/
-    /*fill: #d82422;*/
-/*}*/
 </style>

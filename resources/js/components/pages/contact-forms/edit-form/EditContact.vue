@@ -1,7 +1,6 @@
 <template>
     <form onsubmit = "return false" id = "currentContact" ref='contact'>
         <edit-form v-if="currentContact" ref="form" :contact="currentContact" :query="updateContact"></edit-form>
-        <div v-else>Ошибка...</div>
     </form>
 </template>
 
@@ -54,14 +53,19 @@
         },
         beforeRouteLeave (to, from, next)
         {
-            this.$store.commit('setLastRoute',to.path);
-            console.log(to.path);
-            if (this.breakroute) {
-                next();
+            if(this.currentContact) {
+                this.$store.commit('setLastRoute', to.path);
+                console.log(to.path);
+                if (this.breakroute) {
+                    next();
+                }
+                else {
+                    next(false);
+                    this.$refs.form.openModal();
+                }
             }
             else {
-                next(false);
-                this.$refs.form.openModal();
+                next();
             }
         }
     }
