@@ -109,16 +109,17 @@
                 selectAllControlProp: false
             }
         },
-        computed: {
-            ...mapGetters(["GetContacts"])
-        },
         watch: {
+            contacts: function() {
+                this.selected = [];
+                console.log('ok');
+                this.$emit("selectedContact", this.selected)
+            },
             newSortType: function (id) {
                 this.selectedSortType(id);
             }
         },
         methods: {
-            ...mapActions(["clearSelectedFromGroups"]),
             highlight(value) {
                 if (value != null) {
                     if ((value.toLowerCase().indexOf(this.highlightedWord) > -1) && (this.highlightedWord.length > 0)) {
