@@ -64,6 +64,9 @@ export default {
         },
         fillContacts(state, payload) {
             state.contacts = payload
+            state.length = payload.length
+            state.pages = (Math.ceil(payload.length/100))
+            state.currentPage = 1
         },
         fillContactsFromDb(state, payload) {
             state.contactsFromDb = payload
@@ -97,8 +100,9 @@ export default {
             .then(response => {
                 context.commit("fillContacts", response.data)
                 context.commit("fillContactsFromDb", response.data)
-                context.commit("setLength", response.data.length)
-                context.commit("setPages", (Math.ceil(response.data.length/100)))
+                //context.commit("setLength", response.data.length)
+                //context.commit("setPages", (Math.ceil(response.data.length/100)))
+                //context.commit("setCurrentPage", 1)
             })
             .catch(function (error) {
                 console.log(error)
