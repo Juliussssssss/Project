@@ -36,11 +36,18 @@
             ...mapActions([
                 "clearSelectedFromGroups",
                 "selectedContact",
+                "getFrequentContacts",
                 "getAllContacts"
             ])
         },
         mounted() {
-            this.getAllContacts();
+            if (this.$route.name=='FrequentContacts')
+            {
+                this.getFrequentContacts()
+            }
+            else {
+                this.getAllContacts();
+            }
         },
         created() {
             this.clearSelectedFromGroups();

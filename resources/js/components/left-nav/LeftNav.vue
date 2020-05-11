@@ -22,7 +22,7 @@
                     </router-link>
                 </div>
             </div>
-            <div class="col-12">
+            <div class="col-12" @click="getFrequentContacts()">
                 <div class="customBorderBottom">
                     <router-link
                         class="d-block pl-5 py-3 textGrey text-decoration-none"
@@ -68,7 +68,10 @@
             groups
         },
         methods: {
-            ...mapActions(["getAllContacts"])
+            ...mapActions([
+                "getAllContacts",
+                "getFrequentContacts"
+            ])
         }
     }
 </script>

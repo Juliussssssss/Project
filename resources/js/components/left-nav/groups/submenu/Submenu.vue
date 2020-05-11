@@ -18,6 +18,7 @@
             </div>
             <div class="col-6">{{ group.name }}</div>
             <div class="col-4">
+                <router-link to="groups"></router-link>
                 <a data-toggle="modal" data-target="#editModal" @click="editClick(group.id)">
                     <svg class="margingY" width="30" height="30" viewBox="0 0 30 30" fill="none"
                          xmlns="http://www.w3.org/2000/svg">
@@ -54,6 +55,7 @@
 <script>
     //import editBtn from "./edit/Edit";
     import {mapActions, mapGetters, mapMutations} from "vuex";
+    import {router} from "../../../../router/router";
     //
 
     export default {
@@ -72,18 +74,19 @@
                 this.setCurrentGroup(id);
             },
             editClick (id) {
-                console.log('edit ' + id);
-                //this.setCurrentGroup(id);
+                this.setCurrentGroup(id);
+                if (this.$route.name !== 'groups') this.$router.push('groups')
                 this.getContactsWithGroup(id)
             },
             ...mapMutations(["setCurrentGroup"]),
             ...mapActions(["getContactGroups", "getContactsWithGroup"])
         },
         computed: {
-            ...mapGetters(["getGroups"])
+            ...mapGetters(["getGroups", "getCurrentGroup"])
         },
         mounted() {
             this.getContactGroups()
+            if (this.getCurrentGroup == 0&&this.$route.name=='groups') this.$router.push('contacts')
         }
     }
 </script>

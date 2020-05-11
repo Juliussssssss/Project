@@ -16,7 +16,7 @@ class GroupsController extends Controller
 {
     public function cleaning_str(string $data): string
     {
-        return strip_tags(trim(preg_replace("/\s{2,}/"," ",$data)));
+        return strip_tags(trim(preg_replace("/\s{2,}/", " ", $data)));
     }
 
 
@@ -32,11 +32,8 @@ class GroupsController extends Controller
     public function show(int $id)
     {
         try {
-            $contacts = Contact::where('user_id', auth()->user()->id)
-                ->where('group_id', $id)
-                ->orderBy('first_name')
-                ->with('group:id,name')
-                ->get();
+            $contacts = Contact::where('user_id', auth()->user()->id)->where('group_id',
+                    $id)->orderBy('first_name')->with('group:id,name')->get();
 
             return response()->json($contacts, 200);
         } catch (Throwable $e) {
@@ -69,6 +66,20 @@ class GroupsController extends Controller
             $group = Group::where('user_id', auth()->user()->id)->find($request->id);
             $group->delete();
             return response()->json($group, 200);
+        } catch (Throwable $e) {
+            return response()->json($e->getMessage(), 417);
+        }
+    }
+
+    public function deleteGroupAtContacts(int $id, Request $request)
+    {
+        try {
+            $contacts = Contact::where('user_id', auth()->user()->id)
+                ->where('group_id', $id)
+                ->whereIn('id', $request->contacts)
+                ->update(['group_id' => null]);
+
+            return response()->json($contacts, 200);
         } catch (Throwable $e) {
             return response()->json($e->getMessage(), 417);
         }
