@@ -50,7 +50,6 @@
             },
             processing()
             {
-                console.log(this.validation);
                 if (this.validation) {
                     this.query();
                 }

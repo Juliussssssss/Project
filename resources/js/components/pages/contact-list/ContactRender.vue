@@ -7,7 +7,7 @@
             :contacts="getContacts"
             :currentPage="getCurrentPage"
             @selectedContact="selectedContact"
-        ></contact-list>
+        > </contact-list>
     </div>
 </template>
 
@@ -40,7 +40,10 @@
             ])
         },
         mounted() {
-            this.getAllContacts()
+            this.getAllContacts();
+        },
+        created() {
+            this.clearSelectedFromGroups();
         }
     }
 </script>

@@ -172,7 +172,6 @@
             validation()
             {
                 this.$validator.validateAll().then((result) => {
-                    console.log(result && (this.duplicatedEmail!==this.contact.email));
                     result = result && (this.duplicatedEmail!==this.contact.email);
                     this.$store.commit('setFieldsValidation',result);
                 })

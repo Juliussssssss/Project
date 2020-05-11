@@ -25,7 +25,6 @@
                     }
                 })
                     .then(response => {
-                        console.log(response.data)
                         if (response.data === 'created') {
                             this.$store.commit('setBreakRoute',true);
                             this.$router.push('/contacts')
@@ -55,7 +54,6 @@
         beforeRouteLeave (to, from, next)
         {
             this.$store.commit('setLastRoute',to.path);
-            console.log(to.path)
             if (this.breakroute) {
                 next();
             }
