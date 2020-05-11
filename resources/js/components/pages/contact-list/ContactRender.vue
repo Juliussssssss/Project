@@ -41,6 +41,8 @@
         },
         mounted() {
             this.getAllContacts();
+            // if (this.$route.name==FrequentContacts)
+            // { this.getFrequentContacts()}
         },
         created() {
             this.clearSelectedFromGroups();
