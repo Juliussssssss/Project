@@ -21,6 +21,13 @@ class Contact extends Model
     {
         $user_id = auth()->user()->id;
         $contact = $request->all();
+
+        if(!$this->storeUniqueEmailForUser($contact['email'],$user_id))
+        {
+
+            return response('duplicated', 500);
+        }
+
         if ($request->hasFile('avatar')) {
             $file = $request->file('avatar');
             $contact['avatar'] = $file->store('avatars','public');
@@ -34,6 +41,12 @@ class Contact extends Model
     public function prepareForUpdate($request)
     {
         $contact = $request->only($this->keys);
+        $user_id = auth()->user()->id;
+        if(!$this->updateUniqueEmailForUser($contact['email'],$user_id,$request['id']))
+        {
+
+            return response('duplicated', 500);
+        }
         if ($request->hasFile('avatar')) {
             $file = $request->file('avatar');
             $contact['avatar'] = $file->store('avatars', 'public');
@@ -48,10 +61,29 @@ class Contact extends Model
 
         $contact_id = $request['id'];
         Contact::where('id',$contact_id)
-            ->where('user_id',auth()->user()->id)
+            ->where('user_id',$user_id)
             ->update($contact);
 
         return response('updated', 200);
+    }
+
+    public function storeUniqueEmailForUser($email,$user_id)
+    {
+        $duplicate = Contact::where('email',$email)
+            ->where('user_id',$user_id)
+            ->first();
+
+        return $duplicate?false:true;
+    }
+
+    public function updateUniqueEmailForUser($email,$user_id,$contact_id)
+    {
+        $duplicate = Contact::where('email',$email)
+            ->where('user_id',$user_id)
+            ->where('id','<>',$contact_id)
+            ->first();
+
+        return $duplicate?false:true;
     }
 
     public function user()

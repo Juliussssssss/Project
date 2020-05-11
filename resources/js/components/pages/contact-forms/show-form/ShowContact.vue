@@ -18,8 +18,12 @@
                 return this.$store.getters.getContact;
             }
         },
-        created() {
-             this.$store.dispatch('getContact',this.user_id);
+        created()
+        {
+            if(!this.user_id) {
+                this.$router.push('/contacts');
+            }
+            this.$store.dispatch('getContact',this.user_id);
         }
     }
 </script>

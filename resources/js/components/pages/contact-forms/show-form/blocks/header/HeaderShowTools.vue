@@ -70,6 +70,7 @@ export default {
         deleteContact()
         {
             this.$store.dispatch('deleteContacts',[this.contact.id]);
+            this.$router.push('/contacts');
         }
     }
 }

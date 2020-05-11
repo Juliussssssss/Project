@@ -40,14 +40,17 @@
                         }
                     })
                     .catch(error => {
-                        if (error.response.data.errors.email) {
+                        if (error.response.data==='duplicated') {
                             this.$refs.form.duplicated();
                         }
                     });
             }
         },
         created() {
-            this.$store.dispatch('getContact',this.user_id )
+            if(!this.user_id) {
+                this.$router.push('/contacts');
+            }
+            this.$store.dispatch('getContact', this.user_id)
             this.$store.commit('setBreakRoute',false);
             this.$store.commit('setLastRoute','');
         },

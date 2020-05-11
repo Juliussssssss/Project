@@ -32,7 +32,7 @@
                         }
                     })
                     .catch(error => {
-                        if (error.response.data.errors.email) {
+                        if (error.response.data==='duplicated') {
                             this.$refs.form.duplicated();
                         }
                     });

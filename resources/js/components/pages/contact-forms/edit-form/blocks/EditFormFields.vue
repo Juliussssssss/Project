@@ -13,7 +13,7 @@
                 >
                 <span class="bar"></span>
                 <label class="textActive" :class="{'label-top':contact.email}" for="Email">Email</label>
-                <div v-if="((errors.has('email'))||((duplicatedEmail==email)&&duplicatedEmail!=''))" class="err-message position-absolute">
+                <div v-if="((errors.has('email'))||((duplicatedEmail==contact.email)&&duplicatedEmail!=''))" class="err-message position-absolute">
                     {{(duplicatedEmail==contact.email)&&duplicatedEmail!=''?'Контакт с данным email уже существует':errors.first('email')}}
                 </div>
             </div>
