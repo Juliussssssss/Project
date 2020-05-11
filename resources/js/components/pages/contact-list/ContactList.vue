@@ -60,7 +60,7 @@
                                     </mask>
                                     <g :mask="contact.favorites==0 ? 'url(#nonFavorites)' : 'url(#favorites)'">
                                         <rect x="2" y="2" width="26" height="26"
-                                              :fill="contact.favorites==0 ? '#D8D8D8' : '#FEF40A'"/>
+                                              :fill="contact.favorites == 0 ? '#D8D8D8' : '#FEF40A'"/>
                                     </g>
                                 </svg>
                             </a>
@@ -73,7 +73,7 @@
                     </div>
                 </div>
                 <div class="col-10">
-                    <router-link class="row routerLink linkDisabled textGrey" :to="{ name: 'ShowContact', params: {user_id: contact.id} }">
+                    <router-link class="row routerLink linkDisabled textGrey" :to="{ name: 'ContactShow', params: {user_id: contact.id} }">
                         <div class="col-3 pl-0 contactPhoto align-items-center d-flex">
                             <span class="font-12px">
                                 <span v-html="highlight(contact.first_name)"/>

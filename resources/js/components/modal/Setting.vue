@@ -24,7 +24,7 @@
                 </div>
                 <div class="modal-footer">
                     <button @click="confirmed" type="button" class="btn btn-primary px-3 py-2 text-uppercase font-12px" data-dismiss="modal">Сохранить</button>
-                    <button @click="cancel" type="button" class="btn px-3 py-2 ml-4 modalText bthCancel font-12px" data-dismiss="modal">Отмена</button>
+                    <button @click="cancel" type="button" class="btn px-3 py-2 ml-4 modalText bthCancel font-12px text-uppercase" data-dismiss="modal">Отмена</button>
                 </div>
             </div>
         </div>

@@ -7,15 +7,17 @@
                 </div>
                 <div class="col-12 col-lg-6">
                     <div class = "d-flex justify-content-start justify-content-lg-end w-100">
-                        <span @click="setFavorites()" class="mr-2 ml-5 tools">
-                            <svg class="favorites" width="60" height="60" viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M1 30C1 13.9837 13.9837 1 30 1C46.0163 1 59 13.9837 59 30C59 46.0163 46.0163 59 30 59C13.9837 59 1 46.0163 1 30Z" fill="white" stroke="#F5F5F5" stroke-width="2"/>
-                                <mask id="nonFavorite" mask-type="alpha" maskUnits="userSpaceOnUse" x="20" y="20" width="20" height="19">
-                                    <path fill-rule="evenodd" clip-rule="evenodd" d="M40 27.24L32.81 26.62L30 20L27.19 26.63L20 27.24L25.46 31.97L23.82 39L30 35.27L36.18 39L34.55 31.97L40 27.24ZM30 33.4L26.24 35.67L27.24 31.39L23.92 28.51L28.3 28.13L30 24.1L31.71 28.14L36.09 28.52L32.77 31.4L33.77 35.68L30 33.4Z" fill="white"/>
+                        <span @click="setFavorites()" class="mr-2 tools contactShowSvg align-items-center d-flex justify-content-center">
+                            <svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <mask id="mask11" mask-type="alpha" maskUnits="userSpaceOnUse" x="5" y="5" width="20" height="19">
+                                    <path fill-rule="evenodd" clip-rule="evenodd"
+                                          :d="contact.favorites == 0 ? 'M25 12.24L17.81 11.62L15 5L12.19 11.63L5 12.24L10.46 16.97L8.82 24L15 20.27L21.18 24L19.55 16.97L25 12.24ZM15 18.4L11.24 20.67L12.24 16.39L8.92 13.51L13.3 13.13L15 9.1L16.71 13.14L21.09 13.52L17.77 16.4L18.77 20.68L15 18.4Z'
+                                                                     : 'M15 20.27L21.18 24L19.54 16.97L25 12.24L17.81 11.63L15 5L12.19 11.63L5 12.24L10.46 16.97L8.82 24L15 20.27Z'"
+                                          fill="white"/>
                                 </mask>
-                                <g  mask="url(#nonFavorite)">
-                                    <rect x="17" y="17" width="26" height="26"
-                                          :fill="!contact.favorites ? '#D8D8D8' : '#FEF40A'"/>
+                                <g mask="url(#mask11)">
+                                   <rect x="2" y="2" width="26" height="26"
+                                         :fill="contact.favorites == 0 ? '#D8D8D8' : '#FEF40A'"/>
                                 </g>
                             </svg>
                         </span>
@@ -70,6 +72,11 @@ export default {
         deleteContact()
         {
             this.$store.dispatch('deleteContacts',[this.contact.id]);
+            setTimeout(()=>{
+                this.redirect()
+            },100);
+        },
+        redirect(){
             this.$router.push('/contacts');
         }
     }
@@ -94,5 +101,11 @@ export default {
 }
 .favorites,.edit,.delete {
     fill: #D8D8D8;
+}
+.contactShowSvg {
+    height: 60px;
+    width: 60px;
+    border-radius: 100px;
+    border: solid 2px #F5F5F5;
 }
 </style>
