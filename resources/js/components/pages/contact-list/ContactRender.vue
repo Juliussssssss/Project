@@ -40,7 +40,10 @@
             ])
         },
         mounted() {
-            this.getAllContacts()
+            this.getAllContacts();
+        },
+        created() {
+            this.clearSelectedFromGroups();
         }
     }
 </script>

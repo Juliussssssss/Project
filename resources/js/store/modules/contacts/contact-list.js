@@ -63,10 +63,11 @@ export default {
             state.selected = payload;
         },
         fillContacts(state, payload) {
-            state.contacts = payload
-            state.length = payload.length
-            state.pages = (Math.ceil(payload.length/100))
-            state.currentPage = 1
+            state.contacts = payload;
+            state.length = payload.length;
+            state.pages = (Math.ceil(payload.length/100));
+            state.currentPage = 1;
+            state.selected = [];
         },
         fillContactsFromDb(state, payload) {
             state.contactsFromDb = payload

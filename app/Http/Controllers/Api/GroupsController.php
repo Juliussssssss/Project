@@ -34,6 +34,7 @@ class GroupsController extends Controller
         try {
             $contacts = Contact::where('user_id', auth()->user()->id)
                 ->where('group_id', $id)
+                ->orderBy('first_name')
                 ->with('group:id,name')
                 ->get();
 

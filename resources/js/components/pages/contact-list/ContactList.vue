@@ -98,6 +98,7 @@
 </template>
 
 <script>
+    import {mapActions, mapGetters} from "vuex";
     export default {
         name: "Contacts",
         props: ["contacts", "currentPage", "newSortType", "highlightedWord"],
@@ -109,6 +110,11 @@
             }
         },
         watch: {
+            contacts: function() {
+                this.selected = [];
+                console.log('ok');
+                this.$emit("selectedContact", this.selected)
+            },
             newSortType: function (id) {
                 this.selectedSortType(id);
             }

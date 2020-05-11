@@ -5,7 +5,6 @@ export default {
     state: {
         currentGroup: 0,
         groups: {},
-        //addGroupInputFocus: false
     },
     getters: {
         getCurrentGroup(state) {
