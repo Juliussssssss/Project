@@ -7,7 +7,7 @@
                 </div>
                 <div class="col-12 col-lg-6">
                     <div class = "d-flex justify-content-start justify-content-lg-end w-100">
-                        <span @click="setFavorites()" class="mr-2 ml-5 tools contactShowSvg align-items-center d-flex justify-content-center">
+                        <span @click="setFavorites()" class="mr-2 tools contactShowSvg align-items-center d-flex justify-content-center">
                             <svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <mask id="mask11" mask-type="alpha" maskUnits="userSpaceOnUse" x="5" y="5" width="20" height="19">
                                     <path fill-rule="evenodd" clip-rule="evenodd"
@@ -72,6 +72,11 @@ export default {
         deleteContact()
         {
             this.$store.dispatch('deleteContacts',[this.contact.id]);
+            setTimeout(()=>{
+                this.redirect()
+            },100);
+        },
+        redirect(){
             this.$router.push('/contacts');
         }
     }
