@@ -6,12 +6,8 @@
                     <div class="modal-title text-left">Вы действительно хотите удалить данный контакт?</div>
                 </div>
                 <div class="modal-footer mt-5">
-                    <button @click="confirmed" type="button" class="py-3 btn text-uppercase font-12px btnText text-white save d-inline-block mr-3 w-100" data-dismiss="modal">
-                        Удалить
-                    </button>
-                    <button  type="button" class="py-3 btn-light btn text-uppercase font-12px btnText cancel" data-dismiss="modal">
-                        Отмена
-                    </button>
+                    <button @click="confirmed" type="button" class="btn btn-primary px-3 py-2 text-uppercase font-12px" data-dismiss="modal">Удалить</button>
+                    <button type="button" class="btn px-3 py-2 ml-4 modalText bthCancel font-12px text-uppercase" data-dismiss="modal">Отмена</button>
                 </div>
             </div>
         </div>
@@ -39,13 +35,6 @@
 }
 .modal {
     top:195px;
-}
-.save {
-    max-width: 120px;
-    background-color: #1875F0;
-}
-.save:hover {
-    background-color: #1875E0;
 }
 .modal-title {
     font-size:18px;
