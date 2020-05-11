@@ -1,13 +1,13 @@
 <template>
-    <div ref="modal delete" class="modal" id="confirmDeleteContact" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div ref="modal" class="modal delete" id="confirmDeleteContact" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog" role="document">
             <div class="modal-content py-4 px-3">
                 <div class="modal-header pb-0 d-block">
                     <div class="modal-title text-left">Вы действительно хотите удалить {{getSelectedContacts.length > 1 ? getSelectedContacts.length+' контакты' : 'данный контакт'}} </div>
                 </div>
                 <div class="modal-footer mt-5">
-                    <button @click="confirmed" type="button" class="btn btn-primary px-3 py-2 text-uppercase font-12px" data-dismiss="delete">Удалить</button>
-                    <button type="button" class="btn px-3 py-2 ml-4 modalText bthCancel font-12px text-uppercase" data-dismiss="delete">Отмена</button>
+                    <button @click="confirmed" type="button" class="btn btn-primary px-3 py-2 text-uppercase font-12px" data-dismiss="modal">Удалить</button>
+                    <button type="button" class="btn px-3 py-2 ml-4 modalText bthCancel font-12px text-uppercase" data-dismiss="modal">Отмена</button>
                 </div>
             </div>
         </div>
