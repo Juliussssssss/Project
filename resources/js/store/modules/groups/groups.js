@@ -53,18 +53,13 @@ export default {
         },
         deleteContactsWithGroup(context) {
             if (context.getters.getSelectedContacts.length > 0) {
-                console.log('deleteContactsWithGroup')
-                console.log(context.getters.getSelectedContacts)
-
                 axios.delete('/api/groups/' + context.getters.getCurrentGroup + '/contacts', {
                     params: {
-                        // id: context.getters.getCurrentGroup,
                         contacts: context.getters.getSelectedContacts
                     }
                 })
                 .then(response => {
-                    console.log(response)
-                    //this.getContactGroups()
+                    context.dispatch("getContactsWithGroup", context.getters.getCurrentGroup)
                 })
                 .catch(error => {
                     console.log(error)
