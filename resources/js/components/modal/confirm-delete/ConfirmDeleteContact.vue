@@ -3,7 +3,7 @@
         <div class="modal-dialog" role="document">
             <div class="modal-content py-4 px-3">
                 <div class="modal-header pb-0 d-block">
-                    <div class="modal-title text-left">Вы действительно хотите удалить данный контакт?</div>
+                    <div class="modal-title text-left">Вы действительно хотите удалить {{getSelectedContacts.length > 1 ? getSelectedContacts.length+' контакты' : 'данный контакт'}} </div>
                 </div>
                 <div class="modal-footer mt-5">
                     <button @click="confirmed" type="button" class="btn btn-primary px-3 py-2 text-uppercase font-12px" data-dismiss="modal">Удалить</button>
@@ -15,13 +15,26 @@
 </template>
 
 <script>
+    import {mapActions, mapGetters} from "vuex";
     export default {
         name: "ConfirmDeleteContact",
         methods: {
+            ...mapActions([
+                "deleteContacts"
+            ]),
             confirmed()
             {
-                this.$emit('deleteContact');
+                if (this.$route.name == 'contacts') {
+                    this.deleteContacts(this.getSelectedContacts)
+                } else {
+                    this.$emit('deleteContact');
+                }
             }
+        },
+        computed: {
+            ...mapGetters([
+                "getSelectedContacts",
+            ])
         }
     }
 </script>

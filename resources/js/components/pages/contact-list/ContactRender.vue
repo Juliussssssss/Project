@@ -19,11 +19,6 @@
         components: {
             'contact-list': ContactList,
         },
-        data() {
-            return {
-
-            }
-        },
         computed: {
             ...mapGetters([
                 "getCurrentPage",

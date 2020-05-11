@@ -119,6 +119,18 @@ export default {
                 .catch(function (error) {
                     console.log(error)
                 });
+        },
+        deleteContacts(context,contacts){
+            axios.delete('/api/contacts',{data: {
+                    contacts:contacts
+                }
+            })
+                .then(response => {
+                    this.redirect()
+                })
+                .catch(error => {
+                    console.log(error);
+                });
         }
     }
 }
