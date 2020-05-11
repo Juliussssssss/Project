@@ -35,7 +35,6 @@
                 })
                     .then(response => {
                         if (response.data === 'updated') {
-                            this.$store.dispatch('clearSelectedFromGroups');
                             this.$store.commit('setBreakRoute',true);
                             this.$router.push('/contacts')
                         }

@@ -27,7 +27,7 @@
                     <router-link
                         class="d-block pl-5 py-3 textGrey text-decoration-none"
                         active-class="activeBorder"
-                        to="/show-contact">
+                        to="/frequent-contacts">
                         Частые контакты
                     </router-link>
                 </div>

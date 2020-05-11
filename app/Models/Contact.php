@@ -95,4 +95,9 @@ class Contact extends Model
     {
         return $this->belongsTo(Group::class);
     }
+
+    public function callLog()
+    {
+        return $this->hasMany(CallLog::class);
+    }
 }
