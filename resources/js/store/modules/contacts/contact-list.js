@@ -107,6 +107,16 @@ export default {
             .catch(function (error) {
                 console.log(error)
             });
+        },
+        getFrequentContacts(context) {
+            axios.get('/api/frequent-contacts')
+                .then(response => {
+                    context.commit("fillContacts", response.data)
+                    context.commit("fillContactsFromDb", response.data)
+                })
+                .catch(function (error) {
+                    console.log(error)
+                });
         }
     }
 }

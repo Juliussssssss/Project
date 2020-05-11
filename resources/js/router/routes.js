@@ -27,6 +27,11 @@ export const routes = [
         name: "contacts"
     },
     {
+        path: '/frequent-contacts',
+        component: Contacts,
+        name: "FrequentContacts"
+    },
+    {
         path: '/favorites',
         component: Contacts,
         name: "contacts"
