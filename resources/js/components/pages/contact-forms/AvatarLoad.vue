@@ -75,14 +75,10 @@
                     let imgNew = document.getElementById('avatar');
                     imgNew.setAttribute('src', src);
                     imgNew.setAttribute('class', 'avatar');
-                    console.log( this.onDelete)
                 };
                 reader.readAsDataURL(file);
                 this.onDelete=true;
             },
-        },
-        mounted() {
-            console.log(this.src);
         }
     }
 </script>

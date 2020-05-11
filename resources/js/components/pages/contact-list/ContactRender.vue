@@ -7,7 +7,7 @@
             :contacts="getContacts"
             :currentPage="getCurrentPage"
             @selectedContact="selectedContact"
-        ></contact-list>
+        > </contact-list>
     </div>
 </template>
 
