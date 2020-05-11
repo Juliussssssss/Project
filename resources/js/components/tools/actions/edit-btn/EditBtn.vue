@@ -16,11 +16,12 @@
 </template>
 
 <script>
-  import {mapGetters} from "vuex";
+    import {mapActions, mapGetters} from "vuex";
 
   export default {
     name: "EditBtn",
       methods: {
+        ...mapActions(["clearSelectedFromGroups"]),
           editContact() {
               if (this.getSelectedContacts.length == 1) {
                   this.$router.push({ name: 'ContactEdit', params: {user_id: this.getSelectedContacts[0]}});
@@ -29,7 +30,7 @@
       },
       computed: {
         ...mapGetters(["getSelectedContacts"])
-      }
+      },
   }
 </script>
 

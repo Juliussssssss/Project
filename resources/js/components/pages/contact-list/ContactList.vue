@@ -98,6 +98,7 @@
 </template>
 
 <script>
+    import {mapActions, mapGetters} from "vuex";
     export default {
         name: "Contacts",
         props: ["contacts", "currentPage", "newSortType", "highlightedWord"],
@@ -108,12 +109,16 @@
                 selectAllControlProp: false
             }
         },
+        computed: {
+            ...mapGetters(["GetContacts"])
+        },
         watch: {
             newSortType: function (id) {
                 this.selectedSortType(id);
             }
         },
         methods: {
+            ...mapActions(["clearSelectedFromGroups"]),
             highlight(value) {
                 if (value != null) {
                     if ((value.toLowerCase().indexOf(this.highlightedWord) > -1) && (this.highlightedWord.length > 0)) {
