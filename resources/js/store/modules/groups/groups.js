@@ -33,7 +33,7 @@ export default {
         getContactGroups(context) {
             axios.get('/api/groups')
             .then(response => {
-                console.log(response.data)
+                //console.log(response.data)
                 context.commit("fillGroups", response.data)
             })
             .catch(error => {
@@ -44,15 +44,32 @@ export default {
             axios.get('/api/groups/' + payload)
             .then(response => {
                 console.log(response.data)
-                //context.commit("setCurrentPage", 1)
                 context.commit("fillContacts", response.data)
                 context.commit("fillContactsFromDb", response.data)
-                //context.commit("setLength", response.data.length)
-                //context.commit("setPages", (Math.ceil(response.data.length/100)))
             })
             .catch(error => {
                 console.log(error);
             });
+        },
+        deleteContactsWithGroup(context) {
+            if (context.getters.getSelectedContacts.length > 0) {
+                console.log('deleteContactsWithGroup')
+                console.log(context.getters.getSelectedContacts)
+
+                axios.delete('/api/groups/' + context.getters.getCurrentGroup + '/contacts', {
+                    params: {
+                        // id: context.getters.getCurrentGroup,
+                        contacts: context.getters.getSelectedContacts
+                    }
+                })
+                .then(response => {
+                    console.log(response)
+                    //this.getContactGroups()
+                })
+                .catch(error => {
+                    console.log(error)
+                })
+            }
         }
     }
 }

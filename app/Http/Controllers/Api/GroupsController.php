@@ -73,4 +73,10 @@ class GroupsController extends Controller
             return response()->json($e->getMessage(), 417);
         }
     }
+
+    public function deleteGroupAtContacts($id, Request $request)
+    {
+        
+        return response()->json($request, 200);
+    }
 }

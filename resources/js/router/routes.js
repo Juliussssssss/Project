@@ -8,6 +8,7 @@ const Home = Vue.component('home', require('../components/pages/home/Home.vue').
 import CreateContact from '../components/pages/contact-forms/createForm/CreateContact';
 import EditContact from '../components/pages/contact-forms/edit-form/EditContact';
 import ShowContact from '../components/pages/contact-forms/show-form/ShowContact';
+import groups from "../store/modules/groups/groups";
 
 export const routes = [
     {
@@ -47,5 +48,10 @@ export const routes = [
         component: ShowContact,
         name: "ContactShow",
         props: true,
+    },
+    {
+        path: "/groups",
+        component: Contacts,
+        name: "groups"
     }
 ];
