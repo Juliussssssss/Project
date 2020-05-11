@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Api;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Contact\StoreRequest;
 use App\Http\Requests\Contact\UpdateRequest;
+use App\Models\CallLog;
 use App\Models\Contact;
 use App\Models\File;
 use Illuminate\Http\Request;
@@ -32,11 +33,12 @@ class ContactsController extends Controller
         $select = [
             'id', 'avatar', 'favorites', 'first_name', 'middle_name', 'last_name', 'email', 'number', 'avatar', 'group_id'
         ];
-        $contacts = Contact::select($select)
+
+        $contacts = Contact::has('callLog', '>=', 3)
             ->where('user_id', auth()->user()->id)
             ->orderBy('first_name')
             ->with('group:id,name')
-            ->get();
+            ->get($select);
 
         return response()->json($contacts);
     }

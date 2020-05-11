@@ -9,7 +9,7 @@
         name: "Logout",
         methods:{
             logout(){
-                axios.post('/logout').then((response) => {
+                axios.get('/api/frequent-contacts').then((response) => {
 
                 }).catch(e => {
 
