@@ -2,7 +2,6 @@
     <div class="modal fade" id="createGroupModal" tabindex="-1" role="dialog"
          aria-labelledby="createGroupModalLabel"
          aria-hidden="true"
-         @click="setFocus"
          @keydown="setFocus">
         <div class="modal-dialog" role="document">
             <div class="modal-content py-2 px-3">
@@ -54,7 +53,6 @@
                 axios.post('/api/groups', {name: this.groupName})
                 .then(response => {
                     this.getContactGroups()
-
                     alert('Группа "' + this.groupName + '" была успешно добавлена')
                     this.groupName = ""
                 })

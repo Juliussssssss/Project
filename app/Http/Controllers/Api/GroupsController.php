@@ -34,6 +34,7 @@ class GroupsController extends Controller
         try {
             $contacts = Contact::where('user_id', auth()->user()->id)
                 ->where('group_id', $id)
+                ->with('group:id,name')
                 ->get();
 
             return response()->json($contacts, 200);

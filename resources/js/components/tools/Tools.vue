@@ -2,9 +2,7 @@
     <div class="row">
         <div class="col-12 customBorderBottom ">
             <div class="row fixPanel">
-                <actions
-                    :selectedContacts="getSelectedContacts">
-                </actions>
+                <actions></actions>
                 <search
                     :contacts="getContactsFromDb"
                     @searchResult="searchResult"
