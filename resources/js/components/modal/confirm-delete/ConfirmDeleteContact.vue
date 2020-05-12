@@ -1,6 +1,6 @@
 <template>
     <div ref="modal" class="modal delete" id="confirmDeleteContact" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog" role="document">
+        <div class="modal-dialog" role="document" data-dismiss="modal">
             <div class="modal-content py-4 px-3">
                 <div class="modal-header pb-0 d-block">
                     <div class="modal-title text-left">Вы действительно хотите удалить {{getSelectedContacts.length > 1 ? getSelectedContacts.length+' контакты' : 'данный контакт'}} </div>

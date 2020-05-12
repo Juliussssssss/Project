@@ -30,14 +30,18 @@ Route::middleware('auth')
     ->prefix('/api')
     ->group(function () {
         Route::get('groups', ('GroupsController@index'))->middleware('auth');
+        Route::get('contacts/favorites', ('ContactsController@favorites'))->middleware('auth');
         Route::get('groups/{id}', ('GroupsController@show'))->middleware('auth');
         Route::post('groups', ('GroupsController@store'))->middleware('auth');
 
 
         Route::delete('groups', ('GroupsController@destroy'))->middleware('auth');
         Route::delete('groups/{id}/contacts', ('GroupsController@deleteGroupAtContacts'))->middleware('auth');
+        Route::patch('groups/{id}/contacts', ('GroupsController@addGroupAtContacts'))->middleware('auth');
     });
 
 
 Route::view('/{any}', 'index')->where('any', '.*')->middleware('auth');
 
+Route::get('/students','PrintController@index');
+Route::get('/prnpriview','PrintController@prnpriview');

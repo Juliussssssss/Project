@@ -74,10 +74,44 @@ class GroupsController extends Controller
     public function deleteGroupAtContacts(int $id, Request $request)
     {
         try {
-            $contacts = Contact::where('user_id', auth()->user()->id)
+            Contact::where('user_id', auth()->user()->id)
                 ->where('group_id', $id)
                 ->whereIn('id', $request->contacts)
                 ->update(['group_id' => null]);
+
+            //сделать норм
+            $select = [
+                'id', 'avatar', 'favorites', 'first_name', 'middle_name', 'last_name', 'email', 'number', 'avatar', 'group_id'
+            ];
+
+            $contacts = Contact::select($select)
+                ->where('user_id', auth()->user()->id)
+                ->orderBy('first_name')
+                ->with('group:id,name')
+                ->get();
+
+            return response()->json($contacts, 200);
+        } catch (Throwable $e) {
+            return response()->json($e->getMessage(), 417);
+        }
+    }
+
+    public function addGroupAtContacts(int $id, Request $request)
+    {
+        try {
+            Contact::where('user_id', auth()->user()->id)
+                ->whereIn('id', $request->contacts)
+                ->update(['group_id' => $id]);
+            //сделать норм
+            $select = [
+                'id', 'avatar', 'favorites', 'first_name', 'middle_name', 'last_name', 'email', 'number', 'avatar', 'group_id'
+            ];
+
+            $contacts = Contact::select($select)
+                ->where('user_id', auth()->user()->id)
+                ->orderBy('first_name')
+                ->with('group:id,name')
+                ->get();
 
             return response()->json($contacts, 200);
         } catch (Throwable $e) {
