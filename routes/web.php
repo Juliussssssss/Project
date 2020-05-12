@@ -35,6 +35,7 @@ Route::middleware('auth')
 
         Route::delete('groups', ('GroupsController@destroy'))->middleware('auth');
         Route::delete('groups/{id}/contacts', ('GroupsController@deleteGroupAtContacts'))->middleware('auth');
+        Route::patch('groups/{id}/contacts', ('GroupsController@addGroupAtContacts'))->middleware('auth');
     });
 
 

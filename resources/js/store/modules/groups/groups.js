@@ -51,7 +51,7 @@ export default {
                 console.log(error);
             });
         },
-        deleteContactsWithGroup(context) {
+        deleteContactsAtGroup(context) {
             if (context.getters.getSelectedContacts.length > 0) {
                 axios.delete('/api/groups/' + context.getters.getCurrentGroup + '/contacts', {
                     params: {
@@ -59,12 +59,28 @@ export default {
                     }
                 })
                 .then(response => {
-                    context.dispatch("getContactsWithGroup", context.getters.getCurrentGroup)
+                    context.commit("fillContacts", response.data)
+                    context.commit("fillContactsFromDb", response.data)
                 })
                 .catch(error => {
                     console.log(error)
                 })
             }
         },
+        addContactsAtGroup(context) {
+            console.log('addGroupAtContacts')
+            if (context.getters.getSelectedContacts.length > 0) {
+                axios.patch('/api/groups/' + context.getters.getCurrentGroup + '/contacts', {
+                        contacts: context.getters.getSelectedContacts
+                })
+                .then(response => {
+                    context.commit("fillContacts", response.data)
+                    context.commit("fillContactsFromDb", response.data)
+                })
+                .catch(error => {
+                    console.log(error)
+                })
+            }
+        }
     }
 }

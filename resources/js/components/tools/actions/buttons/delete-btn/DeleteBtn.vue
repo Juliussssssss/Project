@@ -1,6 +1,6 @@
 <template>
     <div>
-        <div @click="deleteClick" data-toggle="modal" data-target="#confirmDeleteContact" >
+        <div @click="deleteClick($event)" data-toggle="modal" data-target="#confirmDeleteContact">
             <svg id="delete" width="30" height="30" viewBox="0 0 30 30" fill="none"
                  xmlns="http://www.w3.org/2000/svg">
                 <mask id="mask6" mask-type="alpha" maskUnits="userSpaceOnUse" x="8" y="6" width="14"
@@ -10,7 +10,8 @@
                           fill="white"/>
                 </mask>
                 <g mask="url(#mask6)">
-                    <rect :class="getSelectedContacts.length >= 1 ? 'actionButtons' : ''" x="2" y="2" width="26" height="26"
+                    <rect :class="getSelectedContacts.length >= 1 ? 'actionButtons' : ''" x="2" y="2" width="26"
+                          height="26"
                           fill="#D8D8D8"/>
                 </g>
             </svg>
@@ -22,6 +23,7 @@
 <script>
     import {mapActions, mapGetters} from "vuex";
     import confirmDeleteContacts from "../../../../modal/confirm-delete/ConfirmDeleteContact"
+
     export default {
         name: "DeleteBtn",
         components: {
@@ -29,13 +31,15 @@
         },
         methods: {
             ...mapActions([
-                "deleteContactsWithGroup",
+                "deleteContactsAtGroup",
                 "deleteContacts"
             ]),
-            deleteClick() {
+            deleteClick(event) {
                 if (this.$route.name !== 'groups') {
                 } else {
-                    this.deleteContactsWithGroup();
+                    event.stopPropagation()
+                    this.deleteContactsAtGroup();
+                    this.$router.push('/contacts')
                 }
             },
         },

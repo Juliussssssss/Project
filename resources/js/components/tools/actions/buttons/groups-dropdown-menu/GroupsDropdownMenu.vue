@@ -1,7 +1,8 @@
 <template>
     <div>
         <svg id="groups" width="30" height="30" viewBox="0 0 30 30" fill="none"
-             xmlns="http://www.w3.org/2000/svg" class="dropdown-toggle" data-toggle="dropdown">
+             xmlns="http://www.w3.org/2000/svg" class="dropdown-toggle" data-toggle="dropdown"
+             @click="setCurrentGroup(0)">
             <mask id="mask1" mask-type="alpha" maskUnits="userSpaceOnUse" x="4" y="8" width="22"
                   height="14">
                 <path fill-rule="evenodd" clip-rule="evenodd"
@@ -14,8 +15,9 @@
         </svg>
         <!-- dropdown menu        -->
         <div class="dropdown-menu mt-4 textGrey" role="menu" aria-labelledby="dropdownMenu">
-            <div class="customBorderBottom p-3 "
-                 v-for="group in getGroups">
+            <div :class="getSelectedContacts.length > 0 ? 'customBorderBottom p-3 addGroup' : 'customBorderBottom p-3'"
+                 v-for="group in getGroups"
+                 @click="groupClick($event, group.id)">
                 <div class="row d-flex justify-content-start align-items-center">
                     <div class="col-lg-2">
                         <svg id="groups" width="30" height="30" viewBox="0 0 30 30" fill="none"
@@ -27,18 +29,28 @@
                                       fill="white"/>
                             </mask>
                             <g mask="url(#mask1)">
-                                <rect class="itemActionButtons" x="2" y="2" width="26" height="26" fill="#D8D8D8"/>
+                                <rect
+                                    :class="(getCurrentGroup === group.id && getSelectedContacts.length > 0)
+                                    ? 'currentGroup'
+                                    : 'itemActionButtons'"
+                                    x="2"
+                                    y="2" width="26" height="26" fill="#D8D8D8"/>
                             </g>
                         </svg>
                     </div>
-                    <div class="col-lg-10">{{ group.name }}</div>
+                    <div :class="(getCurrentGroup === group.id && getSelectedContacts.length > 0)
+                        ? 'col-lg-10 font-weight-bold'
+                        : 'col-lg-10'">
+                        {{ group.name }}
+                    </div>
                 </div>
             </div>
             <!-- groupAddBtn -->
             <div class="customBorderBottom p-3 addGroup"
                  data-toggle="modal"
                  data-target="#createGroupModal"
-                 @click="setFocus()">
+                 @click="setFocus()"
+                 v-if="getSelectedContacts.length == 0">
                 <div class="row d-flex justify-content-start align-items-center">
                     <div class="col-lg-2">
                         <svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -57,35 +69,66 @@
                     <div class="col-lg-10">Создать группу</div>
                 </div>
             </div>
+            <!-- сюда блок принять            -->
+            <div class="customBorderBottom p-3 addGroup"
+                 v-if="(getCurrentGroup !== 0 && getSelectedContacts.length > 0)">
+                <div class="row d-flex justify-content-start align-items-center">
+                    <div class="col-lg-2">
+
+                    </div>
+                    <!-- выпрыгивает модалка -->
+                    <div class="col-lg-10 font-weight-bold" @click="addContactsAtGroup()">Применить</div>
+                </div>
+            </div>
         </div>
-        <add-group></add-group>
+        <add-group-modal></add-group-modal>
     </div>
 </template>
 
 <script>
-    import {mapGetters, mapMutations} from "vuex";
-    import addGroup from "./modals/AddGroup";
+    import {mapActions, mapGetters, mapMutations} from "vuex";
+    import addGroupModal from "./modals/AddGroupModal";
 
     export default {
         name: "GroupsDropdownMenu",
+        data() {
+            return {
+                groupState: false
+            }
+        },
         computed: {
-            ...mapGetters(['getGroups'])
+            ...mapGetters([
+                "getGroups",
+                "getSelectedContacts",
+                "getCurrentGroup"
+            ])
         },
         methods: {
             setFocus() {
                 //this.setAddGroupInputFocus()
             },
-            //...mapMutations(["setAddGroupInputFocus"])
+            groupClick(event, id) {
+                event.stopPropagation()
+                this.setCurrentGroup(id)
+                console.log('Current group ' + id)
+
+            },
+            ...mapMutations(["setCurrentGroup"]),
+            ...mapActions(["addContactsAtGroup"])
         },
         components: {
-            addGroup
+            addGroupModal
         }
     }
 </script>
 
-<style>
+<style scoped>
     .addGroup {
         cursor: pointer;
+    }
+
+    .currentGroup {
+        fill: #666666;
     }
 </style>
 
