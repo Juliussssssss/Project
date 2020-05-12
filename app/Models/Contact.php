@@ -21,13 +21,11 @@ class Contact extends Model
     {
         $user_id = auth()->user()->id;
         $contact = $request->all();
-
         if(!$this->storeUniqueEmailForUser($contact['email'],$user_id))
         {
 
             return response('duplicated', 500);
         }
-
         if ($request->hasFile('avatar')) {
             $file = $request->file('avatar');
             $contact['avatar'] = $file->store('avatars','public');
@@ -58,7 +56,6 @@ class Contact extends Model
 
             Storage::delete('/app/public/' . $request['path']);
         }
-
         $contact_id = $request['id'];
         Contact::where('id',$contact_id)
             ->where('user_id',$user_id)

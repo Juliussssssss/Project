@@ -112,7 +112,6 @@ export default {
         getFrequentContacts(context) {
             axios.get('/api/frequent-contacts')
                 .then(response => {
-                    console.log('as');
                     context.commit("fillContacts", response.data)
                     context.commit("fillContactsFromDb", response.data)
                 })

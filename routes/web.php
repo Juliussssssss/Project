@@ -15,6 +15,7 @@ Route::get('/api/contact/{id}', ('Api\ContactsController@show'))->middleware('au
 Route::post('/api/contact/update', ('Api\ContactsController@update'))->middleware('auth');
 Route::delete('/api/contacts', ('Api\ContactsController@destroy'))->middleware('auth');
 Route::get('/api/frequent-contacts', ('Api\ContactsController@getFrequentContacts'))->middleware('auth');
+Route::post('/api/contacts-import', ('Api\ExcelController@importContacts'))->middleware('auth');
 
 Route::get('/contacts/get-all', ('Api\ContactsController@getContacts'))->middleware('auth');
 Route::post('/contacts/set-favorites', ('Api\ContactsController@setFavorites'))->middleware('auth');

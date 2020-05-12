@@ -1,6 +1,6 @@
 <template>
     <div>
-        <form onsubmit = "return false" id = "contact" ref='conta'>
+        <form onsubmit = "return false" id = "contact" ref='contact'>
             <create-form ref="form" :query="createContact"></create-form>
         </form>
     </div>
@@ -17,7 +17,7 @@
         methods: {
             createContact()
             {
-                const data = new FormData(this.$refs.conta);
+                const data = new FormData(this.$refs.contact);
                 data.append('favorites', 0);
                 axios.post('/api/contact', data, {
                     headers: {

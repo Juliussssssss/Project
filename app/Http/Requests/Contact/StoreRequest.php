@@ -25,7 +25,6 @@ class StoreRequest extends FormRequest
      */
     public function rules()
     {
-        $user_id = auth()->user()->id;
         $rules = [
             'first_name' => 'required|alpha|max:255',
             'middle_name' => 'required|alpha|max:255',
