@@ -1,6 +1,6 @@
 <template>
     <div>
-        <div @click="deleteClick" data-toggle="modal" data-target="#confirmDeleteContact" >
+        <div @click="deleteClick" :data-toggle="(this.$route.name !== 'groups' && getSelectedContacts.length > 0) ? 'modal' : ''" :data-target="(this.$route.name !== 'groups' && getSelectedContacts.length > 0) ? '#confirmDeleteContact' : ''" >
             <svg id="delete" width="30" height="30" viewBox="0 0 30 30" fill="none"
                  xmlns="http://www.w3.org/2000/svg">
                 <mask id="mask6" mask-type="alpha" maskUnits="userSpaceOnUse" x="8" y="6" width="14"

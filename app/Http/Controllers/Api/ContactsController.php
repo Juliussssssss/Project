@@ -67,7 +67,6 @@ class ContactsController extends Controller
         $contact = Contact::where('id',$id)
             ->where('user_id',auth()->user()->id)
             ->first($select);
-
         if(!$contact){
 
             return response( 'error',403);

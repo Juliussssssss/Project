@@ -71,6 +71,9 @@ export default {
         },
         fillContactsFromDb(state, payload) {
             state.contactsFromDb = payload
+        },
+        deleteContacts(state, payload) {
+            payload.forEach(element => state.contacts.splice(state.contacts.findIndex(x => x.id == element), 1));
         }
     },
     actions: {
@@ -120,13 +123,14 @@ export default {
                     console.log(error)
                 });
         },
-        deleteContacts(context,contacts){
+        deleteContacts(context, contacts){
             axios.delete('/api/contacts',{data: {
                     contacts:contacts
                 }
             })
                 .then(response => {
-                    this.redirect()
+                    context.commit("clearSelected");
+                    context.commit("deleteContacts", contacts)
                 })
                 .catch(error => {
                     console.log(error);

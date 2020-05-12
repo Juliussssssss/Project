@@ -23,12 +23,12 @@
                     <div class="row py-3 px-3">
                         <button type="button"
                                 class="btn btn-primary px-3 py-2 text-uppercase font-12px" data-dismiss="modal"
-                                @click="saveGroup"
-                        >
+                                @click="saveGroup">
                             Сохранить
                         </button>
                         <button type="button" class="btn px-3 py-2 ml-4 modalText bthCancel font-12px"
-                                data-dismiss="modal">Отмена
+                                data-dismiss="modal">
+                            Отмена
                         </button>
                     </div>
                 </div>

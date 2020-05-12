@@ -40,3 +40,5 @@ Route::middleware('auth')
 
 Route::view('/{any}', 'index')->where('any', '.*')->middleware('auth');
 
+Route::get('/students','PrintController@index');
+Route::get('/prnpriview','PrintController@prnpriview');
