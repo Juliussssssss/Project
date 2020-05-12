@@ -1,5 +1,7 @@
 <template>
-
+    <div>
+        ПЕЧАТЬ РАБОТАЕТ
+    </div>
 </template>
 
 <script>

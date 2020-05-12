@@ -52,7 +52,7 @@
                  @click="setFocus()"
                  v-if="getSelectedContacts.length == 0">
                 <div class="row d-flex justify-content-start align-items-center">
-                    <div class="col-lg-2">
+                    <div class="col-lg-2">я
                         <svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <mask id="groupAddBtn" mask-type="alpha" maskUnits="userSpaceOnUse" x="8" y="8" width="14"
                                   height="14">
