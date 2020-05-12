@@ -29,6 +29,17 @@ export default {
                 .catch(function (error) {
                     console.log(error)
                 });
+        },
+        getFavorites(context) {
+            axios.get('/api/contacts/favorites')
+            .then(response => {
+                context.commit("fillContacts", response.data)
+                context.commit("fillContactsFromDb", response.data)
+                console.log(response.data)
+            })
+            .catch(function (error) {
+                console.log(error)
+            });
         }
     }
 }

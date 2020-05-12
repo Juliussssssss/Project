@@ -50,6 +50,22 @@ class ContactsController extends Controller
         return response()->json("ok");
     }
 
+    public function favorites()
+    {
+        $select = [
+            'id', 'avatar', 'favorites', 'first_name', 'middle_name', 'last_name', 'email', 'number', 'avatar', 'group_id'
+        ];
+
+        $contacts = Contact::select($select)
+            ->where('user_id', auth()->user()->id)
+            ->where('favorites', 1)
+            ->orderBy('first_name')
+            ->with('group:id,name')
+            ->get();
+
+        return response()->json($contacts, 200);
+    }
+
     public function store(StoreRequest $request)
     {
 

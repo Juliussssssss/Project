@@ -32,13 +32,18 @@
                 "clearSelectedFromGroups",
                 "selectedContact",
                 "getFrequentContacts",
-                "getAllContacts"
+                "getAllContacts",
+                "getFavorites"
             ])
         },
         mounted() {
             if (this.$route.name=='FrequentContacts')
             {
                 this.getFrequentContacts()
+            }
+            else  if (this.$route.name=='favorites')
+            {
+                this.getFavorites()
             }
             else {
                 this.getAllContacts();

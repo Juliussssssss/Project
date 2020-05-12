@@ -29,6 +29,7 @@ Route::middleware('auth')
     ->prefix('/api')
     ->group(function () {
         Route::get('groups', ('GroupsController@index'))->middleware('auth');
+        Route::get('contacts/favorites', ('ContactsController@favorites'))->middleware('auth');
         Route::get('groups/{id}', ('GroupsController@show'))->middleware('auth');
         Route::post('groups', ('GroupsController@store'))->middleware('auth');
 

@@ -38,7 +38,7 @@ export const routes = [
     {
         path: '/favorites',
         component: Contacts,
-        name: "contacts"
+        name: "favorites"
     },
     {
         path: '/create-contact',
