@@ -86,7 +86,7 @@
         },
         mounted() {
             this.getContactGroups()
-            if (this.getCurrentGroup == 0&&this.$route.name=='groups') this.$router.push('contacts')
+            if (this.getCurrentGroup === 0 && this.$route.name === 'groups') this.$router.push('contacts')
         }
     }
 </script>

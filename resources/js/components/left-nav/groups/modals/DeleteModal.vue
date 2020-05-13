@@ -33,21 +33,9 @@
         methods: {
             deleteClick() {
                 console.log('current group has been deleted ' + this.getCurrentGroup)
-
-                axios.delete('/api/groups', {
-                    params: {
-                        id: this.getCurrentGroup
-                    }
-                })
-                .then(response => {
-                    console.log(response)
-                    this.getContactGroups()
-                })
-                .catch(error => {
-                    console.log(error)
-                })
+                this.deleteGroup()
             },
-            ...mapActions(["getContactGroups"])
+            ...mapActions(["getContactGroups", "deleteGroup"])
         },
         computed: {
             ...mapGetters(["getCurrentGroup"])

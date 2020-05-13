@@ -57,7 +57,7 @@
                     this.groupName = ""
                 })
                 .catch(error => {
-
+                    this.groupName = ""
                     alert('Ошибка при добавлении группы')
                 })
             },

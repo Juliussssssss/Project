@@ -21,8 +21,8 @@ export default {
         setCurrentGroup(state, payload) {
             state.currentGroup = payload;
         },
-        fillGroups(state, groups) {
-            state.groups = groups
+        fillGroups(state, payload) {
+            state.groups = payload
         },
         // setAddGroupInputFocus(state) {
         //     state.addGroupInputFocus = !state.addGroupInputFocus
@@ -81,6 +81,20 @@ export default {
                     console.log(error)
                 })
             }
+        },
+        deleteGroup(context) {
+            axios.delete('/api/groups', {
+                params: {
+                    id: context.getters.getCurrentGroup
+                }
+            })
+            .then(response => {
+                context.commit("fillGroups", response.data)
+                console.log(response.data)
+            })
+            .catch(error => {
+                console.log(error)
+            })
         }
     }
 }

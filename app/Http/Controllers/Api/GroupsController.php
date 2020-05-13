@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Group\StoreRequest;
+use App\Http\Requests\Group\UpdateContactGroup;
 use App\Http\Requests\Group\UpdateRequest;
 use App\Models\Contact;
 use App\Models\Group;
@@ -14,18 +15,10 @@ use Throwable;
 
 class GroupsController extends Controller
 {
-    public function cleaning_str(string $data): string
-    {
-        return strip_tags(trim(preg_replace("/\s{2,}/", " ", $data)));
-    }
-
 
     public function index()
     {
-
-        $groups = DB::table('groups')->where('user_id', auth()->user()->id)->get(['id', 'name']);
-        //$groups = Group::select('id', 'name')->get();
-
+        $groups = Group::getUserGroups()->get(['id', 'name']);
         return response()->json($groups, 200);
     }
 
@@ -44,15 +37,12 @@ class GroupsController extends Controller
     public function store(StoreRequest $request)
     {
         try {
-            $data['name'] = $this->cleaning_str(($request->name));
-            $data['user_id'] = auth()->user()->id;
-            Group::create($data);
+            $groups = (new Group)->store($request);
 
-            return response()->json($data, 200);
+            return response()->json($groups, 200);
         } catch (Throwable $e) {
             return response()->json($e->getMessage(), 417);
         }
-        //        return response()->json('susses', 200);
     }
 
     public function update(UpdateRequest $request, Group $group)
@@ -63,15 +53,20 @@ class GroupsController extends Controller
     public function destroy(Request $request)
     {
         try {
-            $group = Group::where('user_id', auth()->user()->id)->find($request->id);
+            $group = Group::getUserGroups()
+                ->find($request->id);
             $group->delete();
-            return response()->json($group, 200);
+
+            $groups = Group::getUserGroups()
+                ->get(['id', 'name']);
+
+            return response()->json($groups, 200);
         } catch (Throwable $e) {
             return response()->json($e->getMessage(), 417);
         }
     }
 
-    public function deleteGroupAtContacts(int $id, Request $request)
+    public function deleteGroupAtContacts(int $id, UpdateContactGroup $request)
     {
         try {
             Contact::where('user_id', auth()->user()->id)
@@ -96,7 +91,7 @@ class GroupsController extends Controller
         }
     }
 
-    public function addGroupAtContacts(int $id, Request $request)
+    public function addGroupAtContacts(int $id, UpdateContactGroup $request)
     {
         try {
             Contact::where('user_id', auth()->user()->id)
