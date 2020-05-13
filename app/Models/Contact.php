@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Database\Eloquent\Builder;
 
 class Contact extends Model
 {
@@ -16,6 +17,12 @@ class Contact extends Model
         'middle_name', 'last_name', 'email', 'number',
         'group_id','site','birthday','comment',
         'work', 'work_email','city','position'];
+    
+    public function scopeGetUserGroups($query): Builder
+    {
+        return $query->select($this->keys)
+            ->where('user_id', auth()->user()->id);
+    }
 
     public function prepareForCreate($request)
     {
