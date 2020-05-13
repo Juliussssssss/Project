@@ -1,6 +1,6 @@
 <template>
     <div>
-        <div class="container mt-5">
+        <div class="container mt-5" v-if="(this.$route.name != 'Test')">
             <div class="row">
                 <div class="col-12 bg-white">
                     <div class="row">
@@ -9,14 +9,13 @@
                             <left-nav></left-nav>
                         </div>
                         <div class="col-9 customBorderBottom customBorderRight customBorderTop">
-
-                                <router-view></router-view>
-
+                            <router-view></router-view>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
+        <router-view v-else></router-view>
     </div>
 </template>
 

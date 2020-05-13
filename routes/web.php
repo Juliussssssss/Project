@@ -20,6 +20,9 @@ Route::post('/api/contacts-import', ('Api\ExcelController@importContacts'))->mid
 Route::get('/contacts/get-all', ('Api\ContactsController@getContacts'))->middleware('auth');
 Route::post('/contacts/set-favorites', ('Api\ContactsController@setFavorites'))->middleware('auth');
 
+Route::get('/testPrint/test',('PrintController@getContacts'))->middleware('auth');
+Route::get('', ('Api\ContactsController@setFavorites'))->middleware('auth');
+
 Route::delete('/api/groups', ('Api\GroupsController@destroy'))->middleware('auth');
 Route::get('/api/groups', ('Api\GroupsController@index'))->middleware('auth');
 Route::post('/api/groups', ('Api\GroupsController@store'))->middleware('auth');
@@ -42,6 +45,3 @@ Route::middleware('auth')
 
 
 Route::view('/{any}', 'index')->where('any', '.*')->middleware('auth');
-
-Route::get('/students','PrintController@index');
-Route::get('/prnpriview','PrintController@prnpriview');
