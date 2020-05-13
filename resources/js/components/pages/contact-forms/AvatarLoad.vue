@@ -29,6 +29,7 @@
                 id="file"
                 type="file"
                 @change="onFileChange"
+                accept="image/*"
                 :disabled="blocked"
             >
             <input type="hidden" name="resetImage" value="0" ref="resetImage">

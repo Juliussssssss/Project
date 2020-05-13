@@ -15,6 +15,22 @@ class Group extends Model
         return strip_tags(trim(preg_replace("/\s{2,}/", " ", $data)));
     }
 
+    public function getGroupIdByName($name)
+    {
+        $group = Group::where('name',$name)
+            ->where('user_id',auth()->user()->id)
+            ->first('id');
+
+        return $group->id??null;
+    }
+    public function createAndGetGroupId($name)
+    {
+        $group['name'] = $name;
+        $group['user_id'] = auth()->user()->id;
+        $group = Group::create($group);
+
+        return $group->id??null;
+    }
     public function user()
     {
         return $this->belongsTo(User::class);
