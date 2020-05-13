@@ -1,6 +1,6 @@
 <template>
     <div>
-        <div data-toggle="modal" data-target="#exampleModal">
+        <div data-toggle="modal" data-target="#exampleModalPrint">
             <svg id="print" width="30" height="30" viewBox="0 0 30 30" fill="none"
                  xmlns="http://www.w3.org/2000/svg">
                 <mask id="mask5" mask-type="alpha" maskUnits="userSpaceOnUse" x="5" y="6" width="20"
