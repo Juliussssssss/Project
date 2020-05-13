@@ -12,7 +12,7 @@ export default {
         highlightedWord: "",
     },
     getters: {
-        getSelectedContacts(state){
+        getSelectedContacts(state) {
             return state.selected;
         },
         getPages(state) {

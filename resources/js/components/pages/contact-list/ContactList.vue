@@ -87,7 +87,7 @@
                         <div class="col-3 pl-0">
                             <span class="font-12px" v-html="highlight(contact.number)"/>
                         </div>
-                        <div class="col-3 pl-0">
+                        <div class="col-3 pl-0 d-flex">
                             <span class="font-12px text-truncate">{{ contact.group ? contact.group['name'] : '' }}</span>
                         </div>
                     </router-link>
@@ -118,10 +118,11 @@
             contacts: function() {
                 this.selected = [];
                 this.$emit("selectedContact", this.selected)
+                this.selectAllControlProp = false;
             },
             newSortType: function (id) {
                 this.selectedSortType(id);
-            }
+            },
         },
         methods: {
             highlight(value) {
