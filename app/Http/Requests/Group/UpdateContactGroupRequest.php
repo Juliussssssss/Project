@@ -4,7 +4,7 @@ namespace App\Http\Requests\Group;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class UpdateContactGroup extends FormRequest
+class UpdateContactGroupRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -24,7 +24,8 @@ class UpdateContactGroup extends FormRequest
     public function rules()
     {
         return [
-            'contacts' => ['required', 'array']
+            'contacts' => ['required', 'array', 'min:1'],
+            'contacts.*' => ['required', 'integer', 'distinct', 'min:1'],
         ];
     }
 }

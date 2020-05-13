@@ -4,7 +4,7 @@ namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Group\StoreRequest;
-use App\Http\Requests\Group\UpdateContactGroup;
+use App\Http\Requests\Group\UpdateContactGroupRequest;
 use App\Http\Requests\Group\UpdateRequest;
 use App\Models\Contact;
 use App\Models\Group;
@@ -66,7 +66,7 @@ class GroupsController extends Controller
         }
     }
 
-    public function deleteGroupAtContacts(int $id, UpdateContactGroup $request)
+    public function deleteGroupAtContacts(int $id, UpdateContactGroupRequest $request)
     {
         try {
             Contact::where('user_id', auth()->user()->id)
@@ -91,7 +91,7 @@ class GroupsController extends Controller
         }
     }
 
-    public function addGroupAtContacts(int $id, UpdateContactGroup $request)
+    public function addGroupAtContacts(int $id, UpdateContactGroupRequest $request)
     {
         try {
             Contact::where('user_id', auth()->user()->id)
