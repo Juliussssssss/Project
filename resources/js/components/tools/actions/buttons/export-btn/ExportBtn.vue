@@ -1,7 +1,9 @@
 <template>
     <div>
-        <svg id="import" width="30" height="30" viewBox="0 0 30 30" fill="none"
-             xmlns="http://www.w3.org/2000/svg">
+        <svg id="exportBtn" width="30" height="30" viewBox="0 0 30 30" fill="none"
+             xmlns="http://www.w3.org/2000/svg"
+             data-toggle="modal"
+             data-target="#exportModal">
             <mask id="mask3" mask-type="alpha" maskUnits="userSpaceOnUse" x="3" y="7" width="24"
                   height="16">
                 <path fill-rule="evenodd" clip-rule="evenodd"
@@ -12,13 +14,65 @@
                 <rect class="actionButtons" x="2" y="2" width="26" height="26" fill="#D8D8D8"/>
             </g>
         </svg>
+
+        <div class="modal fade" id="exportModal" tabindex="-1" role="dialog" aria-labelledby="exportModalLabel"
+             aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content py-4 px-3">
+                    <div class="modal-body d-block modalText pt-0">
+                        <div class="modal-title font-18px textActive pb-3">Экспорт контактов</div>
+
+                        <div>
+                            <input type="radio" id="allContactsExport" name="radio-group" value="allContacts">
+                            <label class="font-14px" for="allContactsExport">Контакты ({{ getContacts.length }})</label>
+                        </div>
+                        <div>
+                            <input type="radio" id="frequentContactsExport" name="radio-group" value="frequentContacts">
+                            <label class="font-14px" for="frequentContactsExport">Частые контакты</label>
+                        </div>
+
+                        <div class="modal-title py-2 font-14px modalText">Группы</div>
+                        <div v-for="group in getGroups">
+                            <input v-model="selectedGroup" type="radio" :id="group.name" name="radio-group"
+                                   :value="group.id">
+                            <label class="font-14px" :for="group.name">
+                                {{ group.name }} ({{ group.contacts_count }})
+                            </label>
+                        </div>
+                        <br>
+                        <div class="d-flex justify-content-start">
+                            <button type="button"
+                                    class="btn btn-primary px-3 py-2 text-uppercase font-12px"
+                                    data-dismiss="modal">
+                                Экспортировать
+                            </button>
+                            <button type="button"
+                                    class="btn px-3 py-2 ml-4 modalText bthCancel font-12px text-uppercase"
+                                    data-dismiss="modal">Отмена
+                            </button>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
     </div>
 </template>
 
 <script>
-  export default {
-    name: "ExportBtn"
-  }
+    import {mapGetters} from "vuex";
+
+    export default {
+        name: "ExportBtn",
+        data() {
+            return {
+                selectedGroup: ""
+            }
+        },
+        computed: {
+            ...mapGetters(["getGroups", "getContacts"])
+        }
+    }
 </script>
 
 <style scoped>

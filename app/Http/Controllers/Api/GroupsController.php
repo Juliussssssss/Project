@@ -18,7 +18,7 @@ class GroupsController extends Controller
 
     public function index()
     {
-        $groups = Group::getUserGroups()->get(['id', 'name']);
+        $groups = Group::getUserGroups()->withCount('contacts')->get(); //['id', 'name']
         return response()->json($groups, 200);
     }
 

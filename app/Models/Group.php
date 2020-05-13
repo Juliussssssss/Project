@@ -10,6 +10,11 @@ class Group extends Model
 {
     protected $fillable = ['name', 'user_id'];
 
+    public function contacts()
+    {
+        return $this->hasMany(Contact::class);
+    }
+
     public function cleaning_str(string $data): string
     {
         return strip_tags(trim(preg_replace("/\s{2,}/", " ", $data)));

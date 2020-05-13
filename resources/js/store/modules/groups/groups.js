@@ -76,6 +76,7 @@ export default {
                 .then(response => {
                     context.commit("fillContacts", response.data)
                     context.commit("fillContactsFromDb", response.data)
+                    context.dispatch("getContactGroups")
                 })
                 .catch(error => {
                     console.log(error)
