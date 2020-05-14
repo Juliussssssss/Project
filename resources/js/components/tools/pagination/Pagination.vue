@@ -67,6 +67,11 @@
               currentPageProp: this.currentPage,
           }
       },
+      watch: {
+          currentPage: function() {
+              this.currentPageProp = this.currentPage;
+          }
+      },
       methods: {
           nextPage() {
               if (this.currentPage < this.pages) {
