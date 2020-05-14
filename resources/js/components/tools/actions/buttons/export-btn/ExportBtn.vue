@@ -3,7 +3,8 @@
         <svg id="exportBtn" width="30" height="30" viewBox="0 0 30 30" fill="none"
              xmlns="http://www.w3.org/2000/svg"
              data-toggle="modal"
-             data-target="#exportModal">
+             data-target="#exportModal"
+             @click="selectedGroup = 'allContacts'">
             <mask id="mask3" mask-type="alpha" maskUnits="userSpaceOnUse" x="3" y="7" width="24"
                   height="16">
                 <path fill-rule="evenodd" clip-rule="evenodd"
@@ -23,11 +24,13 @@
                         <div class="modal-title font-18px textActive pb-3">Экспорт контактов</div>
 
                         <div>
-                            <input type="radio" id="allContactsExport" name="radio-group" value="allContacts">
+                            <input v-model="selectedGroup" type="radio" id="allContactsExport" name="radio-group"
+                                   value="allContacts">
                             <label class="font-14px" for="allContactsExport">Контакты ({{ getContacts.length }})</label>
                         </div>
                         <div>
-                            <input type="radio" id="frequentContactsExport" name="radio-group" value="frequentContacts">
+                            <input v-model="selectedGroup" type="radio" id="frequentContactsExport" name="radio-group"
+                                   value="frequentContacts">
                             <label class="font-14px" for="frequentContactsExport">Частые контакты</label>
                         </div>
 
@@ -41,11 +44,11 @@
                         </div>
                         <br>
                         <div class="d-flex justify-content-start">
-                            <button type="button"
-                                    class="btn btn-primary px-3 py-2 text-uppercase font-12px"
-                                    data-dismiss="modal">
+                            <a class="btn btn-primary px-3 py-2 text-uppercase font-12px"
+                               @click="exportClick()"
+                               :href="href">
                                 Экспортировать
-                            </button>
+                            </a>
                             <button type="button"
                                     class="btn px-3 py-2 ml-4 modalText bthCancel font-12px text-uppercase"
                                     data-dismiss="modal">Отмена
@@ -66,15 +69,36 @@
         name: "ExportBtn",
         data() {
             return {
-                selectedGroup: ""
+                selectedGroup: "",
+                href: "/contacts/export/all"
             }
         },
         computed: {
             ...mapGetters(["getGroups", "getContacts"])
+        },
+        methods: {
+            exportClick() {
+
+                $('#exportModal').modal('hide')
+            }
+        },
+        watch: {
+            selectedGroup() {
+                if (this.selectedGroup !== "") {
+                    if (this.selectedGroup === "allContacts") {
+                        this.href = "/contacts/export/all"
+                    } else if (this.selectedGroup === "frequentContacts") {
+                        this.href = "/contacts/export/frequent"
+                    } else {
+                        this.href = "/contacts/export/group/" + this.selectedGroup
+                    }
+
+                }
+            }
         }
     }
 </script>
 
-<style scoped>
+<style>
 
 </style>

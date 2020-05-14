@@ -2,6 +2,9 @@
 
 namespace App\Http\Controllers\Api;
 
+use App\Exports\ContactsExport;
+use App\Exports\ContactsFrequentExport;
+use App\Exports\ContactsGroupExport;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Contact\StoreRequest;
 use App\Http\Requests\Contact\UpdateRequest;
@@ -11,6 +14,7 @@ use App\Models\File;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Storage;
+use Maatwebsite\Excel\Facades\Excel;
 
 class ContactsController extends Controller
 {
@@ -108,5 +112,20 @@ class ContactsController extends Controller
         }
 
         return response('ok', 200);
+    }
+
+    public function exportAll()
+    {
+        return Excel::download(new ContactsExport, 'contacts.xlsx');
+    }
+
+    public function exportFrequent()
+    {
+        return Excel::download(new ContactsFrequentExport, 'contacts.xlsx');
+    }
+
+    public function exportGroup(int $id)
+    {
+        return Excel::download(new ContactsGroupExport($id), 'contacts.xlsx');
     }
 }

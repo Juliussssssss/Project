@@ -42,5 +42,8 @@ Route::middleware('auth')
         Route::patch('groups/{id}/contacts', ('GroupsController@addGroupAtContacts'))->middleware('auth');
     });
 
+Route::get('contacts/export/all', 'Api\ContactsController@exportAll');
+Route::get('contacts/export/frequent', 'Api\ContactsController@exportFrequent');
+Route::get('contacts/export/group/{id}', 'Api\ContactsController@exportGroup');
 
 Route::view('/{any}', 'index')->where('any', '.*')->middleware('auth');
