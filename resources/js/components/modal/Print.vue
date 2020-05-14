@@ -12,11 +12,10 @@
                             <input v-model="selectedToPrint" type="radio" :id="contact.name" name="radio-group" :value="contact.name">
                             <label class="font-14px" :for="contact.name">{{contact.name}} ({{contact.contacts}})</label>
                         </div>
-
                         <div class="modal-title py-2 font-14px modalText">Сортировать</div>
                         <div v-for="contactGroup in contactsInGroups">
-                            <input v-model="selectedToPrint" type="radio" :id="contactGroup.name" name="radio-group" :value="contactGroup.id">
-                            <label class="font-14px" :for="contactGroup.name">{{contactGroup.name}} ({{contactGroup.contacts}})</label>
+                            <input v-model="selectedToPrint" type="radio" :id="contactGroup.id" name="radio-group" :value="contactGroup.id">
+                            <label class="font-14px" :for="contactGroup.id">{{contactGroup.name}} ({{contactGroup.contacts}})</label>
                         </div>
                     </div>
                     <div class="modal-footer">
@@ -37,16 +36,16 @@
         props: ["contacts", "contactsInGroups"],
         data() {
             return {
-                selectedToPrint: ''
+                selectedToPrint: '',
             }
         },
         methods: {
             print() {
-                this.selectedToPrint = ''
+                setTimeout(this.cancel, 1000);
             },
             cancel() {
                 this.selectedToPrint = ''
-            }
+            },
         },
         mounted() {
             $(document).ready(function(){
@@ -70,7 +69,7 @@
                      * @param {Object} pluginOptions - options for this print button
                      */
                     function loadPrintDocument(el, pluginOptions){
-                        $('#exampleModal').modal('hide');
+                        $('#exampleModalPrint').modal('hide');
                         $("body").append(components.messageBox(pluginOptions.message));
                         $("#printMessageBox").css("opacity", 0);
                         $("#printMessageBox").animate({opacity:1}, 300, function() { addIframeToPage(el, pluginOptions); });

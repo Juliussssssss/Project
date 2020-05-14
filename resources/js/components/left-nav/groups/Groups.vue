@@ -1,7 +1,10 @@
 <template>
     <div class="col-12">
-        <div class="customBorderBottom topmenu textGrey">
-            <div class="pl-5 py-3">Групы
+        <div class="customBorderBottom textGrey">
+            <div class="dropright">
+                <div class="pl-5 py-3 w-100 dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Групы
+                </div>
                 <submenu></submenu>
             </div>
         </div>

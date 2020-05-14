@@ -34,26 +34,23 @@
         components: {
             printModal
         },
-        created() {
-            this.getGoupsWithContacts();
-            this.setContact();
-        },
         watch: {
-            getContacts: function () {
+            getContactsFromDb: function () {
+                this.contacts = [];
                 this.setContact();
                 this.getGoupsWithContacts();
             }
         },
         computed: {
             ...mapGetters([
-                "getContacts"
+                "getContactsFromDb"
             ])
         },
         methods: {
             getGoupsWithContacts() {
-                this.contactsInGroups = [];
                 axios.get('/testPrint/test')
                     .then(response => {
+                        this.contactsInGroups = [];
                         let a = response.data;
                         a.forEach(element => {
                             var group = new Object();
@@ -68,10 +65,9 @@
                     });
             },
             setContact() {
-                this.contacts = [];
                 var allContacts = new Object();
                 allContacts.name = "Контакты";
-                allContacts.contacts = this.getContacts.length;
+                allContacts.contacts = this.getContactsFromDb.length;
                 this.contacts.push(allContacts);
             }
         },
