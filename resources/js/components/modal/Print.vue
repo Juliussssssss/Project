@@ -41,7 +41,7 @@
         },
         methods: {
             print() {
-                setTimeout(this.cancel, 1000)
+                setTimeout(this.cancel, 1000);
             },
             cancel() {
                 this.selectedToPrint = ''

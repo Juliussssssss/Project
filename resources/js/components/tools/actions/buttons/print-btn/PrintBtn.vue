@@ -36,7 +36,6 @@
         },
         watch: {
             getContactsFromDb: function () {
-                this.contactsInGroups = [];
                 this.contacts = [];
                 this.setContact();
                 this.getGoupsWithContacts();
@@ -51,6 +50,7 @@
             getGoupsWithContacts() {
                 axios.get('/testPrint/test')
                     .then(response => {
+                        this.contactsInGroups = [];
                         let a = response.data;
                         a.forEach(element => {
                             var group = new Object();
@@ -58,7 +58,6 @@
                             group.name = element.group.name;
                             group.contacts = element.total;
                             this.contactsInGroups.push(group);
-                            console.log('ok');
                         });
                     })
                     .catch(function (error) {

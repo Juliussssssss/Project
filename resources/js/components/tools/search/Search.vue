@@ -39,11 +39,11 @@
                 this.$emit("searchWord", this.searchWord);
             },
             filterSearch(item) {
-                let searchInFirstName = item.first_name.toLowerCase().indexOf(this.searchWord.toLowerCase()) > -1;
-                let searchInMiddleName = item.middle_name.toLowerCase().indexOf(this.searchWord.toLowerCase()) > -1;
-                let searchInLastName = item.last_name.toLowerCase().indexOf(this.searchWord.toLowerCase()) > -1;
-                let searchInNumber =  item.number.toLowerCase().indexOf(this.searchWord.toLowerCase()) > -1;
-                let searchInEmail =  item.email.toLowerCase().indexOf(this.searchWord.toLowerCase()) > -1;
+                let searchInFirstName = (item.first_name != null) && (item.first_name.toLowerCase().indexOf(this.searchWord.toLowerCase()) > -1);
+                let searchInMiddleName = (item.middle_name != null) && (item.middle_name.toLowerCase().indexOf(this.searchWord.toLowerCase()) > -1);
+                let searchInLastName = (item.last_name != null) && (item.last_name.toLowerCase().indexOf(this.searchWord.toLowerCase()) > -1);
+                let searchInNumber =  (item.number != null) && (item.number.toLowerCase().indexOf(this.searchWord.toLowerCase()) > -1);
+                let searchInEmail =  (item.email != null) && (item.email.toLowerCase().indexOf(this.searchWord.toLowerCase()) > -1);
 
                 if (searchInFirstName || searchInMiddleName || searchInLastName || searchInNumber || searchInEmail) {
 
