@@ -2,7 +2,7 @@
     <div class="d-flex font-12px text-center justify-content-between w-100 ml-3">
         <div class="position-relative">
             <input
-                v-validate="'required|alpha_spaces|max:255'"
+                v-validate="'required|alpha|max:255'"
                 :class="{'error':errors.has('first_name')}"
                 class="form-control input"
                 name="first_name"
@@ -15,7 +15,7 @@
         </div>
         <div class="position-relative">
             <input
-                v-validate="'required|alpha_spaces|max:255'"
+                v-validate="'required|alpha|max:255'"
                 :class="{'error':errors.has('middle_name')}"
                 class="form-control input"
                 name = "middle_name"
@@ -28,7 +28,7 @@
         </div>
         <div class="position-relative">
             <input
-                v-validate="'alpha_spaces|max:255'"
+                v-validate="'alpha|max:255'"
                 :class="{'error':errors.has('last_name')}"
                 class="form-control input"
                 name="last_name"
