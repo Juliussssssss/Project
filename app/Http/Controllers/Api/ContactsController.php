@@ -57,12 +57,7 @@ class ContactsController extends Controller
 
     public function favorites()
     {
-        $select = [
-            'id', 'avatar', 'favorites', 'first_name', 'middle_name', 'last_name', 'email', 'number', 'avatar', 'group_id'
-        ];
-
-        $contacts = Contact::select($select)
-            ->where('user_id', auth()->user()->id)
+        $contacts = Contact::getUserContacts()
             ->where('favorites', 1)
             ->orderBy('first_name')
             ->with('group:id,name')
@@ -128,5 +123,29 @@ class ContactsController extends Controller
     public function exportGroup(int $id)
     {
         return Excel::download(new ContactsGroupExport($id), 'contacts.xlsx');
+    }
+
+    public function getContactsCount()
+    {
+        try {
+            $count = Contact::where('user_id', auth()->user()->id)->count();
+
+            return response()->json($count, 200);
+        } catch (Throwable $e) {
+            return response()->json($e->getMessage(), 417);
+        }
+    }
+
+    public function getCountFrequentContacts()
+    {
+        try {
+            $count = Contact::has('callLog', '>=', 3)
+                ->where('user_id', auth()->user()->id)
+                ->count();
+
+            return response()->json($count, 200);
+        } catch (Throwable $e) {
+            return response()->json($e->getMessage(), 417);
+        }
     }
 }

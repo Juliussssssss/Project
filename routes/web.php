@@ -31,15 +31,17 @@ Route::middleware('auth')
     ->namespace('Api')
     ->prefix('/api')
     ->group(function () {
-        Route::get('groups', ('GroupsController@index'))->middleware('auth');
-        Route::get('contacts/favorites', ('ContactsController@favorites'))->middleware('auth');
-        Route::get('groups/{id}', ('GroupsController@show'))->middleware('auth');
-        Route::post('groups', ('GroupsController@store'))->middleware('auth');
+        Route::get('groups', 'GroupsController@index');
+        Route::get('contacts/favorites', 'ContactsController@favorites');
+        Route::get('contacts/count', 'ContactsController@getContactsCount');
+        Route::get('contacts/frequent', 'ContactsController@getCountFrequentContacts');
+        Route::get('groups/{id}', 'GroupsController@show');
+        Route::post('groups', 'GroupsController@store');
 
 
-        Route::delete('groups', ('GroupsController@destroy'))->middleware('auth');
-        Route::delete('groups/{id}/contacts', ('GroupsController@deleteGroupAtContacts'))->middleware('auth');
-        Route::patch('groups/{id}/contacts', ('GroupsController@addGroupAtContacts'))->middleware('auth');
+        Route::delete('groups', 'GroupsController@destroy');
+        Route::delete('groups/{id}/contacts', 'GroupsController@deleteGroupAtContacts');
+        Route::put('groups/{id}/contacts', 'GroupsController@addGroupAtContacts');
     });
 
 Route::get('contacts/export/all', 'Api\ContactsController@exportAll');

@@ -70,7 +70,7 @@ export default {
         addContactsAtGroup(context) {
             console.log('addGroupAtContacts')
             if (context.getters.getSelectedContacts.length > 0) {
-                axios.patch('/api/groups/' + context.getters.getCurrentGroup + '/contacts', {
+                axios.put('/api/groups/' + context.getters.getCurrentGroup + '/contacts', {
                         contacts: context.getters.getSelectedContacts
                 })
                 .then(response => {
