@@ -12,11 +12,11 @@
                               fill="white"/>
                     </mask>
                     <g mask="url(#group)">
-                        <rect class="actionButtons" x="2" y="2" width="26" height="26" fill="#D8D8D8"/>
+                        <rect class="itemActionButtons" x="2" y="2" width="26" height="26" fill="#D8D8D8"/>
                     </g>
                 </svg>
             </div>
-            <div class="col-6">{{ group.name }}</div>
+            <div class="col-6 group-name">{{ group.name }}</div>
             <div class="col-4">
                 <router-link to="groups"></router-link>
                 <a data-toggle="modal" data-target="#editModal" @click="editClick(group.id)">
@@ -92,5 +92,7 @@
 </script>
 
 <style>
-
+    .group-name {
+        white-space: normal;
+    }
 </style>

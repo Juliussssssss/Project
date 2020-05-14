@@ -3,18 +3,17 @@
 namespace App\Exports;
 
 use App\Models\Contact;
-use Illuminate\Support\Collection;
-use Maatwebsite\Excel\Concerns\FromCollection;
 
-class ContactsFrequentExport implements FromCollection
+use Illuminate\Contracts\View\View;
+use Maatwebsite\Excel\Concerns\FromView;
+
+class ContactsFrequentExport implements FromView
 {
-    /**
-     * @return Collection
-     */
-    public function collection()
+    public function view(): View
     {
-        return Contact::has('callLog', '>=', 3)
-            ->export()
-            ->get();
+        return view('exports.contacts', [
+            'contacts' => Contact::has('callLog', '>=', 3)->export()->get()
+        ]);
     }
 }
+
