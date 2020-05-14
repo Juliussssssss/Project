@@ -15,7 +15,7 @@ import groups from "../store/modules/groups/groups";
 
 export const routes = [
     {
-        path: '/test/:id',
+        path: '/test/:group/:id',
         component: Test,
         name: 'Test',
         props: true,
