@@ -26,12 +26,12 @@
                         <div>
                             <input v-model="selectedGroup" type="radio" id="allContactsExport" name="radio-group"
                                    value="allContacts">
-                            <label class="font-14px" for="allContactsExport">Контакты ({{ getContacts.length }})</label>
+                            <label class="font-14px" for="allContactsExport">Контакты ({{ getCountContacts }})</label>
                         </div>
                         <div>
                             <input v-model="selectedGroup" type="radio" id="frequentContactsExport" name="radio-group"
                                    value="frequentContacts">
-                            <label class="font-14px" for="frequentContactsExport">Частые контакты</label>
+                            <label class="font-14px" for="frequentContactsExport">Частые контакты ({{ getCountFrequentContacts }})</label>
                         </div>
 
                         <div class="modal-title py-2 font-14px modalText">Группы</div>
@@ -63,7 +63,7 @@
 </template>
 
 <script>
-    import {mapGetters} from "vuex";
+    import {mapActions, mapGetters} from "vuex";
 
     export default {
         name: "ExportBtn",
@@ -74,13 +74,14 @@
             }
         },
         computed: {
-            ...mapGetters(["getGroups", "getContacts"])
+            ...mapGetters(["getGroups", "getCountContacts", "getCountFrequentContacts"])
         },
         methods: {
             exportClick() {
 
                 $('#exportModal').modal('hide')
-            }
+            },
+            ...mapActions(["getCountContactsFromDB"])
         },
         watch: {
             selectedGroup() {
@@ -95,6 +96,9 @@
 
                 }
             }
+        },
+        mounted() {
+            this.getCountContactsFromDB();
         }
     }
 </script>

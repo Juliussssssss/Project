@@ -3,15 +3,17 @@
 namespace App\Exports;
 
 use App\Models\Contact;
-use Maatwebsite\Excel\Concerns\FromCollection;
 
-class ContactsExport implements FromCollection
+use Illuminate\Contracts\View\View;
+use Maatwebsite\Excel\Concerns\FromView;
+
+class ContactsExport implements FromView
 {
-    /**
-     * @return \Illuminate\Support\Collection
-     */
-    public function collection()
+    public function view(): View
     {
-        return Contact::export()->get();
+        return view('exports.contacts', [
+            'contacts' => Contact::export()->get()
+        ]);
     }
 }
+

@@ -1,6 +1,6 @@
 <template>
     <div>
-        <div></div>
+        <div class="text-center"><h1>Контакты</h1><h2>{{name}}</h2></div>
         <table class="table">
             <thead>
             <tr>
@@ -32,15 +32,18 @@
         name: "test",
         data() {
             return {
+                name: '',
                 contacts: [],
             }
         },
         created() {
             let url = "";
-            if (this.$route.path.slice(6) == "Контакты") {
+            if (this.$route.path.slice(6, 14) == "Контакты") {
                 url = '/contacts/get-all';
+                this.name = '';
             } else {
-                url = '/api/groups/' + this.$route.path.slice(6)
+                url = '/api/groups/' + this.$route.path.slice(this.$route.path.slice(6).lastIndexOf('/') + 7)
+                this.name = 'группы "' + this.$route.path.slice(6, this.$route.path.slice(6).lastIndexOf('/') + 6).split('-').join(' ') + '"';
             }
         axios.get(url)
             .then(response => {
