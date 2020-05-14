@@ -9,12 +9,12 @@
                     </div>
                     <div class="modal-body d-block modalText pt-0">
                         <div v-for="contact in contacts">
-                            <input v-model="selectedToPrint" type="radio" :id="contact.name" name="radio-group" :value="contact.name">
+                            <input v-model="selectedToPrint" type="radio" :id="contact.name" name="radio-group" :value="contact.name + '/' + 1">
                             <label class="font-14px" :for="contact.name">{{contact.name}} ({{contact.contacts}})</label>
                         </div>
                         <div class="modal-title py-2 font-14px modalText">Сортировать</div>
                         <div v-for="contactGroup in contactsInGroups">
-                            <input v-model="selectedToPrint" type="radio" :id="contactGroup.id" name="radio-group" :value="contactGroup.id">
+                            <input v-model="selectedToPrint" type="radio" :id="contactGroup.id" name="radio-group" :value="contactGroup.name.split(' ').join('-') + '/' + contactGroup.id">
                             <label class="font-14px" :for="contactGroup.id">{{contactGroup.name}} ({{contactGroup.contacts}})</label>
                         </div>
                     </div>
@@ -41,7 +41,7 @@
         },
         methods: {
             print() {
-                setTimeout(this.cancel, 1000);
+                setTimeout(this.cancel, 1500);
             },
             cancel() {
                 this.selectedToPrint = ''
@@ -99,7 +99,7 @@
                             frames["printPage"].focus();
                             frames["printPage"].print();
                             unloadMessage();
-                        }, 1000);
+                        }, 2000);
                     }
                     /*
                      * Hide & Delete the message box with a small delay
