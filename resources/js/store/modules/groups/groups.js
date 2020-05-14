@@ -31,7 +31,7 @@ export default {
     },
     actions: {
         getContactGroups(context) {
-            axios.get('/api/groups')
+            axios.get('/api/groups/')
             .then(response => {
                 //console.log(response.data)
                 context.commit("fillGroups", response.data)
@@ -53,7 +53,7 @@ export default {
         },
         deleteContactsAtGroup(context) {
             if (context.getters.getSelectedContacts.length > 0) {
-                axios.delete('/api/groups/' + context.getters.getCurrentGroup + '/contacts', {
+                axios.delete('/api/groups/' + context.getters.getCurrentGroup + '/contacts/', {
                     params: {
                         contacts: context.getters.getSelectedContacts
                     }
@@ -70,7 +70,7 @@ export default {
         addContactsAtGroup(context) {
             console.log('addGroupAtContacts')
             if (context.getters.getSelectedContacts.length > 0) {
-                axios.put('/api/groups/' + context.getters.getCurrentGroup + '/contacts', {
+                axios.put('/api/groups/' + context.getters.getCurrentGroup + '/contacts/', {
                         contacts: context.getters.getSelectedContacts
                 })
                 .then(response => {
@@ -84,7 +84,7 @@ export default {
             }
         },
         deleteGroup(context) {
-            axios.delete('/api/groups', {
+            axios.delete('/api/groups/', {
                 params: {
                     id: context.getters.getCurrentGroup
                 }

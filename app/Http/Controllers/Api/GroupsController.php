@@ -58,6 +58,7 @@ class GroupsController extends Controller
             $group->delete();
 
             $groups = Group::getUserGroups()
+                ->withCount('contacts')
                 ->get(['id', 'name']);
 
             return response()->json($groups, 200);

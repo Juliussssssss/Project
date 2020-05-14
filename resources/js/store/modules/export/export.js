@@ -24,7 +24,7 @@ export default {
     },
     actions: {
         getCountContactsFromDB(context) {
-            axios.get('/api/contacts/count')
+            axios.get('/api/contacts/count/')
             .then(response => {
                 context.commit("setCountContacts", response.data)
             })
@@ -33,7 +33,7 @@ export default {
             });
         },
         getCountFrequentContactsFromDB(context) {
-            axios.get('/api/contacts/frequent')
+            axios.get('/api/contacts/frequent/')
             .then(response => {
                 context.commit("setCountFrequentContacts", response.data)
             })

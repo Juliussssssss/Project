@@ -60,6 +60,6 @@ class Group extends Model
         $data['user_id'] = auth()->user()->id;
         Group::create($data);
 
-        return Group::getUserGroups()->get(['id', 'name']);
+        return Group::getUserGroups()->withCount('contacts')->get(['id', 'name']);
     }
 }
