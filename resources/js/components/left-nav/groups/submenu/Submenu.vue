@@ -1,6 +1,6 @@
 <template>
-    <div class="submenu" v-if="getGroups">
-        <div class="customBorderBottom p-3 d-flex justify-content-between align-items-center row"
+    <div class="dropdown-menu">
+        <div class="dropdown-item customBorderBottom p-3 d-flex justify-content-between align-items-center row textGrey"
              v-for="group in getGroups">
             <div class="col-2">
                 <svg class="margingY" width="30" height="30" viewBox="0 0 30 30" fill="none"
