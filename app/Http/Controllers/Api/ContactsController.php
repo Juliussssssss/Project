@@ -2,9 +2,10 @@
 
 namespace App\Http\Controllers\Api;
 
-use App\Exports\ContactsExport;
+//use App\Exports\ContactsExport;
 use App\Exports\ContactsFrequentExport;
 use App\Exports\ContactsGroupExport;
+use App\Exports\ContactsExport;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Contact\StoreRequest;
 use App\Http\Requests\Contact\UpdateRequest;

@@ -3,10 +3,11 @@
 namespace App\Exports;
 
 use App\Models\Contact;
-use Illuminate\Support\Collection;
-use Maatwebsite\Excel\Concerns\FromCollection;
 
-class ContactsGroupExport implements FromCollection
+use Illuminate\Contracts\View\View;
+use Maatwebsite\Excel\Concerns\FromView;
+
+class ContactsGroupExport implements FromView
 {
     private $group_id;
 
@@ -14,22 +15,17 @@ class ContactsGroupExport implements FromCollection
      * ContactsGroupExport constructor.
      * @param  int  $id
      */
-    function __construct(int $id) {
+    function __construct(int $id)
+    {
         $this->group_id = $id;
     }
 
-    /**
-    * @return Collection
-    */
-    public function collection()
+    public function view(): View
     {
-        $select = [
-            'first_name', 'middle_name', 'last_name', 'email', 'number', 'site', 'birthday', 'city', 'work', 'position',
-            'work_email', 'comment',
-        ];
-
-        return Contact::export()
-            ->where('group_id', $this->group_id)
-            ->get();
+        return view('exports.contacts', [
+            'contacts' => Contact::export()
+                ->where('group_id', $this->group_id)
+                ->get()
+        ]);
     }
 }

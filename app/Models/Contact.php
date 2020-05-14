@@ -19,13 +19,13 @@ class Contact extends Model
     ];
 
     protected $exportFillable = [
-        'first_name', 'middle_name', 'last_name', 'email', 'number', 'site', 'birthday', 'city', 'work', 'position',
-        'work_email', 'comment',
+        'first_name', 'email', 'number', 'site', 'birthday', 'city', 'work', 'position',
+        'work_email', 'comment', 'user_id', 'group_id'
     ];
 
     public function scopeExport($query): Builder
     {
-        return $query->select($this->exportFillable)->where('user_id', auth()->user()->id)->orderBy('first_name');
+        return $query->select($this->exportFillable)->where('user_id', auth()->user()->id)->orderBy('first_name')->with('group');
     }
 
     public function scopeGetUserContacts($query): Builder
