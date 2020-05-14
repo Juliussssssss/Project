@@ -38,23 +38,28 @@
             },
             checking() {
                 this.$refs.form.checking();
-            }
+            },
         },
         computed:{
             breakroute() {
 
                 return this.$store.getters.getBreakRoute;
+            },
+            formUnchanged(){
+
+                return this.$store.getters.getFormUnchanged;
             }
         },
         created()
         {
+            this.$store.dispatch('clearLastChangeForm');
             this.$store.commit('setBreakRoute',false);
             this.$store.commit('setLastRoute','');
         },
         beforeRouteLeave (to, from, next)
         {
             this.$store.commit('setLastRoute',to.path);
-            if (this.breakroute) {
+            if (this.breakroute||this.formUnchanged) {
                 next();
             }
             else {

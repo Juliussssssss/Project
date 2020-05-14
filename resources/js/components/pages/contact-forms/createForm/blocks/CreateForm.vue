@@ -1,7 +1,7 @@
 <template>
     <div class = "w-100">
         <header-create-form>
-            <header-create-input ref="header"></header-create-input>
+                <header-create-input ref="header"></header-create-input>
         </header-create-form>
         <create-form-fields ref="fields"></create-form-fields>
         <div class="form-group d-flex justify-content-end mr-4 mt-4 mb-4">
@@ -32,7 +32,7 @@
             HeaderCreateForm,
             CreateFormFields,
             HeaderCreateInput,
-            ExitConfirmation
+            ExitConfirmation,
         },
         computed:{
             validation(){

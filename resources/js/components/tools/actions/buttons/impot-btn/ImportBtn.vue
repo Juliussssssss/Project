@@ -1,6 +1,6 @@
 <template>
     <div>
-        <div data-toggle="modal" data-target="#import-excel">
+        <div @click="clearFile" data-toggle="modal" data-target="#import-excel">
             <svg id="export" width="30" height="30" viewBox="0 0 30 30" fill="none"
                  xmlns="http://www.w3.org/2000/svg">
                 <mask id="mask4" mask-type="alpha" maskUnits="userSpaceOnUse" x="3" y="7" width="24"
@@ -14,7 +14,7 @@
                 </g>
             </svg>
         </div>
-        <import-excel></import-excel>
+        <import-excel ref="importExcel" @success="success"></import-excel>
     </div>
 </template>
 
@@ -22,7 +22,15 @@
     import ImportExcel from '../../../../modal/excel/ImportExcel'
     export default {
         name: "ImportBtn",
-        components:{ImportExcel}
+        components:{ImportExcel},
+        methods:{
+            clearFile(){
+                this.$refs.importExcel.clear();
+            },
+            success(){
+                alert('Контакты успено добавлены');
+            }
+        }
     }
 </script>
 

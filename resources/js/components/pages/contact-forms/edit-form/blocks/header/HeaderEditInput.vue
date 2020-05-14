@@ -2,36 +2,39 @@
     <div class="d-flex font-12px text-center justify-content-between w-100 ml-3">
         <div class="position-relative">
             <input
-                v-validate="'required|alpha|max:255'"
+                v-validate="'required|alpha_spaces|max:255'"
                 :class="{'error':errors.has('first_name')}"
                 class="form-control input"
                 name="first_name"
                 type="text"
                 placeholder="Добавить Фамилию"
+                @change="fieldChange('first_name',contact.first_name)"
                 v-model="contact.first_name"
             >
             <div v-if="errors.has('first_name')" class="err-message-head position-absolute">{{errors.first('first_name')}}</div>
         </div>
         <div class="position-relative">
             <input
-                v-validate="'required|alpha|max:255'"
+                v-validate="'required|alpha_spaces|max:255'"
                 :class="{'error':errors.has('middle_name')}"
                 class="form-control input"
                 name = "middle_name"
                 type="text"
                 placeholder="Добавить Имя"
+                @change="fieldChange('middle_name',contact.middle_name)"
                 v-model="contact.middle_name"
             >
             <div v-if="errors.has('middle_name')" class="err-message-head position-absolute">{{errors.first('middle_name')}}</div>
         </div>
         <div class="position-relative">
             <input
-                v-validate="'alpha|max:255'"
+                v-validate="'alpha_spaces|max:255'"
                 :class="{'error':errors.has('last_name')}"
                 class="form-control input"
                 name="last_name"
                 type="text"
                 placeholder="Добавить Отчество"
+                @change="fieldChange('last_name',contact.last_name)"
                 v-model="contact.last_name"
             >
             <div v-if="errors.has('last_name')" class="err-message-head position-absolute">{{errors.first('last_name')}}</div>
@@ -43,11 +46,27 @@
     export default {
         name: "HeaderEditInput",
         props: ['contact'],
+        data() {
+            return {
+                first_name:'',
+                middle_name:'',
+                last_name:''
+            }
+        },
         methods:{
             validation(){
                 this.$validator.validateAll().then((result) => {
                     this.$store.commit('setHeaderValidation',result);
                 })
+            },
+            fieldChange(fieldName,fieldValue)
+            {
+                if(fieldValue){
+                    this.$store.commit('changeForm',{fieldName:fieldName,value:fieldValue});
+                }
+                else {
+                    this.$store.commit('changeForm',{fieldName:fieldName,value:fieldValue});
+                }
             }
         }
     }

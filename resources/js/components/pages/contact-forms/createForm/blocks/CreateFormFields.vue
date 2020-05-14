@@ -9,6 +9,7 @@
                     name = 'email'
                     class="form-control"
                     id="Email"
+                    @change="fieldChange('email',email)"
                     v-model="email"
                 >
                 <span class="bar"></span>
@@ -25,6 +26,7 @@
                     name = 'number'
                     class="form-control"
                     id="Phone"
+                    @change="fieldChange('number',number)"
                     v-model="number"
                 >
                 <label class="textActive" :class="{'label-top':number}" for="Phone">Телефон</label>
@@ -39,6 +41,7 @@
                     type="text"
                     name="site"
                     class="form-control"
+                    @change="fieldChange('site',site)"
                     id="website"
                     v-model="site"
                 >
@@ -53,6 +56,7 @@
                     name="birthday"
                     class="form-control birthday"
                     id="hbDate"
+                    @change="fieldChange('birthday',birthday)"
                     v-model="birthday"
                 >
                 <label class="textActive" :class="{'label-top':birthday}" for="hbDate">Дата рождения</label>
@@ -62,12 +66,13 @@
             </div>
             <div class="form-group position-relative pt-3 pb-1">
                 <input
-                    v-validate="'alpha|max:255'"
+                    v-validate="'alpha_spaces|max:255'"
                     :class="{'error':errors.has('city')}"
                     type="text"
                     name="city"
                     class="form-control"
                     id="city"
+                    @change="fieldChange('city',city)"
                     v-model="city"
                 >
                 <label class="textActive" :class="{'label-top':city}" for="city">Город</label>
@@ -77,12 +82,13 @@
             </div>
             <div class="form-group position-relative pt-3 pb-1">
                 <input
-                    v-validate="'alpha|max:255'"
+                    v-validate="'alpha_spaces|max:255'"
                     :class="{'error':errors.has('work')}"
                     name="work"
                     type="text"
                     class="form-control"
                     id="job"
+                    @change="fieldChange('work',work)"
                     v-model="work"
                 >
                 <label class="textActive" :class="{'label-top':work}" for="job">Место работы</label>
@@ -98,6 +104,7 @@
                     type="text"
                     class="form-control"
                     id="position"
+                    @change="fieldChange('position',position)"
                     v-model="position"
                 >
                 <label class="textActive" :class="{'label-top':position}" for="position">Должность</label>
@@ -113,6 +120,7 @@
                     type="email"
                     class="form-control"
                     id="workEmail"
+                    @change="fieldChange('work_email',work_email)"
                     v-model="work_email"
                 >
                 <label class="textActive" :class="{'label-top':work_email}" for="workEmail">Email рабочий</label>
@@ -125,6 +133,7 @@
                     id="group_id"
                     class="form-control groups"
                     name = "group_id"
+                    @change="fieldChange('group_id',group_id)"
                     v-model="group_id"
                 >
                     <option value="" selected>Без группы</option>
@@ -140,6 +149,7 @@
                     type="text"
                     class="form-control"
                     id="comment"
+                    @change="fieldChange('comment',comment)"
                     v-model="comment"
                 >
                 <label class="textActive" :class="{'label-top':comment}" for="comment">Комментарий</label>
@@ -187,6 +197,15 @@
             duplicated()
             {
                 this.duplicatedEmail=this.email;
+            },
+            fieldChange(fieldName,fieldValue)
+            {
+                if(fieldValue){
+                    this.$store.commit('changeForm',{fieldName:fieldName,value:true});
+                }
+                else {
+                    this.$store.commit('changeForm',{fieldName:fieldName,value:false});
+                }
             }
         }
     }

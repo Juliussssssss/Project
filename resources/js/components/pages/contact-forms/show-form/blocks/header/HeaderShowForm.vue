@@ -1,5 +1,6 @@
 <template>
     <div class="col-12 customBorderBottom py-3 d-flex align-items-center p-relative mb-3">
+        <back></back>
         <avatar-load :src="src" blocked="true" :show="true"></avatar-load>
         <slot></slot>
     </div>
@@ -7,11 +8,13 @@
 
 <script>
     import AvatarLoad from '../../../../contact-forms/AvatarLoad';
+    import Back from '../../../../contact-forms/Back'
     export default {
         name: "HeaderShowForm",
         props:['src'],
         components: {
-            AvatarLoad
+            AvatarLoad,
+            Back
         }
     }
 </script>

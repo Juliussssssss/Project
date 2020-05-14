@@ -13,6 +13,7 @@ export default {
     },
     mutations: {
         setContact(state,contact){
+            contact.birthday= contact.birthday.split(' ')[0];
             state.contact = contact;
         }
     },
@@ -21,6 +22,7 @@ export default {
             axios.get('/api/contact/'+id)
                 .then(response => {
                     context.commit('setContact',response.data);
+                    context.dispatch('setContactValue');
                 })
                 .catch(error => {
                     console.log(error);

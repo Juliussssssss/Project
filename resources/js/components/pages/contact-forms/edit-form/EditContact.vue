@@ -20,6 +20,10 @@
             breakroute() {
 
                 return this.$store.getters.getBreakRoute;
+            },
+            getEditFormUnchanged(){
+
+                return this.$store.getters.getEditFormUnchanged;
             }
         },
         methods: {
@@ -36,6 +40,7 @@
                     .then(response => {
                         if (response.data === 'updated') {
                             this.$store.commit('setBreakRoute',true);
+                            this.$store.dispatch('getAllContacts');
                             this.$router.push('/contacts')
                         }
                     })
@@ -50,7 +55,7 @@
             if(!this.user_id) {
                 this.$router.push('/contacts');
             }
-            this.$store.dispatch('getContact', this.user_id)
+            this.$store.dispatch('getContact', this.user_id);
             this.$store.commit('setBreakRoute',false);
             this.$store.commit('setLastRoute','');
         },
@@ -58,7 +63,7 @@
         {
             if(this.currentContact) {
                 this.$store.commit('setLastRoute', to.path);
-                if (this.breakroute) {
+                if (this.breakroute||this.getEditFormUnchanged) {
                     next();
                 }
                 else {

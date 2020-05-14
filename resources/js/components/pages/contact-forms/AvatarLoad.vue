@@ -59,14 +59,16 @@
                     imgNew.setAttribute('src', this.src);
                 }
                 file.value = file.defaultValue;
+                this.$store.commit('changeForm',{fieldName:'avatar',value:false});
             },
             onFileChange: function(e) {
                 let files = e.target.files || e.dataTransfer.files;
                 if (!files.length) {
+                    this.$store.commit('changeForm',{fieldName:'avatar',value:false});
 
                     return;
                 }
-
+                this.$store.commit('changeForm',{fieldName:'avatar',value:true});
                 this.createImage(files[0]);
             },
             createImage: function(file) {

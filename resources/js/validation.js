@@ -10,7 +10,8 @@ window.Vue.use(VeeValidate, {
                 required: 'Обязательное поле',
                 alpha: 'Неверный формат',
                 email: 'Неверный email',
-                digits: 'Номер должен состоять из 10 цифр'
+                digits: 'Номер должен состоять из 10 цифр',
+                alpha_spaces: 'Неверный формат'
             },
             attributes:{
 

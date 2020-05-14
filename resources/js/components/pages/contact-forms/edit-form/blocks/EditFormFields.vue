@@ -9,6 +9,7 @@
                     name = 'email'
                     class="form-control"
                     id="Email"
+                    @change="fieldChange('email',contact.email)"
                     v-model="contact.email"
                 >
                 <span class="bar"></span>
@@ -25,6 +26,7 @@
                     name = 'number'
                     class="form-control"
                     id="Phone"
+                    @change="fieldChange('number',contact.number)"
                     v-model="contact.number"
                 >
                 <label class="textActive" :class="{'label-top':contact.number}" for="Phone">Телефон</label>
@@ -40,6 +42,7 @@
                     name="site"
                     class="form-control"
                     id="website"
+                    @change="fieldChange('site',contact.site)"
                     v-model="contact.site"
                 >
                 <label class="textActive" :class="{'label-top':contact.site}" for="website">Сайт</label>
@@ -53,7 +56,8 @@
                     name="birthday"
                     class="form-control birthday"
                     id="hbDate"
-                    :value="contact.birthday?contact.birthday.split(' ')[0]:contact.birthday"
+                    @change="fieldChange('birthday',contact.birthday)"
+                    v-model="contact.birthday"
                 >
                 <label class="textActive" :class="{'label-top':contact.birthday}" for="hbDate">Дата рождения</label>
                 <!--<div v-if="errors.has('birthday')" class="err-message position-absolute">-->
@@ -62,12 +66,13 @@
             </div>
             <div class="form-group position-relative pt-3 pb-1">
                 <input
-                    v-validate="'alpha|max:255'"
+                    v-validate="'alpha_spaces|max:255'"
                     :class="{'error':errors.has('city')}"
                     type="text"
                     name="city"
                     class="form-control"
                     id="city"
+                    @change="fieldChange('city',contact.city)"
                     v-model="contact.city"
                 >
                 <label class="textActive" :class="{'label-top':contact.city}" for="city">Город</label>
@@ -77,12 +82,13 @@
             </div>
             <div class="form-group position-relative pt-3 pb-1">
                 <input
-                    v-validate="'alpha|max:255'"
+                    v-validate="'alpha_spaces|max:255'"
                     :class="{'error':errors.has('work')}"
                     name="work"
                     type="text"
                     class="form-control"
                     id="job"
+                    @change="fieldChange('work',contact.work)"
                     v-model="contact.work"
                 >
                 <label class="textActive" :class="{'label-top':contact.work}" for="job">Место работы</label>
@@ -98,6 +104,7 @@
                     type="text"
                     class="form-control"
                     id="position"
+                    @change="fieldChange('position',contact.position)"
                     v-model="contact.position"
                 >
                 <label class="textActive" :class="{'label-top':contact.position}" for="position">Должность</label>
@@ -113,6 +120,7 @@
                     type="email"
                     class="form-control"
                     id="workEmail"
+                    @change="fieldChange('work_email',contact.work_email)"
                     v-model="contact.work_email"
                 >
                 <label class="textActive" :class="{'label-top':contact.work_email}" for="workEmail">Email рабочий</label>
@@ -125,6 +133,7 @@
                     id="group_id"
                     class="form-control groups"
                     name = "group_id"
+                    @change="fieldChange('group_id',contact.group_id)"
                     v-model="contact.group_id"
                 >
                     <option value="" selected>Без группы</option>
@@ -140,6 +149,7 @@
                     type="text"
                     class="form-control"
                     id="comment"
+                    @change="fieldChange('comment',contact.comment)"
                     v-model="contact.comment"
                 >
                 <label class="textActive" :class="{'label-top':contact.comment}" for="comment">Комментарий</label>
@@ -158,7 +168,8 @@
         data(){
             return {
                 email:'',
-                duplicatedEmail:''
+                duplicatedEmail:'',
+                birthday:''
             }
         },
         computed:{
@@ -180,6 +191,16 @@
             {
                 this.duplicatedEmail=this.contact.email;
             },
+            fieldChange(fieldName,fieldValue)
+            {
+                console.log(fieldValue);
+                if(fieldValue){
+                    this.$store.commit('changeForm',{fieldName:fieldName,value:fieldValue});
+                }
+                else {
+                    this.$store.commit('changeForm',{fieldName:fieldName,value:fieldValue});
+                }
+            }
         }
     }
 </script>
