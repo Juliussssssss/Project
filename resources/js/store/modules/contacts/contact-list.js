@@ -123,9 +123,8 @@ export default {
                 });
         },
         deleteContacts(context, contacts){
-            axios.delete('/api/contacts',{data: {
-                    contacts:contacts
-                }
+            axios.post('/api/delete-contacts', {
+                contacts:contacts
             })
                 .then(response => {
                     context.commit("clearSelected");

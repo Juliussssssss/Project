@@ -39,10 +39,11 @@ class ContactsController extends Controller
         ];
 
         $contacts = Contact::has('callLog', '>=', 3)
+            ->select($select)
             ->where('user_id', auth()->user()->id)
             ->orderBy('first_name')
             ->with('group:id,name')
-            ->get($select);
+            ->get();
 
         return response()->json($contacts);
     }

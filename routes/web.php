@@ -13,7 +13,7 @@ Route::post('/logout', 'Auth\AuthController@logout')->middleware('auth');
 Route::post('/api/contact', ('Api\ContactsController@store'))->middleware('auth');
 Route::get('/api/contact/{id}', ('Api\ContactsController@show'))->middleware('auth');
 Route::post('/api/contact/update', ('Api\ContactsController@update'))->middleware('auth');
-Route::delete('/api/contacts', ('Api\ContactsController@destroy'))->middleware('auth');
+Route::post('/api/delete-contacts', ('Api\ContactsController@destroy'))->middleware('auth');
 Route::get('/api/frequent-contacts', ('Api\ContactsController@getFrequentContacts'))->middleware('auth');
 Route::post('/api/contacts-import', ('Api\ExcelController@importContacts'))->middleware('auth');
 

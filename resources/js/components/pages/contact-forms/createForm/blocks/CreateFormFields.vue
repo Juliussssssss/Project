@@ -248,11 +248,11 @@
         background: none;
     }
     input:focus ~ label{
-        top: -15px;
         background: none;
+        top: -15px;
     }
     select:focus ~ label{
-        top: -15px;
         background: none;
+        top: -15px;
     }
 </style>
