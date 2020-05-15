@@ -50,11 +50,11 @@ class GroupsController extends Controller
         //
     }
 
-    public function destroy(Request $request)
+    public function destroy(int $id)
     {
         try {
             $group = Group::getUserGroups()
-                ->find($request->id);
+                ->find($id);
             $group->delete();
 
             $groups = Group::getUserGroups()
@@ -70,18 +70,12 @@ class GroupsController extends Controller
     public function deleteGroupAtContacts(int $id, UpdateContactGroupRequest $request)
     {
         try {
-            Contact::where('user_id', auth()->user()->id)
+            Contact::getUserContacts()
                 ->where('group_id', $id)
                 ->whereIn('id', $request->contacts)
                 ->update(['group_id' => null]);
 
-            //сделать норм
-            $select = [
-                'id', 'avatar', 'favorites', 'first_name', 'middle_name', 'last_name', 'email', 'number', 'avatar', 'group_id'
-            ];
-
-            $contacts = Contact::select($select)
-                ->where('user_id', auth()->user()->id)
+            $contacts = Contact::getUserContacts()
                 ->orderBy('first_name')
                 ->with('group:id,name')
                 ->get();
@@ -95,16 +89,11 @@ class GroupsController extends Controller
     public function addGroupAtContacts(int $id, UpdateContactGroupRequest $request)
     {
         try {
-            Contact::where('user_id', auth()->user()->id)
+            Contact::getUserContacts()
                 ->whereIn('id', $request->contacts)
                 ->update(['group_id' => $id]);
-            //сделать норм
-            $select = [
-                'id', 'avatar', 'favorites', 'first_name', 'middle_name', 'last_name', 'email', 'number', 'avatar', 'group_id'
-            ];
 
-            $contacts = Contact::select($select)
-                ->where('user_id', auth()->user()->id)
+            $contacts = Contact::getUserContacts()
                 ->orderBy('first_name')
                 ->with('group:id,name')
                 ->get();

@@ -39,7 +39,7 @@ Route::middleware('auth')
         Route::post('groups', 'GroupsController@store');
 
 
-        Route::delete('groups', 'GroupsController@destroy');
+        Route::delete('groups/{id}', 'GroupsController@destroy');
         Route::delete('groups/{id}/contacts', 'GroupsController@deleteGroupAtContacts');
         Route::put('groups/{id}/contacts', 'GroupsController@addGroupAtContacts');
     });
