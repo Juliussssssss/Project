@@ -59,9 +59,9 @@ export const routes = [
     },
     {
 
-        path: '/l',
+        path: '/logout',
         component: Logout,
-        name: "C"
+        name: "Logout"
     },
     {
         path: "/groups",

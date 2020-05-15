@@ -13,7 +13,7 @@ export default {
     },
     mutations: {
         setContact(state,contact){
-            contact.birthday= contact.birthday.split(' ')[0];
+            contact.birthday= contact.birthday?contact.birthday.split(' ')[0]:'';
             state.contact = contact;
         }
     },
@@ -23,18 +23,6 @@ export default {
                 .then(response => {
                     context.commit('setContact',response.data);
                     context.dispatch('setContactValue');
-                })
-                .catch(error => {
-                    console.log(error);
-                });
-        },
-        deleteContacts(context,contacts){
-            axios.delete('/api/contacts',{data: {
-                contacts:contacts
-                }
-            })
-                .then(response => {
-
                 })
                 .catch(error => {
                     console.log(error);
