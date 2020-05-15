@@ -27,8 +27,7 @@ Route::get('/api/groups', ('Api\GroupsController@index'))->middleware('auth');
 Route::post('/api/groups', ('Api\GroupsController@store'))->middleware('auth');
 Route::get('/api/groups/{id}', ('Api\GroupsController@show'))->middleware('auth');
 
-Route::middleware('auth')
-    ->namespace('Api')
+Route::namespace('Api')
     ->prefix('/api')
     ->group(function () {
         Route::get('groups', 'GroupsController@index');
