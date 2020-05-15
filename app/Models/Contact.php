@@ -19,7 +19,7 @@ class Contact extends Model
     ];
 
     protected $exportFillable = [
-        'first_name', 'email', 'number', 'site', 'birthday', 'city', 'work', 'position',
+        'first_name','middle_name', 'email', 'number', 'site', 'birthday', 'city', 'work', 'position',
         'work_email', 'comment', 'user_id', 'group_id'
     ];
 
