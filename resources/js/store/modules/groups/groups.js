@@ -84,10 +84,8 @@ export default {
             }
         },
         deleteGroup(context) {
-            axios.delete('/api/groups/', {
-                params: {
-                    id: context.getters.getCurrentGroup
-                }
+            axios.delete('/api/groups/' + context.getters.getCurrentGroup + "/", {
+
             })
             .then(response => {
                 context.commit("fillGroups", response.data)
