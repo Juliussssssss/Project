@@ -88,6 +88,7 @@ export default {
             .then(response => {
                 context.commit("fillGroups", response.data)
                 console.log(response.data)
+                context.dispatch('getAllContacts')
             })
             .catch(error => {
                 console.log(error)

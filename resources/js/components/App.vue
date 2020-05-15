@@ -1,7 +1,7 @@
 <template>
     <div>
         <header-site></header-site>
-        <div class="container mt-5" v-if="(this.$route.name != 'Test')">\
+        <div class="container mt-5" v-if="(this.$route.name != 'Test')">
             <div class="row">
                 <div class="col-12 bg-white">
                     <div class="row">
