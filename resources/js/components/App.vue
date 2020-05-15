@@ -1,7 +1,7 @@
 <template>
     <div>
-        <Header></Header>
-        <div class="container mt-5" v-if="(this.$route.name != 'Test')">
+        <header-site></header-site>
+        <div class="container mt-5" v-if="(this.$route.name != 'Test')">\
             <div class="row">
                 <div class="col-12 bg-white">
                     <div class="row">
@@ -21,10 +21,10 @@
 </template>
 
 <script>
-    import Header from "./header/header";
+    import HeaderSite from "./header/header";
     export default {
         name: "App",
-        components: {Header}
+        components: {HeaderSite}
     }
 </script>
 
