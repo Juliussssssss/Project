@@ -10,6 +10,7 @@ class PrintController extends Controller
     public function getContacts()
     {
         $contactsFromGroups = Contact::groupBy('group_id')
+            ->whereNotNull('group_id')
             ->where('user_id', auth()->user()->id)
             ->selectRaw('group_id, count(*) as total')
             ->with('group:id,name')
