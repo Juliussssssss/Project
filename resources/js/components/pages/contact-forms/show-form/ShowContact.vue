@@ -1,7 +1,5 @@
 <template>
-    <form onsubmit = "return false" id = "currentContact" ref='contact'>
         <show-form v-if="currentContact" :contact="currentContact"></show-form>
-    </form>
 </template>
 
 <script>

@@ -13,7 +13,7 @@ export default {
     },
     mutations: {
         setContact(state,contact){
-            contact.birthday= contact.birthday.split(' ')[0];
+            contact.birthday= contact.birthday?contact.birthday.split(' ')[0]:'';
             state.contact = contact;
         }
     },
