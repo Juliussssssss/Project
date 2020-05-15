@@ -22,12 +22,13 @@ Route::post('/contacts/set-favorites', ('Api\ContactsController@setFavorites'))-
 
 Route::get('/testPrint/test',('PrintController@getContacts'))->middleware('auth');
 
-Route::delete('/api/groups', ('Api\GroupsController@destroy'))->middleware('auth');
+Route::post('/api/groups', ('Api\GroupsController@destroy'))->middleware('auth');
 Route::get('/api/groups', ('Api\GroupsController@index'))->middleware('auth');
 Route::post('/api/groups', ('Api\GroupsController@store'))->middleware('auth');
 Route::get('/api/groups/{id}', ('Api\GroupsController@show'))->middleware('auth');
 
-Route::namespace('Api')
+Route::middleware('auth')
+    ->namespace('Api')
     ->prefix('/api')
     ->group(function () {
         Route::get('groups', 'GroupsController@index');
@@ -37,8 +38,7 @@ Route::namespace('Api')
         Route::get('groups/{id}', 'GroupsController@show');
         Route::post('groups', 'GroupsController@store');
 
-
-        Route::delete('groups/{id}', 'GroupsController@destroy');
+        Route::delete('groups', 'GroupsController@destroy');
         Route::delete('groups/{id}/contacts', 'GroupsController@deleteGroupAtContacts');
         Route::put('groups/{id}/contacts', 'GroupsController@addGroupAtContacts');
     });
