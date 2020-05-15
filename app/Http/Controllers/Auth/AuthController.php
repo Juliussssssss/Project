@@ -26,7 +26,7 @@ class AuthController extends Controller
 
         $http = new Client;
 
-        $response = $http->post(env('GET_TOKEN_URL'), [
+        $response = $http->post(env('GET_TOKEN_URI'), [
             'form_params' => [
                 'grant_type' => 'authorization_code',
                 'client_id' => env('CLIENT_ID'),
@@ -36,6 +36,10 @@ class AuthController extends Controller
             ],
 
         ]);
+
+
+
+        
 
         $access = json_decode((string)$response->getBody());
 
