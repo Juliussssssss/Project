@@ -22,7 +22,7 @@ Route::post('/contacts/set-favorites', ('Api\ContactsController@setFavorites'))-
 
 Route::get('/testPrint/test',('PrintController@getContacts'))->middleware('auth');
 
-Route::post('/api/groups', ('Api\GroupsController@destroy'))->middleware('auth');
+Route::delete('/api/groups', ('Api\GroupsController@destroy'))->middleware('auth');
 Route::get('/api/groups', ('Api\GroupsController@index'))->middleware('auth');
 Route::post('/api/groups', ('Api\GroupsController@store'))->middleware('auth');
 Route::get('/api/groups/{id}', ('Api\GroupsController@show'))->middleware('auth');
@@ -37,6 +37,7 @@ Route::middleware('auth')
         Route::get('contacts/frequent', 'ContactsController@getCountFrequentContacts');
         Route::get('groups/{id}', 'GroupsController@show');
         Route::post('groups', 'GroupsController@store');
+
 
         Route::delete('groups', 'GroupsController@destroy');
         Route::delete('groups/{id}/contacts', 'GroupsController@deleteGroupAtContacts');
