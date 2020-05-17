@@ -39,7 +39,7 @@
                 </div>
             </div>
             <div class="customBorderBottom row py-3 textGrey"
-                 v-for="(contact) in contacts.slice((currentPage-1)*100,currentPage*100)"
+                 v-for="(contact) in getContacts.slice((getCurrentPage-1)*100,getCurrentPage*100)"
                  v-bind:key="contact.id">
                 <div class="col-2 pr-0">
                     <div class="row">
@@ -101,7 +101,6 @@
     import {mapActions, mapGetters} from "vuex";
     export default {
         name: "Contacts",
-        props: ["contacts", "currentPage", "newSortType", "highlightedWord"],
         data() {
             return {
                 selected: [],
@@ -110,26 +109,37 @@
             }
         },
         watch: {
-            currentPage: function() {
+            getCurrentPage: function() {
                 this.selected = [];
                 this.selectAllControlProp = false;
-                this.$emit("selectedContact", this.selected)
+                this.selectedContact(this.selected);
             },
-            contacts: function() {
+            getContacts: function() {
                 this.selected = [];
-                this.$emit("selectedContact", this.selected)
+                this.selectedContact(this.selected);
                 this.selectAllControlProp = false;
             },
-            newSortType: function (id) {
+            getSort: function (id) {
                 this.selectedSortType(id);
             },
         },
+        computed: {
+            ...mapGetters([
+                "getCurrentPage",
+                "getHighlightedWord",
+                "getSort",
+                "getContacts"
+            ])
+        },
         methods: {
+             ...mapActions([
+                "selectedContact",
+            ]),
             highlight(value) {
                 if (value != null) {
-                    if ((value.toLowerCase().indexOf(this.highlightedWord) > -1) && (this.highlightedWord.length > 0)) {
-                        let beforeWord = value.toLowerCase().indexOf(this.highlightedWord);
-                        let wordLength = this.highlightedWord.length;
+                    if ((value.toLowerCase().indexOf(this.getHighlightedWord) > -1) && (this.getHighlightedWord.length > 0)) {
+                        let beforeWord = value.toLowerCase().indexOf(this.getHighlightedWord);
+                        let wordLength = this.getHighlightedWord.length;
                         return (
                             value.slice(0, beforeWord)
                             + '<span class="bg-warning">' + value.slice(beforeWord, beforeWord + wordLength) + '</span>'
@@ -140,27 +150,27 @@
                 return (value);
             },
             selectAll() {
-                let selectList = this.contacts.slice((this.currentPage-1)*100, this.currentPage*100);
+                let selectList = this.getContacts.slice((this.getCurrentPage-1)*100, this.getCurrentPage*100);
                     if (this.selected.length == selectList.length && this.selectAllControlProp == true) {
                         this.selected = [];
                     } else {
                         this.selected = selectList.map(a => a.id);
                     }
-                    this.$emit("selectedContact", this.selected)
+                    this.selectedContact(this.selected);
                 },
-                checkSelectAll() {
+            checkSelectAll() {
                     setTimeout(this.checked, 10);
                 },
-                checked() {
-                    let selectList = this.contacts.slice((this.currentPage-1)*100, this.currentPage*100);
+            checked() {
+                    let selectList = this.getContacts.slice((this.getCurrentPage-1)*100, this.getCurrentPage*100);
                     if (this.selected.length != selectList.length) {
                         this.selectAllControlProp = false;
                     } else {
                         this.selectAllControlProp = true;
                     }
-                    this.$emit("selectedContact", this.selected)
+                    this.selectedContact(this.selected);
                 },
-                selectedSortType(int) {
+            selectedSortType(int) {
                     if (int !== this.sortType) {
                         this.sortType = int;
                         switch (int) {
@@ -176,25 +186,25 @@
                         }
                     }
                 },
-                sortByName() {
-                    this.contacts.sort((prev, next) => {
+            sortByName() {
+                    this.getContacts.sort((prev, next) => {
                         if ( prev.first_name < next.first_name ) return -1;
                         if ( prev.first_name < next.first_name ) return 1;
                     });
                 },
-                sortBySecondName() {
-                    this.contacts.sort((prev, next) => {
+            sortBySecondName() {
+                    this.getContacts.sort((prev, next) => {
                         if ( prev.middle_name < next.middle_name ) return -1;
                         if ( prev.middle_name < next.middle_name ) return 1;
                     });
                 },
-                sortByFavorites() {
-                    this.contacts.sort((prev, next) => {
+            sortByFavorites() {
+                    this.getContacts.sort((prev, next) => {
                         if ( prev.favorites > next.favorites ) return -1;
                         if ( prev.favorites > next.favorites ) return 1;
                     });
                 },
-                setFavorites(int, id) {
+            setFavorites(int, id) {
                 if (int == 1) {
                     int = 0;
                 } else {
@@ -202,7 +212,7 @@
                 }
                 axios.post('/contacts/set-favorites', {id: id, value: int})
                     .then(response => {
-                        this.contacts[this.contacts.findIndex(x => x.id == id)].favorites = int;
+                        this.getContacts[this.getContacts.findIndex(x => x.id == id)].favorites = int;
                     })
                     .catch(function (error) {
                         console.log(error)

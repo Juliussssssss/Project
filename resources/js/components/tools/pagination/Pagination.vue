@@ -2,7 +2,7 @@
     <div class="col-4 py-4 align-items-center d-flex justify-content-center">
         <div class="d-flex w-100 justify-content-between">
             <div class="textGrey d-flex align-items-center ">
-                <span class="font-13px">{{getLength>0 ? (getCurrentPage-1)*100+1+"-" : ""}}{{ getCurrentPage*100>length ? getLength : getCurrentPage*100}} из {{ getLength }}</span>
+                <span class="font-13px">{{getLength>0 ? (getCurrentPage-1)*100+1+"-" : ""}}{{ getCurrentPage*100>getLength ? getLength : getCurrentPage*100}} из {{ getLength }}</span>
             </div>
             <div class="px-3">
                 <span id="before" @click="beforePage">
@@ -55,42 +55,51 @@
 
 <script>
     import Settings from "../../modal/Setting";
-    import {mapGetters} from "vuex";
+    import {mapActions, mapGetters} from "vuex";
   export default {
       name: "Pagination",
-      props: ["pages", "currentPage", "length"],
       components: {
           'setting': Settings
       },
       data() {
           return {
-              currentPageProp: this.currentPage,
+              currentPageProp: this.getCurrentPage,
           }
       },
       watch: {
-          currentPage: function() {
-              this.currentPageProp = this.currentPage;
+          getCurrentPage: function() {
+              this.currentPageProp = this.getCurrentPage;
           }
       },
       methods: {
+          ...mapActions([
+              "searchWord",
+              "searchResult",
+              "changePage",
+              "selectedSortType",
+          ]),
           nextPage() {
-              if (this.currentPage < this.pages) {
+              if (this.getCurrentPage < this.getPages) {
                   this.currentPageProp++;
-                  this.$emit("changePage", this.currentPageProp );
+                  this.changePage(this.currentPageProp);
               }
           },
           beforePage() {
-              if (this.currentPage > 1) {
+              if (this.getCurrentPage > 1) {
                   this.currentPageProp--;
-                  this.$emit("changePage", this.currentPageProp);
+                  this.changePage(this.currentPageProp);
               }
           },
           selectedSortType(int) {
-              this.$emit("selectedSortType", int)
+              this.selectedSortType(int)
           }
       },
       computed: {
-          ...mapGetters(["getCurrentPage", "getLength"])
+          ...mapGetters([
+              "getCurrentPage",
+              "getLength",
+              "getPages",
+          ])
       }
   }
 </script>

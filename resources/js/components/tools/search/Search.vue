@@ -1,7 +1,7 @@
 <template>
     <div class="col-4 py-4 align-items-center d-flex customBorderRight justify-content-center">
         <div>
-            <input @keyup="search" v-model="searchWord" class="search" type="text" placeholder="Поиск">
+            <input @keyup="search" v-model="searchedWord" class="search" type="text" placeholder="Поиск">
             <span>
                 <svg width="30" height="30" viewBox="0 0 30 30" fill="none"
                      xmlns="http://www.w3.org/2000/svg">
@@ -24,26 +24,32 @@
     import {mapActions, mapGetters} from "vuex";
     export default {
         name: "Search",
-        props: ["contacts"],
         data() {
             return {
-                searchResult: [],
-                searchWord: '',
-                originalContacts: [],
+                searchedWord: '',
             }
         },
+        computed: {
+            ...mapGetters([
+                "getContactsFromDb",
+            ])
+        },
         methods: {
+            ...mapActions([
+                "searchWord",
+                "searchResult",
+            ]),
             search() {
-                let arrByID = this.contacts.filter(this.filterSearch);
-                this.$emit("searchResult", arrByID);
-                this.$emit("searchWord", this.searchWord);
+                let arrByID = this.getContactsFromDb.filter(this.filterSearch);
+                this.searchResult(arrByID);
+                this.searchWord(this.searchedWord);
             },
             filterSearch(item) {
-                let searchInFirstName = (item.first_name != null) && (item.first_name.toLowerCase().indexOf(this.searchWord.toLowerCase()) > -1);
-                let searchInMiddleName = (item.middle_name != null) && (item.middle_name.toLowerCase().indexOf(this.searchWord.toLowerCase()) > -1);
-                let searchInLastName = (item.last_name != null) && (item.last_name.toLowerCase().indexOf(this.searchWord.toLowerCase()) > -1);
-                let searchInNumber =  (item.number != null) && (item.number.toLowerCase().indexOf(this.searchWord.toLowerCase()) > -1);
-                let searchInEmail =  (item.email != null) && (item.email.toLowerCase().indexOf(this.searchWord.toLowerCase()) > -1);
+                let searchInFirstName = (item.first_name != null) && (item.first_name.toLowerCase().indexOf(this.searchedWord.toLowerCase()) > -1);
+                let searchInMiddleName = (item.middle_name != null) && (item.middle_name.toLowerCase().indexOf(this.searchedWord.toLowerCase()) > -1);
+                let searchInLastName = (item.last_name != null) && (item.last_name.toLowerCase().indexOf(this.searchedWord.toLowerCase()) > -1);
+                let searchInNumber =  (item.number != null) && (item.number.toLowerCase().indexOf(this.searchedWord.toLowerCase()) > -1);
+                let searchInEmail =  (item.email != null) && (item.email.toLowerCase().indexOf(this.searchedWord.toLowerCase()) > -1);
 
                 if (searchInFirstName || searchInMiddleName || searchInLastName || searchInNumber || searchInEmail) {
 
