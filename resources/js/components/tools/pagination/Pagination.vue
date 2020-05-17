@@ -48,7 +48,7 @@
                     </g>
                 </svg>
             </div>
-            <setting @selectedSortType="selectedSortType"></setting>
+            <setting></setting>
         </div>
     </div>
 </template>
@@ -76,7 +76,6 @@
               "searchWord",
               "searchResult",
               "changePage",
-              "selectedSortType",
           ]),
           nextPage() {
               if (this.getCurrentPage < this.getPages) {
@@ -90,9 +89,6 @@
                   this.changePage(this.currentPageProp);
               }
           },
-          selectedSortType(int) {
-              this.selectedSortType(int)
-          }
       },
       computed: {
           ...mapGetters([

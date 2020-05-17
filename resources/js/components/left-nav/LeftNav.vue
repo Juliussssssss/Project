@@ -14,7 +14,7 @@
             <div class="col-12" @click="getAllContacts()">
                 <div class="customBorderBottom">
                     <router-link
-                        class="d-block pl-5 py-3 textGrey text-decoration-none"
+                        class="d-block pl-3 pl-lg-5 py-3 textGrey text-decoration-none"
                         active-class="activeBorder textActive"
                         to="/contacts"
                         exact>
@@ -25,7 +25,7 @@
             <div class="col-12" @click="getFrequentContacts()">
                 <div class="customBorderBottom">
                     <router-link
-                        class="d-block pl-5 py-3 textGrey text-decoration-none"
+                        class="d-block pl-3 pl-lg-5 py-3 textGrey text-decoration-none"
                         active-class="activeBorder"
                         to="/frequent-contacts">
                         Частые контакты
@@ -36,7 +36,7 @@
             <div class="col-12" @click="getFavorites()">
                 <div class="customBorderBottom">
                     <router-link
-                        class="d-block pl-5 py-3 textGrey text-decoration-none"
+                        class="d-block pl-3 pl-lg-5 py-3 textGrey text-decoration-none"
                         active-class="activeBorder"
                         to="/favorites">
                         Избранные
@@ -46,7 +46,7 @@
             <div class="col-12">
                 <div class="customBorderBottom">
                     <router-link
-                        class="d-block pl-5 py-3 textGrey text-decoration-none"
+                        class="d-block pl-3 pl-lg-5 py-3 textGrey text-decoration-none"
                         active-class="activeBorder"
                         to="#3">
                         Написать

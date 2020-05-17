@@ -6,11 +6,11 @@
                     <div class="row">
                         <div class="col-3 pr-0">
                             <input v-model="selectAllControlProp" @click="selectAll" hidden id="all" type="checkbox"/>
-                            <label class="pl-2 customLabel m-0" for="all"></label>
+                            <label class="customLabel" for="all"></label>
                         </div>
                         <div class="col-3 pr-0">
                             <a href="">
-                                <img class="margingY" src="storage/logos/favoritesStar.svg" alt="avatar">
+                                <img class="margingY" src="storage/logos/favoritesStar.svg" alt="favoriteLogo">
                             </a>
                         </div>
                         <div class="col-6 pr-0"></div>
@@ -32,11 +32,11 @@
                     <div class="row">
                         <div class="col-3 pr-0">
                             <input @click="checkSelectAll" v-model="selected" :id="contact.id" hidden :value="contact.id" type="checkbox"/>
-                            <label class="pl-2 customLabel m-0" :for="contact.id"></label>
+                            <label class="customLabel" :for="contact.id"></label>
                         </div>
                         <div class="col-3 pr-0">
                             <a class="favorites" @click="setFavorites(contact.favorites, contact.id)">
-                                <img class="margingY" :src="contact.favorites == 0 ? 'storage/logos/nonFavoritesStar.svg' : 'storage/logos/favoritesStar.svg'" alt="avatar">
+                                <img class="margingY" :src="contact.favorites == 0 ? 'storage/logos/nonFavoritesStar.svg' : 'storage/logos/favoritesStar.svg'" alt="favoriteLogo">
                             </a>
                         </div>
                         <div class="col-6 pr-0">
@@ -202,7 +202,7 @@
         color: inherit;
     }
     .margingY {
-        margin-top: -2px;
+        margin-top: -10px;
     }
     /*custom checkbox*/
     .customLabel {
@@ -216,6 +216,7 @@
         border-radius: 4px;
         vertical-align: center;
         position: relative;
+        margin-bottom: -4px;
     }
 
     input:checked + .customLabel {

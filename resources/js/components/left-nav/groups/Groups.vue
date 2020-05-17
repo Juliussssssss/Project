@@ -2,7 +2,7 @@
     <div class="col-12">
         <div class="customBorderBottom textGrey">
             <div class="dropright">
-                <div class="pl-5 py-3 w-100 dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <div class="pl-3 pl-lg-5 py-3 w-100 dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     Групы
                 </div>
                 <submenu></submenu>

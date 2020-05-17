@@ -19,7 +19,7 @@
                 "getFrequentContacts",
                 "getAllContacts",
                 "getFavorites"
-            ])
+            ]),
         },
         mounted() {
             if (this.$route.name=='FrequentContacts')
