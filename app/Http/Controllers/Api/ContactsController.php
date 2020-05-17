@@ -2,16 +2,15 @@
 
 namespace App\Http\Controllers\Api;
 
-//use App\Exports\ContactsExport;
 use App\Exports\ContactsFrequentExport;
 use App\Exports\ContactsGroupExport;
 use App\Exports\ContactsExport;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Contact\StoreRequest;
 use App\Http\Requests\Contact\UpdateRequest;
-use App\Models\CallLog;
 use App\Models\Contact;
 use App\Models\File;
+use App\Repositories\ContactsRepository;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Storage;
@@ -19,16 +18,17 @@ use Maatwebsite\Excel\Facades\Excel;
 
 class ContactsController extends Controller
 {
+
+    private $contactRepository;
+
+    public function __construct()
+    {
+        $this->contactRepository = app(ContactsRepository::class);
+    }
+
     public function getContacts()
     {
-        $select = [
-            'id', 'avatar', 'favorites', 'first_name', 'middle_name', 'last_name', 'email', 'number', 'avatar', 'group_id'
-        ];
-        $contacts = Contact::select($select)
-            ->where('user_id', auth()->user()->id)
-            ->orderBy('first_name')
-            ->with('group:id,name')
-            ->get();
+        $contacts = $this->contactRepository->getAll();
 
         return response()->json($contacts);
     }
