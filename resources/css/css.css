@@ -162,32 +162,6 @@ body {
     transform: scale(1);
 }
 
-/*custom checkbox*/
-input[type="checkbox"] {
-    display: none;
-}
-
-.customLabel::before {
-    content: '';
-    display: inline-block;
-    width: 20px;
-    height: 20px;
-    cursor: pointer;
-    background-color: #FFFFFF;
-    border: 2px solid #E6E6E6;
-    box-sizing: border-box;
-    border-radius: 4px;
-    vertical-align: middle;
-}
-
-input[type="checkbox"]:checked + label::before {
-    background-color: #1875F0;
-    border: 0px;
-    background-image: url(choosed.png);
-    background-position: center;
-    background-repeat: no-repeat;
-}
-
 .topmenu > div:after {
     content: "";
     position: absolute;

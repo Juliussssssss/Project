@@ -1,6 +1,6 @@
 <template>
     <div class="col-4 py-4 align-items-center d-flex customBorderRight pl-4">
-        <div class="w-100 d-flex justify-content-between">
+        <div class="w-100 d-flex justify-content-between flex-wrap">
             <edit-btn></edit-btn>
             <!-- меню -->
             <groups-dropdown-menu></groups-dropdown-menu>
