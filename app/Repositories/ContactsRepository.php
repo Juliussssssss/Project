@@ -21,7 +21,7 @@ class ContactsRepository extends CoreRepository
         ];
         $result = $this
             ->startConditions()
-            ->select($select)
+        ->select($select)
             ->where('user_id', auth()->user()->id)
             ->orderBy('first_name')
             ->with('group:id,name')

@@ -1,13 +1,7 @@
 <template>
     <div>
         <tools></tools>
-        <contact-list
-            :highlightedWord="getHighlightedWord"
-            :newSortType="getSort"
-            :contacts="getContacts"
-            :currentPage="getCurrentPage"
-            @selectedContact="selectedContact"
-        > </contact-list>
+        <contact-list></contact-list>
     </div>
 </template>
 
@@ -19,22 +13,13 @@
         components: {
             'contact-list': ContactList,
         },
-        computed: {
-            ...mapGetters([
-                "getCurrentPage",
-                "getHighlightedWord",
-                "getSort",
-                "getContacts"
-            ])
-        },
         methods: {
             ...mapActions([
                 "clearSelectedFromGroups",
-                "selectedContact",
                 "getFrequentContacts",
                 "getAllContacts",
                 "getFavorites"
-            ])
+            ]),
         },
         mounted() {
             if (this.$route.name=='FrequentContacts')

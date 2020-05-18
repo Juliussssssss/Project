@@ -10,15 +10,15 @@
                 </div>
                 <div class="modal-body d-block modalText pt-0">
                     <div>
-                        <input type="radio" id="test1" name="radio-group" value="1" v-model="selectedSortType">
+                        <input type="radio" id="test1" name="radio-group" value="1" v-model="selectSortType">
                         <label class="font-14px" for="test1">Имя</label>
                     </div>
                     <div>
-                        <input type="radio" id="test2" name="radio-group" value="2" v-model="selectedSortType">
+                        <input type="radio" id="test2" name="radio-group" value="2" v-model="selectSortType">
                         <label class="font-14px" for="test2">Фамилия</label>
                     </div>
                     <div>
-                        <input type="radio" id="test3" name="radio-group" value="3" v-model="selectedSortType">
+                        <input type="radio" id="test3" name="radio-group" value="3" v-model="selectSortType">
                         <label class="font-14px" for="test3">Сначала избрнные</label>
                     </div>
                 </div>
@@ -33,22 +33,36 @@
 </template>
 
 <script>
+    import {mapActions, mapGetters} from "vuex";
     export default {
         name: "setting",
         props: ["sortType"],
         data() {
             return {
-                selectedSortType: 1,
+                selectSortType: 1,
                 confirmedSortType: 1,
             }
         },
+        computed: {
+            ...mapGetters([
+                "getSort"
+            ])
+        },
+        watch: {
+            getSort: function() {
+                this.selectSortType = this.getSort;
+            }
+        },
         methods: {
+            ...mapActions([
+                "selectedSortType",
+            ]),
             confirmed() {
-                this.confirmedSortType = this.selectedSortType;
-                this.$emit("selectedSortType", +this.confirmedSortType);
+                this.confirmedSortType = this.selectSortType;
+                this.selectedSortType(+this.confirmedSortType);
             },
             cancel() {
-               this.selectedSortType = this.confirmedSortType;
+               this.selectSortType = this.confirmedSortType;
             }
         }
     }

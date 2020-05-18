@@ -12,8 +12,6 @@ use App\Models\Contact;
 use App\Models\File;
 use App\Repositories\ContactsRepository;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
-use Illuminate\Support\Facades\Storage;
 use Maatwebsite\Excel\Facades\Excel;
 
 class ContactsController extends Controller

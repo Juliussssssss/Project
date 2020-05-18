@@ -68,6 +68,7 @@ export default {
             state.pages = (Math.ceil(payload.length/100));
             state.currentPage = 1;
             state.selected = [];
+            state.sort = 1;
         },
         fillContactsFromDb(state, payload) {
             state.contactsFromDb = payload
@@ -123,8 +124,9 @@ export default {
                 });
         },
         deleteContacts(context, contacts){
-            axios.post('/api/delete-contacts', {
-                contacts:contacts
+            axios.delete('/api/contacts', {data: {
+                    contacts: contacts
+                }
             })
                 .then(response => {
                     context.commit("clearSelected");

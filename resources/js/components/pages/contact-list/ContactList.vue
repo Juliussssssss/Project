@@ -5,25 +5,12 @@
                 <div class="col-2 pr-0">
                     <div class="row">
                         <div class="col-3 pr-0">
-                            <input v-model="selectAllControlProp" @click="selectAll" id="all" type="checkbox"/>
-                            <label class="pl-2 customLabel m-0" for="all"></label>
+                            <input v-model="selectAllControlProp" @click="selectAll" hidden id="all" type="checkbox"/>
+                            <label class="customLabel" for="all"></label>
                         </div>
                         <div class="col-3 pr-0">
                             <a href="">
-                                <svg class="margingY" width="24" height="24" viewBox="0 0 24 24"
-                                     fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <mask id="favorites" mask-type="alpha"
-                                          maskUnits="userSpaceOnUse" x="5" y="5" width="20"
-                                          height="19">
-                                        <path fill-rule="evenodd" clip-rule="evenodd"
-                                              d="M15 20.27L21.18 24L19.54 16.97L25 12.24L17.81 11.63L15 5L12.19 11.63L5 12.24L10.46 16.97L8.82 24L15 20.27Z"
-                                              fill="white"/>
-                                    </mask>
-                                    <g mask="url(#favorites)">
-                                        <rect x="2" y="2" width="26" height="26"
-                                              fill="#FEF40A"/>
-                                    </g>
-                                </svg>
+                                <img class="margingY" src="storage/logos/favoritesStar.svg" alt="favoriteLogo">
                             </a>
                         </div>
                         <div class="col-6 pr-0"></div>
@@ -39,30 +26,17 @@
                 </div>
             </div>
             <div class="customBorderBottom row py-3 textGrey"
-                 v-for="(contact) in contacts.slice((currentPage-1)*100,currentPage*100)"
+                 v-for="(contact) in getContacts.slice((getCurrentPage-1)*100,getCurrentPage*100)"
                  v-bind:key="contact.id">
                 <div class="col-2 pr-0">
                     <div class="row">
                         <div class="col-3 pr-0">
-                            <input @click="checkSelectAll" v-model="selected" :id="contact.id" :value="contact.id" type="checkbox"/>
-                            <label class="pl-2 customLabel m-0" :for="contact.id"></label>
+                            <input @click="checkSelectAll" v-model="selected" :id="contact.id" hidden :value="contact.id" type="checkbox"/>
+                            <label class="customLabel" :for="contact.id"></label>
                         </div>
                         <div class="col-3 pr-0">
                             <a class="favorites" @click="setFavorites(contact.favorites, contact.id)">
-                                <svg class="margingY" width="24" height="24" viewBox="0 0 24 24"
-                                     fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <mask id="nonFavorites" mask-type="alpha"
-                                          maskUnits="userSpaceOnUse" x="5" y="5" width="20"
-                                          height="19">
-                                        <path fill-rule="evenodd" clip-rule="evenodd"
-                                              d="M25 12.24L17.81 11.62L15 5L12.19 11.63L5 12.24L10.46 16.97L8.82 24L15 20.27L21.18 24L19.55 16.97L25 12.24ZM15 18.4L11.24 20.67L12.24 16.39L8.92 13.51L13.3 13.13L15 9.1L16.71 13.14L21.09 13.52L17.77 16.4L18.77 20.68L15 18.4Z"
-                                              fill="white"/>
-                                    </mask>
-                                    <g :mask="contact.favorites==0 ? 'url(#nonFavorites)' : 'url(#favorites)'">
-                                        <rect x="2" y="2" width="26" height="26"
-                                              :fill="contact.favorites == 0 ? '#D8D8D8' : '#FEF40A'"/>
-                                    </g>
-                                </svg>
+                                <img class="margingY" :src="contact.favorites == 0 ? 'storage/logos/nonFavoritesStar.svg' : 'storage/logos/favoritesStar.svg'" alt="favoriteLogo">
                             </a>
                         </div>
                         <div class="col-6 pr-0">
@@ -101,7 +75,6 @@
     import {mapActions, mapGetters} from "vuex";
     export default {
         name: "Contacts",
-        props: ["contacts", "currentPage", "newSortType", "highlightedWord"],
         data() {
             return {
                 selected: [],
@@ -110,26 +83,37 @@
             }
         },
         watch: {
-            currentPage: function() {
+            getCurrentPage: function() {
                 this.selected = [];
                 this.selectAllControlProp = false;
-                this.$emit("selectedContact", this.selected)
+                this.selectedContact(this.selected);
             },
-            contacts: function() {
+            getContacts: function() {
                 this.selected = [];
-                this.$emit("selectedContact", this.selected)
+                this.selectedContact(this.selected);
                 this.selectAllControlProp = false;
             },
-            newSortType: function (id) {
+            getSort: function (id) {
                 this.selectedSortType(id);
             },
         },
+        computed: {
+            ...mapGetters([
+                "getCurrentPage",
+                "getHighlightedWord",
+                "getSort",
+                "getContacts"
+            ])
+        },
         methods: {
+             ...mapActions([
+                "selectedContact",
+            ]),
             highlight(value) {
                 if (value != null) {
-                    if ((value.toLowerCase().indexOf(this.highlightedWord) > -1) && (this.highlightedWord.length > 0)) {
-                        let beforeWord = value.toLowerCase().indexOf(this.highlightedWord);
-                        let wordLength = this.highlightedWord.length;
+                    if ((value.toLowerCase().indexOf(this.getHighlightedWord) > -1) && (this.getHighlightedWord.length > 0)) {
+                        let beforeWord = value.toLowerCase().indexOf(this.getHighlightedWord);
+                        let wordLength = this.getHighlightedWord.length;
                         return (
                             value.slice(0, beforeWord)
                             + '<span class="bg-warning">' + value.slice(beforeWord, beforeWord + wordLength) + '</span>'
@@ -140,27 +124,27 @@
                 return (value);
             },
             selectAll() {
-                let selectList = this.contacts.slice((this.currentPage-1)*100, this.currentPage*100);
+                let selectList = this.getContacts.slice((this.getCurrentPage-1)*100, this.getCurrentPage*100);
                     if (this.selected.length == selectList.length && this.selectAllControlProp == true) {
                         this.selected = [];
                     } else {
                         this.selected = selectList.map(a => a.id);
                     }
-                    this.$emit("selectedContact", this.selected)
+                    this.selectedContact(this.selected);
                 },
-                checkSelectAll() {
+            checkSelectAll() {
                     setTimeout(this.checked, 10);
                 },
-                checked() {
-                    let selectList = this.contacts.slice((this.currentPage-1)*100, this.currentPage*100);
+            checked() {
+                    let selectList = this.getContacts.slice((this.getCurrentPage-1)*100, this.getCurrentPage*100);
                     if (this.selected.length != selectList.length) {
                         this.selectAllControlProp = false;
                     } else {
                         this.selectAllControlProp = true;
                     }
-                    this.$emit("selectedContact", this.selected)
+                    this.selectedContact(this.selected);
                 },
-                selectedSortType(int) {
+            selectedSortType(int) {
                     if (int !== this.sortType) {
                         this.sortType = int;
                         switch (int) {
@@ -176,33 +160,28 @@
                         }
                     }
                 },
-                sortByName() {
-                    this.contacts.sort((prev, next) => {
+            sortByName() {
+                    this.getContacts.sort((prev, next) => {
                         if ( prev.first_name < next.first_name ) return -1;
                         if ( prev.first_name < next.first_name ) return 1;
                     });
                 },
-                sortBySecondName() {
-                    this.contacts.sort((prev, next) => {
+            sortBySecondName() {
+                    this.getContacts.sort((prev, next) => {
                         if ( prev.middle_name < next.middle_name ) return -1;
                         if ( prev.middle_name < next.middle_name ) return 1;
                     });
                 },
-                sortByFavorites() {
-                    this.contacts.sort((prev, next) => {
+            sortByFavorites() {
+                    this.getContacts.sort((prev, next) => {
                         if ( prev.favorites > next.favorites ) return -1;
                         if ( prev.favorites > next.favorites ) return 1;
                     });
                 },
-                setFavorites(int, id) {
-                if (int == 1) {
-                    int = 0;
-                } else {
-                    int = 1;
-                }
-                axios.post('/contacts/set-favorites', {id: id, value: int})
+            setFavorites(int, id) {
+                axios.post('/contacts/set-favorites', {id: id, value: !int})
                     .then(response => {
-                        this.contacts[this.contacts.findIndex(x => x.id == id)].favorites = int;
+                        this.getContacts[this.getContacts.findIndex(x => x.id == id)].favorites = !int;
                     })
                     .catch(function (error) {
                         console.log(error)
@@ -221,5 +200,40 @@
     }
     .linkDisabled:hover {
         color: inherit;
+    }
+    .margingY {
+        margin-top: -10px;
+    }
+    /*custom checkbox*/
+    .customLabel {
+        display: inline-block;
+        width: 20px;
+        height: 20px;
+        cursor: pointer;
+        background-color: #ffffff;
+        border: 2px solid #e6e6e6;
+        box-sizing: border-box;
+        border-radius: 4px;
+        vertical-align: center;
+        position: relative;
+        margin-bottom: -4px;
+    }
+
+    input:checked + .customLabel {
+        background-color: #1875F0;
+        border: 2px solid #1875F0;
+    }
+
+    input:checked + .customLabel:after {
+        content: '';
+        display: block;
+        position: absolute;
+        top: 1px;
+        left: 5px;
+        width: 5px;
+        height: 12px;
+        border: solid #ffffff;
+        border-width: 0 2px 2px 0px;
+        transform: rotate(45deg);
     }
 </style>
