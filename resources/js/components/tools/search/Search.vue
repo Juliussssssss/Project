@@ -31,7 +31,7 @@
             clearSearch() {
                 if (this.searchedWord.length > 0) {
                     this.searchedWord = '';
-                    this.searchWord(this.searchedWord);
+                    this.search()
                 } else {
                     document.getElementById("search").focus();
                 }
