@@ -18,8 +18,7 @@
             </div>
             <div class="col-6 group-name">{{ group.name }}</div>
             <div class="col-4">
-                <router-link to="groups"></router-link>
-                <a data-toggle="modal" data-target="#editModal" @click="editClick(group.id)">
+                <a @click="editClick(group.id)">
                     <svg class="margingY" width="30" height="30" viewBox="0 0 30 30" fill="none"
                          xmlns="http://www.w3.org/2000/svg">
                         <mask id="edit" mask-type="alpha" maskUnits="userSpaceOnUse" x="6" y="6" width="19" height="19">

@@ -5,6 +5,7 @@ export default {
     state: {
         currentGroup: 0,
         groups: {},
+        // countGroups: 0
     },
     getters: {
         getCurrentGroup(state) {
@@ -13,9 +14,9 @@ export default {
         getGroups(state) {
             return state.groups;
         },
-        // getAddGroupInputFocus(state) {
-        //     return state.addGroupInputFocus
-        // }
+        getCountGroups(state) {
+            return state.countGroups;
+        }
     },
     mutations: {
         setCurrentGroup(state, payload) {
@@ -23,11 +24,8 @@ export default {
         },
         fillGroups(state, payload) {
             state.groups = payload
-        },
-        // setAddGroupInputFocus(state) {
-        //     state.addGroupInputFocus = !state.addGroupInputFocus
-        //     console.log('setAddGroupInputFocus')
-        // }
+            state.countGroups = payload.length
+        }
     },
     actions: {
         getContactGroups(context) {
