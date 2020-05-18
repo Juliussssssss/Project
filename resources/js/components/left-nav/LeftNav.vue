@@ -48,7 +48,7 @@
                     <router-link
                         class="d-block pl-3 pl-lg-5 py-3 textGrey text-decoration-none"
                         active-class="activeBorder"
-                        to="#3">
+                        to="write">
                         Написать
                     </router-link>
                 </div>

@@ -20,7 +20,7 @@ Route::post('/api/contacts-import', ('Api\ExcelController@importContacts'))->mid
 Route::get('/contacts/get-all', ('Api\ContactsController@getContacts'))->middleware('auth');
 Route::post('/contacts/set-favorites', ('Api\ContactsController@setFavorites'))->middleware('auth');
 
-Route::get('/testPrint/test',('PrintController@getContacts'))->middleware('auth');
+Route::get('/testPrint/test', ('PrintController@getContacts'))->middleware('auth');
 
 Route::delete('/api/groups', ('Api\GroupsController@destroy'))->middleware('auth');
 Route::get('/api/groups', ('Api\GroupsController@index'))->middleware('auth');
@@ -37,6 +37,7 @@ Route::middleware('auth')
         Route::get('contacts/frequent', 'ContactsController@getCountFrequentContacts');
         Route::get('groups/{id}', 'GroupsController@show');
         Route::post('groups', 'GroupsController@store');
+        Route::post('contacts/write', 'ContactsController@getWriteContacts');
 
         Route::delete('groups/{id}', 'GroupsController@destroy');
         Route::delete('groups/{id}/contacts', 'GroupsController@deleteGroupAtContacts');

@@ -6,6 +6,7 @@ import contacts from "./modules/contacts/contacts";
 import contactForms from "./modules/contacts/contact-forms";
 import favorites from "./modules/contacts/favorites";
 import exportModul from "./modules/export/export"
+import write from "./modules/write/write";
 
 import contactList from "./modules/contacts/contact-list"
 Vue.use(Vuex)
@@ -29,6 +30,7 @@ export default new Vuex.Store({
         contactForms,
         contactList,
         favorites,
-        exportModul
+        exportModul,
+        write
     }
 })

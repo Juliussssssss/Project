@@ -11,6 +11,7 @@ import ShowContact from '../components/pages/contact-forms/show-form/ShowContact
 
 import Logout from '../components/Logout';
 import groups from "../store/modules/groups/groups";
+import Write from "../components/pages/write/Write";
 
 
 export const routes = [
@@ -67,5 +68,9 @@ export const routes = [
         path: "/groups",
         component: Contacts,
         name: "groups"
+    },
+    {
+        path: "/write",
+        component: Write
     }
 ];

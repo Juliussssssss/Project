@@ -13,6 +13,7 @@ use App\Models\File;
 use App\Repositories\ContactsRepository;
 use Illuminate\Http\Request;
 use Maatwebsite\Excel\Facades\Excel;
+use Throwable;
 
 class ContactsController extends Controller
 {
@@ -143,6 +144,17 @@ class ContactsController extends Controller
                 ->count();
 
             return response()->json($count, 200);
+        } catch (Throwable $e) {
+            return response()->json($e->getMessage(), 417);
+        }
+    }
+
+    public function getWriteContacts(Request $request)
+    {
+        try {
+            //$contacts = Contact::getUserContacts()->whereIn('id', $request->contacts)->get();
+
+            return response()->json($request, 200);
         } catch (Throwable $e) {
             return response()->json($e->getMessage(), 417);
         }
