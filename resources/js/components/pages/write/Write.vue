@@ -30,7 +30,7 @@
                     </div>
 
                     <div class="row">
-                        <textarea class="form-control" id="writeFormMessage" rows="4"
+                        <textarea class="form-control" id="writeFormMessage" rows="6"
                                   v-model="form.message">
                         </textarea>
                     </div>
@@ -82,6 +82,10 @@
 </script>
 
 <style>
+    #writeFormMessage {
+        text-indent: 2rem;
+    }
+
     .input-group-text {
         background-color: #fff;
     }
