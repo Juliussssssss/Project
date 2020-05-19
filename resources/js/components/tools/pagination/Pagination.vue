@@ -61,16 +61,6 @@
       components: {
           'setting': Settings
       },
-      data() {
-          return {
-              currentPageProp: this.getCurrentPage,
-          }
-      },
-      watch: {
-          getCurrentPage: function() {
-              this.currentPageProp = this.getCurrentPage;
-          }
-      },
       methods: {
           ...mapActions([
               "searchWord",
@@ -79,14 +69,12 @@
           ]),
           nextPage() {
               if (this.getCurrentPage < this.getPages) {
-                  this.currentPageProp++;
-                  this.changePage(this.currentPageProp);
+                  this.changePage(this.getCurrentPage +1);
               }
           },
           beforePage() {
               if (this.getCurrentPage > 1) {
-                  this.currentPageProp--;
-                  this.changePage(this.currentPageProp);
+                  this.changePage(this.getCurrentPage -1);
               }
           },
       },

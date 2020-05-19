@@ -1,10 +1,10 @@
 <template>
     <div class="col-4 py-4 align-items-center d-flex customBorderRight justify-content-center">
-        <div class="fixPanel">
-            <input @keyup="search" id="search" v-model="searchedWord" class="search textActive" type="text" placeholder="Поиск">
-            <span>
-                 <img @click="clearSearch" class="margingY actionButtons" :src="searchedWord.length > 0 ? 'storage/logos/deleteSearch.svg' : 'storage/logos/search.svg'" alt="avatar">
-            </span>
+        <div class="input-group fixPanel">
+            <input @keyup="search" id="search" v-model="searchedWord" type="text" class="textActive form-control border-0 p-0" placeholder="Поиск" aria-label="Recipient's username" aria-describedby="button-addon2">
+            <div class="input-group-append">
+                <img @click="clearSearch" class="margingY actionButtons" :src="searchedWord.length > 0 ? 'storage/logos/deleteSearch.svg' : 'storage/logos/search.svg'" alt="avatar">
+            </div>
         </div>
     </div>
 </template>
@@ -60,8 +60,8 @@
 </script>
 
 <style>
-    .search {
-        border: 0px;
-        outline: 0 none;
+    ::placeholder {
+        color: #CCCCCC !important;
+        opacity: 1;
     }
 </style>
