@@ -15,11 +15,6 @@ class Group extends Model
         return $this->hasMany(Contact::class);
     }
 
-    public function cleaning_str(string $data): string
-    {
-        return strip_tags(trim(preg_replace("/\s{2,}/", " ", $data)));
-    }
-
     public function getGroupIdByName($name)
     {
         $group = Group::where('name',$name)
@@ -56,7 +51,7 @@ class Group extends Model
      */
     public function store($request)
     {
-        $data['name'] = $this->cleaning_str(($request->name));
+        $data['name'] = (new Contact)->cleaning_str(($request->name));
         $data['user_id'] = auth()->user()->id;
         Group::create($data);
 

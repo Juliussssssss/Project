@@ -9,7 +9,11 @@
                             <small>Кому</small>
                         </div>
                         <div class="write-field-value">
-                            <span>Серафим Топал <small>&lt;example@example.com&gt;</small></span>
+                            <span v-for="contact in getContacts" v-if="getSelectedContacts.includes(contact.id)">
+                                {{ contact.first_name ? contact.first_name : '' }}
+                                {{ contact.middle_name ? contact.middle_name : '' }}
+                                <small>&lt;{{ contact.email }}&gt;</small>
+                            </span>
                         </div>
                     </div>
 
@@ -32,7 +36,7 @@
                     </div>
 
                     <div class="row my-2 d-flex justify-content-end">
-                        <button type="button" class="btn btn-primary btn-lg mx-2">Отправить</button>
+                        <button type="button" class="btn btn-primary btn-lg mx-2" @click="send">Отправить</button>
                         <router-link
                             class="py-3 px-4 btn-light btn text-uppercase font-12px btnText cancel"
                             to="/contacts">
@@ -59,17 +63,19 @@
             }
         },
         computed: {
-            ...mapGetters(["getSelectedContacts"])
+            ...mapGetters(["getSelectedContacts", "getContacts"])
         },
         methods: {
-            ...mapActions(["takeWriteContacts"])
+            ...mapActions(["write"]),
+            send() {
+                this.write(this.form)
+                this.$router.push('/contacts')
+            }
         },
         mounted() {
             //this.$refs.subject.focus()
             if (this.getSelectedContacts.length === 0) {
                 this.$router.push('/contacts')
-            } else {
-                this.takeWriteContacts()
             }
         }
     }

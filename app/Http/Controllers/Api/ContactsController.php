@@ -148,15 +148,4 @@ class ContactsController extends Controller
             return response()->json($e->getMessage(), 417);
         }
     }
-
-    public function getWriteContacts(Request $request)
-    {
-        try {
-            //$contacts = Contact::getUserContacts()->whereIn('id', $request->contacts)->get();
-
-            return response()->json($request, 200);
-        } catch (Throwable $e) {
-            return response()->json($e->getMessage(), 417);
-        }
-    }
 }

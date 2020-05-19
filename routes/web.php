@@ -37,7 +37,7 @@ Route::middleware('auth')
         Route::get('contacts/frequent', 'ContactsController@getCountFrequentContacts');
         Route::get('groups/{id}', 'GroupsController@show');
         Route::post('groups', 'GroupsController@store');
-        Route::post('contacts/write', 'ContactsController@getWriteContacts');
+        Route::post('contacts/write', 'MailController@send');
 
         Route::delete('groups/{id}', 'GroupsController@destroy');
         Route::delete('groups/{id}/contacts', 'GroupsController@deleteGroupAtContacts');
