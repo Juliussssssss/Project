@@ -13,7 +13,7 @@
     {{--    <link rel="stylesheet" type="text/css" href="{{ asset('css/fonts.css') }}" />--}}
 </head>
 
-<body class="pageBackground">
+<body class="pageBackground px-0">
 <div id="app">
 
 </div>

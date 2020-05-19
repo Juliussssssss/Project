@@ -4,20 +4,27 @@ namespace App\Imports;
 
 use App\Models\Contact;
 use App\Models\Group;
+use DateTime;
 use Maatwebsite\Excel\Concerns\ToModel;
 use Maatwebsite\Excel\Concerns\WithHeadingRow;
 use Maatwebsite\Excel\Concerns\WithValidation;
 use Maatwebsite\Excel\Concerns\Importable;
 use Maatwebsite\Excel\Concerns\SkipsOnError;
 use Maatwebsite\Excel\Concerns\SkipsErrors;
+use Maatwebsite\Excel\Concerns\WithBatchInserts;
 
-class ContactsImport implements ToModel,WithHeadingRow,SkipsOnError
+class ContactsImport implements ToModel,WithHeadingRow,SkipsOnError, WithBatchInserts
 {
     use Importable, SkipsErrors;
 
     function clear($str){
 
         return strip_tags(trim($str));
+    }
+
+    public function batchSize(): int
+    {
+        return 1;
     }
 
     public function model(array $row)
@@ -34,7 +41,7 @@ class ContactsImport implements ToModel,WithHeadingRow,SkipsOnError
         $group_id=null;
         if(!$unique_email||!$first_name||!$middle_name){
 
-            return ;
+            return;
         }
         $groupName = $this->clear( $row['gruppa']??null);
         if($groupName) {
@@ -44,6 +51,14 @@ class ContactsImport implements ToModel,WithHeadingRow,SkipsOnError
                 $group_id = (new Group())->createAndGetGroupId($groupName);
             }
         }
+//        dd($row['data_rozdeniya']);
+//        $date = DateTime::createFromFormat('dd/mm/yy', $row['data_rozdeniya']);
+//        dd($date);
+//        if (!$date)
+//        {
+//            $row['data_rozdeniya']=null;
+//        }
+
         return new Contact([
             'first_name' => $this->clear($row['imya']),
             'middle_name' => $this->clear($row['familiya']),
@@ -57,7 +72,7 @@ class ContactsImport implements ToModel,WithHeadingRow,SkipsOnError
             'position' =>$this->clear( $row['dolznost']??null),
             'work_email' =>$this->clear( $row['email_rabocii']??null),
             'group_id' => $group_id,
-            'comment' => $this->clear($row['komentarii']??null),
+            'comment' => $this->clear($row['kommentarii']??null),
             'favorites'=>"0",
             'user_id'=>$user_id
         ]);

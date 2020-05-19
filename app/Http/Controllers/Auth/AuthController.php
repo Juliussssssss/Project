@@ -37,10 +37,6 @@ class AuthController extends Controller
 
         ]);
 
-
-
-
-
         $access = json_decode((string)$response->getBody());
 
         if (isset($access->access_token) && $access->access_token) {

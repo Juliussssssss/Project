@@ -212,9 +212,6 @@
 </script>
 
 <style scoped>
-    .groups,.birthday {
-        color: #808080;
-    }
     .error {
         border:1px solid #ff4418;
     }

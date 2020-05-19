@@ -109,7 +109,7 @@
                     <option value="" selected>Без группы</option>
                     <option :value="group.id" v-for="group in groups">{{group.name}}</option>
                 </select>
-                <label class="textActive" for="group_id">Группа</label>
+                <label class="textActive" :class="{'label-top':contact.group_id}" for="group_id">Группа</label>
             </div>
             <div class="form-group position-relative pt-3 pb-1">
                 <input
@@ -134,7 +134,6 @@
         computed:{
             groups()
             {
-
                 return this.$store.getters.getGroups;
             }
         }
@@ -142,9 +141,6 @@
 </script>
 
 <style scoped>
-    .groups,.birthday {
-        color: #808080;
-    }
     *:disabled {
         background-color: #fff;
     }

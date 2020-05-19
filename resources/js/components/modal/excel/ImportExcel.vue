@@ -8,15 +8,25 @@
                 </div>
                 <form ref="fileContacts" id="form">
                     <div class="position-relative">
-                        <label for="file" v-if="!filename"
-                               class="import ml-3 mt-4 pl-3 pr-5 py-2">
-                            Выбрать файл
-                        </label>
-                        <span v-else :class="{'error':error}"
-                              class="file-load import d-inline-block position-relative ml-3 mt-4 pl-3 pr-5 py-2">
-                             {{filename}}
-                            <span class="delete" v-if="filename" @click="deleteFile()"></span>
-                        </span>
+                        <div>
+                            <label for="file" v-if="!filename"
+                                   class="import ml-3 mt-4 pl-3 pr-5 py-2">
+                                Выбрать файл
+                            </label>
+                            <span v-else :class="{'error':error}"
+                                  class="file-load import d-inline-block position-relative ml-3 mt-4 pl-3 pr-5 py-2">
+                                 {{filename}}
+                                <span class="delete" v-if="filename" @click="deleteFile()"></span>
+                            </span>
+                        </div>
+                        <div>
+                           <a href="/api/template" class="file-load import d-inline-block ml-3 mt-3 pl-3 pr-5 py-2">
+                                Шаблон файла
+                           </a>
+                            <span class="details ml-2" :class="{'details-active':details}" @click="details=!details">
+                                Подробнее
+                            </span>
+                        </div>
                         <div v-if="error" class="err-message position-absolute">Файл должен быть с расширением
                             .xls,xlsx
                         </div>
@@ -30,27 +40,33 @@
                         accept=".xls,.xlsx"
                     >
                 </form>
-                <div class="modal-footer mt-5">
+                <div class="modal-footer mt-2">
                     <button @click="importContacts" :disabled="!filename" type="button"
-                            class="btn px-3 py-3 text-uppercase confirm font-12px">Импортировать
+                            class="btn px-2 py-3 text-uppercase confirm font-12px">Импортировать
                     </button>
                     <button type="button" class="btn px-3 py-2 ml-4 modalText bthCancel font-12px text-uppercase"
                             data-dismiss="modal">Отмена
                     </button>
                 </div>
+                <prompt class="prompt prompt-d-none position-absolute"
+                        :class="{'d-block':details}"
+                ></prompt>
             </div>
         </div>
     </div>
 </template>
 
 <script>
+    import prompt from './ImportPrompt'
     export default {
         name: "ImportExcel",
+        components:{prompt},
         data() {
             return {
                 filename: '',
                 error: '',
-                success:''
+                success:'',
+                details:false
             }
         },
         methods: {
@@ -65,7 +81,6 @@
             },
             deleteFile() {
                 let file = document.getElementById("file");
-
                 file.value = file.defaultValue;
                 this.filename = '';
                 this.error='';
@@ -88,7 +103,7 @@
                     .catch(error => {
                         this.error=true;
                     });
-            },
+            }
         }
     }
 </script>
@@ -114,7 +129,7 @@
     }
     .import {
         color: #808080;
-        border: 1px solid #F5F5F5;
+        border: 2px solid #F5F5F5;
         font-size: 12px;
         font-weight: 500;
         line-height: 30px;
@@ -126,7 +141,8 @@
     }
     .import:hover {
         color: #6e706e;
-        border: 1px solid #e6e6e6;
+        border: 2px solid #e6e6e6;
+        text-decoration:none;
     }
     .delete {
         padding: 10px;
@@ -165,6 +181,27 @@
     }
     .error {
         border: 1px solid #ff4418;
+    }
+    .modal-content:hover .prompt{
+        display: block;
+    }
+    .prompt-d-none {
+        display: none;
+    }
+    .prompt {
+        top: 345px;
+        right: 0;
+    }
+    .details {
+        font-size:12px;
+        color:#B3B3B3;
+        cursor:pointer;
+    }
+    .details:hover {
+        color:#B3B3F8;
+    }
+    .details-active {
+        color:#B3B3F8;
     }
 </style>
 

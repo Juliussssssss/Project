@@ -28,7 +28,13 @@
                 this.$refs.importExcel.clear();
             },
             success(){
-                alert('Контакты успено добавлены');
+                this.$store.dispatch('getAllContacts');
+                setTimeout(()=>{
+                    this.alert()
+                },200);
+            },
+            alert(){
+                alert('Контакты успешно добавлены');
             }
         }
     }

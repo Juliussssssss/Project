@@ -9,10 +9,10 @@
             <svg width="70" height="70" viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
                 <rect width="60" height="60" rx="30" fill="url(#pattern0)"/>
                 <path d="M1 30C1 13.9837 13.9837 1 30 1C46.0163 1 59 13.9837 59 30C59 46.0163 46.0163 59 30 59C13.9837 59 1 46.0163 1 30Z" fill="white" stroke="#F5F5F5" stroke-width="2"/>
-                <mask id="mask0" mask-type="alpha" maskUnits="userSpaceOnUse" x="20" y="20" width="20" height="20">
+                <mask id="mask10" mask-type="alpha" maskUnits="userSpaceOnUse" x="20" y="20" width="20" height="20">
                     <path fill-rule="evenodd" clip-rule="evenodd" d="M30 20C24.48 20 20 24.48 20 30C20 35.52 24.48 40 30 40C35.52 40 40 35.52 40 30C40 24.48 35.52 20 30 20ZM30 23C31.66 23 33 24.34 33 26C33 27.66 31.66 29 30 29C28.34 29 27 27.66 27 26C27 24.34 28.34 23 30 23ZM30 37.2C27.5 37.2 25.29 35.92 24 33.98C24.03 31.99 28 30.9 30 30.9C31.99 30.9 35.97 31.99 36 33.98C34.71 35.92 32.5 37.2 30 37.2Z" fill="white"/>
                 </mask>
-                <g mask="url(#mask0)">
+                <g mask="url(#mask10)">
                     <rect x="17" y="17" width="26" height="26" fill="#D8D8D8"/>
                 </g>
                 <defs>
