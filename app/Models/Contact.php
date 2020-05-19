@@ -8,6 +8,11 @@ use Illuminate\Database\Eloquent\Builder;
 
 class Contact extends Model
 {
+    public function cleaning_str(string $data): string
+    {
+        return strip_tags(trim(preg_replace("/\s{2,}/", " ", $data)));
+    }
+
     protected $fillable = [
         'first_name', 'middle_name', 'last_name', 'email', 'number', 'site', 'birthday', 'city', 'work', 'position',
         'favorites', 'work_email', 'comment', 'avatar', 'user_id', 'group_id'
