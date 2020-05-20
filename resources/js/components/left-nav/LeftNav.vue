@@ -2,7 +2,7 @@
     <div>
         <div class="row">
             <div class="col-12 text-center">
-                <div class="customBorderBottom add-contact p-3">
+                <div class="customBorderBottom p-3">
                     <router-link
                         class="w-100 py-3 btn-primary btn text-uppercase font-12px btnText text-white addContact"
                         active-class="d-none"
@@ -14,7 +14,7 @@
             <div class="col-12" @click="getAllContacts()">
                 <div class="customBorderBottom">
                     <router-link
-                        class="d-block pl-2 pl-xl-5 py-3 textGrey text-decoration-none"
+                        class="d-block pl-3 pl-xl-5 py-3 textGrey text-decoration-none"
                         active-class="activeBorder textActive"
                         to="/contacts"
                         exact>
@@ -25,7 +25,7 @@
             <div class="col-12" @click="getFrequentContacts()">
                 <div class="customBorderBottom">
                     <router-link
-                        class="d-block pl-2 pl-xl-5 py-3 textGrey text-decoration-none"
+                        class="d-block pl-3 pl-xl-5 py-3 textGrey text-decoration-none"
                         active-class="activeBorder"
                         to="/frequent-contacts">
                         Частые контакты
@@ -36,7 +36,7 @@
             <div class="col-12" @click="getFavorites()">
                 <div class="customBorderBottom">
                     <router-link
-                        class="d-block pl-2 pl-xl-5 py-3 textGrey text-decoration-none"
+                        class="d-block pl-3 pl-xl-5 py-3 textGrey text-decoration-none"
                         active-class="activeBorder"
                         to="/favorites">
                         Избранные
@@ -46,7 +46,7 @@
             <div class="col-12">
                 <div class="customBorderBottom">
                     <router-link
-                        class="d-block pl-2 pl-xl-5 py-3 textGrey text-decoration-none"
+                        class="d-block pl-3 pl-xl-5 py-3 textGrey text-decoration-none"
                         active-class="activeBorder"
                         to="write">
                         Написать
@@ -77,8 +77,9 @@
 </script>
 
 <style scoped>
-    .add-contact {
-        min-height: 92px;
+    .addContact {
+        font-weight: bold;
+        margin: 2px 0 3px 0;
     }
     .sidenav {
         height: 100%;
@@ -113,5 +114,10 @@
     @media screen and (max-height: 450px) {
         .sidenav {padding-top: 15px;}
         .sidenav a {font-size: 18px;}
+    }
+    @media screen and (max-width: 1199px) {
+        .addContact {
+            margin: 2px 0 1.5px 0;
+        }
     }
 </style>

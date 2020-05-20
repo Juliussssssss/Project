@@ -14,12 +14,12 @@
             </g>
         </svg>
         <!-- dropdown menu        -->
-        <div class="dropdown-menu mt-4 textGrey" role="menu" aria-labelledby="dropdownMenu">
+        <div class="dropdown-menu p-0 mt-4 textGrey text-nowrap" role="menu" aria-labelledby="dropdownMenu">
             <div :class="getSelectedContacts.length > 0 ? 'customBorderBottom p-3 addGroup' : 'customBorderBottom p-3'"
                  v-for="group in getGroups"
                  @click="groupClick($event, group.id)">
-                <div class="row d-flex justify-content-start align-items-center">
-                    <div class="col-lg-2">
+                <div class="d-flex flex-nowrap justify-content-start align-items-center">
+                    <div class="">
                         <svg id="groups" width="30" height="30" viewBox="0 0 30 30" fill="none"
                              xmlns="http://www.w3.org/2000/svg" class="dropdown-toggle" data-toggle="dropdown">
                             <mask id="mask1" mask-type="alpha" maskUnits="userSpaceOnUse" x="4" y="8" width="22"
@@ -39,20 +39,20 @@
                         </svg>
                     </div>
                     <div :class="(getCurrentGroup === group.id && getSelectedContacts.length > 0)
-                        ? 'col-lg-10 font-weight-bold'
-                        : 'col-lg-10'">
+                        ? 'font-weight-bold pl-3'
+                        : 'pl-3'">
                         {{ group.name }}
                     </div>
                 </div>
             </div>
             <!-- groupAddBtn -->
-            <div class="customBorderBottom p-3 addGroup"
+            <div class="p-3 addGroup"
                  data-toggle="modal"
                  data-target="#createGroupModal"
                  @click="setFocus()"
                  v-if="getSelectedContacts.length == 0">
-                <div class="row d-flex justify-content-start align-items-center">
-                    <div class="col-lg-2">
+                <div class="flex-nowrap d-flex justify-content-start align-items-center">
+                    <div>
                         <svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <mask id="groupAddBtn" mask-type="alpha" maskUnits="userSpaceOnUse" x="8" y="8" width="14"
                                   height="14">
@@ -66,7 +66,7 @@
                         </svg>
                     </div>
                     <!-- выпрыгивает модалка -->
-                    <div class="col-lg-10">Создать группу</div>
+                    <div class="pl-3">Создать группу</div>
                 </div>
             </div>
             <!-- сюда блок принять            -->
@@ -77,7 +77,7 @@
 
                     </div>
                     <!-- выпрыгивает модалка -->
-                    <div class="col-lg-10 font-weight-bold" @click="addContactsAtGroup()">Применить</div>
+                    <div class="font-weight-bold pl-3" @click="addContactsAtGroup()">Применить</div>
                 </div>
             </div>
         </div>
@@ -126,7 +126,6 @@
     .addGroup {
         cursor: pointer;
     }
-
     .currentGroup {
         fill: #666666;
     }

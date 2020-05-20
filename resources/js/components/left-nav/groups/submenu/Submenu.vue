@@ -1,8 +1,8 @@
 <template>
-    <div class="dropdown-menu">
-        <div class="dropdown-item customBorderBottom d-flex justify-content-between align-items-center row textGrey m-0 py-3 pl-0 pr-3"
+    <div class="dropdown-menu m-0 p-0">
+        <div class="dropdown-item customBorderBottom flex-nowrap d-flex justify-content-between align-items-center row textGrey m-0 p-3"
              v-for="group in getGroups">
-            <div class="col-2 pl-3">
+            <div>
                 <svg class="margingY" width="30" height="30" viewBox="0 0 30 30" fill="none"
                      xmlns="http://www.w3.org/2000/svg">
                     <mask id="group" mask-type="alpha" maskUnits="userSpaceOnUse" x="4" y="8" width="22"
@@ -16,8 +16,8 @@
                     </g>
                 </svg>
             </div>
-            <div class="col-6 group-name">{{ group.name }}</div>
-            <div class="col-4">
+            <div class="pl-3 w-100 text-nowrap text-left">{{ group.name }}</div>
+            <div class="pl-3">
                 <a @click="editClick(group.id)">
                     <svg class="margingY" width="30" height="30" viewBox="0 0 30 30" fill="none"
                          xmlns="http://www.w3.org/2000/svg">
@@ -91,7 +91,12 @@
 </script>
 
 <style>
-    .group-name {
-        white-space: normal;
+    .dropdown-item:last-child {
+        border: 0px;
+    }
+    .dropdown-menu {
+        top: -2px !important;
+        left: -1px !important;
+        border: 2px solid #F5F5F5;
     }
 </style>
