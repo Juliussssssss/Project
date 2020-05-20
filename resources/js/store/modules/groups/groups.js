@@ -65,15 +65,24 @@ export default {
                 })
             }
         },
-        addContactsAtGroup(context) {
+        addContactsAtGroup(context, payload) {
             console.log('addGroupAtContacts')
             if (context.getters.getSelectedContacts.length > 0) {
                 axios.put('/api/groups/' + context.getters.getCurrentGroup + '/contacts/', {
-                        contacts: context.getters.getSelectedContacts
+                    contacts: context.getters.getSelectedContacts
                 })
                 .then(response => {
-                    context.commit("fillContacts", response.data)
-                    context.commit("fillContactsFromDb", response.data)
+                    if (payload === 'favorites') {
+                        context.dispatch("getFavorites")
+                    } else if (payload === 'FrequentContacts') {
+                        context.dispatch("getFrequentContacts")
+                    } else if (payload === 'groups') {
+                        context.dispatch("getContactsWithGroup", context.getters.getCurrentGroup)
+                    }
+                    else {
+                        context.commit("fillContacts", response.data)
+                        context.commit("fillContactsFromDb", response.data)
+                    }
                     context.dispatch("getContactGroups")
                 })
                 .catch(error => {

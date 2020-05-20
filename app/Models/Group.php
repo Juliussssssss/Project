@@ -54,4 +54,10 @@ class Group extends Model
         $data['user_id'] = auth()->user()->id;
         Group::create($data);
     }
+
+    public function deleteGroup(int $id)
+    {
+        $group = Group::getUserGroups()->find($id);
+        $group->delete();
+    }
 }

@@ -77,7 +77,7 @@
 
                     </div>
                     <!-- выпрыгивает модалка -->
-                    <div class="col-lg-10 font-weight-bold" @click="addContactsAtGroup()">Применить</div>
+                    <div class="col-lg-10 font-weight-bold" @click="apply()">Применить</div>
                 </div>
             </div>
         </div>
@@ -114,7 +114,18 @@
 
             },
             ...mapMutations(["setCurrentGroup"]),
-            ...mapActions(["addContactsAtGroup"])
+            ...mapActions(["addContactsAtGroup", "getFavorites", "getFrequentContacts", "getAllContacts"]),
+            apply() {
+                this.addContactsAtGroup(this.$route.name);
+
+                // if (this.$route.name === 'favorites') {
+                //     this.getFavorites()
+                // } else if (this.$route.name === 'FrequentContacts') {
+                //     this.getFrequentContacts()
+                // } else {
+                //     this.getAllContacts()
+                // }
+            }
         },
         components: {
             addGroupModal

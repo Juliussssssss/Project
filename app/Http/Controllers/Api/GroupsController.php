@@ -94,8 +94,7 @@ class GroupsController extends Controller
     public function destroy(int $id)
     {
         try {
-            $group = Group::getUserGroups()->find($id);
-            $group->delete();
+            (new Group)->deleteGroup($id);
 
             $groups = $this->groupsRepository->getGroups();
             return response()->json($groups, 200);

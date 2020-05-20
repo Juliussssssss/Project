@@ -1,9 +1,10 @@
 <template>
-    <div class="col-12">
+    <div class="col-12 group-menu">
         <div class="customBorderBottom textGrey">
             <div class="dropright">
-                <div class="pl-2 pl-xl-5 py-3 w-100 dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <div class="pl-2 pl-xl-5 py-3 w-100 d-flex justify-content-between" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     Групы
+                    <div class="mx-4 font-weight-bold">&gt;</div>
                 </div>
                 <submenu></submenu>
             </div>
@@ -27,5 +28,7 @@
 </script>
 
 <style>
-
+    .group-menu {
+        cursor: pointer;
+    }
 </style>
