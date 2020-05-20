@@ -1,14 +1,18 @@
 <template>
-    <div class="col-4 py-4 align-items-center d-flex customBorderRight">
-        <div class="w-100 d-flex justify-content-around flex-wrap">
-            <edit-btn></edit-btn>
-            <!-- меню -->
-            <groups-dropdown-menu></groups-dropdown-menu>
-            <!-- меню -->
-            <import-btn></import-btn>
-            <export-btn></export-btn>
-            <print-btn></print-btn>
-            <delete-btn></delete-btn>
+    <div class="col-3 col-xl-4 py-4 align-items-center d-flex customBorderRight">
+        <div class="w-100 row-cols-1 row-cols-xl-2 d-flex justify-content-center text-center justify-content-xl-around flex-wrap">
+            <div class="w-50 d-flex justify-content-around">
+                <edit-btn></edit-btn>
+                <!-- меню -->
+                <groups-dropdown-menu></groups-dropdown-menu>
+                <!-- меню -->
+                <import-btn></import-btn>
+            </div>
+            <div class="w-50 d-flex justify-content-around">
+                <export-btn></export-btn>
+                <print-btn></print-btn>
+                <delete-btn></delete-btn>
+            </div>
         </div>
     </div>
 </template>

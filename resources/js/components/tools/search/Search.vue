@@ -1,5 +1,5 @@
 <template>
-    <div class="col-4 py-4 align-items-center d-flex customBorderRight justify-content-center">
+    <div class="col-5 col-xl-4 py-4 align-items-center d-flex customBorderRight justify-content-center">
         <div class="input-group fixPanel">
             <input @keyup="search" id="search" v-model="searchedWord" type="text" class="textActive form-control border-0 p-0" placeholder="Поиск" aria-label="Recipient's username" aria-describedby="button-addon2">
             <div class="input-group-append">
