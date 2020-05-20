@@ -1,40 +1,42 @@
 <template>
     <div class="col-4 py-4 align-items-center d-flex justify-content-center">
         <div class="d-flex w-100 justify-content-between">
-            <div class="textGrey d-flex align-items-center ">
-                <span class="font-13px">{{getLength>0 ? (getCurrentPage-1)*100+1+"-" : ""}}{{ getCurrentPage*100>getLength ? getLength : getCurrentPage*100}} из {{ getLength }}</span>
+            <div class="flex-wrap d-flex justify-content-around w-100">
+                <div class="textGrey d-flex align-items-center ">
+                    <span class="font-13px">{{getLength>0 ? (getCurrentPage-1)*100+1+"-" : ""}}{{ getCurrentPage*100>getLength ? getLength : getCurrentPage*100}} из {{ getLength }}</span>
+                </div>
+                <div>
+                    <span id="before" @click="beforePage">
+                        <svg width="30" height="30" viewBox="0 0 30 30" fill="none"
+                             xmlns="http://www.w3.org/2000/svg">
+                            <mask id="beforeIcon" mask-type="alpha" maskUnits="userSpaceOnUse" x="7"
+                                  y="7" width="16" height="16">
+                                <path fill-rule="evenodd" clip-rule="evenodd"
+                                      d="M23 14H10.83L16.42 8.41L15 7L7 15L15 23L16.41 21.59L10.83 16H23V14Z"
+                                      fill="white"/>
+                            </mask>
+                            <g mask="url(#beforeIcon)">
+                               <rect class="actionButtons" x="2" y="2" width="26" height="26" fill="#D8D8D8"/>
+                            </g>
+                        </svg>
+                    </span>
+                    <span id="next" @click="nextPage">
+                        <svg width="30" height="30" viewBox="0 0 30 30" fill="none"
+                             xmlns="http://www.w3.org/2000/svg">
+                            <mask id="nextIcon" mask-type="alpha" maskUnits="userSpaceOnUse" x="7"
+                                  y="7" width="16" height="16">
+                                <path fill-rule="evenodd" clip-rule="evenodd"
+                                      d="M15 7L13.59 8.41L19.17 14H7V16H19.17L13.59 21.59L15 23L23 15L15 7Z"
+                                      fill="white"/>
+                            </mask>
+                            <g mask="url(#nextIcon)">
+                                <rect class="actionButtons" x="2" y="2" width="26" height="26" fill="#D8D8D8"/>
+                            </g>
+                        </svg>
+                    </span>
+                </div>
             </div>
-            <div class="px-3">
-                <span id="before" @click="beforePage">
-                    <svg width="30" height="30" viewBox="0 0 30 30" fill="none"
-                         xmlns="http://www.w3.org/2000/svg">
-                        <mask id="beforeIcon" mask-type="alpha" maskUnits="userSpaceOnUse" x="7"
-                              y="7" width="16" height="16">
-                            <path fill-rule="evenodd" clip-rule="evenodd"
-                                  d="M23 14H10.83L16.42 8.41L15 7L7 15L15 23L16.41 21.59L10.83 16H23V14Z"
-                                  fill="white"/>
-                        </mask>
-                        <g mask="url(#beforeIcon)">
-                           <rect class="actionButtons" x="2" y="2" width="26" height="26" fill="#D8D8D8"/>
-                        </g>
-                    </svg>
-                </span>
-                <span id="next" @click="nextPage">
-                    <svg width="30" height="30" viewBox="0 0 30 30" fill="none"
-                         xmlns="http://www.w3.org/2000/svg">
-                        <mask id="nextIcon" mask-type="alpha" maskUnits="userSpaceOnUse" x="7"
-                              y="7" width="16" height="16">
-                            <path fill-rule="evenodd" clip-rule="evenodd"
-                                  d="M15 7L13.59 8.41L19.17 14H7V16H19.17L13.59 21.59L15 23L23 15L15 7Z"
-                                  fill="white"/>
-                        </mask>
-                        <g mask="url(#nextIcon)">
-                            <rect class="actionButtons" x="2" y="2" width="26" height="26" fill="#D8D8D8"/>
-                        </g>
-                    </svg>
-                </span>
-            </div>
-            <div data-toggle="modal" data-target="#exampleModal">
+            <div data-toggle="modal" data-target="#exampleModal" class="align-items-center d-flex">
                 <svg width="30" height="30" viewBox="0 0 30 30" fill="none"
                      xmlns="http://www.w3.org/2000/svg">
                     <mask id="settings" mask-type="alpha" maskUnits="userSpaceOnUse" x="5" y="5" width="20"

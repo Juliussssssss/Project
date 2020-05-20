@@ -11,43 +11,53 @@ use App\Http\Requests\Contact\UpdateRequest;
 use App\Models\Contact;
 use App\Models\File;
 use App\Repositories\ContactsRepository;
+use Illuminate\Contracts\Foundation\Application;
+use Illuminate\Contracts\Routing\ResponseFactory;
+use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
+use Illuminate\Http\Response;
 use Maatwebsite\Excel\Facades\Excel;
+use Symfony\Component\HttpFoundation\BinaryFileResponse;
 use Throwable;
 
 class ContactsController extends Controller
 {
-
+    /**
+     * @var ContactsRepository
+     */
     private $contactRepository;
 
-    public function __construct()
+    /**
+     * ContactsController constructor.
+     * @param  ContactsRepository  $contactRepository
+     */
+    public function __construct(ContactsRepository $contactRepository)
     {
-        $this->contactRepository = app(ContactsRepository::class);
+        $this->contactRepository = $contactRepository;
     }
 
+    /**
+     * @return JsonResponse
+     */
     public function getContacts()
     {
         $contacts = $this->contactRepository->getAll();
-
         return response()->json($contacts);
     }
 
+    /**
+     * @return JsonResponse
+     */
     public function getFrequentContacts()
     {
-        $select = [
-            'id', 'avatar', 'favorites', 'first_name', 'middle_name', 'last_name', 'email', 'number', 'avatar', 'group_id'
-        ];
-
-        $contacts = Contact::has('callLog', '>=', 3)
-            ->select($select)
-            ->where('user_id', auth()->user()->id)
-            ->orderBy('first_name')
-            ->with('group:id,name')
-            ->get();
-
+        $contacts = $this->contactRepository->getFrequentContacts();
         return response()->json($contacts);
     }
 
+    /**
+     * @param  Request  $request
+     * @return JsonResponse
+     */
     public function setFavorites(Request $request)
     {
         $contact = Contact::find($request->id)->update(['favorites' => $request->value]);
@@ -55,48 +65,52 @@ class ContactsController extends Controller
         return response()->json("ok");
     }
 
-    public function favorites()
+    /**
+     * @return JsonResponse
+     */
+    public function getFavorites()
     {
-        $contacts = Contact::getUserContacts()
-            ->where('favorites', 1)
-            ->orderBy('first_name')
-            ->with('group:id,name')
-            ->get();
-
+        $contacts = $this->contactRepository->getFavorites();
         return response()->json($contacts, 200);
     }
 
+    /**
+     * @param  StoreRequest  $request
+     * @return Application|ResponseFactory|Response
+     */
     public function store(StoreRequest $request)
     {
-
         return (new Contact())->prepareForCreate($request);
     }
 
-    public function show($id)
+    /**
+     * @param  int  $id
+     * @return Application|ResponseFactory|JsonResponse|Response
+     */
+    public function show(int $id)
     {
-        $select = [
-            'id', 'avatar', 'favorites', 'first_name',
-            'middle_name', 'last_name', 'email', 'number',
-            'avatar', 'group_id','site','birthday','comment',
-            'work', 'work_email','city','position'
-        ];
-        $contact = Contact::where('id',$id)
-            ->where('user_id',auth()->user()->id)
-            ->first($select);
-        if(!$contact){
+       $contact = $this->contactRepository->getContact($id);
 
+        if(!$contact){
             return response( 'error',403);
         }
 
         return response()->json($contact);
     }
 
+    /**
+     * @param  UpdateRequest  $request
+     * @return Application|ResponseFactory|Response
+     */
     public function update(UpdateRequest $request)
     {
-
         return (new Contact())->prepareForUpdate($request);
     }
 
+    /**
+     * @param  Request  $request
+     * @return Application|ResponseFactory|Response
+     */
     public function destroy(Request $request)
     {
         $user_id = auth()->user()->id;
@@ -110,39 +124,51 @@ class ContactsController extends Controller
         return response('ok', 200);
     }
 
+    /**
+     * @return BinaryFileResponse
+     */
     public function exportAll()
     {
         return Excel::download(new ContactsExport, 'contacts.xlsx');
     }
 
+    /**
+     * @return BinaryFileResponse
+     */
     public function exportFrequent()
     {
         return Excel::download(new ContactsFrequentExport, 'contacts.xlsx');
     }
 
+    /**
+     * @param  int  $id
+     * @return BinaryFileResponse
+     */
     public function exportGroup(int $id)
     {
         return Excel::download(new ContactsGroupExport($id), 'contacts.xlsx');
     }
 
+    /**
+     * @return JsonResponse
+     */
     public function getContactsCount()
     {
         try {
-            $count = Contact::where('user_id', auth()->user()->id)->count();
-
+            $count = $this->contactRepository->getContactsCount();
             return response()->json($count, 200);
         } catch (Throwable $e) {
             return response()->json($e->getMessage(), 417);
         }
     }
 
+    /**
+     * @return JsonResponse
+     */
     public function getCountFrequentContacts()
     {
         try {
-            $count = Contact::has('callLog', '>=', 3)
-                ->where('user_id', auth()->user()->id)
-                ->count();
-
+            $count = $this->contactRepository->getCountFrequentContacts();
             return response()->json($count, 200);
         } catch (Throwable $e) {
             return response()->json($e->getMessage(), 417);

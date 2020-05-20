@@ -2,7 +2,7 @@
     <div>
         <div class="col-12 p-0">
             <div class="customBorderBottom row py-3 textGrey">
-                <div class="col-2 pr-0">
+                <div class="col-3 col-xl-2 pr-0">
                     <div class="row">
                         <div class="col-3 pr-0">
                             <input v-model="selectAllControlProp" @click="selectAll" hidden id="all" type="checkbox"/>
@@ -16,52 +16,52 @@
                         <div class="col-6 pr-0"></div>
                     </div>
                 </div>
-                <div class="col-10">
+                <div class="col-9 col-xl-10">
                     <div class="row">
-                        <div class="col-3 pl-0"><span class="font-12px">Имя</span></div>
-                        <div class="col-3 pl-0"><span class="font-12px">Почта</span></div>
-                        <div class="col-3 pl-0"><span class="font-12px">Телефон</span></div>
-                        <div class="col-3 pl-0"><span class="font-12px">Группа</span></div>
+                        <div class="col-6 col-lg-4 col-xl-3"><span class="font-12px">Имя</span></div>
+                        <div class="d-none d-lg-block col-lg-4 col-xl-3"><span class="font-12px">Почта</span></div>
+                        <div class="col-6 col-lg-4 col-xl-3"><span class="font-12px">Телефон</span></div>
+                        <div class="d-none d-xl-block  col-xl-3"><span class="font-12px">Группа</span></div>
                     </div>
                 </div>
             </div>
             <div class="customBorderBottom row py-3 textGrey"
                  v-for="(contact) in getContacts.slice((getCurrentPage-1)*100,getCurrentPage*100)"
                  v-bind:key="contact.id">
-                <div class="col-2 pr-0">
+                <div class="col-3 col-xl-2">
                     <div class="row">
-                        <div class="col-3 pr-0">
+                        <div class="col-3 pl-3 pr-2">
                             <input @click="checkSelectAll" v-model="selected" :id="contact.id" hidden :value="contact.id" type="checkbox"/>
                             <label class="customLabel" :for="contact.id"></label>
                         </div>
-                        <div class="col-3 pr-0">
+                        <div class="col-3 px-2">
                             <a class="favorites" @click="setFavorites(contact.favorites, contact.id)">
                                 <img class="margingY" :src="contact.favorites == 0 ? 'storage/logos/nonFavoritesStar.svg' : 'storage/logos/favoritesStar.svg'" alt="favoriteLogo">
                             </a>
                         </div>
-                        <div class="col-6 pr-0">
-                            <router-link class="row pl-2" :to="{ name: 'ContactShow', params: {user_id: contact.id } }">
-                                <img class="contactPhoto ml-1" :src="contact.avatar" alt="фото">
+                        <div class="col-6 p-0 pl-2">
+                            <router-link class="justify-content-center d-flex" :to="{ name: 'ContactShow', params: {user_id: contact.id } }">
+                                <img class="contactPhoto" :src="contact.avatar" alt="фото">
                             </router-link>
                         </div>
                     </div>
                 </div>
-                <div class="col-10">
+                <div class="col-9 col-xl-10">
                     <router-link class="row routerLink linkDisabled textGrey" :to="{ name: 'ContactShow', params: {user_id: contact.id} }">
-                        <div class="col-3 pl-0 contactPhoto align-items-center d-flex">
+                        <div class="col-6 col-lg-5 col-xl-3 contactPhoto align-items-center d-flex">
                             <span class="font-12px">
                                 <span v-html="highlight(contact.first_name)"/>
                                 <span v-html="highlight(contact.middle_name)"/>
                                 <span v-html="highlight(contact.last_name)"/>
                             </span>
                         </div>
-                        <div class="col-3 pl-0 d-flex">
+                        <div class="d-none d-lg-flex col-lg-4 col-xl-3">
                             <span class="font-12px text-truncate" v-html="highlight(contact.email)"/>
                         </div>
-                        <div class="col-3 pl-0">
+                        <div class="col-6 col-lg-3 col-xl-3">
                             <span class="font-12px" v-html="highlight(contact.number)"/>
                         </div>
-                        <div class="col-3 pl-0 d-flex">
+                        <div class="d-none col-xl-3 d-xl-block text-wrap">
                             <span class="font-12px text-truncate">{{ contact.group ? contact.group['name'] : '' }}</span>
                         </div>
                     </router-link>
@@ -111,8 +111,8 @@
             ]),
             highlight(value) {
                 if (value != null) {
-                    if ((value.toLowerCase().indexOf(this.getHighlightedWord) > -1) && (this.getHighlightedWord.length > 0)) {
-                        let beforeWord = value.toLowerCase().indexOf(this.getHighlightedWord);
+                    if ((value.toLowerCase().indexOf(this.getHighlightedWord.toLowerCase()) > -1) && (this.getHighlightedWord.length > 0)) {
+                        let beforeWord = value.toLowerCase().indexOf(this.getHighlightedWord.toLowerCase());
                         let wordLength = this.getHighlightedWord.length;
                         return (
                             value.slice(0, beforeWord)
