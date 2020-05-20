@@ -47,14 +47,11 @@ class Group extends Model
 
     /**
      * @param $request
-     * @return
      */
     public function store($request)
     {
         $data['name'] = (new Contact)->cleaning_str(($request->name));
         $data['user_id'] = auth()->user()->id;
         Group::create($data);
-
-        return Group::getUserGroups()->withCount('contacts')->get(['id', 'name']);
     }
 }

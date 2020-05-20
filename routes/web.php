@@ -33,7 +33,7 @@ Route::middleware('auth')
     ->prefix('/api')
     ->group(function () {
         Route::get('groups', 'GroupsController@index');
-        Route::get('contacts/favorites', 'ContactsController@favorites');
+        Route::get('contacts/favorites', 'ContactsController@getFavorites');
         Route::get('contacts/count', 'ContactsController@getContactsCount');
         Route::get('contacts/frequent', 'ContactsController@getCountFrequentContacts');
         Route::get('groups/{id}', 'GroupsController@show');
@@ -41,8 +41,8 @@ Route::middleware('auth')
         Route::post('contacts/write', 'MailController@send');
 
         Route::delete('groups/{id}', 'GroupsController@destroy');
-        Route::delete('groups/{id}/contacts', 'GroupsController@deleteGroupAtContacts');
-        Route::put('groups/{id}/contacts', 'GroupsController@addGroupAtContacts');
+        Route::delete('groups/{id}/contacts', 'GroupsController@deleteGroupInContacts');
+        Route::put('groups/{id}/contacts', 'GroupsController@addGroupInContacts');
     });
 
 Route::get('contacts/export/all', 'Api\ContactsController@exportAll');
