@@ -8,6 +8,7 @@ use App\Exports\ContactsExport;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Contact\StoreRequest;
 use App\Http\Requests\Contact\UpdateRequest;
+use App\Models\CallLog;
 use App\Models\Contact;
 use App\Models\File;
 use App\Repositories\ContactsRepository;
@@ -61,6 +62,7 @@ class ContactsController extends Controller
     public function setFavorites(Request $request)
     {
         $contact = Contact::find($request->id)->update(['favorites' => $request->value]);
+        (new CallLog())->prepareToCreate($request->id);
 
         return response()->json("ok");
     }
@@ -91,7 +93,8 @@ class ContactsController extends Controller
     {
        $contact = $this->contactRepository->getContact($id);
 
-        if(!$contact){
+        if(!$contact)
+        {
             return response( 'error',403);
         }
 

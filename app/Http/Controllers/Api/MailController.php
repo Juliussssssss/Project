@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Api;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Mail\MailRequest;
 use App\Mail\SendMessage;
+use App\Models\CallLog;
 use App\Models\Contact;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Support\Facades\Mail;
@@ -30,6 +31,7 @@ class MailController extends Controller
             foreach ($contacts as $contact) {
                 Mail::to($contact->email)
                     ->send(new SendMessage($emailMessage, $subject, $sender));
+                (new CallLog())->prepareToCreate($contact->id);
             }
 
             return response()->json($contacts, 200);

@@ -78,6 +78,7 @@ class Contact extends Model
         }
         $contact_id = $request['id'];
         Contact::where('id', $contact_id)->where('user_id', $user_id)->update($contact);
+        (new CallLog())->prepareToCreate($request['id']);
 
         return response('updated', 200);
     }
