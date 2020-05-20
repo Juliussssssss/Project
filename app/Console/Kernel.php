@@ -13,7 +13,7 @@ class Kernel extends ConsoleKernel
      * @var array
      */
     protected $commands = [
-        //
+        'App\Console\Commands\DeleteOldLogs'
     ];
 
     /**
@@ -24,11 +24,7 @@ class Kernel extends ConsoleKernel
      */
     protected function schedule(Schedule $schedule)
     {
-        // $schedule->command('inspire')->hourly();
-        $schedule->call(function () {
-            $date = getdate(mktime(0, 0, 0, date('m'), date('d') - 7, date('Y')));
-            DB::table('call_log')->where('created_at', '<',$date)->delete();
-        })->daily();
+        $schedule->command('delete:logs')->everyMinute();
     }
 
     /**
