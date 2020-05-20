@@ -2,25 +2,25 @@
     <div>
         <div class="col-12 p-0">
             <div class="customBorderBottom row py-3 textGrey">
-                <div class="col-3 col-xl-2 pr-0">
+                <div class="col-3 col-xl-2">
                     <div class="row">
-                        <div class="col-3 pr-0">
+                        <div class="col-3 pl-3 pr-2">
                             <input v-model="selectAllControlProp" @click="selectAll" hidden id="all" type="checkbox"/>
                             <label class="customLabel" for="all"></label>
                         </div>
-                        <div class="col-3 pr-0">
+                        <div class="col-3 px-2">
                             <a href="">
                                 <img class="margingY" src="storage/logos/favoritesStar.svg" alt="favoriteLogo">
                             </a>
                         </div>
-                        <div class="col-6 pr-0"></div>
+                        <div class="col-6 pr-0 pl-2"></div>
                     </div>
                 </div>
                 <div class="col-9 col-xl-10">
                     <div class="row">
-                        <div class="col-6 col-lg-4 col-xl-3"><span class="font-12px">Имя</span></div>
+                        <div class="col-6 col-lg-5 col-xl-3"><span class="font-12px">Имя</span></div>
                         <div class="d-none d-lg-block col-lg-4 col-xl-3"><span class="font-12px">Почта</span></div>
-                        <div class="col-6 col-lg-4 col-xl-3"><span class="font-12px">Телефон</span></div>
+                        <div class="col-6 col-lg-3 col-xl-3"><span class="font-12px">Телефон</span></div>
                         <div class="d-none d-xl-block  col-xl-3"><span class="font-12px">Группа</span></div>
                     </div>
                 </div>
@@ -39,7 +39,7 @@
                                 <img class="margingY" :src="contact.favorites == 0 ? 'storage/logos/nonFavoritesStar.svg' : 'storage/logos/favoritesStar.svg'" alt="favoriteLogo">
                             </a>
                         </div>
-                        <div class="col-6 p-0 pl-2">
+                        <div class="col-6 pr-0 pl-2">
                             <router-link class="justify-content-center d-flex" :to="{ name: 'ContactShow', params: {user_id: contact.id } }">
                                 <img class="contactPhoto" :src="contact.avatar" alt="фото">
                             </router-link>

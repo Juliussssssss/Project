@@ -12,7 +12,7 @@
                             <input v-model="selectedToPrint" type="radio" :id="contact.name" name="radio-group" :value="contact.name + '/' + 1">
                             <label class="font-14px" :for="contact.name">{{contact.name}} ({{contact.contacts}})</label>
                         </div>
-                        <div class="modal-title py-2 font-14px modalText">Сортировать</div>
+                        <div v-if="contactsInGroups.length > 1" class="modal-title py-2 font-14px modalText">Группы</div>
                         <div v-for="contactGroup in contactsInGroups">
                             <input v-model="selectedToPrint" type="radio" :id="contactGroup.id" name="radio-group" :value="contactGroup.name.split(' ').join('-') + '/' + contactGroup.id">
                             <label class="font-14px" :for="contactGroup.id">{{contactGroup.name}} ({{contactGroup.contacts}})</label>
