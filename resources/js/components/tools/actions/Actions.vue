@@ -6,6 +6,7 @@
                 <!-- меню -->
                 <groups-dropdown-menu></groups-dropdown-menu>
                 <!-- меню -->
+                <search-duplicate-btn></search-duplicate-btn>
                 <import-btn></import-btn>
             </div>
             <div class="w-50 d-flex justify-content-around">
@@ -24,6 +25,7 @@
     import ImportBtn from "./buttons/impot-btn/ImportBtn";
     import ExportBtn from "./buttons/export-btn/ExportBtn";
     import PrintBtn from "./buttons/print-btn/PrintBtn";
+    import SearchDuplicateBtn from "./buttons/search-duplicate/SearchDuplicate";
 
     export default {
         name: "Actions",
@@ -33,7 +35,8 @@
             ImportBtn,
             EditBtn,
             DeleteBtn,
-            GroupsDropdownMenu
+            GroupsDropdownMenu,
+            SearchDuplicateBtn
         }
     }
 </script>
