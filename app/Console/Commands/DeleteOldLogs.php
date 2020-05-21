@@ -38,7 +38,7 @@ class DeleteOldLogs extends Command
      */
     public function handle()
     {
-        $date = getdate(mktime(0, 0, 0, date('m'), date('d') - 3, date('Y')));
+        $date = getdate(mktime(0, 0, 0, date('m'), date('d') - 7, date('Y')));
         DB::table('call_log')
             ->whereDate('created_at', '<',gmdate("Y-m-d H:i:s", $date[0]))
             ->delete();
