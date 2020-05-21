@@ -41,7 +41,7 @@
                         </div>
                         <div class="col-6 pr-0 pl-2">
                             <router-link class="justify-content-center d-flex" :to="{ name: 'ContactShow', params: {user_id: contact.id } }">
-                                <img class="contactPhoto" :src="contact.avatar?'storage/'+contact.avatar:'/storage/avatars/default.png'" alt="фото">
+                                <img class="contactPhoto" :src="contact.avatar?'/storage/'+contact.avatar:'/storage/avatars/default.png'" alt="фото">
                             </router-link>
                         </div>
                     </div>
