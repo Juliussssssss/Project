@@ -32,8 +32,9 @@
         name: "DeleteModal",
         methods: {
             deleteClick() {
-                console.log('current group has been deleted ' + this.getCurrentGroup)
-                this.deleteGroup()
+                //console.log('current group has been deleted ' + this.getCurrentGroup)
+                this.deleteGroup(this.$route.name)
+                if (this.$route.name === 'groups') this.$router.push('contacts')
             },
             ...mapActions(["getContactGroups", "deleteGroup"])
         },

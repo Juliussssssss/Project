@@ -69,7 +69,7 @@
         },
         methods: {
             deleteClick (id) {
-                console.log('delete ' + id);
+                //console.log('delete ' + id);
                 this.setCurrentGroup(id);
             },
             editClick (id) {

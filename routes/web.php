@@ -10,23 +10,23 @@ Route::get('/auth/redirect', ('Auth\AuthController@authorization'))->name('login
 Route::get('/auth/callback', ('Auth\AuthController@authorizationCallback'));
 Route::post('/logout', 'Auth\AuthController@logout')->middleware('auth');
 
-Route::post('/api/contact', ('Api\ContactsController@store'))->middleware('auth');
-Route::get('/api/contact/{id}', ('Api\ContactsController@show'))->middleware('auth');
-Route::post('/api/contact/update', ('Api\ContactsController@update'))->middleware('auth');
-Route::delete('/api/contacts', ('Api\ContactsController@destroy'))->middleware('auth');
-Route::get('/api/frequent-contacts', ('Api\ContactsController@getFrequentContacts'))->middleware('auth');
-Route::post('/api/contacts-import', ('Api\ExcelController@importContacts'))->middleware('auth');
-Route::get('/api/template', ('Api\ExcelController@getTemplate'))->middleware('auth');
+Route::middleware('auth')
+    ->namespace('Api')
+    ->prefix('/api')
+    ->group(function () {
+        Route::post('/contact', 'ContactsController@store');
+        Route::get('/contact/{id}', 'ContactsController@show');
+        Route::post('/contact/update', 'ContactsController@update');
+        Route::delete('/contacts', 'ContactsController@destroy');
+        Route::get('/frequent-contacts', 'ContactsController@getFrequentContacts');
+        Route::post('/contacts-import', 'ExcelController@importContacts');
+        Route::get('/template', 'ExcelController@getTemplate');
+    });
 
 Route::get('/contacts/get-all', ('Api\ContactsController@getContacts'))->middleware('auth');
 Route::post('/contacts/set-favorites', ('Api\ContactsController@setFavorites'))->middleware('auth');
 
 Route::get('/testPrint/test', ('PrintController@getContacts'))->middleware('auth');
-
-Route::delete('/api/groups', ('Api\GroupsController@destroy'))->middleware('auth');
-Route::get('/api/groups', ('Api\GroupsController@index'))->middleware('auth');
-Route::post('/api/groups', ('Api\GroupsController@store'))->middleware('auth');
-Route::get('/api/groups/{id}', ('Api\GroupsController@show'))->middleware('auth');
 
 Route::middleware('auth')
     ->namespace('Api')
@@ -45,8 +45,13 @@ Route::middleware('auth')
         Route::put('groups/{id}/contacts', 'GroupsController@addGroupInContacts');
     });
 
-Route::get('contacts/export/all', 'Api\ContactsController@exportAll');
-Route::get('contacts/export/frequent', 'Api\ContactsController@exportFrequent');
-Route::get('contacts/export/group/{id}', 'Api\ContactsController@exportGroup');
+Route::middleware('auth')
+    ->namespace('Api')
+    ->prefix('contacts/export')
+    ->group(function () {
+        Route::get('all', 'ContactsController@exportAll');
+        Route::get('frequent', 'ContactsController@exportFrequent');
+        Route::get('group/{id}', 'ContactsController@exportGroup');
+    });
 
 Route::view('/{any}', 'index')->where('any', '.*')->middleware('auth');

@@ -117,14 +117,6 @@
             ...mapActions(["addContactsAtGroup", "getFavorites", "getFrequentContacts", "getAllContacts"]),
             apply() {
                 this.addContactsAtGroup(this.$route.name);
-
-                // if (this.$route.name === 'favorites') {
-                //     this.getFavorites()
-                // } else if (this.$route.name === 'FrequentContacts') {
-                //     this.getFrequentContacts()
-                // } else {
-                //     this.getAllContacts()
-                // }
             }
         },
         components: {

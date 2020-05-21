@@ -1,6 +1,5 @@
 import axios from 'axios';
 
-
 export default {
     state: {
         currentGroup: 0,
@@ -72,13 +71,8 @@ export default {
                     contacts: context.getters.getSelectedContacts
                 })
                 .then(response => {
-                    if (payload === 'favorites') {
-                        context.dispatch("getFavorites")
-                    } else if (payload === 'FrequentContacts') {
-                        context.dispatch("getFrequentContacts")
-                    } else if (payload === 'groups') {
-                        context.dispatch("getContactsWithGroup", context.getters.getCurrentGroup)
-                    }
+                    if (payload !== 'contacts')
+                        context.dispatch("takeContactsForCurrentPage", payload)
                     else {
                         context.commit("fillContacts", response.data)
                         context.commit("fillContactsFromDb", response.data)
@@ -90,16 +84,29 @@ export default {
                 })
             }
         },
-        deleteGroup(context) {
+        deleteGroup(context, payload) {
             axios.delete('/api/groups/' + context.getters.getCurrentGroup)
             .then(response => {
                 context.commit("fillGroups", response.data)
-                console.log(response.data)
-                context.dispatch('getAllContacts')
+                //console.log(response.data)
+                if (payload !== 'groups')
+                    context.dispatch("takeContactsForCurrentPage", payload)
+                else {
+                    context.dispatch("getAllContacts")
+                }
             })
             .catch(error => {
                 console.log(error)
             })
+        },
+        takeContactsForCurrentPage(context, payload) {
+            if (payload === 'favorites') {
+                context.dispatch("getFavorites")
+            } else if (payload === 'FrequentContacts') {
+                context.dispatch("getFrequentContacts")
+            } else if (payload === 'groups') {
+                context.dispatch("getContactsWithGroup", context.getters.getCurrentGroup)
+            }
         }
     }
 }
