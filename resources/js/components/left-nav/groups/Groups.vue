@@ -1,5 +1,5 @@
 <template>
-    <div class="col-12">
+    <div class="">
         <div class="customBorderBottom textGrey">
             <div class="dropright">
                 <div class="pl-3 pl-xl-5 py-3 w-100 d-flex justify-content-between dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">

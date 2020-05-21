@@ -1,7 +1,7 @@
 <template>
-    <div>
-        <div class="row">
-            <div class="col-12 text-center">
+        <div class="w-100">
+            <a href="javascript:void(0)" class="closebtn d-lg-none" @click="closeNav">&times;</a>
+            <div class="w-100 text-center d-none d-lg-block">
                 <div class="customBorderBottom p-3">
                     <router-link
                         class="w-100 py-3 btn-primary btn text-uppercase font-12px btnText text-white addContact"
@@ -11,7 +11,7 @@
                     </router-link>
                 </div>
             </div>
-            <div class="col-12" @click="getAllContacts()">
+            <div class="" @click="getAllContacts()">
                 <div class="customBorderBottom">
                     <router-link
                         class="d-block pl-3 pl-xl-5 py-3 textGrey text-decoration-none"
@@ -22,7 +22,7 @@
                     </router-link>
                 </div>
             </div>
-            <div class="col-12" @click="getFrequentContacts()">
+            <div class="" @click="getFrequentContacts()">
                 <div class="customBorderBottom">
                     <router-link
                         class="d-block pl-3 pl-xl-5 py-3 textGrey text-decoration-none"
@@ -33,7 +33,7 @@
                 </div>
             </div>
             <groups></groups>
-            <div class="col-12" @click="getFavorites()">
+            <div class="" @click="getFavorites()">
                 <div class="customBorderBottom">
                     <router-link
                         class="d-block pl-3 pl-xl-5 py-3 textGrey text-decoration-none"
@@ -43,7 +43,7 @@
                     </router-link>
                 </div>
             </div>
-            <div class="col-12">
+            <div class="">
                 <div class="customBorderBottom">
                     <router-link
                         class="d-block pl-3 pl-xl-5 py-3 textGrey text-decoration-none"
@@ -54,7 +54,6 @@
                 </div>
             </div>
         </div>
-    </div>
 </template>
 
 <script>
@@ -71,12 +70,23 @@
                 "getAllContacts",
                 "getFrequentContacts",
                 "getFavorites"
-            ])
+            ]),
+            closeNav() {
+                document.getElementById("mySidenav").style.width = "0";
+                document.getElementById("mySidenav").style.borderWidth = "0 0 0 0";
+            },
         }
     }
 </script>
 
 <style scoped>
+    .closebtn {
+        position: absolute;
+        color: #D8D8D8;
+        top: -11px;
+        right: 5px;
+        font-size: 30px !important;
+    }
     .addContact {
         font-weight: bold;
         margin: 2px 0 3px 0;
@@ -103,13 +113,6 @@
     }
     .sidenav a:hover {
         color: #f1f1f1;
-    }
-    .sidenav .closebtn {
-        position: absolute;
-        top: 0;
-        right: 25px;
-        font-size: 36px;
-        margin-left: 50px;
     }
     @media screen and (max-height: 450px) {
         .sidenav {padding-top: 15px;}

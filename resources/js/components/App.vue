@@ -83,16 +83,16 @@
                     </div>
                 </nav>
                 <main>
-                    <div class="mx-5 mt-5">
+                    <div class="mx-5 my-5">
 <!--                        <div class="mt-5" v-if="(this.$route.name != 'Test')">-->
                         <div class="row">
                             <div class="col-12 bg-white">
                                 <div class="row">
-                                    <div class="col-3 customBorderRight customBorderTop customBorderLeft p-0">
+                                    <div class="col-3 d-none d-lg-flex customBorderRight customBorderTop customBorderLeft p-0">
                                         <!-- left nav here -->
-                                        <left-nav></left-nav>
+                                                <left-nav></left-nav>
                                     </div>
-                                    <div class="col-9 customBorderBottom customBorderRight customBorderTop">
+                                    <div class="col-lg-9 col-12 router-view">
                                         <router-view></router-view>
                                     </div>
                                 </div>
@@ -184,10 +184,13 @@
 </script>
 
 <style scoped>
+    .router-view {
+        border: solid #F5F5F5;
+        border-width: 2px 2px 2px 0;
+    }
     nav {
         background-color: #fff;
     }
-
     #sidebar {
         top: 0;
         left: 0;
@@ -580,6 +583,11 @@
         }
         #sidebar {
             max-width: 60px;
+        }
+    }
+    @media screen and (max-width: 991px) {
+        .router-view {
+            border-width: 2px 2px 2px 2px;
         }
     }
     @media(max-width: 550px)  {
