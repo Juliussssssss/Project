@@ -24,9 +24,9 @@ class StoreRequest extends FormRequest
     public function rules()
     {
         $rules = [
-            'first_name' => 'required|alpha|max:255',
-            'middle_name' => 'required|alpha|max:255',
-            'last_name' => 'nullable|alpha|max:255',
+            'first_name' => 'required|string|alpha|max:255',
+            'middle_name' => 'required|string|alpha|max:255',
+            'last_name' => 'nullable|string|alpha|max:255',
             'email' => 'required|email|unique:users',
             'password' => 'required|min:8|max:255',
         ];

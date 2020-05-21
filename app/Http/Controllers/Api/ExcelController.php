@@ -5,6 +5,9 @@ namespace App\Http\Controllers\Api;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Excel\ImportRequest;
 use App\Imports\ContactsImport;
+use Illuminate\Contracts\Foundation\Application;
+use Illuminate\Contracts\Routing\ResponseFactory;
+use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Storage;
 use Maatwebsite\Excel\Facades\Excel;
 
@@ -12,6 +15,10 @@ use Illuminate\Http\Request;
 
 class ExcelController extends Controller
 {
+    /**
+     * @param  ImportRequest  $request
+     * @return Application|ResponseFactory|Response
+     */
     public function importContacts(ImportRequest $request)
     {
         if ($request->hasFile('import')) {
