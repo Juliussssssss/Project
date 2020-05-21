@@ -1,3 +1,4 @@
+<link rel="stylesheet" href="../../../css/css.css">
 <template>
     <div>
         <!-- Modal -->
