@@ -91,7 +91,7 @@
                                         <!-- left nav here -->
                                                 <left-nav></left-nav>
                                     </div>
-                                    <div class="col-lg-9 col-12 router-view">
+                                    <div class="col-lg-9 col-12 customBorderTop customBorderRight">
                                         <router-view></router-view>
                                     </div>
                                 </div>
@@ -158,6 +158,8 @@
 </template>
 
 <script >
+    import {mapGetters} from "vuex";
+
     export default {
         data: function () {
             return {
@@ -181,15 +183,16 @@
                 event.target.parentNode.classList.toggle('second_level-open');
                 event.target.classList.toggle('second_level-toggled');
             },
+        },
+        computed: {
+            ...mapGetters([
+                "getLength"
+            ])
         }
     }
 </script>
 
 <style scoped>
-    .router-view {
-        border: solid #F5F5F5;
-        border-width: 2px 2px 2px 0;
-    }
     nav {
         background-color: #fff;
     }
