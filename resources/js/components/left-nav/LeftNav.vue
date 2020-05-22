@@ -1,5 +1,5 @@
 <template>
-    <div :class="(this.getLength > 5 || (this.$route.name != 'conatcts' && this.$route.name != 'groups')) ? 'customBorderBottom w-100' : 'w-100'">
+    <div :class="(this.getLength > 5 || (this.$route.name == 'create-contact' && this.$route.name == 'show-contact')) ? 'customBorderBottom w-100' : 'w-100'">
         <div class="w-100">
             <div class="w-100 text-center d-none d-lg-block">
                 <div class="customBorderBottom p-3">

@@ -87,7 +87,7 @@
                         <div class="row">
                             <div class="col-12 bg-white">
                                 <div class="row">
-                                    <div class="col-3 d-none d-lg-flex customBorderRight customBorderTop customBorderLeft p-0">
+                                    <div v-if="window.width>=992" class="col-3 d-none d-lg-flex customBorderRight customBorderTop customBorderLeft p-0">
                                         <!-- left nav here -->
                                        <left-nav></left-nav>
                                     </div>
@@ -182,7 +182,17 @@
                 avatar : 'test_avatar.png',
                 userMenuOpen : false,
                 sidebarOpen : false,
+                window: {
+                    width: 0,
+                }
             }
+        },
+        created() {
+            window.addEventListener('resize', this.handleResize);
+            this.handleResize();
+        },
+        destroyed() {
+            window.removeEventListener('resize', this.handleResize);
         },
         methods: {
             logout() {
@@ -190,6 +200,10 @@
                     .then(function (response) {
                         location.href = response.data;
                     })
+            },
+            handleResize() {
+                this.window.width = window.innerWidth;
+                this.window.height = window.innerHeight;
             },
             closeMenu() {
                 this.userMenuOpen = false;

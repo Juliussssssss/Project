@@ -25,7 +25,7 @@
                     </div>
                 </div>
             </div>
-            <div class="customBorderBottom row py-3 textGrey"
+            <div class="item row py-3 textGrey"
                  v-for="(contact) in getContacts.slice((getCurrentPage-1)*100,getCurrentPage*100)"
                  v-bind:key="contact.id">
                 <div class="col-4 col-md-3 col-xl-2 pr-0">
@@ -192,7 +192,11 @@
 </script>
 
 <style scoped>
-    .customBorderBottom:nth-last-child(5):last-child {
+    .item {
+        border: solid #F5F5F5;
+        border-width: 0 0 2px 0;
+    }
+    .item:nth-child(1n+6):last-child {
         border-width: 0 0 0 0;
     }
     .favorites {
