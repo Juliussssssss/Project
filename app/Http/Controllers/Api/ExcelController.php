@@ -23,7 +23,9 @@ class ExcelController extends Controller
     {
         if ($request->hasFile('import')) {
             $file = $request->file('import');
-            $path = $file->getRealPath();
+//           $path = $file->getRealPath();
+            $path1 = $request->file('import')->store('temp');
+            $path=storage_path('app').'/'.$path1;
             $size = $file->getSize();
             $extension = $file->getClientOriginalExtension();
 
@@ -33,7 +35,7 @@ class ExcelController extends Controller
                     return  response('error size',500);
                 }
                 $import = new ContactsImport();
-                $import->import($path);
+                $import->import( $path);
             }
             else {
 

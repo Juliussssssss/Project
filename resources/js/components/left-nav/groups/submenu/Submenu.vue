@@ -1,13 +1,13 @@
 <template>
-    <div class="dropdown-menu m-3 m-xl-0 p-0">
+    <div class="dropdown-menu m-3 m-lg-0 p-0">
         <div class="dropdown-item customBorderBottom flex-nowrap d-flex justify-content-between align-items-center row textGrey m-0 p-3"
              v-for="group in getGroups">
             <div>
                 <object type="image/svg+xml" data="/storage/logos/groups.svg"></object>
             </div>
-            <div class="pl-3 w-100 text-nowrap text-left">{{ group.name }}</div>
+            <div class="pl-3 w-100 text-nowrap text-left" @click="editClick(group.id)">{{ group.name }}</div>
             <div class="pl-3">
-                <a @click="editClick(group.id)">
+                <a href="">
                     <object type="image/svg+xml" data="/storage/logos/edit.svg"></object>
                 </a>
                 <!--                click -->
