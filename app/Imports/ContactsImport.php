@@ -51,13 +51,13 @@ class ContactsImport implements ToModel,WithHeadingRow,SkipsOnError, WithBatchIn
                 $group_id = (new Group())->createAndGetGroupId($groupName);
             }
         }
-//        dd($row['data_rozdeniya']);
-//        $date = DateTime::createFromFormat('dd/mm/yy', $row['data_rozdeniya']);
-//        dd($date);
-//        if (!$date)
-//        {
-//            $row['data_rozdeniya']=null;
-//        }
+
+        $date = DateTime::createFromFormat('dd/mm/yy', $row['data_rozdeniya']);
+       
+        if (!$date)
+        {
+            $row['data_rozdeniya']=null;
+        }
 
         return new Contact([
             'first_name' => $this->clear($row['imya']),
