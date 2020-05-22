@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div @click="showExportMenu">
         <svg id="exportBtn" width="30" height="30" viewBox="0 0 30 30" fill="none"
              xmlns="http://www.w3.org/2000/svg"
              data-toggle="modal"
@@ -31,7 +31,8 @@
                         <div>
                             <input v-model="selectedGroup" type="radio" id="frequentContactsExport" name="radio-group"
                                    value="frequentContacts">
-                            <label class="font-14px" for="frequentContactsExport">Частые контакты ({{ getCountFrequentContacts }})</label>
+                            <label class="font-14px" for="frequentContactsExport">Частые контакты ({{
+                                                                                  getCountFrequentContacts }})</label>
                         </div>
 
                         <div class="modal-title py-2 font-14px modalText">Группы</div>
@@ -77,11 +78,15 @@
             ...mapGetters(["getGroups", "getCountContacts", "getCountFrequentContacts"])
         },
         methods: {
+            showExportMenu() {
+                this.getCountContactsFromDB();
+                this.getCountFrequentContactsFromDB();
+            },
             exportClick() {
 
                 $('#exportModal').modal('hide')
             },
-            ...mapActions(["getCountContactsFromDB"])
+            ...mapActions(["getCountContactsFromDB", "getCountFrequentContactsFromDB"])
         },
         watch: {
             selectedGroup() {
