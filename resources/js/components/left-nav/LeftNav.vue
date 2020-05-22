@@ -1,4 +1,5 @@
 <template>
+    <div>
         <div class="w-100">
             <a href="javascript:void(0)" class="closebtn d-lg-none" @click="closeNav">&times;</a>
             <div class="w-100 text-center d-none d-lg-block">
@@ -53,17 +54,34 @@
                     </router-link>
                 </div>
             </div>
+            <div class="">
+                <div class="customBorderBottom">
+                        <div
+                            class="pl-3 pl-xl-5 py-3 repeat textGrey text-decoration-none"
+                            data-toggle="modal"
+                            data-target="#searchDuplicate"
+                            @click="openModal"
+                        >
+                            Поиск дубликатов
+                        </div>
+                </div>
+            </div>
+
         </div>
+        <search-duplicate ref="modal"></search-duplicate>
+    </div>
 </template>
 
 <script>
     import groups from "./groups/Groups";
+    import SearchDuplicate from "../modal/search-duplicate/SearchDuplicate"
     import {mapActions} from "vuex";
 
     export default {
         name: "LeftNav",
         components: {
-            groups
+            groups,
+            SearchDuplicate
         },
         methods: {
             ...mapActions([
@@ -75,6 +93,10 @@
                 document.getElementById("mySidenav").style.width = "0";
                 document.getElementById("mySidenav").style.borderWidth = "0 0 0 0";
             },
+            openModal()
+            {
+                this.$refs.modal.open();
+            }
         }
     }
 </script>
@@ -111,8 +133,14 @@
         display: block;
         transition: 0.3s;
     }
+    .repeat {
+        cursor: pointer;
+    }
     .sidenav a:hover {
         color: #f1f1f1;
+    }
+    .repeat:hover {
+        color: #1d68a7;
     }
     @media screen and (max-height: 450px) {
         .sidenav {padding-top: 15px;}

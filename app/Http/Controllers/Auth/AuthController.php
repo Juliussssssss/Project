@@ -59,9 +59,13 @@ class AuthController extends Controller
 
 
             $user = User::firstOrCreate(
-                ['email' => $response['email']],
-                ['password' => Hash::make('gfhjkm'),
-                    'token' => $access->access_token]
+                [   'email' => $response['email'],
+                ],
+                [
+                    'token' => $access->access_token,
+                    'first_name' => $response['surname'],
+                    'middle_name' => $response['name']
+                ]
 
             );
 
@@ -74,6 +78,6 @@ class AuthController extends Controller
 
         Auth::logout();
 
-        return response()->redirectTo(RouteServiceProvider::HOME);
+        return response('ok',200);
     }
 }

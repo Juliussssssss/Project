@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Database\Eloquent\Builder;
 
@@ -81,6 +82,71 @@ class Contact extends Model
         (new CallLog())->prepareToCreate($request['id']);
 
         return response('updated', 200);
+    }
+
+    public function getDuplicate() {
+        $res = DB::table('contacts')->get();
+        foreach ($res as $key=>$r){
+
+            $res[$key]->fio=$res[$key]->first_name.' '.$res[$key]->middle_name.' '.$res[$key]->last_name;
+        }
+        $fioGroups = collect($res)->groupBy('fio');
+        $numberGroups = collect($res)->groupBy('number');
+        $result=[];
+        foreach ($fioGroups as $key=>$fioGroup){
+            if(count($fioGroup)>1&&$key){
+                array_push($result,$fioGroup[0]);
+                array_push($result,$fioGroup[1]);
+
+                return $result;
+            }
+        }
+        foreach ($numberGroups as $key=>$numberGroup){
+
+            if(count($numberGroup)>1&&$key){
+                array_push($result,$numberGroup[0]);
+                array_push($result,$numberGroup[1]);
+
+                return $result;
+            }
+        }
+
+        return $result;
+    }
+
+    public function prepareMergeContacts($request)
+    {
+        $mainContact=$request['main'];
+        $contact=$request['second'];
+        $dataForUpdate=[];
+        $contact_id=$mainContact['id'];
+        $duplicate_id=$contact['id'];
+        $mainContact['number']?'':$dataForUpdate['number']=$contact['number'];
+        $mainContact['site']?'':$dataForUpdate['site']=$contact['site'];
+        $mainContact['birthday']?'':$dataForUpdate['birthday']=$contact['birthday'];
+        $mainContact['city']?'':$dataForUpdate['city']=$contact['city'];
+        $mainContact['work']?'':$dataForUpdate['work']=$contact['work'];
+        $mainContact['position']?'':$dataForUpdate['position']=$contact['position'];
+        $mainContact['work_email']?'':$dataForUpdate['work_email']=$contact['work_email'];
+        $mainContact['group_id']?'':$dataForUpdate['group_id']=$contact['group_id'];
+        $mainContact['comment']?'':$dataForUpdate['comment']=$contact['comment'];
+
+        $this->MergeContacts($dataForUpdate,$contact_id,$duplicate_id);
+
+        return;
+    }
+
+    public function MergeContacts($contact,$contact_id,$duplicate_id)
+    {
+        Contact::where('id', $contact_id)
+            ->where('user_id', auth()->user()->id)
+            ->update($contact);
+
+        Contact::where('id', $duplicate_id)
+            ->where('user_id', auth()->user()->id)
+            ->delete();
+
+        return;
     }
 
     public function storeUniqueEmailForUser($email, $user_id)

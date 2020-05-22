@@ -177,4 +177,18 @@ class ContactsController extends Controller
             return response()->json($e->getMessage(), 417);
         }
     }
+
+    public function getDuplicate()
+    {
+        $duplicate = (new Contact())->getDuplicate();
+
+        return response($duplicate,200);
+    }
+
+    public function mergeDuplicate(Request $request)
+    {
+        (new Contact())->prepareMergeContacts($request);
+
+        return response('ok',200);
+    }
 }

@@ -9,7 +9,7 @@
                     fill="white"/>
           </mask>
           <g mask="url(#mask100)">
-              <rect :class="getSelectedContacts.length == 1 ? 'actionButtons' : ''" x="2" y="2" width="26" height="26" fill="#D8D8D8"/>
+              <rect :class="getSelectedContacts.length == 1 ? 'actionButtons' : ''" x="2" y="2" width="26" height="26" fill="#   "/>
           </g>
       </svg>
   </div>
