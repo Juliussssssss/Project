@@ -89,9 +89,24 @@
                                 <div class="row">
                                     <div class="col-3 d-none d-lg-flex customBorderRight customBorderTop customBorderLeft p-0">
                                         <!-- left nav here -->
-                                                <left-nav></left-nav>
+                                       <left-nav></left-nav>
                                     </div>
                                     <div class="col-lg-9 col-12 router-view">
+                                        <div class="row">
+                                            <nav class="navbar navbar-expand-lg d-lg-none navbar-light bg-white w-100 p-0">
+                                                <div class="d-flex justify-content-between p-3 w-100 customBorderBottom align-items-center">
+                                                    <a class="textGrey font-18px" href="#">Меню</a>
+                                                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                                                        <span class="navbar-toggler-icon"></span>
+                                                    </button>
+                                                </div>
+                                                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                                                    <ul class="navbar-nav mr-auto">
+                                                        <left-nav></left-nav>
+                                                    </ul>
+                                                </div>
+                                            </nav>
+                                        </div>
                                         <router-view></router-view>
                                     </div>
                                 </div>
@@ -158,6 +173,8 @@
 </template>
 
 <script >
+    import {mapGetters} from "vuex";
+
     export default {
         data: function () {
             return {
@@ -181,6 +198,11 @@
                 event.target.parentNode.classList.toggle('second_level-open');
                 event.target.classList.toggle('second_level-toggled');
             },
+        },
+        computed: {
+            ...mapGetters([
+                "getLength"
+            ])
         }
     }
 </script>

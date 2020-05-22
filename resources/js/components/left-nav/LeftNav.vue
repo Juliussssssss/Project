@@ -1,5 +1,5 @@
 <template>
-    <div class="w-100">
+    <div :class="(this.getLength > 5 || (this.$route.name != 'conatcts' && this.$route.name != 'groups')) ? 'customBorderBottom w-100' : 'w-100'">
         <div class="w-100">
             <div class="w-100 text-center d-none d-lg-block">
                 <div class="customBorderBottom p-3">
@@ -55,14 +55,13 @@
             </div>
             <div class="">
                 <div class="customBorderBottom">
-                        <div
-                            class="pl-3 pl-xl-5 py-3 repeat textGrey text-decoration-none"
-                            data-toggle="modal"
-                            data-target="#searchDuplicate"
-                            @click="openModal"
-                        >
-                            Поиск дубликатов
-                        </div>
+                    <div
+                        class="pl-3 pl-xl-5 py-3 repeat textGrey text-decoration-none"
+                        data-toggle="modal"
+                        data-target="#searchDuplicate"
+                        @click="openModal">
+                        Поиск дубликатов
+                    </div>
                 </div>
             </div>
 
@@ -74,7 +73,7 @@
 <script>
     import groups from "./groups/Groups";
     import SearchDuplicate from "../modal/search-duplicate/SearchDuplicate"
-    import {mapActions} from "vuex";
+    import {mapActions, mapGetters} from "vuex";
 
     export default {
         name: "LeftNav",
@@ -92,54 +91,25 @@
             {
                 this.$refs.modal.open();
             }
+        },
+        computed: {
+            ...mapGetters([
+                "getLength"
+            ])
         }
     }
 </script>
 
 <style scoped>
-    .closebtn {
-        position: absolute;
-        color: #D8D8D8;
-        top: -11px;
-        right: 5px;
-        font-size: 30px !important;
-    }
     .addContact {
         font-weight: bold;
         margin: 2px 0 3px 0;
     }
-    .sidenav {
-        height: 100%;
-        width: 0;
-        position: fixed;
-        z-index: 1;
-        top: 0;
-        left: 0;
-        background-color: #111;
-        overflow-x: hidden;
-        transition: 0.5s;
-        padding-top: 60px;
-    }
-    .sidenav a {
-        padding: 8px 8px 8px 32px;
-        text-decoration: none;
-        font-size: 25px;
-        color: #818181;
-        display: block;
-        transition: 0.3s;
-    }
     .repeat {
         cursor: pointer;
     }
-    .sidenav a:hover {
-        color: #f1f1f1;
-    }
     .repeat:hover {
         color: #1d68a7;
-    }
-    @media screen and (max-height: 450px) {
-        .sidenav {padding-top: 15px;}
-        .sidenav a {font-size: 18px;}
     }
     @media screen and (max-width: 1199px) {
         .addContact {
