@@ -1,7 +1,7 @@
 <template>
-    <div class="col-4 py-4 align-items-center d-flex justify-content-center">
+    <div class="col-12 col-sm-5 col-md-4 py-1 py-sm-4 align-items-center d-flex justify-content-center">
         <div class="d-flex w-100 justify-content-between">
-            <div class="flex-wrap d-flex justify-content-around w-100">
+            <div class="flex-wrap d-flex justify-content-sm-around justify-content-between w-100">
                 <div class="textGrey d-flex align-items-center ">
                     <span class="font-13px">{{getLength>0 ? (getCurrentPage-1)*100+1+"-" : ""}}{{ getCurrentPage*100>getLength ? getLength : getCurrentPage*100}} из {{ getLength }}</span>
                 </div>

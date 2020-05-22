@@ -1,4 +1,4 @@
-<link rel="stylesheet" href="../../../css/css.css">
+
 <template>
     <div>
         <!-- Modal -->
@@ -30,8 +30,6 @@
 </template>
 
 <script>
-    import axios from "axios";
-
     export default {
         name: "setting",
         props: ["contacts", "contactsInGroups"],

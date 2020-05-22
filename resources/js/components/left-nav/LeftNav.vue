@@ -1,7 +1,6 @@
 <template>
-    <div>
+    <div class="w-100">
         <div class="w-100">
-            <a href="javascript:void(0)" class="closebtn d-lg-none" @click="closeNav">&times;</a>
             <div class="w-100 text-center d-none d-lg-block">
                 <div class="customBorderBottom p-3">
                     <router-link
@@ -89,10 +88,6 @@
                 "getFrequentContacts",
                 "getFavorites"
             ]),
-            closeNav() {
-                document.getElementById("mySidenav").style.width = "0";
-                document.getElementById("mySidenav").style.borderWidth = "0 0 0 0";
-            },
             openModal()
             {
                 this.$refs.modal.open();

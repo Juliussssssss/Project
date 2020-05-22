@@ -1,6 +1,6 @@
 <template>
     <div>
-        <div class="wrapper">
+        <div class="wrapper" v-if="(this.$route.name != 'Test')">
             <nav id="sidebar" :class="sidebarOpen ? 'sidebar-open' : ''">
                 <div class="navbar-brand">
                     <img src="/storage/navbar_logo.png"  alt="navbar_logo">
@@ -84,7 +84,6 @@
                 </nav>
                 <main>
                     <div class="mx-5 my-5">
-<!--                        <div class="mt-5" v-if="(this.$route.name != 'Test')">-->
                         <div class="row">
                             <div class="col-12 bg-white">
                                 <div class="row">
@@ -102,7 +101,7 @@
                 </main>
             </div>
         </div>
-        <div class="footer_wrapper">
+        <div class="footer_wrapper" v-if="(this.$route.name != 'Test')">
             <footer class="container">
                 <ul class="row">
                     <li class="col-lg-4 col-md-6 col-sm-12 pl-sm-3">
@@ -151,6 +150,9 @@
                     </li>
                 </ul>
             </footer>
+        </div>
+        <div v-else>
+            <router-view></router-view>
         </div>
     </div>
 </template>
@@ -590,7 +592,7 @@
             border-width: 2px 2px 2px 2px;
         }
     }
-    @media(max-width: 550px)  {
+    @media(max-width: 650px)  {
         .navbar-brand {
             display: none;
         }

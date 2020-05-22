@@ -1,25 +1,17 @@
 <template>
-    <div class="col-3 col-xl-4 py-4 align-items-center d-flex customBorderRight">
-        <div class="">
-            <div class="position-absolute">
-                <div id="mySidenav" style="width: 0px" class="sidenav">
-                    <left-nav></left-nav>
-                </div>
+    <div class="col-12 col-md-3 col-xl-4 w-100 py-1 py-md-4 align-items-center d-flex toolButtons">
+        <div class="w-100 row-cols-2 row-cols-md-1 row-cols-xl-2 d-flex justify-content-center text-center justify-content-xl-around flex-wrap">
+            <div class="w-50 d-flex justify-content-around">
+                <edit-btn></edit-btn>
+                <!-- меню -->
+                <groups-dropdown-menu></groups-dropdown-menu>
+                <!-- меню -->
+                <import-btn></import-btn>
             </div>
-            <div class="w-100 row-cols-1 row-cols-xl-2 d-flex justify-content-center text-center justify-content-xl-around flex-wrap">
-                <span class="secondLeftNavBtn" @click="openNav">&#9776;</span>
-                <!--                <div class="w-50 d-flex justify-content-around">-->
-                <!--                    <edit-btn></edit-btn>-->
-                <!--                    &lt;!&ndash; меню &ndash;&gt;-->
-                <!--                    <groups-dropdown-menu></groups-dropdown-menu>-->
-                <!--                    &lt;!&ndash; меню &ndash;&gt;-->
-                <!--                    <import-btn></import-btn>-->
-                <!--                </div>-->
-                <!--                <div class="w-50 d-flex justify-content-around">-->
-                <!--                    <export-btn></export-btn>-->
-                <!--                    <print-btn></print-btn>-->
-                <!--                    <delete-btn></delete-btn>-->
-                <!--                </div>-->
+            <div class="w-50 d-flex justify-content-around">
+                <export-btn></export-btn>
+                <print-btn></print-btn>
+                <delete-btn></delete-btn>
             </div>
         </div>
     </div>
@@ -53,24 +45,9 @@
 </script>
 
 <style>
-    .secondLeftNavBtn:hover {
-        color: #666666;
-    }
-    .secondLeftNavBtn {
-        font-size:30px;
-        cursor:pointer;
-        color: #D8D8D8;
-    }
-    .sidenav {
-        left: -17px;
-        top: 83px;
-        height: auto;
-        position: absolute;
-        z-index: 1;
-        background-color: #ffffff;
-        border: 0px solid #F5F5F5;
-        overflow-x: hidden;
-        transition: 0.5s;
+    .toolButtons {
+        border: solid #F5F5F5;
+        border-width: 0 2px 0 0;
     }
 
     .sidenav a {
@@ -83,4 +60,9 @@
         font-weight: 400 !important;
     }
 
+    @media screen and (max-width: 767px) {
+        .toolButtons {
+            border-width: 0 0 2px 0;
+        }
+    }
 </style>

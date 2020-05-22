@@ -2,7 +2,7 @@
     <div>
         <div class="col-12 p-0">
             <div class="customBorderBottom row py-3 textGrey">
-                <div class="col-3 col-xl-2">
+                <div class="col-4 col-md-3 col-xl-2">
                     <div class="row">
                         <div class="col-3 pl-3 pr-2">
                             <input v-model="selectAllControlProp" @click="selectAll" hidden id="all" type="checkbox"/>
@@ -16,11 +16,11 @@
                         <div class="col-6 pr-0 pl-2"></div>
                     </div>
                 </div>
-                <div class="col-9 col-xl-10">
+                <div class="col-8 col-md-9 col-xl-10">
                     <div class="row">
-                        <div class="col-md-8 col-lg-5 col-xl-3"><span class="font-12px">Имя</span></div>
+                        <div class="col-12 col-md-8 col-lg-5 col-xl-3"><span class="font-12px">Имя</span></div>
                         <div class="d-none d-lg-block col-lg-4 col-xl-3"><span class="font-12px">Почта</span></div>
-                        <div class="col-md-4 col-lg-3 col-xl-3"><span class="font-12px">Телефон</span></div>
+                        <div class="d-none d-md-block col-md-4 col-lg-3 col-xl-3"><span class="font-12px">Телефон</span></div>
                         <div class="d-none d-xl-block  col-xl-3"><span class="font-12px">Группа</span></div>
                     </div>
                 </div>
@@ -28,8 +28,8 @@
             <div class="customBorderBottom row py-3 textGrey"
                  v-for="(contact) in getContacts.slice((getCurrentPage-1)*100,getCurrentPage*100)"
                  v-bind:key="contact.id">
-                <div class="col-3 col-xl-2">
-                    <div class="row">
+                <div class="col-4 col-md-3 col-xl-2 pr-0">
+                    <div class="row pr-0">
                         <div class="col-3 pl-3 pr-2">
                             <input @click="checkSelectAll" v-model="selected" :id="contact.id" hidden :value="contact.id" type="checkbox"/>
                             <label class="customLabel" :for="contact.id"></label>
@@ -46,9 +46,9 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-9 col-xl-10">
+                <div class="col-8 col-md-9 col-xl-10">
                     <router-link class="row routerLink linkDisabled textGrey" :to="{ name: 'ContactShow', params: {user_id: contact.id} }">
-                        <div class=" col-md-8 col-lg-5 col-xl-3 contactPhoto align-items-center d-flex">
+                        <div class="col-12 col-md-8 col-lg-5 col-xl-3 contactPhoto align-items-center d-flex">
                             <span class="font-12px">
                                 <span v-html="highlight(contact.first_name)"/>
                                 <span v-html="highlight(contact.middle_name)"/>
@@ -58,7 +58,7 @@
                         <div class="d-none d-lg-flex col-lg-4 col-xl-3">
                             <span class="font-12px text-truncate" v-html="highlight(contact.email)"/>
                         </div>
-                        <div class="col-5 col-md-4 col-lg-3 col-xl-3">
+                        <div class="d-none d-md-block col-md-4 col-lg-3 col-xl-3">
                             <span class="font-12px" v-html="highlight(contact.number)"/>
                         </div>
                         <div class="d-none col-xl-3 d-xl-block text-wrap">
