@@ -1,5 +1,5 @@
 <template>
-    <div class="">
+    <div :class="this.$route.name == 'groups' ? 'activeBorder' : ''">
         <div class="customBorderBottom textGrey">
             <div class="dropright">
                 <div class="pl-3 pl-xl-5 py-3 w-100 d-flex justify-content-between dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -12,7 +12,6 @@
         <delete-modal></delete-modal>
     </div>
 </template>
-
 <script>
     import submenu from "./submenu/Submenu";
 
@@ -23,6 +22,8 @@
         components: {
             submenu,
             deleteModal
+        },
+        computed: {
         }
     }
 </script>

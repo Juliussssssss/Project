@@ -192,7 +192,7 @@
 </script>
 
 <style scoped>
-    .customBorderBottom:nth-last-child(6):last-child {
+    .customBorderBottom:nth-last-child(5):last-child {
         border-width: 0 0 0 0;
     }
     .favorites {

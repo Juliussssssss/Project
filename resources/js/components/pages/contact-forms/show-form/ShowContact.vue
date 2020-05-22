@@ -1,5 +1,7 @@
 <template>
+    <div class="row">
         <show-form v-if="currentContact" :contact="currentContact"></show-form>
+    </div>
 </template>
 
 <script>

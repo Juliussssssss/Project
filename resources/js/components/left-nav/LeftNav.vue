@@ -1,5 +1,5 @@
 <template>
-    <div :class="this.getLength > 5 ? 'customBorderBottom w-100' : 'w-100'">
+    <div :class="(this.getLength > 5 || (this.$route.name != 'conatcts' && this.$route.name != 'groups')) ? 'customBorderBottom w-100' : 'w-100'">
         <div class="w-100">
             <div class="w-100 text-center d-none d-lg-block">
                 <div class="customBorderBottom p-3">
@@ -55,14 +55,13 @@
             </div>
             <div class="">
                 <div class="customBorderBottom">
-                        <div
-                            class="pl-3 pl-xl-5 py-3 repeat textGrey text-decoration-none"
-                            data-toggle="modal"
-                            data-target="#searchDuplicate"
-                            @click="openModal"
-                        >
-                            Поиск дубликатов
-                        </div>
+                    <div
+                        class="pl-3 pl-xl-5 py-3 repeat textGrey text-decoration-none"
+                        data-toggle="modal"
+                        data-target="#searchDuplicate"
+                        @click="openModal">
+                        Поиск дубликатов
+                    </div>
                 </div>
             </div>
 
