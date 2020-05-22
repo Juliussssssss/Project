@@ -33,7 +33,7 @@ class ExcelController extends Controller
                     return  response('error size',500);
                 }
                 $import = new ContactsImport();
-                $import->import($path);
+                $import->import( $request->file('import'));
             }
             else {
 
