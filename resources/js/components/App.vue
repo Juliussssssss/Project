@@ -197,8 +197,13 @@
         methods: {
             logout() {
                 axios.post('/logout')
-                    .then(function (response) {
-                        location.href = response.data;
+                    .then((response) => {
+                        axios.get('https://team1-group-project.azurewebsites.net/api/client_logout' ,
+                            {
+                                headers: {
+                                    Authorization: "Bearer " + response.data
+                                }
+                            }).then(r => location.href= r.data)
                     })
             },
             handleResize() {

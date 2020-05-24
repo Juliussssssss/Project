@@ -56,28 +56,40 @@ class AuthController extends Controller
             curl_close($ch);
 
             $response = json_decode($result, true);
+            $userData['email'] = $response['email'];
+            $userData['first_name'] = $response['surname'];
+            $userData['middle_name'] = $response['name'];
+            $userData['last_name'] = $response['middle_name'];
+            $userData['token'] = $access->access_token;
+            $user = User::where('email',$response['email'])->first();
+            if($user){
 
+                User::where('email',$response['email'])->update($userData);
+                $user = User::where('email',$response['email'])->first();
+                Auth::login($user);
+            }
+            else{
+                $user = User::firstOrCreate(
+                    [
+                        'email' => $response['email'],
+                        'token' => $access->access_token,
+                        'first_name' => $response['surname'],
+                        'middle_name' => $response['name'],
+                        'last_name' => $request['middle_name']
+                    ]
 
-            $user = User::firstOrCreate(
-                [   'email' => $response['email'],
-                ],
-                [
-                    'token' => $access->access_token,
-                    'first_name' => $response['surname'],
-                    'middle_name' => $response['name']
-                ]
+                );
+                Auth::login($user);
+            }
 
-            );
-
-            $Rres = Auth::login($user);
             return response()->redirectTo(RouteServiceProvider::HOME);
         }
     }
 
     public function logout() {
-
+        $token = auth()->user()->token;
         Auth::logout();
 
-        return response('ok',200);
+        return response($token,200);
     }
 }
