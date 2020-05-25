@@ -19,4 +19,6 @@ interface ContactsRepositoryInterface
     public function getContactsCount();
 
     public function getCountFrequentContacts();
+
+    public function getGroupsForPrint();
 }

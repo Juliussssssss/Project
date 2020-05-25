@@ -3,19 +3,29 @@
 namespace App\Http\Controllers;
 
 use App\Models\Contact;
+use App\Repositories\ContactsRepository;
 use Illuminate\Http\Request;
 
 class PrintController extends Controller
 {
+    /**
+     * @var ContactsRepository
+     */
+    private $contactRepository;
+
+    /**
+     * ContactsController constructor.
+     * @param  ContactsRepository  $contactRepository
+     */
+    public function __construct(ContactsRepository $contactRepository)
+    {
+        $this->contactRepository = $contactRepository;
+    }
+
     public function getContacts()
     {
-        $contactsFromGroups = Contact::groupBy('group_id')
-            ->whereNotNull('group_id')
-            ->where('user_id', auth()->user()->id)
-            ->selectRaw('group_id, count(*) as total')
-            ->with('group:id,name')
-            ->get();
+        $contacts = $this->contactRepository->getGroupsForPrint();
 
-        return response()->json($contactsFromGroups);
+        return response()->json($contacts);
     }
 }

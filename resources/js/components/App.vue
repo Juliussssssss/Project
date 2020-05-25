@@ -1,6 +1,7 @@
 <template>
     <div>
         <div class="wrapper" v-if="(this.$route.name != 'Test')">
+            <div v-if="sidebarOpen" class="w-100 h-100 position-fixed bgBlackout"></div>
             <nav id="sidebar" :class="sidebarOpen ? 'sidebar-open' : ''">
                 <div class="navbar-brand">
                     <img src="/storage/navbar_logo.png"  alt="navbar_logo">
@@ -52,7 +53,7 @@
                 </ul>
             </nav>
             <div class="main_content">
-                <nav class="navbar navbar-light">
+                <nav class="navbar navbar-light topNavbar">
                     <div @click="sidebarOpen = !sidebarOpen" id="sidebar-phone_toggle" :class="sidebarOpen ? 'open' : ''">
                         <span></span>
                         <span></span>
@@ -91,10 +92,10 @@
                                         <!-- left nav here -->
                                        <left-nav></left-nav>
                                     </div>
-                                    <div class="col-lg-9 col-12 router-view">
-                                        <div class="row">
+                                    <div class="col-lg-9 col-12 greyBorder">
+                                        <div class="row w-100 position-absolute">
                                             <nav class="navbar navbar-expand-lg d-lg-none navbar-light bg-white w-100 p-0">
-                                                <div class="d-flex justify-content-between p-3 w-100 customBorderBottom align-items-center">
+                                                <div class="d-flex justify-content-between p-3 w-100 customBorderBottom align-items-center stickyNavbar">
                                                     <a class="textGrey font-18px" href="#">Меню</a>
                                                     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                                                         <span class="navbar-toggler-icon"></span>
@@ -107,7 +108,7 @@
                                                 </div>
                                             </nav>
                                         </div>
-                                        <router-view></router-view>
+                                        <router-view class="routerView"></router-view>
                                     </div>
                                 </div>
                             </div>
@@ -227,7 +228,21 @@
 </script>
 
 <style scoped>
-    .router-view {
+    .bgBlackout {
+        background: rgba(0,0,0,0.5);
+        display: none;
+        z-index: 2;
+    }
+    .navbar {
+        z-index: 1;
+    }
+    .stickyNavbar {
+        z-index: 10;
+        background: #fff;
+        position: sticky;
+        top: 0;
+    }
+    .greyBorder {
         border: solid #F5F5F5;
         border-width: 2px 2px 2px 0;
     }
@@ -269,7 +284,7 @@
     }
     #side_menu a span,
     .second_level-toggle a span{
-        width: 150px;
+        width: 137px;
         text-align: center;
         z-index: -3;
     }
@@ -620,7 +635,7 @@
             height: auto;
         }
         .navbar-brand  {
-            height: 91px;
+            height: 90px;
             display: flex;
             align-items: center;
         }
@@ -629,21 +644,40 @@
         }
     }
     @media screen and (max-width: 991px) {
-        .router-view {
+        .routerView {
+            position: inherit;
+            top: 71px;
+        }
+        .greyBorder {
             border-width: 2px 2px 2px 2px;
         }
     }
     @media(max-width: 650px)  {
+        .bgBlackout {
+            display: block;
+        }
+        main {
+            margin-top: 150px;
+        }
+        .topNavbar {
+            position: fixed;
+            width: 100%;
+            z-index: 3;
+        }
         .navbar-brand {
             display: none;
+        }
+        #side_menu a {
+            justify-content: start;
+            padding-left: 20px;
         }
         #sidebar {
             position: fixed;
             max-width: 0;
             overflow-x: hidden;
-            top: 91px;
+            top: 90px;
             border-radius: 0;
-            width: 100%;
+            width: auto;
             height: 100vh;
             max-height: max-content;
         }

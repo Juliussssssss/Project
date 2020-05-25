@@ -116,4 +116,16 @@ class ContactsRepository extends BaseRepository implements ContactsRepositoryInt
             ->where('user_id', auth()->user()->id)
             ->count();
     }
+
+    public function getGroupsForPrint()
+    {
+        $contactsFromGroups = Contact::groupBy('group_id')
+            ->whereNotNull('group_id')
+            ->where('user_id', auth()->user()->id)
+            ->selectRaw('group_id, count(*) as total')
+            ->with('group:id,name')
+            ->get();
+
+        return $contactsFromGroups;
+    }
 }
