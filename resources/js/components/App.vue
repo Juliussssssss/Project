@@ -1,5 +1,6 @@
 <template>
     <div>
+        <search-duplicate-modal></search-duplicate-modal>
         <div class="wrapper" v-if="(this.$route.name != 'Test')">
             <div v-if="sidebarOpen" class="w-100 h-100 position-fixed bgBlackout"></div>
             <nav id="sidebar" :class="sidebarOpen ? 'sidebar-open' : ''">
@@ -175,8 +176,9 @@
 
 <script >
     import {mapGetters} from "vuex";
-
+    import SearchDuplicateModal from './modal/search-duplicate/SearchDuplicate';
     export default {
+        components:{SearchDuplicateModal},
         data: function () {
             return {
                 name : 'Анна Кононенко',

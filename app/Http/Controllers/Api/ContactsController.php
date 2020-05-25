@@ -6,6 +6,7 @@ use App\Exports\ContactsFrequentExport;
 use App\Exports\ContactsGroupExport;
 use App\Exports\ContactsExport;
 use App\Http\Controllers\Controller;
+use App\Http\Requests\Contact\MergeRequest;
 use App\Http\Requests\Contact\StoreRequest;
 use App\Http\Requests\Contact\UpdateRequest;
 use App\Models\CallLog;
@@ -116,13 +117,7 @@ class ContactsController extends Controller
      */
     public function destroy(Request $request)
     {
-        $user_id = auth()->user()->id;
-
-        foreach ($request['contacts'] as $contact_id) {
-            Contact::where('user_id', $user_id)
-                ->where('id', $contact_id)
-                ->delete();
-        }
+        (new Contact())->deleteById($request);
 
         return response('ok', 200);
     }
@@ -185,9 +180,10 @@ class ContactsController extends Controller
         return response($duplicate,200);
     }
 
-    public function mergeDuplicate(Request $request)
+    public function mergeDuplicate(MergeRequest $request)
     {
-        (new Contact())->prepareMergeContacts($request);
+
+        $result = (new Contact())->prepareMergeContacts($request);
 
         return response('ok',200);
     }

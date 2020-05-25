@@ -1,4 +1,5 @@
 <template>
+
     <div :class="(this.getLength > 5 || (this.$route.name == 'create-contact' && this.$route.name == 'show-contact')) ? 'customBorderBottom w-100' : 'w-100'">
         <div class="w-100">
             <div class="w-100 text-center d-none d-lg-block">
@@ -66,20 +67,18 @@
             </div>
 
         </div>
-        <search-duplicate ref="modal"></search-duplicate>
     </div>
 </template>
 
 <script>
     import groups from "./groups/Groups";
-    import SearchDuplicate from "../modal/search-duplicate/SearchDuplicate"
+    import {eventBus} from "../../eventBus";
     import {mapActions, mapGetters} from "vuex";
 
     export default {
         name: "LeftNav",
         components: {
-            groups,
-            SearchDuplicate
+            groups
         },
         methods: {
             ...mapActions([
@@ -89,7 +88,10 @@
             ]),
             openModal()
             {
-                this.$refs.modal.open();
+                eventBus.$emit('duplicateContacts', {
+                    email: this.email,
+                    password: this.password
+                })
             }
         },
         computed: {

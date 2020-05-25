@@ -84,52 +84,60 @@ class Contact extends Model
         return response('updated', 200);
     }
 
-    public function getDuplicate() {
-        $res = DB::table('contacts')->get();
-        foreach ($res as $key=>$r){
+    public function getDuplicate()
+    {
+        $contacts = DB::table('contacts')->get();
+        foreach ($contacts as $key=>$contact){
 
-            $res[$key]->fio=$res[$key]->first_name.' '.$res[$key]->middle_name.' '.$res[$key]->last_name;
+            $contacts[$key]->fio=$contacts[$key]
+                    ->first_name.' '.$contacts[$key]->middle_name.' '.$contacts[$key]
+                    ->last_name;
         }
-        $fioGroups = collect($res)->groupBy('fio');
-        $numberGroups = collect($res)->groupBy('number');
-        $result=[];
-        foreach ($fioGroups as $key=>$fioGroup){
-            if(count($fioGroup)>1&&$key){
-                array_push($result,$fioGroup[0]);
-                array_push($result,$fioGroup[1]);
-
-                return $result;
+        $fioGroups = collect($contacts)->groupBy('fio');
+        $numberGroups = collect($contacts)->groupBy('number');
+        $result=collect();
+        foreach ($fioGroups as $key=>$fioGroup)
+        {
+            if(count($fioGroup)>1&&$key)
+            {
+                $result = $result->merge(collect($fioGroup));
             }
         }
-        foreach ($numberGroups as $key=>$numberGroup){
-
-            if(count($numberGroup)>1&&$key){
-                array_push($result,$numberGroup[0]);
-                array_push($result,$numberGroup[1]);
-
-                return $result;
+        foreach ($numberGroups as $key=>$numberGroup)
+        {
+            if(count($numberGroup)>1&&$key)
+            {
+                $result = $result->merge(collect($numberGroup));
             }
         }
+        if(!count($result)){
 
-        return $result;
+            return [];
+        }
+        $response = [
+            'count'=>ceil(count($result)/2),
+            'coupleDublicate'=>[$result[0],$result[1]]
+        ];
+
+        return $response;
     }
 
     public function prepareMergeContacts($request)
     {
-        $mainContact=$request['main'];
-        $contact=$request['second'];
+        $mainContact=Contact::where('id',$request['mainContactId'])->first();
+        $contact=Contact::where('id',$request['SecondContactId'])->first();
         $dataForUpdate=[];
         $contact_id=$mainContact['id'];
         $duplicate_id=$contact['id'];
-        $mainContact['number']?'':$dataForUpdate['number']=$contact['number'];
-        $mainContact['site']?'':$dataForUpdate['site']=$contact['site'];
-        $mainContact['birthday']?'':$dataForUpdate['birthday']=$contact['birthday'];
-        $mainContact['city']?'':$dataForUpdate['city']=$contact['city'];
-        $mainContact['work']?'':$dataForUpdate['work']=$contact['work'];
-        $mainContact['position']?'':$dataForUpdate['position']=$contact['position'];
-        $mainContact['work_email']?'':$dataForUpdate['work_email']=$contact['work_email'];
-        $mainContact['group_id']?'':$dataForUpdate['group_id']=$contact['group_id'];
-        $mainContact['comment']?'':$dataForUpdate['comment']=$contact['comment'];
+        $mainContact->numbe?'':$dataForUpdate['number']=$contact->number;
+        $mainContact->site?'':$dataForUpdate['site']=$contact->site;
+        $mainContact->birthday?'':$dataForUpdate['birthday']=$contact->birthday;
+        $mainContact->city?'':$dataForUpdate['city']=$contact->city;
+        $mainContact->work?'':$dataForUpdate['work']=$contact->work;
+        $mainContact->position?'':$dataForUpdate['position']=$contact->position;
+        $mainContact->work_email?'':$dataForUpdate['work_email']=$contact->work_email;
+        $mainContact->group_id?'':$dataForUpdate['group_id']=$contact->group_id;
+        $mainContact->comment?'':$dataForUpdate['comment']=$contact->comment;
 
         $this->MergeContacts($dataForUpdate,$contact_id,$duplicate_id);
 
@@ -147,6 +155,16 @@ class Contact extends Model
             ->delete();
 
         return;
+    }
+
+    public function deleteById($request){
+        $user_id = auth()->user()->id;
+
+        foreach ($request['contacts'] as $contact_id) {
+            Contact::where('user_id', $user_id)
+                ->where('id', $contact_id)
+                ->delete();
+        }
     }
 
     public function storeUniqueEmailForUser($email, $user_id)
