@@ -48,7 +48,7 @@
         },
         methods: {
             getGoupsWithContacts() {
-                axios.get('/testPrint/test')
+                axios.get('/Print/getGroups')
                     .then(response => {
                         this.contactsInGroups = [];
                         let a = response.data;

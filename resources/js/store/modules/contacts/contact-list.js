@@ -75,7 +75,8 @@ export default {
         },
         deleteContacts(state, payload) {
             payload.forEach(element => state.contacts.splice(state.contacts.findIndex(x => x.id == element), 1));
-        }
+            state.length = state.contacts.length;
+        },
     },
     actions: {
         clearSelectedFromGroups(context) {

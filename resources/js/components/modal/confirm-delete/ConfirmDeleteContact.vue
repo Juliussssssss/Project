@@ -24,7 +24,7 @@
             ]),
             confirmed()
             {
-                if (this.$route.name == 'contacts') {
+                if (this.$route.name != 'groups') {
                     this.deleteContacts(this.getSelectedContacts)
                 } else {
                     this.$emit('deleteContact');

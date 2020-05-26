@@ -1,5 +1,5 @@
 <template>
-    <div class="dropdown-menu m-0 p-0">
+    <div class="m-0 p-0" :class="getGroups.length > 0 ? 'dropdown-menu' : ''">
         <div class="dropdown-item customBorderBottom flex-nowrap d-flex justify-content-between align-items-center row textGrey m-0 p-3"
              v-for="group in getGroups">
             <div>
@@ -77,11 +77,19 @@
                 if (this.$route.name !== 'groups') this.$router.push('groups')
                 this.getContactsWithGroup(id)
             },
-            ...mapMutations(["setCurrentGroup"]),
-            ...mapActions(["getContactGroups", "getContactsWithGroup"])
+            ...mapMutations([
+                "setCurrentGroup"
+            ]),
+            ...mapActions([
+                "getContactGroups",
+                "getContactsWithGroup"
+            ])
         },
         computed: {
-            ...mapGetters(["getGroups", "getCurrentGroup"])
+            ...mapGetters([
+                "getGroups",
+                "getCurrentGroup"
+            ])
         },
         mounted() {
             this.getContactGroups()

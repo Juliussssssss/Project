@@ -14,7 +14,6 @@
 </template>
 <script>
     import submenu from "./submenu/Submenu";
-
     import deleteModal from "./modals/DeleteModal";
 
     export default {

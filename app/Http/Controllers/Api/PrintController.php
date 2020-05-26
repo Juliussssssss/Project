@@ -22,7 +22,7 @@ class PrintController extends Controller
         $this->contactRepository = $contactRepository;
     }
 
-    public function getContacts()
+    public function getGroupsContacts()
     {
         $contacts = $this->contactRepository->getGroupsForPrint();
 

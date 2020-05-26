@@ -29,7 +29,7 @@ Route::middleware('auth')
 Route::get('/contacts/get-all', ('Api\ContactsController@getContacts'))->middleware('auth');
 Route::post('/contacts/set-favorites', ('Api\ContactsController@setFavorites'))->middleware('auth');
 
-Route::get('/testPrint/test', ('PrintController@getContacts'))->middleware('auth');
+Route::get('/Print/getGroups', ('Api\PrintController@getGroupsContacts'))->middleware('auth');
 
 Route::middleware('auth')
     ->namespace('Api')
