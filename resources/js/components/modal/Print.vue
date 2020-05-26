@@ -1,28 +1,25 @@
 
 <template>
-    <div>
-        <!-- Modal -->
-        <div class="modal" id="exampleModalPrint" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-            <div class="modal-dialog" role="document">
-                <div class="modal-content py-4 px-3">
-                    <div class="modal-header pb-0 d-block">
-                        <div class="modal-title font-18px textActive pb-3">Печать</div>
+    <div class="modal fade" id="exampleModalPrint" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content py-4 px-3">
+                <div class="modal-header pb-0 d-block">
+                    <div class="modal-title font-18px textActive pb-3">Печать</div>
+                </div>
+                <div class="modal-body d-block modalText pt-0">
+                    <div v-for="contact in contacts">
+                        <input v-model="selectedToPrint" type="radio" :id="contact.name" name="radio-group" :value="contact.name + '/' + 1">
+                        <label class="font-14px" :for="contact.name">{{contact.name}} ({{contact.contacts}})</label>
                     </div>
-                    <div class="modal-body d-block modalText pt-0">
-                        <div v-for="contact in contacts">
-                            <input v-model="selectedToPrint" type="radio" :id="contact.name" name="radio-group" :value="contact.name + '/' + 1">
-                            <label class="font-14px" :for="contact.name">{{contact.name}} ({{contact.contacts}})</label>
-                        </div>
-                        <div v-if="contactsInGroups.length > 1" class="modal-title py-2 font-14px modalText">Группы</div>
-                        <div v-for="contactGroup in contactsInGroups">
-                            <input v-model="selectedToPrint" type="radio" :id="contactGroup.id" name="radio-group" :value="contactGroup.name.split(' ').join('-') + '/' + contactGroup.id">
-                            <label class="font-14px" :for="contactGroup.id">{{contactGroup.name}} ({{contactGroup.contacts}})</label>
-                        </div>
+                    <div v-if="contactsInGroups.length > 1" class="modal-title py-2 font-14px modalText">Группы</div>
+                    <div v-for="contactGroup in contactsInGroups">
+                        <input v-model="selectedToPrint" type="radio" :id="contactGroup.id" name="radio-group" :value="contactGroup.name.split(' ').join('-') + '/' + contactGroup.id">
+                        <label class="font-14px" :for="contactGroup.id">{{contactGroup.name}} ({{contactGroup.contacts}})</label>
                     </div>
-                    <div class="modal-footer">
-                        <button @click="print" :href="'/test/' + selectedToPrint" type="button" class="btn btnprn btn-primary px-3 py-2 text-uppercase font-12px" data-dismiss="modal">Печать</button>
-                        <button @click="cancel" type="button" class="btn px-3 py-2 ml-4 modalText bthCancel font-12px text-uppercase" data-dismiss="modal">Отмена</button>
-                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button @click="print" :href="'/print/' + selectedToPrint" type="button" class="btn btnprn btn-primary px-4 py-3 text-uppercase font-12px" data-dismiss="modal">Печать</button>
+                    <button @click="cancel" type="button" class="btn px-4 py-3 ml-4 modalText bthCancel font-12px text-uppercase" data-dismiss="modal">Отмена</button>
                 </div>
             </div>
         </div>
@@ -32,7 +29,10 @@
 <script>
     export default {
         name: "setting",
-        props: ["contacts", "contactsInGroups"],
+        props: [
+            "contacts",
+            "contactsInGroups"
+        ],
         data() {
             return {
                 selectedToPrint: '',

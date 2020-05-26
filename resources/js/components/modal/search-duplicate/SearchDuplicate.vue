@@ -1,6 +1,6 @@
 <template>
     <div>
-        <div ref="modal" class="modal" id="searchDuplicate" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="false">
+        <div ref="modal" class="modal fade" id="searchDuplicate" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="false">
             <div class="modal-dialog" role="document">
                 <div class="modal-content mx-auto py-4 px-3" :class="{'no-duplicate':!getDuplicated.count}">
                     <div class="pb-0 d-block">

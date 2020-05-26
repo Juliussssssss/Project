@@ -1,5 +1,5 @@
 <template>
-    <div ref="modal" class="modal " id="import-excel" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+    <div ref="modal" class="modal fade" id="import-excel" tabindex="-1" role="dialog"
          aria-hidden="true">
         <div class="modal-dialog" role="document">
             <div class="modal-content position-relative py-4 px-3">
@@ -42,9 +42,9 @@
                 </form>
                 <div class="modal-footer mt-2">
                     <button @click="importContacts" :disabled="!filename" type="button"
-                            class="btn px-2 py-3 text-uppercase confirm font-12px">Импортировать
+                            class="btn px-4 py-3 text-uppercase confirm font-12px">Импортировать
                     </button>
-                    <button type="button" class="btn px-3 py-2 ml-4 modalText bthCancel font-12px text-uppercase"
+                    <button type="button" class="btn px-4 py-3 ml-4 modalText bthCancel font-12px text-uppercase"
                             data-dismiss="modal">Отмена
                     </button>
                 </div>

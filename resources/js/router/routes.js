@@ -1,6 +1,6 @@
 import Edit from "../components/pages/edit/Edit";
 import Contacts from "../components/pages/contact-list/ContactRender";
-import Test from "../components/pages/contact-list/test";
+import Print from "../components/pages/Print/Print";
 
 window.Vue = require('vue');
 
@@ -15,9 +15,9 @@ import Write from "../components/pages/write/Write";
 
 export const routes = [
     {
-        path: '/test/:group/:id',
-        component: Test,
-        name: 'Test',
+        path: '/print/:group/:id',
+        component: Print,
+        name: 'Print',
         props: true,
     },
     {

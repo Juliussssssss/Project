@@ -2,9 +2,8 @@
 
 namespace App\Http\Controllers\Api;
 
-use App\Models\Contact;
+use App\Http\Controllers\Controller;
 use App\Repositories\ContactsRepository;
-use Illuminate\Http\Request;
 
 class PrintController extends Controller
 {
