@@ -20,9 +20,9 @@
                             </span>
                         </div>
                         <div>
-                           <a href="/api/template" class="file-load import d-inline-block ml-3 mt-3 pl-3 pr-5 py-2">
+                            <a href="/api/template" class="file-load import d-inline-block ml-3 mt-3 pl-3 pr-5 py-2">
                                 Шаблон файла
-                           </a>
+                            </a>
                             <span class="details ml-2" :class="{'details-active':details}" @click="details=!details">
                                 Подробнее
                             </span>
@@ -115,9 +115,6 @@
     .modal-header, .modal-footer {
         border: 0px;
     }
-    .modal {
-        top: 195px;
-    }
     .modal-title {
         font-size: 18px;
         max-width: 320px;
@@ -175,9 +172,10 @@
         display: block;
     }
     .err-message {
-        top: 85px;
+        top: 70px;
         left: 14px;
-        color: #ff4418
+        color: #ff4418;
+        font-size: 12px;
     }
     .error {
         border: 1px solid #ff4418;

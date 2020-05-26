@@ -1,8 +1,8 @@
 <template>
     <div class="prompt-container position-relative">
         <div>Чтобы импортировать контакт, выберите файл с расширением .xls,.xlsx</div>
-        <div>Файл состоит из 11 столбцов: ФИО,email,телефон,сайт ,дата рождения,город,место работы, должность,email
-            рабочий,группа, комментарий
+        <div>Файл состоит из 13 столбцов: фамилия*, имя*, отчество, email*, телефон,сайт ,дата рождения, город, место работы, должность, email
+            рабочий, группа, комментарий
         </div>
         <div>Размер файла не должен превышать 100КБ
         </div>
@@ -18,7 +18,7 @@
 <style scoped>
     .prompt-container {
         padding: 5px 15px;
-        max-width: 330px;
+        max-width: 500px;
         font-size: 11px;
         line-height: 30px;
         font-weight: 500;
@@ -28,7 +28,7 @@
         border-radius: 6px;
     }
     .prompt-container::before {
-        left: 153px;
+        left: 210px;
         top: -23px;
         position: absolute;
         content: '';
