@@ -1,8 +1,14 @@
 <template>
-    <div class="col-12 customBorderBottom py-3 d-flex align-items-center p-relative mb-3">
-        <back></back>
-        <avatar-load :src="src" blocked="true" :show="true"></avatar-load>
-        <slot></slot>
+    <div class="col-12 customBorderBottom py-3 p-relative mb-3">
+        <div class="row">
+            <div class="col-3 d-flex align-items-center">
+                <back></back>
+                <avatar-load :src="src" blocked="true" :show="true"></avatar-load>
+            </div>
+            <div class="col-9 d-flex align-items-center">
+                <slot></slot>
+            </div>
+        </div>
     </div>
 </template>
 

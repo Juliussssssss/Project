@@ -1,10 +1,10 @@
 <template>
-    <div class = "w-100">
+    <div>
         <header-create-form>
                 <header-create-input ref="header"></header-create-input>
         </header-create-form>
         <create-form-fields ref="fields"></create-form-fields>
-        <div class="form-group d-flex justify-content-end mr-4 mt-4 mb-4">
+        <div class=" d-flex justify-content-end mr-4 mt-4 mb-4">
             <button @click="checking()" class="py-3 btn text-uppercase font-12px btnText text-white save d-inline-block mr-3 w-100">
                 Сохранить
             </button>

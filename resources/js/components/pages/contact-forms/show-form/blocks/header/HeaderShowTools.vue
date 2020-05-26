@@ -1,12 +1,12 @@
 <template>
-    <div class="d-flex font-12px text-center font-16px pl-4 align-items-center w-100">
+    <div class="d-flex font-12px text-center font-16px align-items-center w-100">
         <div class="container">
             <div class="row">
-                <div class="col-12 col-lg-6">
-                    <span class="name d-flex w-100">{{contact.first_name}} {{contact.middle_name}} {{contact.last_name}}</span>
+                <div class="push-lg-12 col-xl-6 d-flex flex-last align-items-center">
+                    <span class="name">{{contact.first_name+' '+contact.middle_name+' '+contact.last_name}}</span>
                 </div>
-                <div class="col-12 col-lg-6">
-                    <div class = "d-flex justify-content-start justify-content-lg-end w-100">
+                <div class="pull-lg-12 col-xl-6 flex-first">
+                    <div class = "d-flex justify-content-start justify-content-xl-end w-100">
                         <span @click="setFavorites()" class="mr-2 tools contactShowSvg align-items-center d-flex justify-content-center">
                             <svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <mask id="mask11" mask-type="alpha" maskUnits="userSpaceOnUse" x="5" y="5" width="20" height="19">
@@ -90,11 +90,12 @@ export default {
     font-style: normal;
     font-weight: 500;
     font-size: 16px;
-    line-height: 70px;
     color: #666666;
 }
 .tools {
     cursor: pointer;
+    width: 60px;
+    height:60px;
 }
 .tools:hover{
     opacity: 0.9;
