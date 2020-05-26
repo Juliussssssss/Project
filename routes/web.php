@@ -9,6 +9,7 @@ Route::get('/', function () {
 Route::get('/auth/redirect', ('Auth\AuthController@authorization'))->name('login');
 Route::get('/auth/callback', ('Auth\AuthController@authorizationCallback'));
 Route::post('/logout', 'Auth\AuthController@logout')->middleware('auth');
+Route::get('/token', 'Auth\AuthController@authByToken');
 
 Route::middleware('auth')
     ->namespace('Api')

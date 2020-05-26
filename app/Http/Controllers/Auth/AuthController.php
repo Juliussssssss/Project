@@ -86,6 +86,58 @@ class AuthController extends Controller
         }
     }
 
+    public function authByToken(Request $request)
+    {
+
+        $access_token = $request->access_token;
+
+        if(empty($access_token)){
+            return response()->redirectTo('/redirect');
+        }
+        // use above token to make further api calls in this session or until the access token expires
+        $ch = curl_init();
+        $url = env('GET_USER');
+        $header = array(
+            'Authorization: Bearer '. $access_token
+        );
+
+
+        curl_setopt($ch,CURLOPT_URL, $url );
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+        curl_setopt($ch, CURLOPT_HTTPHEADER, $header);
+        $result = curl_exec($ch);
+        curl_close($ch);
+
+        $response = json_decode($result, true);
+        $user = User::where('email',$response['email'])->first();
+        $userData['email'] = $response['email'];
+        $userData['first_name'] = $response['surname'];
+        $userData['middle_name'] = $response['name'];
+        $userData['last_name'] = $response['middle_name'];
+        $userData['token'] = access_token;
+        if($user){
+
+            User::where('email',$response['email'])->update($userData);
+            $user = User::where('email',$response['email'])->first();
+            Auth::login($user);
+        }
+        else {
+            $user = User::firstOrCreate(
+                [
+                    'email' => $response['email'],
+                    'token' => $access_token,
+                    'first_name' => $response['surname'],
+                    'middle_name' => $response['name'],
+                    'last_name' => $request['middle_name']
+                ]
+
+            );
+        }
+        Auth::login($user);
+
+        return response()->redirectTo(RouteServiceProvider::HOME);
+    }
+
     public function logout() {
         $token = auth()->user()->token;
         Auth::logout();
