@@ -1,7 +1,5 @@
 <template>
-<div>
-    <!-- Modal -->
-    <div ref="modal" class="modal" id="exitModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div ref="modal" class="modal fade" id="exitModal" tabindex="-1" role="dialog" aria-hidden="true">
         <div class="modal-dialog" role="document">
             <div class="modal-content py-4 px-3">
                 <div class="modal-header pb-0 d-block">
@@ -18,7 +16,6 @@
             </div>
         </div>
     </div>
-</div>
 </template>
 
 <script>
@@ -54,9 +51,6 @@
     }
     .modal-header, .modal-footer {
         border: 0px;
-    }
-    .modal {
-        top:195px;
     }
     .save {
         max-width: 120px;

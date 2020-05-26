@@ -30,6 +30,7 @@ Route::get('/contacts/get-all', ('Api\ContactsController@getContacts'))->middlew
 Route::post('/contacts/set-favorites', ('Api\ContactsController@setFavorites'))->middleware('auth');
 
 Route::get('/Print/getGroups', ('Api\PrintController@getGroupsContacts'))->middleware('auth');
+Route::get('/user/getInfo', ('Api\UserController@getParam'))->middleware('auth');
 
 Route::middleware('auth')
     ->namespace('Api')

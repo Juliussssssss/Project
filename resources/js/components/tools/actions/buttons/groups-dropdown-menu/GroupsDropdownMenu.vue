@@ -14,7 +14,7 @@
             </g>
         </svg>
         <!-- dropdown menu        -->
-        <div class="dropdown-menu p-0 mt-4 textGrey text-nowrap" role="menu" aria-labelledby="dropdownMenu">
+        <div class="dropdown-menu p-0 textGrey text-nowrap" role="menu" aria-labelledby="dropdownMenu">
             <div :class="getSelectedContacts.length > 0 ? 'customBorderBottom p-3 addGroup' : 'customBorderBottom p-3'"
                  v-for="group in getGroups"
                  @click="groupClick($event, group.id)">

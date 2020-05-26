@@ -1,7 +1,7 @@
 <template>
     <div>
         <search-duplicate-modal></search-duplicate-modal>
-        <div class="wrapper" v-if="(this.$route.name != 'Test')">
+        <div class="wrapper" v-if="(this.$route.name != 'Print')">
             <div v-if="sidebarOpen" class="w-100 h-100 position-fixed bgBlackout"></div>
             <nav id="sidebar" :class="sidebarOpen ? 'sidebar-open' : ''">
                 <div class="navbar-brand">
@@ -118,7 +118,7 @@
                 </main>
             </div>
         </div>
-        <div class="footer_wrapper" v-if="(this.$route.name != 'Test')">
+        <div class="footer_wrapper" v-if="(this.$route.name != 'Print')">
             <footer class="container">
                 <ul class="row">
                     <li class="col-lg-4 col-md-6 col-sm-12 pl-sm-3">
@@ -181,7 +181,7 @@
         components:{SearchDuplicateModal},
         data: function () {
             return {
-                name : 'Анна Кононенко',
+                name : ' ',
                 avatar : 'test_avatar.png',
                 userMenuOpen : false,
                 sidebarOpen : false,
@@ -192,7 +192,15 @@
         },
         created() {
             window.addEventListener('resize', this.handleResize);
-            this.handleResize();
+            this.handleResize()
+            axios.get('/user/getInfo')
+                .then(response => {
+                    console.log(response.data)
+                    this.name = response.data.first_name + ' ' + response.data.middle_name;
+                })
+                .catch(function (error) {
+                    console.log(error)
+                });
         },
         destroyed() {
             window.removeEventListener('resize', this.handleResize);

@@ -1,7 +1,5 @@
 <template>
-<div>
-    <!-- Modal -->
-    <div class="modal" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog" role="document">
             <div class="modal-content py-4 px-3">
                 <div class="modal-header pb-0 d-block">
@@ -23,13 +21,12 @@
                     </div>
                 </div>
                 <div class="modal-footer">
-                    <button @click="confirmed" type="button" class="btn btn-primary px-3 py-2 text-uppercase font-12px" data-dismiss="modal">Сохранить</button>
-                    <button @click="cancel" type="button" class="btn px-3 py-2 ml-4 modalText bthCancel font-12px text-uppercase" data-dismiss="modal">Отмена</button>
+                    <button @click="confirmed" type="button" class="btn btn-primary px-4 py-3 text-uppercase font-12px" data-dismiss="modal">Сохранить</button>
+                    <button @click="cancel" type="button" class="btn px-4 py-3 ml-4 modalText bthCancel font-12px text-uppercase" data-dismiss="modal">Отмена</button>
                 </div>
             </div>
         </div>
     </div>
-</div>
 </template>
 
 <script>
