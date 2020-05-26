@@ -648,7 +648,7 @@
     @media screen and (max-width: 991px) {
         .routerView {
             position: inherit;
-            top: 71px;
+            margin-top: 71px;
         }
         .greyBorder {
             border-width: 2px 2px 2px 2px;
