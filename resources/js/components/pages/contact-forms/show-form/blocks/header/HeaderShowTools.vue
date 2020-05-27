@@ -3,7 +3,7 @@
         <div class="container">
             <div class="row">
                 <div class="order-sm-2 order-md-1 order-lg-2 order-xl-1 col-md-5 col-lg-12 col-xl-6 d-flex justify-content-center align-items-center">
-                    <span class="name d-block mt-3 mt-md-0 mt-lg-3 mt-xl-0">{{contact.first_name+' '+contact.middle_name+' '+contact.last_name}}</span>
+                    <span class="name d-block mt-3 mt-md-0 mt-lg-3 mt-xl-0">{{contact.first_name+' '+contact.middle_name+' '+(contact.last_name?contact.last_name:'')}}</span>
                 </div>
                 <div class="order-sm-1 order-md-2 order-lg-1 order-xl-2 col-md-7 col-lg-12 col-xl-6">
                     <div class = "d-flex align-items-center justify-content-center w-100 mt-3 mt-md-0 mt-lg-3 mt-xl-0">
