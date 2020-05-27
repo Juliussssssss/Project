@@ -127,7 +127,7 @@ class Contact extends Model
         $mainContact=Contact::where('id',$request['mainContactId'])->first();
         $contact=Contact::where('id',$request['SecondContactId'])->first();
         $dataForUpdate=[];
-        dd($mainContact);
+        dd($contact);
         $contact_id=$mainContact['id'];
         $duplicate_id=$contact['id'];
         $mainContact->number?'':$dataForUpdate['number']=$contact->number;
