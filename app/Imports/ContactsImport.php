@@ -29,7 +29,7 @@ class ContactsImport implements ToModel,WithHeadingRow,SkipsOnError, WithBatchIn
 
     public function model(array $row)
     {
-        dd($row);
+        dump($row);
         $user_id = auth()->user()->id;
         if (!filter_var($this->clear($row['email']??null), FILTER_VALIDATE_EMAIL)) {
 
