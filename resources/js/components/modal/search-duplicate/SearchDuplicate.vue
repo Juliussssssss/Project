@@ -23,7 +23,7 @@
                                         </div>
                                     </div>
                                     <div class="d-none d-md-block col-4 mt-3">
-                                        <div class="d-flex align-items-center h-100">{{getDuplicated.coupleDublicate[i-1].email|truncate(25, '...')}}</div>
+                                        <div class="d-flex align-items-center h-100">{{getDuplicated.coupleDublicate[i-1].email|truncate(18, '...')}}</div>
                                     </div>
                                     <div class="col-12 col-sm-3 col-md-3 mt-5 mt-sm-3">
                                         <div class="d-flex h-100">

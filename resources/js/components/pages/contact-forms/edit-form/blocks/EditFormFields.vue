@@ -59,7 +59,12 @@
                         id="hbDate"
                         @change="fieldChange('birthday',contact.birthday)"
                         v-model="contact.birthday"
+                        :class="{'error':errors.has('birthday')}"
+                        v-validate="validators.birthdayValidate"
                     >
+                    <div v-if="errors.has('birthday')" class="err-message position-absolute">
+                        {{errors.first('birthday')}}
+                    </div>
                     <label class="textActive bg-label" :class="{'label-top':contact.birthday}" for="hbDate">Дата рождения</label>
                 </div>
                 <div class="form-group position-relative pt-3 pb-1">
@@ -168,7 +173,12 @@
             return {
                 email:'',
                 duplicatedEmail:'',
-                birthday:''
+                birthday:'',
+                validators:{
+                    birthdayValidate:{
+                        before: this.changeDateFormat(new Date(Date.now()))
+                    }
+                }
             }
         },
         computed:{
@@ -199,6 +209,16 @@
                 else {
                     this.$store.commit('changeForm',{fieldName:fieldName,value:fieldValue});
                 }
+            },
+            changeDateFormat(dateStr) {
+                if (dateStr != null) {
+                    let date = new Date(dateStr)
+                    let newDate = date.getFullYear()+ '-' + ("00" + (date.getMonth() + 1)).slice(-2) + '-' +("00" + (date.getDate())).slice(-2)
+                    console.log(newDate)
+                    return newDate
+                }
+
+                return ''
             }
         }
     }

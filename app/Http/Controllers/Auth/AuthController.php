@@ -107,9 +107,8 @@ class AuthController extends Controller
         $userData['middle_name'] = $response['name'];
         $userData['last_name'] = $response['middle_name'];
         $userData['avatar'] = $response['avatar_url'];
-        $userData['token'] = access_token;
+        $userData['token'] = $access_token;
         if($user){
-
             User::where('email',$response['email'])->update($userData);
             $user = User::where('email',$response['email'])->first();
             Auth::login($user);

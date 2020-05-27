@@ -166,5 +166,6 @@
     .label-top {
         top: -15px;
         background: none;
+        font-size: 12px;
     }
 </style>
