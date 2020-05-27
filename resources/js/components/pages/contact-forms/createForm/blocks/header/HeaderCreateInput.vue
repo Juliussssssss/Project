@@ -35,7 +35,7 @@
                 <input
                     v-validate="'alpha|max:255'"
                     :class="{'error':errors.has('last_name')}"
-                    class="form-control font-16px py-3 mt-3 mt-xl-0"
+                    class="form-control textActive font-16px py-3 mt-3 mt-xl-0"
                     name="last_name"
                     type="text"
                     placeholder="Отчество"
@@ -88,5 +88,8 @@
     }
     .error {
         border:1px solid #ff4418;
+    }
+    .form-control::placeholder {
+        color: #495057!important;
     }
 </style>

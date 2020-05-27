@@ -2,9 +2,11 @@
     <div class="row">
         <div class="col-12 customBorderBottom py-3 ">
             <div class="row">
-                <div class="col-sm-4 col-xl-3 d-flex align-items-center justify-content-center p-relative">
-                    <back class="pl-0 pl-sm-4"></back>
-                    <avatar-load class="ml-3 ml-sm-0"></avatar-load>
+                <div class="col-sm-4 col-xl-3 d-flex align-items-center justify-content-center p-relative d-sm-block">
+                    <div class="d-flex align-items-center h-100">
+                        <back></back>
+                        <avatar-load class="ml-3 ml-sm-0"></avatar-load>
+                    </div>
                 </div>
                 <div class="col-sm-8 col-xl-9 d-flex align-items-center p-relative">
                     <slot></slot>

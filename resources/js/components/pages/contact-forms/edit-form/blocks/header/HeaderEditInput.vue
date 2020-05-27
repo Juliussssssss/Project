@@ -8,7 +8,7 @@
                     class="form-control font-16px py-3 mt-3 mt-xl-0"
                     name="first_name"
                     type="text"
-                    placeholder="Добавить Фамилию"
+                    placeholder="Фамилия"
                     @change="fieldChange('first_name',contact.first_name)"
                     v-model="contact.first_name"
                 >
@@ -23,7 +23,7 @@
                     class="form-control font-16px py-3 mt-3 mt-xl-0"
                     name = "middle_name"
                     type="text"
-                    placeholder="Добавить Имя"
+                    placeholder="Имя"
                     @change="fieldChange('middle_name',contact.middle_name)"
                     v-model="contact.middle_name"
                 >
@@ -38,7 +38,7 @@
                     class="form-control font-16px py-3 mt-3 mt-xl-0"
                     name="last_name"
                     type="text"
-                    placeholder="Добавить Отчество"
+                    placeholder="Отчество"
                     @change="fieldChange('last_name',contact.last_name)"
                     v-model="contact.last_name"
                 >
@@ -89,5 +89,8 @@
     }
     .error {
         border:1px solid #ff4418;
+    }
+    .form-control::placeholder {
+        color: #495057!important;
     }
 </style>

@@ -1,11 +1,13 @@
 <template>
     <div class="col-12 customBorderBottom py-3 p-relative mb-3">
         <div class="row">
-            <div class="col-3 d-flex align-items-center">
-                <back></back>
-                <avatar-load :src="src" blocked="true" :show="true"></avatar-load>
+            <div class="col-sm-3 d-flex align-items-center justify-content-center d-sm-block">
+                <div class="d-flex align-items-center">
+                    <back></back>
+                    <avatar-load :src="src" blocked="true" :show="true"></avatar-load>
+                </div>
             </div>
-            <div class="col-9 d-flex align-items-center">
+            <div class="col-sm-9 d-flex align-items-center">
                 <slot></slot>
             </div>
         </div>
@@ -26,18 +28,4 @@
 </script>
 
 <style scoped>
-    .customBorderBottom::after,.customBorderBottom::before {
-        content: '';
-        top: 118px;
-        width: 15px;
-        height: 2px;
-        position: absolute;
-        background-color: #F5F5F5;
-    }
-    .customBorderBottom::before {
-        left: -15px;
-    }
-    .customBorderBottom::after {
-        right: -15px;
-    }
 </style>

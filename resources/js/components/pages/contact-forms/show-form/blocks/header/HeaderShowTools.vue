@@ -2,11 +2,11 @@
     <div class="d-flex font-12px text-center font-16px align-items-center w-100">
         <div class="container">
             <div class="row">
-                <div class="push-lg-12 col-xl-6 d-flex flex-last align-items-center">
-                    <span class="name">{{contact.first_name+' '+contact.middle_name+' '+contact.last_name}}</span>
+                <div class="order-sm-2 order-md-1 order-lg-2 order-xl-1 col-md-5 col-lg-12 col-xl-6 d-flex justify-content-center align-items-center">
+                    <span class="name d-block mt-3 mt-md-0 mt-lg-3 mt-xl-0">{{contact.first_name+' '+contact.middle_name+' '+contact.last_name}}</span>
                 </div>
-                <div class="pull-lg-12 col-xl-6 flex-first">
-                    <div class = "d-flex justify-content-start justify-content-xl-end w-100">
+                <div class="order-sm-1 order-md-2 order-lg-1 order-xl-2 col-md-7 col-lg-12 col-xl-6">
+                    <div class = "d-flex align-items-center justify-content-center w-100 mt-3 mt-md-0 mt-lg-3 mt-xl-0">
                         <span @click="setFavorites()" class="mr-2 tools contactShowSvg align-items-center d-flex justify-content-center">
                             <svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <mask id="mask11" mask-type="alpha" maskUnits="userSpaceOnUse" x="5" y="5" width="20" height="19">
@@ -32,7 +32,7 @@
                                 </g>
                             </svg>
                         </span>
-                        <span data-toggle="modal" data-target="#confirmDeleteContact" class="mx-2 tools">
+                        <span data-toggle="modal" data-target="#confirmDeleteContact" class="ml-2 tools">
                             <svg class="delete" width="60" height="60" viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <path d="M1 30C1 13.9837 13.9837 1 30 1C46.0163 1 59 13.9837 59 30C59 46.0163 46.0163 59 30 59C13.9837 59 1 46.0163 1 30Z" fill="white" stroke="#F5F5F5" stroke-width="2"/>
                                 <mask id="del" mask-type="alpha" maskUnits="userSpaceOnUse" x="23" y="21" width="14" height="18">
