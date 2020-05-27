@@ -127,18 +127,17 @@ class Contact extends Model
         $mainContact=Contact::where('id',$request['mainContactId'])->first();
         $contact=Contact::where('id',$request['SecondContactId'])->first();
         $dataForUpdate=[];
-        dd($contact);
         $contact_id=$mainContact['id'];
         $duplicate_id=$contact['id'];
-        $mainContact->number?'':$dataForUpdate['number']=$contact->number;
-        $mainContact->site?'':$dataForUpdate['site']=$contact->site;
-        $mainContact->birthday?'':$dataForUpdate['birthday']=$contact->birthday;
-        $mainContact->city?'':$dataForUpdate['city']=$contact->city;
-        $mainContact->work?'':$dataForUpdate['work']=$contact->work;
-        $mainContact->position?'':$dataForUpdate['position']=$contact->position;
-        $mainContact->work_email?'':$dataForUpdate['work_email']=$contact->work_email;
-        $mainContact->group_id?'':$dataForUpdate['group_id']=$contact->group_id;
-        $mainContact->comment?'':$dataForUpdate['comment']=$contact->comment;
+        $mainContact['number']?'':$dataForUpdate['number']=$contact->number;
+        $mainContact['site']?'':$dataForUpdate['site']=$contact->site;
+        $mainContact['birthday']?'':$dataForUpdate['birthday']=$contact->birthday;
+        $mainContact['city']?'':$dataForUpdate['city']=$contact->city;
+        $mainContact['work']?'':$dataForUpdate['work']=$contact->work;
+        $mainContact['position']?'':$dataForUpdate['position']=$contact->position;
+        $mainContact['work_email']?'':$dataForUpdate['work_email']=$contact->work_email;
+        $mainContact['group_id']?'':$dataForUpdate['group_id']=$contact->group_id;
+        $mainContact['comment']?'':$dataForUpdate['comment']=$contact->comment;
 
         $this->MergeContacts($dataForUpdate,$contact_id,$duplicate_id);
 
