@@ -10,31 +10,31 @@
                 <div @click="sidebarOpen = !sidebarOpen"><div class="toggle_sidebar" :class="sidebarOpen ? 'toggled' : ''"></div></div>
                 <ul id="side_menu" class="list-unstyled components">
                     <li>
-                        <a :href="'https://team1-group-project.azurewebsites.net/token?access_token='+token">
+                        <a href="https://team1-group-project.azurewebsites.net">
                             <object type="image/svg+xml" data="/storage/sidebar_icons/ic_home.svg"></object>
                             <span>Главная страница</span>
                         </a>
                     </li>
                     <li>
-                        <a :href="'http://it20tools-disk.dtdgma.org.ua/token?access_token='+token">
+                        <a href="http://it20tools-disk.dtdgma.org.ua">
                             <object type="image/svg+xml" data="/storage/sidebar_icons/ic_cloud_download.svg"></object>
                             <span>Диск</span>
                         </a>
                     </li>
                     <li>
-                        <a :href="'http://cu66460.tmweb.ru/token?access_token='+token">
+                        <a href="http://cu66460.tmweb.ru">
                             <object type="image/svg+xml" data="/storage/sidebar_icons/ic_email.svg"></object>
                             <span>Почта</span>
                         </a>
                     </li>
                     <li>
-                        <a :href="'http://laravelproject.s-host.net/token?access_token='+token">
+                        <a href="http://laravelproject.s-host.net">
                             <object type="image/svg+xml" data="/storage/sidebar_icons/ic_today.svg"></object>
                             <span>Календарь</span>
                         </a>
                     </li>
                     <li>
-                        <a :href="'https://it20-tools-photogallery.azurewebsites.net/token?access_token='+token" >
+                        <a href="https://it20-tools-photogallery.azurewebsites.net">
                             <object type="image/svg+xml" data="/storage/sidebar_icons/ic_camera_alt.svg"></object>
                             <span>Фотографии</span>
                         </a>
@@ -46,7 +46,7 @@
                         </router-link>
                     </li>
                     <li class="second_level-wrapper">
-                        <a :href="'/token?access_token='+token" >
+                        <a href="https://team1-group-project.azurewebsites.net/dashboard/users">
                             <object type="image/svg+xml" data="/storage/sidebar_icons/ic_business_center.svg"></object>
                             <span>Управление</span>
                         </a>
@@ -54,7 +54,8 @@
                 </ul>
             </nav>
             <div class="main_content">
-                <nav class="navbar navbar-light topNavbar">
+                <nav class="navbar navbar-light topNavbar"
+                    :class="((window.width < 651) && sidebarOpen) ? 'position-fixed' : ''">
                     <div @click="sidebarOpen = !sidebarOpen" id="sidebar-phone_toggle" :class="sidebarOpen ? 'open' : ''">
                         <span></span>
                         <span></span>
@@ -67,20 +68,20 @@
                             <div></div>
                             <ul  class="user_menu">
                                 <li>
-                                    <router-link to="/user/profile/" exact>Мой профиль</router-link>
+                                    <a href="https://team1-group-project.azurewebsites.net/user/profile">Мой профиль</a>
                                 </li>
                                 <li>
-                                    <router-link to="/user/profile/security/settings" exact>Настройки безопасности</router-link>
+                                    <a href="https://team1-group-project.azurewebsites.net/user/profile/security/settings">Настройки безопасности</a>
                                 </li>
                                 <li>
                                     <a href="/logout" @click="logout">Выход из системы</a>
                                 </li>
                             </ul>
                         </div>
-                        <router-link to="/user/profile">
+                        <a href="https://team1-group-project.azurewebsites.net/user/profile">
                             {{ name }}
                             <img src="/storage/avatars/avatar.png">
-                        </router-link>
+                        </a>
                         <div @click.stop="userMenuOpen = !userMenuOpen" class="toggle_user-menu"></div>
                     </div>
                 </nav>
@@ -133,11 +134,11 @@
                     <li class="col-lg-4 col-md-6 col-sm-12 pl-sm-3">
                         <h4 class="text">Инструменты</h4>
                         <ul>
-                            <li><router-link to="/disk">Диск</router-link></li>
-                            <li><router-link to="/calendar">Календарь</router-link></li>
-                            <li><router-link to="/contacts">Контакты</router-link></li>
-                            <li><router-link to="/mail">Почта</router-link></li>
-                            <li><router-link to="/photos">Фото</router-link></li>
+                            <li><a href="http://it20tools-disk.dtdgma.org.ua/">Диск</a></li>
+                            <li><a href="http://laravelproject.s-host.net">Календарь</a></li>
+                            <li><a href="/contacts">Контакты</a></li>
+                            <li><a href="http://cu66460.tmweb.ru">Почта</a></li>
+                            <li><a href="https://it20-tools-photogallery.azurewebsites.net">Фото</a></li>
                         </ul>
                     </li>
                     <li class="col-lg-4 offset-md-6 offset-sm-0 offset-lg-0 col-md-6 col-sm-12 pl-sm-3">
@@ -243,6 +244,9 @@
 </script>
 
 <style scoped>
+    .topNavbar {
+        z-index: 2 !important;
+    }
     .bgBlackout {
         background: rgba(0,0,0,0.5);
         display: none;
@@ -398,7 +402,7 @@
         left: -20%;
         transform: translateY(100%);
         bottom: -8px;
-        z-index: 9;
+        z-index: 25;
     }
     .user_menu {
         background: #fff;
@@ -674,9 +678,7 @@
             margin-top: 150px;
         }
         .topNavbar {
-            position: fixed;
             width: 100%;
-            z-index: 3;
         }
         .navbar-brand {
             display: none;
