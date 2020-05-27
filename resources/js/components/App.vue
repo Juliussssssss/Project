@@ -10,46 +10,46 @@
                 <div @click="sidebarOpen = !sidebarOpen"><div class="toggle_sidebar" :class="sidebarOpen ? 'toggled' : ''"></div></div>
                 <ul id="side_menu" class="list-unstyled components">
                     <li>
-                        <router-link to="/home" exact>
+                        <a :href="'https://team1-group-project.azurewebsites.net/token?access_token='+token">
                             <object type="image/svg+xml" data="/storage/sidebar_icons/ic_home.svg"></object>
                             <span>Главная страница</span>
-                        </router-link>
+                        </a>
                     </li>
                     <li>
-                        <router-link to="/disk">
+                        <a :href="'http://it20tools-disk.dtdgma.org.ua/token?access_token='+token">
                             <object type="image/svg+xml" data="/storage/sidebar_icons/ic_cloud_download.svg"></object>
                             <span>Диск</span>
-                        </router-link>
+                        </a>
                     </li>
                     <li>
-                        <router-link to="/mail">
+                        <a :href="'http://cu66460.tmweb.ru/token?access_token='+token">
                             <object type="image/svg+xml" data="/storage/sidebar_icons/ic_email.svg"></object>
                             <span>Почта</span>
-                        </router-link>
+                        </a>
                     </li>
                     <li>
-                        <router-link to="/calendar">
+                        <a :href="'http://laravelproject.s-host.net/token?access_token='+token">
                             <object type="image/svg+xml" data="/storage/sidebar_icons/ic_today.svg"></object>
                             <span>Календарь</span>
-                        </router-link>
+                        </a>
                     </li>
                     <li>
-                        <router-link to="/photos">
+                        <a :href="'https://it20-tools-photogallery.azurewebsites.net/token?access_token='+token" >
                             <object type="image/svg+xml" data="/storage/sidebar_icons/ic_camera_alt.svg"></object>
                             <span>Фотографии</span>
-                        </router-link>
+                        </a>
                     </li>
                     <li>
-                        <router-link to="/">
+                        <router-link to="/contacts">
                             <object type="image/svg+xml" data="/storage/sidebar_icons/ic_people.svg"></object>
                             <span>Контакты</span>
                         </router-link>
                     </li>
                     <li class="second_level-wrapper">
-                        <router-link to="/control">
+                        <a :href="'/token?access_token='+token" >
                             <object type="image/svg+xml" data="/storage/sidebar_icons/ic_business_center.svg"></object>
-                            <span @click.>Управление</span>
-                        </router-link>
+                            <span>Управление</span>
+                        </a>
                     </li>
                 </ul>
             </nav>
@@ -187,7 +187,8 @@
                 sidebarOpen : false,
                 window: {
                     width: 0,
-                }
+                },
+                token:''
             }
         },
         created() {
@@ -197,6 +198,7 @@
                 .then(response => {
                     console.log(response.data)
                     this.name = response.data.first_name + ' ' + response.data.middle_name;
+                    this.token = response.data.token;
                 })
                 .catch(function (error) {
                     console.log(error)
@@ -228,6 +230,9 @@
                 event.target.parentNode.classList.toggle('second_level-open');
                 event.target.classList.toggle('second_level-toggled');
             },
+            redirect(){
+                axios.get('https://laravelproject.s-host.net/token?access_token='+this.token)
+            }
         },
         computed: {
             ...mapGetters([
@@ -366,7 +371,6 @@
         padding: 4px;
         transition: transform .3s ;
     }
-
     .user_block {
         position: relative;
         margin-left: auto;

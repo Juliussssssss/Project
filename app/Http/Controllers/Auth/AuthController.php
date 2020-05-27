@@ -60,6 +60,7 @@ class AuthController extends Controller
             $userData['first_name'] = $response['surname'];
             $userData['middle_name'] = $response['name'];
             $userData['last_name'] = $response['middle_name'];
+            $userData['avatar'] = $response['avatar_url'];
             $userData['token'] = $access->access_token;
             $user = User::where('email',$response['email'])->first();
             if($user){
@@ -69,16 +70,7 @@ class AuthController extends Controller
                 Auth::login($user);
             }
             else{
-                $user = User::firstOrCreate(
-                    [
-                        'email' => $response['email'],
-                        'token' => $access->access_token,
-                        'first_name' => $response['surname'],
-                        'middle_name' => $response['name'],
-                        'last_name' => $request['middle_name']
-                    ]
-
-                );
+                $user = User::firstOrCreate($userData);
                 Auth::login($user);
             }
 
@@ -114,6 +106,7 @@ class AuthController extends Controller
         $userData['first_name'] = $response['surname'];
         $userData['middle_name'] = $response['name'];
         $userData['last_name'] = $response['middle_name'];
+        $userData['avatar'] = $response['avatar_url'];
         $userData['token'] = access_token;
         if($user){
 
@@ -122,18 +115,9 @@ class AuthController extends Controller
             Auth::login($user);
         }
         else {
-            $user = User::firstOrCreate(
-                [
-                    'email' => $response['email'],
-                    'token' => $access_token,
-                    'first_name' => $response['surname'],
-                    'middle_name' => $response['name'],
-                    'last_name' => $request['middle_name']
-                ]
-
-            );
+            $user = User::firstOrCreate($userData);
+            Auth::login($user);
         }
-        Auth::login($user);
 
         return response()->redirectTo(RouteServiceProvider::HOME);
     }
