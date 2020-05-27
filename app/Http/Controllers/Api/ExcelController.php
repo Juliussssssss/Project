@@ -30,7 +30,7 @@ class ExcelController extends Controller
             $extension = $file->getClientOriginalExtension();
 
             if(($extension=='xls')||($extension=='xlsx')){
-                if($size>100000){
+                if($size>2000000){
 
                     return  response('error size',500);
                 }

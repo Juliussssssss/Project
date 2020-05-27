@@ -160,11 +160,10 @@ class Contact extends Model
     public function deleteById($request){
         $user_id = auth()->user()->id;
 
-        foreach ($request['contacts'] as $contact_id) {
-            Contact::where('user_id', $user_id)
-                ->where('id', $contact_id)
-                ->delete();
-        }
+
+        Contact::where('user_id', $user_id)
+            ->whereIn('id', $request['contacts'])
+            ->delete();
     }
 
     public function storeUniqueEmailForUser($email, $user_id)

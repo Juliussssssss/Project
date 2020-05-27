@@ -16,7 +16,7 @@
                         </a>
                     </li>
                     <li>
-                        <a :href="'http://it20tools-disk.dtdgma.org.ua/token?access_token='+token">
+                        <a :href="'http://it20tools-disk.dtdgma.org.ua/disk/'">
                             <object type="image/svg+xml" data="/storage/sidebar_icons/ic_cloud_download.svg"></object>
                             <span>Диск</span>
                         </a>
