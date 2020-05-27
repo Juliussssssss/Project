@@ -3,7 +3,7 @@
         <div class="col-xl-4">
             <div class="position-relative">
                 <input
-                    v-validate="'required|alpha|max:255'"
+                    v-validate="'required|max:255'"
                     :class="{'error':errors.has('first_name')}"
                     class="form-control font-16px py-3 mt-3 mt-xl-0"
                     name="first_name"
@@ -18,7 +18,7 @@
         <div class="col-xl-4">
             <div class="position-relative">
                 <input
-                    v-validate="'required|alpha|max:255'"
+                    v-validate="'required|max:255'"
                     :class="{'error':errors.has('middle_name')}"
                     class="form-control font-16px py-3 mt-3 mt-xl-0"
                     name = "middle_name"
@@ -33,7 +33,7 @@
         <div class="col-xl-4">
             <div class="position-relative">
                 <input
-                    v-validate="'alpha|max:255'"
+                    v-validate="'max:255'"
                     :class="{'error':errors.has('last_name')}"
                     class="form-control textActive font-16px py-3 mt-3 mt-xl-0"
                     name="last_name"

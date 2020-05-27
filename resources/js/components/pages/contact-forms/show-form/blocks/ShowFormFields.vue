@@ -147,7 +147,7 @@
     label {
         font-family: Roboto;
         width: 100%;
-        max-width: 300px;
+        max-width: 125px;
         margin-right: 10px;
         background-color: #fff;
         font-style: normal;
