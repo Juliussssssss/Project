@@ -60,8 +60,8 @@ class ContactsImport implements ToModel,WithHeadingRow,SkipsOnError, WithBatchIn
         }
 
         return new Contact([
-            'first_name' => $this->clear($row['imya']),
-            'middle_name' => $this->clear($row['familiya']),
+            'first_name' => $this->clear($row['familiya']),
+            'middle_name' => $this->clear($row['imya']),
             'last_name' => $this->clear($row['otcestvo']??null),
             'email' => $this->clear($row['email']),
             'number' => $this->clear($row['telefon']??null),
