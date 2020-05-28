@@ -8,7 +8,6 @@
             >
             <template v-if="contact&&show_">
                 <div v-if="(contact.avatar==null||deleteImg)" class="contactPhoto text-white justify-content-center align-items-center d-flex" :style="'background:' + randColor()">{{contact.first_name.slice(0, 1)}}{{contact.middle_name.slice(0, 1)}}</div>
-                <img v-else class="contactPhoto" :src="'/storage/' + contact.avatar" alt="фото">
             </template>
             <template v-else>
                 <svg width="70" height="70" viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">

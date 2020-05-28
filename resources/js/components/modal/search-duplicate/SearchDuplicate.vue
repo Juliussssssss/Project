@@ -67,7 +67,8 @@
         data(){
             return {
                 mainContact:'',
-                skip:0
+                skip:0,
+                setColor:true
             }
         },
         methods: {
@@ -100,18 +101,21 @@
                 this.$store.dispatch('getDuplicate',this.skip);
             },
             randColor() {
-                var randomColor = '';
-                while(randomColor.length != 7) {
-                    randomColor = "#"+((1<<24)*Math.random()|0).toString(16);
+                if(this.setColor){
+                    var randomColor = '';
+                    while(randomColor.length != 7) {
+                        randomColor = "#"+((1<<24)*Math.random()|0).toString(16);
+                    }
+                    return randomColor;
                 }
-                return randomColor;
             },
         },
         computed: {
             getDuplicated(){
 
                 return this.$store.getters.getDuplicatedContacts;
-            }
+            },
+
         },
         filters: {
             truncate: function (text, length, suffix) {
@@ -126,6 +130,9 @@
             eventBus.$on('duplicateContacts', data => {
                 this.open();
             })
+        },
+        updated(){
+            this.setColor=false;
         }
     }
 </script>
