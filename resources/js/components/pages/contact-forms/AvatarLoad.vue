@@ -9,7 +9,7 @@
             <template v-if="contact&&show_">
                 <div v-if="(contact.avatar==null||deleteImg)" class="contactPhoto text-white justify-content-center align-items-center d-flex" :style="'background:' + randColor()">{{contact.first_name.slice(0, 1)}}{{contact.middle_name.slice(0, 1)}}</div>
                 <template v-else >
-                    <svg width="70" height="70" viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                    <svg class="void" width="70" height="70" viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
                     <rect width="60" height="60" rx="30" fill="url(#pattern0)"/>
                     <path d="M1 30C1 13.9837 13.9837 1 30 1C46.0163 1 59 13.9837 59 30C59 46.0163 46.0163 59 30 59C13.9837 59 1 46.0163 1 30Z" fill="white" stroke="#F5F5F5" stroke-width="2"/>
                     <mask id="mask10" mask-type="alpha" maskUnits="userSpaceOnUse" x="20" y="20" width="20" height="20">
@@ -140,6 +140,7 @@
         object-fit: cover;
         display: block;
         margin: 0 auto 15px;
+        top:-8px;
     }
     .file {
         cursor:pointer;
@@ -181,5 +182,8 @@
     .contactPhoto,.imageUpload {
         width: 70px;
         height:70px;
+    }
+    .void {
+        opacity: 0;
     }
 </style>
