@@ -121,7 +121,7 @@
     }
     .avatar {
         border:none;
-        z-index: 2;
+        z-index: 0;
         position: absolute;
         width: 69px;
         height: 69px;
