@@ -151,7 +151,7 @@
         padding:10px;
         position: absolute;
         top: 5px;
-        right: 6px;
+        right: -41px;
         opacity: 0.5;
         cursor:pointer;
         display: none;
