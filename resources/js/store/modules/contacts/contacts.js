@@ -36,8 +36,8 @@ export default {
                     console.log(error);
                 });
         },
-        getDuplicate(context){
-            axios.get('/api/duplicate')
+        getDuplicate(context,skip){
+            axios.get('/api/duplicate/'+skip)
                 .then(response => {
                     context.commit('setDuplicatedContacts',response.data);
                 })

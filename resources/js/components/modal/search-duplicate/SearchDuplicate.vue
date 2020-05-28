@@ -37,7 +37,11 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="textGrey font-18px ml-3">Осталось {{getDuplicated.count}} пар</div>
+                            <div class="d-flex justify-content-between">
+                                <div class="textGrey font-18px ml-3">Осталось {{getDuplicated.count}} пар</div>
+                                <div class="skip textGrey font-18px mr-4" @click="skipDuplicate">Пропустить</div>
+                            </div>
+
                             <div class="modal-footer">
                                 <button @click="confirmed" type="button" class="btn ok px-3 py-3 text-uppercase font-12px" :disabled="mainContact==''">обьеденить</button>
                                 <button type="button" class="btn px-3 py-3 ml-4 modalText bthCancel font-12px text-uppercase" data-dismiss="modal">закрыть</button>
@@ -63,12 +67,15 @@
         data(){
             return {
                 mainContact:'',
+                skip:0
             }
         },
         methods: {
+
             open(){
                 this.mainContact='';
-                this.$store.dispatch('getDuplicate');
+                this.skip=0;
+                this.$store.dispatch('getDuplicate',this.skip);
             },
             confirmed()
             {
@@ -81,12 +88,16 @@
                 this.mainContact='';
                 axios.put('/api/merge-duplicate',data)
                     .then(response => {
-                        this.$store.dispatch('getDuplicate');
+                        this.$store.dispatch('getDuplicate',this.skip);
                         this.$store.dispatch('getAllContacts');
                     })
                     .catch(error => {
                         console.log(error);
                     });
+            },
+            skipDuplicate(){
+                this.skip++;
+                this.$store.dispatch('getDuplicate',this.skip);
             }
         },
         computed: {
@@ -146,5 +157,11 @@
     }
     .avatar{
         width:55px;
+    }
+    .skip {
+        cursor:pointer;
+    }
+    .skip:hover {
+        opacity: 0.9;
     }
 </style>

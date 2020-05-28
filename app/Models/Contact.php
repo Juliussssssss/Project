@@ -25,7 +25,7 @@ class Contact extends Model
     ];
 
     protected $exportFillable = [
-        'first_name','middle_name', 'email', 'number', 'site', 'birthday', 'city', 'work', 'position',
+        'first_name','middle_name', 'last_name', 'email', 'number', 'site', 'birthday', 'city', 'work', 'position',
         'work_email', 'comment', 'user_id', 'group_id'
     ];
 
@@ -84,8 +84,9 @@ class Contact extends Model
         return response('updated', 200);
     }
 
-    public function getDuplicate()
+    public function getDuplicate($skip)
     {
+
         $contacts = DB::table('contacts')->get();
         foreach ($contacts as $key=>$contact){
 
@@ -96,6 +97,7 @@ class Contact extends Model
         $fioGroups = collect($contacts)->groupBy('fio');
         $numberGroups = collect($contacts)->groupBy('number');
         $result=collect();
+
         foreach ($fioGroups as $key=>$fioGroup)
         {
             if(count($fioGroup)>1&&$key)
@@ -114,9 +116,15 @@ class Contact extends Model
 
             return [];
         }
+        $indexFirst=0;
+        $indexSecond=1;
+        if($skip){
+            $indexFirst=$skip+1;
+            $indexSecond=$skip+2;
+        }
         $response = [
-            'count'=>ceil(count($result)/2),
-            'coupleDublicate'=>[$result[0],$result[1]]
+            'count'=>ceil(count($result)/2-$skip),
+            'coupleDublicate'=>[$result[$indexFirst],$result[$indexSecond]]
         ];
 
         return $response;
@@ -160,11 +168,10 @@ class Contact extends Model
     public function deleteById($request){
         $user_id = auth()->user()->id;
 
-        foreach ($request['contacts'] as $contact_id) {
-            Contact::where('user_id', $user_id)
-                ->where('id', $contact_id)
-                ->delete();
-        }
+
+        Contact::where('user_id', $user_id)
+            ->whereIn('id', $request['contacts'])
+            ->delete();
     }
 
     public function storeUniqueEmailForUser($email, $user_id)

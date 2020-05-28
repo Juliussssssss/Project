@@ -25,7 +25,7 @@ class MergeRequest extends FormRequest
     {
         $rules = [
             'mainContactId' => 'integer',
-            'SecondContactId' => 'integer'
+            'SecondContactId' => 'integer',
         ];
 
         return $rules;

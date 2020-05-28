@@ -173,9 +173,9 @@ class ContactsController extends Controller
         }
     }
 
-    public function getDuplicate()
+    public function getDuplicate($skip)
     {
-        $duplicate = (new Contact())->getDuplicate();
+        $duplicate = (new Contact())->getDuplicate($skip);
 
         return response($duplicate,200);
     }

@@ -25,9 +25,9 @@ class UpdateRequest extends FormRequest
     public function rules()
     {
         $rules = [
-            'first_name' => 'required|alpha|max:255',
-            'middle_name' => 'required|alpha|max:255',
-            'last_name' => 'nullable|string|alpha|max:255',
+            'first_name' => 'required|string|max:255',
+            'middle_name' => 'required|string|max:255',
+            'last_name' => 'nullable|string|max:255',
             'email' => ['required','email', 'max:255'],
             'number' => 'nullable|string|max:10',
             'site' => 'nullable|string|max:255',

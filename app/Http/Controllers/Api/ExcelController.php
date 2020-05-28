@@ -23,19 +23,19 @@ class ExcelController extends Controller
     {
         if ($request->hasFile('import')) {
             $file = $request->file('import');
-//           $path = $file->getRealPath();
             $path1 = $request->file('import')->store('temp');
             $path=storage_path('app').'/'.$path1;
             $size = $file->getSize();
             $extension = $file->getClientOriginalExtension();
 
             if(($extension=='xls')||($extension=='xlsx')){
-                if($size>100000){
+                if($size>2000000){
 
                     return  response('error size',500);
                 }
                 $import = new ContactsImport();
                 $import->import( $path);
+                return response('ok',200);
             }
             else {
 
@@ -43,7 +43,7 @@ class ExcelController extends Controller
             }
         }
 
-        return response('ok',200);
+        return response('err',500);
     }
 
     public function getTemplate()

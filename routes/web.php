@@ -22,7 +22,7 @@ Route::middleware('auth')
         Route::get('/frequent-contacts', 'ContactsController@getFrequentContacts');
         Route::post('/contacts-import', 'ExcelController@importContacts');
         Route::get('/template', 'ExcelController@getTemplate');
-        Route::get('/duplicate', 'ContactsController@getDuplicate');
+        Route::get('/duplicate/{skip}', 'ContactsController@getDuplicate');
         Route::put('/merge-duplicate', 'ContactsController@mergeDuplicate');
 
     });

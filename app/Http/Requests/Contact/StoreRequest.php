@@ -26,9 +26,9 @@ class StoreRequest extends FormRequest
     public function rules()
     {
         $rules = [
-            'first_name' => 'required|alpha|max:255',
-            'middle_name' => 'required|alpha|max:255',
-            'last_name' => 'nullable|alpha|max:255',
+            'first_name' => 'required|string|max:255',
+            'middle_name' => 'required|string|max:255',
+            'last_name' => 'nullable|string|max:255',
             'email' => ['required','email', 'max:255'],
             'number' => 'nullable|string|max:10',
             'site' => 'nullable|string|max:255',
@@ -39,7 +39,6 @@ class StoreRequest extends FormRequest
             'work_email' => 'nullable|email|max:255',
             'comment' => 'nullable|string|max:255',
             'avatar' => 'nullable|mimes:jpeg,bmp,png|max:2056',
-            'user_id' => 'integer',
             'group_id' => 'nullable|integer',
             'favorites' => ['required', Rule::in([1,0])
             ]

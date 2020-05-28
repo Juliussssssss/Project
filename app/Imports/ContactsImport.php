@@ -29,6 +29,7 @@ class ContactsImport implements ToModel,WithHeadingRow,SkipsOnError, WithBatchIn
 
     public function model(array $row)
     {
+
         $user_id = auth()->user()->id;
         if (!filter_var($this->clear($row['email']??null), FILTER_VALIDATE_EMAIL)) {
 
@@ -40,7 +41,7 @@ class ContactsImport implements ToModel,WithHeadingRow,SkipsOnError, WithBatchIn
         $middle_name = $this->clear($row['familiya']??null);
         $group_id=null;
         if(!$unique_email||!$first_name||!$middle_name){
-
+           
             return;
         }
         $groupName = $this->clear( $row['gruppa']??null);
@@ -54,14 +55,15 @@ class ContactsImport implements ToModel,WithHeadingRow,SkipsOnError, WithBatchIn
 
         $date = DateTime::createFromFormat('dd/mm/yy', $row['data_rozdeniya']);
        
-        if (!$date)
+        if (!$date&&$row['data_rozdeniya'])
         {
             $row['data_rozdeniya']=null;
         }
 
+
         return new Contact([
-            'first_name' => $this->clear($row['imya']),
-            'middle_name' => $this->clear($row['familiya']),
+            'first_name' => $this->clear($row['familiya']),
+            'middle_name' => $this->clear($row['imya']),
             'last_name' => $this->clear($row['otcestvo']??null),
             'email' => $this->clear($row['email']),
             'number' => $this->clear($row['telefon']??null),

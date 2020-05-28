@@ -4,6 +4,7 @@
     <tr>
         <th><b>Имя</b></th>
         <th><b>Фамилия</b></th>
+        <th><b>Отчество</b></th>
         <th><b>Email</b></th>
         <th><b>Телефон</b></th>
         <th><b>Сайт</b></th>
@@ -21,6 +22,7 @@
         <tr>
             <td>{{ $contact->first_name }}</td>
             <td>{{ $contact->middle_name }}</td>
+            <td>{{ $contact->last_name }}</td>
             <td>{{ $contact->email }}</td>
             <td>{{ $contact->number }}</td>
             <td>{{ $contact->site }}</td>
