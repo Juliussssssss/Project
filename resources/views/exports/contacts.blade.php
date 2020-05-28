@@ -2,8 +2,8 @@
 <table>
     <thead>
     <tr>
-        <th><b>Имя</b></th>
         <th><b>Фамилия</b></th>
+        <th><b>Имя</b></th>
         <th><b>Отчество</b></th>
         <th><b>Email</b></th>
         <th><b>Телефон</b></th>
@@ -20,8 +20,8 @@
     <tbody>
     @foreach($contacts as $contact)
         <tr>
+            <td>{{ $contact->middle_name}}</td>
             <td>{{ $contact->first_name }}</td>
-            <td>{{ $contact->middle_name }}</td>
             <td>{{ $contact->last_name }}</td>
             <td>{{ $contact->email }}</td>
             <td>{{ $contact->number }}</td>
