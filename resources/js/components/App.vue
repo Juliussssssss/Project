@@ -211,14 +211,10 @@
         methods: {
             logout() {
                 axios.post('/logout')
-                    .then((response) => {
-                        axios.get('https://team1-group-project.azurewebsites.net/api/client_logout' ,
-                            {
-                                headers: {
-                                    Authorization: "Bearer " + response.data
-                                }
-                            }).then(r => location.href= r.data)
-                    })
+                    .then(response => {ssssssssss
+                        axios.get('https://team1-group-project.azurewebsites.net/api/client_logout' , { headers: {Authorization: "Bearer "+this.token}})
+                            .then(r => location.href= r.data)
+                    });
             },
             handleResize() {
                 this.window.width = window.innerWidth;
