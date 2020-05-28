@@ -17,7 +17,7 @@
                                                 <label class="duplicate font-14px" :for="'contact'+i"></label>
                                              </span>
                                             <div class="avatar">
-                                                <div v-if="(getDuplicated.coupleDublicate[i-1].avatar==null)" class="contactPhoto text-white justify-content-center align-items-center d-flex" :style="'background:' + randColor()">{{getDuplicated.coupleDublicate[i-1].first_name.slice(0, 1)}}{{getDuplicated.coupleDublicate[i-1].middle_name.slice(0, 1)}}</div>
+                                                <div v-if="(getDuplicated.coupleDublicate[i-1].avatar==null)" class="contactPhoto text-white justify-content-center align-items-center d-flex" :style="'background:' + randomColor(getDuplicated.coupleDublicate[i-1].id)">{{getDuplicated.coupleDublicate[i-1].first_name.slice(0, 1)}}{{getDuplicated.coupleDublicate[i-1].middle_name.slice(0, 1)}}</div>
                                                 <img v-else class="contactPhoto" :src="getDuplicated.coupleDublicate[i-1].avatar?'/storage/'+getDuplicated.coupleDublicate[i-1].avatar:'/storage/avatars/default.png'"  alt="фото">
                                             </div>
                                             <div class="d-flex ml-3">{{getDuplicated.coupleDublicate[i-1].fio|truncate(30, '...')}}</div>
@@ -100,14 +100,20 @@
                 this.skip++;
                 this.$store.dispatch('getDuplicate',this.skip);
             },
-            randColor() {
-                if(this.setColor){
-                    var randomColor = '';
-                    while(randomColor.length != 7) {
-                        randomColor = "#"+((1<<24)*Math.random()|0).toString(16);
-                    }
-                    return randomColor;
-                }
+            randomColor(id) {
+                let colors = [
+                    '#FFD700',
+                    '#00FF00',
+                    '#00FFFF',
+                    '#EE82EE',
+                    '#FF69B4',
+                    '#A0522D',
+                    '#FFA07A',
+                    '#0000FF',
+                    '#800000',
+                    '#708090',
+                ];
+                return colors[id.toString().substr(-1)];
             },
         },
         computed: {
