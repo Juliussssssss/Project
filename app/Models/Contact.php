@@ -72,7 +72,7 @@ class Contact extends Model
             Storage::delete('/app/public/'.$request['path']);
         } else {
             if ($request['resetImage']) {
-                $contact['avatar'] = "";
+                $contact['avatar'] = null;
 
                 Storage::delete('/app/public/'.$request['path']);
             }
