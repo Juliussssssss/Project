@@ -74,7 +74,7 @@
                                     <a href="https://team1-group-project.azurewebsites.net/user/profile/security/settings">Настройки безопасности</a>
                                 </li>
                                 <li>
-                                    <a @click="logout">Выход из системы</a>
+                                    <a href="#" @click="logout">Выход из системы</a>
                                 </li>
                             </ul>
                         </div>
