@@ -41,7 +41,7 @@
                         </div>
                         <div class="col-6 pr-0 pl-2">
                             <router-link class="justify-content-center d-flex" :to="{ name: 'ContactShow', params: {user_id: contact.id } }">
-                                <div v-if="(contact.avatar==null)" class="contactPhoto text-white justify-content-center align-items-center d-flex" :style="'background:' + randColor()">{{contact.first_name.slice(0, 1)}}{{contact.middle_name.slice(0, 1)}}</div>
+                                <div v-if="(contact.avatar==null)" class="contactPhoto text-white justify-content-center align-items-center d-flex" :style="'background:' + randomColor(contact.id)">{{contact.first_name.slice(0, 1)}}{{contact.middle_name.slice(0, 1)}}</div>
                                 <img v-else class="contactPhoto" :src="'/storage/' + contact.avatar" alt="фото">
                             </router-link>
                         </div>
@@ -68,6 +68,7 @@
                     </router-link>
                 </div>
             </div>
+            <div v-if="getContacts.length == 0" class="textGrey text-center py-3">К сожалению у вас нету контактов...</div>
         </div>
     </div>
 </template>
@@ -110,12 +111,20 @@
              ...mapActions([
                 "selectedContact",
             ]),
-            randColor() {
-                var randomColor = '';
-                while(randomColor.length != 7) {
-                    randomColor = "#"+((1<<24)*Math.random()|0).toString(16);
-                }
-                return randomColor;
+            randomColor(id) {
+                  let colors = [
+                     '#FFD700',
+                     '#00FF00',
+                     '#00FFFF',
+                     '#EE82EE',
+                     '#FF69B4',
+                     '#A0522D',
+                     '#FFA07A',
+                     '#0000FF',
+                     '#800000',
+                     '#708090',
+                 ];
+                return colors[id.toString().substr(-1)];
             },
             highlight(value) {
                 if (value != null) {
