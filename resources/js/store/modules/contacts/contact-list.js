@@ -104,8 +104,9 @@ export default {
         getAllContacts(context) {
             axios.get('/contacts/get-all')
             .then(response => {
-                context.commit("fillContacts", response.data)
-                context.commit("fillContactsFromDb", response.data)
+                context.commit("fillContacts", response.data);
+                context.commit("fillContactsFromDb", response.data);
+                context.commit("setHighlightedWord", "")
                 //context.commit("setLength", response.data.length)
                 //context.commit("setPages", (Math.ceil(response.data.length/100)))
                 //context.commit("setCurrentPage", 1)
