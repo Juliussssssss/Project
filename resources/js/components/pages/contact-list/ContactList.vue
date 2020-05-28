@@ -68,6 +68,7 @@
                     </router-link>
                 </div>
             </div>
+            <div v-if="getContacts.length == 0" class="textGrey text-center py-3">К сожалению у вас нету контактов...</div>
         </div>
     </div>
 </template>
