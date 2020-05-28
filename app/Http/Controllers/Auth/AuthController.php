@@ -122,9 +122,8 @@ class AuthController extends Controller
     }
 
     public function logout() {
-        $token = auth()->user()->token;
         Auth::logout();
 
-        return response($token,200);
+        return response('ok');
     }
 }
