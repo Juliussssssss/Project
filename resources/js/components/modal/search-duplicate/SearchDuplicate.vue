@@ -17,7 +17,8 @@
                                                 <label class="duplicate font-14px" :for="'contact'+i"></label>
                                              </span>
                                             <div class="avatar">
-                                                <img class="contactPhoto" :src="getDuplicated.coupleDublicate[i-1].avatar?'/storage/'+getDuplicated.coupleDublicate[i-1].avatar:'/storage/avatars/default.png'"  alt="фото">
+                                                <div v-if="(getDuplicated.coupleDublicate[i-1].avatar==null)" class="contactPhoto text-white justify-content-center align-items-center d-flex" :style="'background:' + randColor()">{{getDuplicated.coupleDublicate[i-1].first_name.slice(0, 1)}}{{getDuplicated.coupleDublicate[i-1].middle_name.slice(0, 1)}}</div>
+                                                <img v-else class="contactPhoto" :src="getDuplicated.coupleDublicate[i-1].avatar?'/storage/'+getDuplicated.coupleDublicate[i-1].avatar:'/storage/avatars/default.png'"  alt="фото">
                                             </div>
                                             <div class="d-flex ml-3">{{getDuplicated.coupleDublicate[i-1].fio|truncate(30, '...')}}</div>
                                         </div>
@@ -37,11 +38,10 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="d-flex justify-content-between">
+                            <!--<div class="d-flex justify-content-between">-->
                                 <div class="textGrey font-18px ml-3">Осталось {{getDuplicated.count}} пар</div>
-                                <div class="skip textGrey font-18px mr-4" @click="skipDuplicate">Пропустить</div>
-                            </div>
-
+                                <!--<div class="skip textGrey font-18px mr-4" @click="skipDuplicate">Пропустить</div>-->
+                            <!--</div>-->
                             <div class="modal-footer">
                                 <button @click="confirmed" type="button" class="btn ok px-3 py-3 text-uppercase font-12px" :disabled="mainContact==''">обьеденить</button>
                                 <button type="button" class="btn px-3 py-3 ml-4 modalText bthCancel font-12px text-uppercase" data-dismiss="modal">закрыть</button>
@@ -98,7 +98,14 @@
             skipDuplicate(){
                 this.skip++;
                 this.$store.dispatch('getDuplicate',this.skip);
-            }
+            },
+            randColor() {
+                var randomColor = '';
+                while(randomColor.length != 7) {
+                    randomColor = "#"+((1<<24)*Math.random()|0).toString(16);
+                }
+                return randomColor;
+            },
         },
         computed: {
             getDuplicated(){

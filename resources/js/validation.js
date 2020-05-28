@@ -12,7 +12,8 @@ window.Vue.use(VeeValidate, {
                 email: 'Неверный email',
                 digits: 'Номер должен состоять из 10 цифр',
                 alpha_spaces: 'Неверный формат',
-                before:'Неверное значение'
+                before:'Неверное значение',
+                max:'Превышен лимит'
             },
             attributes:{
 

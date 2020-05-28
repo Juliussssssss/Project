@@ -55,6 +55,7 @@
             this.$store.dispatch('clearLastChangeForm');
             this.$store.commit('setBreakRoute',false);
             this.$store.commit('setLastRoute','');
+            this.$store.commit('setContact',null);
         },
         beforeRouteLeave (to, from, next)
         {

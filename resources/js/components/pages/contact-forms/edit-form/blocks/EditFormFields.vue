@@ -69,7 +69,7 @@
                 </div>
                 <div class="form-group position-relative pt-3 pb-1">
                     <input
-                        v-validate="'alpha_spaces|max:255'"
+                        v-validate="'max:255'"
                         :class="{'error':errors.has('city')}"
                         type="text"
                         name="city"
@@ -85,7 +85,7 @@
                 </div>
                 <div class="form-group position-relative pt-3 pb-1">
                     <input
-                        v-validate="'alpha_spaces|max:255'"
+                        v-validate="'max:255'"
                         :class="{'error':errors.has('work')}"
                         name="work"
                         type="text"

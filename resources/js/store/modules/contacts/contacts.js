@@ -18,7 +18,10 @@ export default {
     },
     mutations: {
         setContact(state,contact){
-            contact.birthday= contact.birthday?contact.birthday.split(' ')[0]:'';
+            if(contact){
+                contact.birthday= contact.birthday?contact.birthday.split(' ')[0]:'';
+            }
+
             state.contact = contact;
         },
         setDuplicatedContacts(state,contacts){
