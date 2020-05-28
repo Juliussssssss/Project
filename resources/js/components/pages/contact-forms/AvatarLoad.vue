@@ -1,5 +1,5 @@
 <template>
-    <div class="imageUploa position-relative px-4">
+    <div class="mt-2 imageUploa position-relative px-4">
         <label class="preview position-relative" for="file" id="preview" :class="!show?'file':''">
             <img
                 :src="src?'/storage/'+src:''"
